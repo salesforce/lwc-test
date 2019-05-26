@@ -7,6 +7,10 @@
         "Jest",
         "LWC"
     ],
+    "files": [
+        "/resources/",
+        "/src/index.js"
+    ],
     "license": "MIT",
     "devDependencies": {
         "@lwc/engine": "0.40.1",

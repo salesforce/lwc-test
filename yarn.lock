@@ -1438,6 +1438,11 @@
   resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-0.40.1.tgz#5894c4883b408bfb0d4e6214f9fa5cdd2715f94a"
   integrity sha512-ixWUAVNgpZP3+5KqxK5EP0nSeYGBGXKmp6Bf0VZ5kqV+qMtUCyq+/CBPiKjuFXieAiBtPbz+BJd3CzEwzSbz/w==
 
+"@lwc/jest-serializer@0.40.1", "@lwc/jest-serializer@~0.40.1":
+  version "0.40.1"
+  resolved "https://registry.yarnpkg.com/@lwc/jest-serializer/-/jest-serializer-0.40.1.tgz#3d5b1c45eb962a489702a4b9445e890f0e3b52ac"
+  integrity sha512-KK5FGDwl7fLThQE1qq2N7+0gWHcEV4AeL7QPLS9K1T4a7upuuLujsBE0b9hWwEcoE5E8CnCKTYvb4iIBtm2PKQ==
+
 "@lwc/module-resolver@0.40.1":
   version "0.40.1"
   resolved "https://registry.yarnpkg.com/@lwc/module-resolver/-/module-resolver-0.40.1.tgz#846f655542fd7d8af01759467a9ce1d87b65b359"
@@ -1474,6 +1479,11 @@
     camelcase "~5.0.0"
     he "^1.1.1"
     parse5-with-errors "^4.0.1"
+
+"@lwc/test-utils@0.40.1":
+  version "0.40.1"
+  resolved "https://registry.yarnpkg.com/@lwc/test-utils/-/test-utils-0.40.1.tgz#64a97eed0caa9bd2cf5830c8a06b3ca065a96d0d"
+  integrity sha512-VDaLcRAbEmwErxTPyIEK7bpQ1JIQW1c8hnZns7mbNgwpAxb4TtWU14dvytsuP/sEMcGa2TfRA/BC4fM/6tsggw==
 
 "@lwc/wire-service@0.40.1":
   version "0.40.1"

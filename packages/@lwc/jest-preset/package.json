@@ -20,6 +20,6 @@
         "@lwc/jest-serializer": "0.40.1",
         "@lwc/jest-transformer": "0.40.1",
         "@lwc/test-utils": "0.40.1",
-        "@lwc/synthetic-shadow": "0.40.2-alpha1"
+        "@lwc/synthetic-shadow": "~0.41.0"
     }
 }

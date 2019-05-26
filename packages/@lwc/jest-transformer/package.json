@@ -16,7 +16,7 @@
         "@babel/core": "7.1.0",
         "@babel/plugin-transform-modules-commonjs": "7.1.0",
         "@babel/template": "~7.1.2",
-        "@lwc/errors": "0.40.2-alpha1",
+        "@lwc/errors": "~0.41.0",
         "babel-preset-jest": "^24.0.0"
     },
     "peerDependencies": {
@@ -25,8 +25,8 @@
         "jest": ">= 24.0.0"
     },
     "devDependencies": {
-        "@lwc/compiler": "0.40.2-alpha1",
-        "@lwc/engine": "0.40.2-alpha1",
+        "@lwc/compiler": "~0.41.0",
+        "@lwc/engine": "~0.41.0",
         "@lwc/jest-preset": "~0.40.1",
         "@lwc/jest-resolver": "~0.40.1",
         "@lwc/jest-serializer": "~0.40.1"

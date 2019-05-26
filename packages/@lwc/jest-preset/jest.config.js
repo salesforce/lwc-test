@@ -5,11 +5,14 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 const BASE_CONFIG = require('../../../scripts/jest/base.config');
-const PRESET_CONFIG = require('./jest-preset');
 
 module.exports = {
+    preset: './jest-preset',
     ...BASE_CONFIG,
-    ...PRESET_CONFIG,
+
+    moduleNameMapper: {
+        '^(example)/(.+)$': '<rootDir>/src/test/modules/$1/$2/$2',
+    },
 
     displayName: 'lwc-jest-preset',
 

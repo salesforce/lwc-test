@@ -14,8 +14,8 @@ afterEach(() => {
 });
 
 describe('example-simpleComponent', () => {
-    describe('importing @salesforce/apex', () => {
-        it('returns a Promise that resolves for the default import', () => {
+    describe('test that the synthetic-shadow is working in jsdom', () => {
+        it('should render the component and query the shadow dom', () => {
             const element = createElement('example-simple-component', { is: SimpleComponent });
             document.body.appendChild(element);
             return Promise.resolve().then(() => {

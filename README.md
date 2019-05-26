@@ -8,7 +8,7 @@ Read the [Lightning Web Components Dev Guide](https://lwc.dev/guide/introduction
 
 ## Contributing
 
-Read our [contributing documentation](CONTRIBUTING.md) to set up your environment and start contributing.
+Please refer to Lightning Web Components contributing guide [here](https://github.com/salesforce/lwc/blob/master/CONTRIBUTING.md).
 
 ## License
 

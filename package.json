@@ -1,0 +1,23 @@
+{
+  "name": "lwc-test",
+  "private": true,
+  "description": "LWC Test plugins and utilities",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config ./scripts/jest/root.config.js",
+    "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
+    "lint": "eslint packages/ scripts/ --ext=js",
+    "format": "prettier --write '{packages,scripts}/**/*.{js,ts,json,md}'"
+  },
+  "workspaces": [
+    "packages/@lwc/*"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "~24.8.0",
+    "eslint": "^5.13.0",
+    "prettier": "~1.17.1",
+    "babel-eslint": "~10.0.1",
+    "lerna":"~3.14.1"
+  }
+}

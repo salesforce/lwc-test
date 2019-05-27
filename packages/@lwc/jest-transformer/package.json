@@ -21,12 +21,9 @@
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "@lwc/engine": "*",
         "jest": ">= 24.0.0"
     },
     "devDependencies": {
-        "@lwc/compiler": "~0.41.0",
-        "@lwc/engine": "~0.41.0",
         "@lwc/jest-preset": "~0.40.1",
         "@lwc/jest-resolver": "~0.40.1",
         "@lwc/jest-serializer": "~0.40.1"

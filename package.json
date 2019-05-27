@@ -14,10 +14,15 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "jest": "~24.8.0",
-    "eslint": "^5.13.0",
-    "prettier": "~1.17.1",
+    "@lwc/compiler": "~0.41.0",
+    "@lwc/engine": "~0.41.0",
+    "@lwc/module-resolver": "~0.41.0",
+    "@lwc/synthetic-shadow": "~0.41.0",
+    "@lwc/wire-service": "~0.41.0",
     "babel-eslint": "~10.0.1",
-    "lerna":"~3.14.1"
+    "eslint": "^5.13.0",
+    "jest": "~24.8.0",
+    "lerna": "~3.14.1",
+    "prettier": "~1.17.1"
   }
 }

@@ -11,12 +11,5 @@
         "/resources/",
         "/src/index.js"
     ],
-    "license": "MIT",
-    "devDependencies": {
-        "@lwc/engine": "~0.41.0",
-        "@lwc/jest-preset": "0.40.1",
-        "@lwc/jest-transformer": "0.40.1",
-        "@lwc/module-resolver": "~0.41.0",
-        "@lwc/wire-service": "~0.41.0"
-    }
+    "license": "MIT"
 }

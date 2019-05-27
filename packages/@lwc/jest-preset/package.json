@@ -13,6 +13,7 @@
     ],
     "main": "jest-preset.js",
     "peerDependencies": {
+        "@lwc/synthetic-shadow": "*",
         "jest": ">= 24.0.0"
     },
     "dependencies": {
@@ -20,6 +21,6 @@
         "@lwc/jest-serializer": "0.40.1",
         "@lwc/jest-transformer": "0.40.1",
         "@lwc/test-utils": "0.40.1",
-        "@lwc/synthetic-shadow": "~0.41.0"
+        "jest-environment-jsdom-fifteen": "^1.0.0"
     }
 }

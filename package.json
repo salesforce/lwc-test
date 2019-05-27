@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --config ./scripts/jest/root.config.js",
     "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
-    "lint": "eslint packages/ scripts/ --ext=js",
+    "lint": "eslint packages/ scripts/",
     "format": "prettier --write '{packages,scripts}/**/*.{js,ts,json,md}'"
   },
   "workspaces": [

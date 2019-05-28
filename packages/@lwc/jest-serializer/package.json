@@ -10,5 +10,8 @@
     ],
     "dependencies": {
         "pretty-format": "~24.8.0"
+    },
+    "engines": {
+        "node": ">=10"
     }
 }

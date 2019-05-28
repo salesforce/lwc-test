@@ -6,5 +6,8 @@
     "license": "MIT",
     "keywords": [
         "LWC"
-    ]
+    ],
+    "engines": {
+        "node": ">=10"
+    }
 }

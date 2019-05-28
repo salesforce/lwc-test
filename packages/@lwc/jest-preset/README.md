@@ -2,12 +2,6 @@
 
 Tools to assist with testing Lightning Web Components (LWC) with Jest. This project provides 2 services: preset Jest configuration for testing Lightning web components, and stubs for common external libraries used in Lightning web components.
 
-## Requirements
-
--   Node >= 10
--   NPM 5.x
--   Yarn >= 1.0.0
-
 ## Usage
 
 ### Jest Preset Configuration

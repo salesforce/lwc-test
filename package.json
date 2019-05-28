@@ -1,7 +1,7 @@
 {
   "name": "lwc-test",
   "private": true,
-  "description": "LWC Test plugins and utilities",
+  "description": "LWC test plugins and utilities",
   "main": "index.js",
   "scripts": {
     "test": "jest --config ./scripts/jest/root.config.js",

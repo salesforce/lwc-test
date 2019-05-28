@@ -22,5 +22,8 @@
         "@lwc/jest-transformer": "1.0.0-alpha.1",
         "@lwc/test-utils": "1.0.0-alpha.1",
         "jest-environment-jsdom-fifteen": "^1.0.0"
+    },
+    "engines": {
+        "node": ">=10"
     }
 }

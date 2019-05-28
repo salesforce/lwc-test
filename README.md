@@ -12,4 +12,4 @@ Please refer to Lightning Web Components contributing guide [here](https://githu
 
 ## License
 
-The [MIT license](license) governs your use of Lightning Web Components.
+The [MIT license](LICENSE) governs your use of Lightning Web Components.

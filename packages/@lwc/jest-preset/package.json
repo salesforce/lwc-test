@@ -18,9 +18,9 @@
     },
     "dependencies": {
         "@lwc/jest-resolver": "1.0.0-alpha.0",
-        "@lwc/jest-serializer": "0.40.1",
+        "@lwc/jest-serializer": "1.0.0-alpha.0",
         "@lwc/jest-transformer": "1.0.0-alpha.0",
-        "@lwc/test-utils": "0.40.1",
+        "@lwc/test-utils": "1.0.0-alpha.0",
         "jest-environment-jsdom-fifteen": "^1.0.0"
     }
 }

@@ -1,6 +1,6 @@
-# lwc-jest-preset
+# @lwc/jest-preset
 
-Tools to assist with testing Lightning Web Components (LWC) with Jest. This project provides 2 services: preset Jest configuration for testing LWC components, and stubs for common external libraries used in LWC components.
+Tools to assist with testing Lightning Web Components (LWC) with Jest. This project provides 2 services: preset Jest configuration for testing Lightning web components, and stubs for common external libraries used in Lightning web components.
 
 ## Requirements
 
@@ -12,20 +12,20 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
 
 ### Jest Preset Configuration
 
-1. Install `lwc-jest-transformer`. This package runs LWC components through the LWC compiler.
+1. Install `@lwc/jest-transformer`. This package runs LWC components through the LWC compiler.
 
-    `yarn add -D lwc-jest-transformer`
+    `yarn add -D @lwc/jest-transformer`
 
 1. Install `@lwc/jest-resolver`. This package resolves all supported `lwc-*` imports.
 
-    `yarn add -D lwc-jest-resolver`
+    `yarn add -D @lwc/jest-resolver`
 
 1. Use this project's preset config. This maps to the settings in `jest-preset.json`. Any settings added to your project's own `jest` config will take precedence to entries in the preset.
 
     ```json
     {
         "jest": {
-            "preset": "lwc-jest-preset"
+            "preset": "@lwc/jest-preset"
         }
     }
     ```
@@ -35,7 +35,7 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
     ```json
     {
         "moduleNameMapper": {
-            "^(example|other)-(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
+            "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
         }
     }
     ```

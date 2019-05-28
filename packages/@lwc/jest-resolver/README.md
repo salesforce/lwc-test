@@ -1,3 +1,7 @@
+# @lwc/jest-resolver
+
+Resolves all supported `lwc-*` imports.
+
 ## Requirements
 
 -   Node 8.x

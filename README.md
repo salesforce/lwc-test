@@ -12,4 +12,4 @@ Please refer to Lightning Web Components contributing guide [here](https://githu
 
 ## License
 
-The [Salesforce Developer MSA](http://www.sfdcstatic.com/assets/pdf/misc/salesforce_Developer_MSA.pdf) governs your use of Lightning Web Components foundation.
+The [MIT license](LICENSE) governs your use of Lightning Web Components.

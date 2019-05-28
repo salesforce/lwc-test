@@ -12,6 +12,8 @@ const polyfillFile = require.resolve('@lwc/synthetic-shadow');
 const polyfillSource = fs.readFileSync(polyfillFile, 'utf-8');
 const polyfillScript = vm.createScript(polyfillSource, '@lwc/synthetic-shadow');
 
+let ShadowRootPatched;
+let HTMLSlotElementPatched;
 /** Synthetic Shadow Polyfill should be installed only once per worker */
 function _syntheticShadow(env) {
     if (env.dom) {
@@ -20,6 +22,9 @@ function _syntheticShadow(env) {
         _syntheticShadow = function _syntheticShadow() {
             /* noop */
         };
+        // Cache the patched types and reuse
+        ShadowRootPatched = env.dom.window.ShadowRoot;
+        HTMLSlotElementPatched = env.dom.window.HTMLSlotElement;
     }
 }
 
@@ -31,7 +36,7 @@ module.exports = class JSDOMEnvironmentWithSyntheticShadow extends JSDOMEnvironm
         _syntheticShadow(this);
 
         // Instrinsics that should be transferred to each environment
-        this.global.ShadowRoot = this.dom.window.ShadowRoot;
-        this.global.HTMLSlotElement = this.dom.window.HTMLSlotElement;
+        this.global.ShadowRoot = ShadowRootPatched;
+        this.global.HTMLSlotElement = HTMLSlotElementPatched;
     }
 };

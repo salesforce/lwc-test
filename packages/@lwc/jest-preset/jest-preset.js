@@ -9,12 +9,10 @@ const path = require('path');
 module.exports = {
     moduleFileExtensions: ['js', 'html'],
     moduleNameMapper: {
-        '^assert$': require.resolve('./src/stubs/assert.js'),
         '^aura$': require.resolve('./src/stubs/aura.js'),
         '^aura-instrumentation$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^instrumentation-service$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
-        '^logger$': require.resolve('./src/stubs/logger.js'),
         '^lwc-test-utils$': require.resolve('@lwc/test-utils'),
     },
     testEnvironment: path.resolve(__dirname, 'src/environment.js'),

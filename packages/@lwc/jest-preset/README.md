@@ -4,7 +4,7 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
 
 ## Requirements
 
--   Node 8.x
+-   Node >= 10
 -   NPM 5.x
 -   Yarn >= 1.0.0
 

@@ -4,7 +4,7 @@ Compile Lightning web components for [Jest](https://facebook.github.io/jest/) te
 
 ## Requirements
 
--   Node 8.x
+-   Node >= 10
 -   NPM 5.x
 -   Yarn >= 1.0.0
 

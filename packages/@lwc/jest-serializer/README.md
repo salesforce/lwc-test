@@ -1,3 +1,3 @@
 ## jest-serializer
 
-Standarize snapshots for shadow-dom
+Standarize snapshots for Shadow DOM.

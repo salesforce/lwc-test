@@ -12,15 +12,11 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
 
 ### Jest Preset Configuration
 
-1. Install `@lwc/jest-transformer`. This package runs LWC components through the LWC compiler.
+1. Install `@lwc/synthetic-shadow`. This is a polyfill for ShadowRoot that was tailor-made for LWC.
 
-    `yarn add -D @lwc/jest-transformer`
+    `yarn add --dev @lwc/synthetic-shadow`
 
-1. Install `@lwc/jest-resolver`. This package resolves all supported `lwc-*` imports.
-
-    `yarn add -D @lwc/jest-resolver`
-
-1. Use this project's preset config. This maps to the settings in `jest-preset.json`. Any settings added to your project's own `jest` config will take precedence to entries in the preset.
+2. Use this project's preset config. This maps to the settings in `jest-preset.json`. Any settings added to your project's own `jest` config will take precedence to entries in the preset.
 
     ```json
     {
@@ -30,7 +26,7 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
     }
     ```
 
-1. Update the `moduleNameMapper` entry in your Jest config to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
+3. Update the `moduleNameMapper` entry in your Jest config to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
 
     ```json
     {
@@ -40,6 +36,6 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
     }
     ```
 
-1. Create a `__tests__` inside the bundle of the LWC component under test.
-1. Create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.test.js`. See an example in this projects `src/test` directory.
-1. Write and run the Jest tests!
+4. Create a `__tests__` inside the bundle of the LWC component under test.
+5. Create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.test.js`. See an example in this projects `src/test` directory.
+6. Write and run the Jest tests!

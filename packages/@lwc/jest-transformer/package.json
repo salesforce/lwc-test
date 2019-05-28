@@ -26,7 +26,7 @@
     "devDependencies": {
         "@lwc/jest-preset": "1.0.0-alpha.0",
         "@lwc/jest-resolver": "1.0.0-alpha.0",
-        "@lwc/jest-serializer": "~0.40.1"
+        "@lwc/jest-serializer": "1.0.0-alpha.0"
     },
     "engines": {
         "node": ">=10"

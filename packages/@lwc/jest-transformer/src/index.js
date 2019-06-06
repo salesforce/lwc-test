@@ -11,6 +11,7 @@ const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
+const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 
 const engineVersion = require('@lwc/engine/package.json').version;
 const compilerVersion = require('@lwc/compiler/package.json').version;
@@ -30,6 +31,7 @@ const BABEL_CONFIG = {
     presets: [jestPreset],
     plugins: [
         babelCommonJs,
+        babelSyntaxDynamicImport,
         apexScopedImport,
         apexContinuationScopedImport,
         i18nScopedImport,

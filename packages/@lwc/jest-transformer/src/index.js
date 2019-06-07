@@ -31,7 +31,7 @@ const BABEL_CONFIG = {
     presets: [jestPreset],
     plugins: [
         babelCommonJs,
-        babelSyntaxDynamicImport,
+        babelDynamicImport,
         apexScopedImport,
         apexContinuationScopedImport,
         i18nScopedImport,

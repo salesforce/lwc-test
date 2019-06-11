@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const path = require('path');
-
 module.exports = {
     moduleFileExtensions: ['js', 'html'],
     moduleNameMapper: {
@@ -15,7 +13,7 @@ module.exports = {
         '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
         '^lwc-test-utils$': require.resolve('@lwc/test-utils'),
     },
-    testEnvironment: path.resolve(__dirname, 'src/environment.js'),
+    testEnvironment: "jest-environment-jsdom-fifteen",
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {
         '^.+\\.(js|html|css)$': require.resolve('@lwc/jest-transformer'),

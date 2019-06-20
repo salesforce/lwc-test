@@ -1433,15 +1433,15 @@
   dependencies:
     observable-membrane "0.26.1"
 
+"@lwc/errors@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.0.0.tgz#378a4fce92bdf75d6fd8b63a5c8bbeaf25d45693"
+  integrity sha512-4eglRYsMiTdFtxEKKlUob4KAU5irdGt3K0g+aG6XTX5RBLsnOePJ+ek/mGoknNewkJbC+3NTVGFVmwPo9YGSRQ==
+
 "@lwc/errors@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.0.1.tgz#7ffbcfa7ba84e4241246b4707553de2f5d0b20bb"
   integrity sha512-T65CFROrui4hcxagTX9YqzRjPeAfv5UT68wOJwX3VYqx19l+7I1RujK8/UgqSipK6tF/uoGpw/CGNhWkc2o6KA==
-
-"@lwc/errors@~0.41.0":
-  version "0.41.0"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-0.41.0.tgz#e4e6fa08ce99aca89b1cbe90597594b346274e9b"
-  integrity sha512-CIX1UX7i73r1ND1G8g2tCC0X7Zi2UPkRcEtcJjravk8yWRqIWvxXh5A2Hs9QzH/fDsb7G5N/blbQ2/QAQj2JgQ==
 
 "@lwc/module-resolver@~1.0.1":
   version "1.0.1"

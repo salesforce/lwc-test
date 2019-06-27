@@ -11,6 +11,9 @@
         "/resources/",
         "/src/index.js"
     ],
+    "peerDependencies": {
+        "@lwc/module-resolver": "*"
+    },
     "license": "MIT",
     "engines": {
         "node": ">=10"

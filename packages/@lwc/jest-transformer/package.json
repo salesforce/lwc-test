@@ -16,11 +16,12 @@
         "@babel/core": "7.1.0",
         "@babel/plugin-transform-modules-commonjs": "7.1.0",
         "@babel/template": "~7.1.2",
-        "@lwc/errors": "~0.41.0",
+        "@lwc/errors": "1.0.0",
         "babel-preset-jest": "^24.0.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
+        "@lwc/engine": "*",
         "jest": ">= 24.0.0"
     },
     "devDependencies": {

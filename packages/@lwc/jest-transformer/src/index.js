@@ -17,12 +17,14 @@ const compilerVersion = require('@lwc/compiler/package.json').version;
 
 const apexScopedImport = require('./transforms/apex-scoped-import');
 const apexContinuationScopedImport = require('./transforms/apex-continuation-scoped-import');
+const customPermissionImport = require('./transforms/custom-permission-scoped-import');
 const i18nScopedImport = require('./transforms/i18n-scoped-import');
 const labelScopedImport = require('./transforms/label-scoped-import');
 const resourceScopedImport = require('./transforms/resource-scoped-import');
 const contentAssetUrlScopedImport = require('./transforms/content-asset-url-scoped-import');
 const schemaScopedImport = require('./transforms/schema-scoped-import');
 const userScopedImport = require('./transforms/user-scoped-import');
+const userPermissionImport = require('./transforms/user-permission-scoped-import');
 const clientScopedImport = require('./transforms/client-scoped-import');
 
 const BABEL_CONFIG = {
@@ -32,12 +34,14 @@ const BABEL_CONFIG = {
         babelCommonJs,
         apexScopedImport,
         apexContinuationScopedImport,
+        customPermissionImport,
         i18nScopedImport,
         labelScopedImport,
         contentAssetUrlScopedImport,
         resourceScopedImport,
         schemaScopedImport,
         userScopedImport,
+        userPermissionImport,
         clientScopedImport,
     ],
 };

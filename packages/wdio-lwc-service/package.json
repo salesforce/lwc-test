@@ -33,6 +33,7 @@
     "lightning",
     "tests",
     "integration",
-    "itest"
+    "wdio-plugin",
+    "wdio-service"
   ]
 }

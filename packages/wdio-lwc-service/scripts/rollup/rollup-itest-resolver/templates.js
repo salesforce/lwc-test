@@ -28,7 +28,7 @@ exports.html = (component, { isCompat }) => (`
         <link rel="stylesheet" href="../../assets/styles/salesforce-lightning-design-system.min.css" type="text/css"/>
     </head>
     <body>
-        ${ isCompat ? COMPAT : '' }
+        ${isCompat ? COMPAT : ''}
         <script src="../../engine/engine.js"></script>
         <script src="../../engine/wire.js"></script>
         <script src="./bundle.js"></script>

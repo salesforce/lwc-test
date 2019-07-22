@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 0 */
 const LWCService = require('wdio-lwc-service');
 
 exports.config = {

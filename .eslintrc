@@ -1,4 +1,5 @@
 {
+    "plugins": ["webdriverio"],
     "extends": "eslint:recommended",
     "parser": "babel-eslint",
     "parserOptions": {
@@ -9,9 +10,9 @@
         "es6": true,
         "browser": true,
         "jest": true,
-        "node": true
+        "node": true,
+        "webdriverio/wdio": true
     },
-
     "rules": {
         "block-scoped-var": "error",
         "no-alert": "warn",

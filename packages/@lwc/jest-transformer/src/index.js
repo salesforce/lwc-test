@@ -26,6 +26,7 @@ const schemaScopedImport = require('./transforms/schema-scoped-import');
 const userScopedImport = require('./transforms/user-scoped-import');
 const userPermissionImport = require('./transforms/user-permission-scoped-import');
 const clientScopedImport = require('./transforms/client-scoped-import');
+const messageChannelScopedImport = require('./transforms/message-channel-scoped-import');
 
 const BABEL_CONFIG = {
     sourceMaps: 'both',
@@ -43,6 +44,7 @@ const BABEL_CONFIG = {
         userScopedImport,
         userPermissionImport,
         clientScopedImport,
+        messageChannelScopedImport
     ],
 };
 

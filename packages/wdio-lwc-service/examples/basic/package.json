@@ -11,7 +11,7 @@
     "test:wdio": "wdio wdio.conf.js",
     "server": "node server.js",
     "watch": "rollup -c -w",
-    "lint": "eslint src --ext .js --max-warnings 0 --cache"
+    "lint": "eslint src/"
   },
   "dependencies": {},
   "devDependencies": {
@@ -27,6 +27,8 @@
     "@wdio/sync": "^5.10.8",
     "body-parser": "^1.19.0",
     "compat-polyfills": "^0.21.5",
+    "eslint": "^6.1.0",
+    "eslint-plugin-wdio": "^5.11.0",
     "express": "^4.17.1",
     "npm-run-all": "^4.1.5",
     "rollup": "^1.14.2",

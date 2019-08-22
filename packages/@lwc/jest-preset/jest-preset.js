@@ -11,7 +11,6 @@ module.exports = {
         '^aura-instrumentation$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^instrumentation-service$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
-        '^lwc-test-utils$': require.resolve('@lwc/test-utils'),
     },
     testEnvironment: "jest-environment-jsdom-fifteen",
     resolver: require.resolve('@lwc/jest-resolver'),

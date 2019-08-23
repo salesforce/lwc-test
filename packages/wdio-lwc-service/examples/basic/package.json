@@ -15,11 +15,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@lwc/compiler": "^1.0.2",
-    "@lwc/engine": "^1.0.2",
-    "@lwc/rollup-plugin": "^1.0.2",
-    "@lwc/synthetic-shadow": "1.0.2",
-    "@lwc/wire-service": "^1.0.2",
+    "lwc": "~1.1.0-alpha4",
+    "@lwc/rollup-plugin": "^1.1.0-alpha4",
     "@wdio/cli": "^5.10.9",
     "@wdio/jasmine-framework": "^5.10.8",
     "@wdio/local-runner": "^5.10.9",

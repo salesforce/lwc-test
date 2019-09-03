@@ -16,7 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "@lwc/compiler": "1.1.0-alpha8",
-    "@lwc/engine": "1.1.0-alpha8",
+    "lwc": "1.1.0-alpha8",
     "@lwc/rollup-plugin": "1.1.0-alpha8",
     "@lwc/synthetic-shadow": "1.1.0-alpha8",
     "@lwc/wire-service": "1.1.0-alpha8",

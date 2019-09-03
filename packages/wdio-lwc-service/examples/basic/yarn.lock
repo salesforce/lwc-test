@@ -3263,6 +3263,16 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+lwc@1.1.0-alpha8:
+  version "1.1.0-alpha8"
+  resolved "https://registry.yarnpkg.com/lwc/-/lwc-1.1.0-alpha8.tgz#4d8314ac5f7cbbeaa8dfb1c65c6b18bae73d1198"
+  integrity sha512-JvbscbdY/BTbVy7TvS9CBgJHpm2U8LjRTbCqyTsKc4Wa5SGbBVFf+if/GhpwmtVWhM1C9Rr/W3wKdtRvPNDOow==
+  dependencies:
+    "@lwc/compiler" "1.1.0-alpha8"
+    "@lwc/engine" "1.1.0-alpha8"
+    "@lwc/synthetic-shadow" "1.1.0-alpha8"
+    "@lwc/wire-service" "1.1.0-alpha8"
+
 magic-string@^0.25.2, magic-string@~0.25.1:
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.2.tgz#139c3a729515ec55e96e69e82a11fe890a293ad9"

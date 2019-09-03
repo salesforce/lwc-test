@@ -49,7 +49,7 @@ If you used `npx lwc-create-app` to initialize your project you'll have differen
 {
     "devDependencies": {
         "@lwc/compiler": "^1.0.0",
-        "@lwc/engine": "^1.0.0",
+        "lwc": "^1.1.0",
         "@lwc/rollup-plugin": "^1.0.0",
         "@lwc/wire-service": "^1.0.0",
         "@wdio/cli": "^5.9.6",

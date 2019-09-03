@@ -7,6 +7,6 @@
 module.exports = {
     'compat-polyfills/downgrade': 'window',
     'compat-polyfills/polyfills': 'window',
-    lwc: 'Engine',
+    lwc: 'LWC',
     'wire-service': 'WireService',
 };

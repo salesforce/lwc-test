@@ -19,5 +19,5 @@ module.exports = () => {
             console.log(`Server listening at http://localhost:${port}`);
             resolve();
         });
-    });        
-}          
+    });
+}

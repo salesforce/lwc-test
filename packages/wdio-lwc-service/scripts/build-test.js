@@ -38,8 +38,9 @@ module.exports = async function build(test, {
         plugins: [
             rollupItestResolver(dir),
             lwcCompiler({
-                rootDir,
-                mapNamespaceFromPath: true,
+                // ToDo: Get this from the configuration
+                rootDir: path.join(rootDir, 'src', 'modules'),
+                resolveFromSource: true,
                 resolveFromPackages: true,
                 exclude: excludeTestDirs,
             }),

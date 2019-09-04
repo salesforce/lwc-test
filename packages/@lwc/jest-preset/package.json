@@ -20,7 +20,6 @@
         "@lwc/jest-resolver": "1.0.0",
         "@lwc/jest-serializer": "1.0.0",
         "@lwc/jest-transformer": "1.0.0",
-        "@lwc/test-utils": "1.0.0",
         "jest-environment-jsdom-fifteen": "^1.0.0"
     },
     "engines": {

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`example-custom-permission default snapshot 1`] = `
+<example-custom-permission>
+  #shadow-root(open)
+    <p
+      class="mockedPermission"
+    >
+      value set in test
+    </p>
+    <p
+      class="unmockedPermission"
+    >
+      unmocked
+    </p>
+</example-custom-permission>
+`;

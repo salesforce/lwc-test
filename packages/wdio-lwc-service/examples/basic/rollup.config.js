@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         lwcCompiler({
-            rootDir: path.join(__dirname, 'src/modules'),
+            rootDir: path.join(__dirname, 'src', 'modules'),
             sourcemap: !isCompat
         }),
         copy({

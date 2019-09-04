@@ -665,6 +665,11 @@
   resolved "https://registry.yarnpkg.com/@lwc/wire-service/-/wire-service-1.1.0-alpha8.tgz#0feaaf3849c14d3fc47151ef00b89621e018744c"
   integrity sha512-KiQXFekmFf+gwbuhWrYy4JfQamC8nIHP8wtXm9Bo+ZHwo7bA8NACKwQt6ET3uiSQfD3tusOEO87Jjlsm3zAUSQ==
 
+"@salesforce-ux/design-system@^2.9.3":
+  version "2.9.4"
+  resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.9.4.tgz#52f23650cad7ced6116913d7b634fc585e974599"
+  integrity sha512-CDEjw/C2ymzNtBNnX/C62i7Lq8BmdmueTNIkrru2PU87NHOBTx5oP1Eo+buX8+qpnrODKgM8hiqQ+yqBOH7DjA==
+
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"

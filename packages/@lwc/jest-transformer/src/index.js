@@ -11,7 +11,10 @@ const { getVersion } = require('lwc');
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
+const babelTsPreset = require.resolve('@babel/preset-typescript');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
+const babelClassProperties = require('@babel/plugin-syntax-class-properties');
+const babelSyntaxDecorators = require('@babel/plugin-syntax-decorators');
 
 const engineVersion = getVersion();
 const compilerVersion = require('@lwc/compiler/package.json').version;
@@ -29,6 +32,19 @@ const userPermissionImport = require('./transforms/user-permission-scoped-import
 const clientScopedImport = require('./transforms/client-scoped-import');
 const messageChannelScopedImport = require('./transforms/message-channel-scoped-import');
 
+const BABEL_TS_CONFIG = {
+    plugins: [
+        babelClassProperties,
+        [
+            babelSyntaxDecorators,
+            {
+                decoratorsBeforeExport: true,
+            },
+        ],
+    ],
+    presets: [babelTsPreset],
+};
+
 const BABEL_CONFIG = {
     sourceMaps: 'both',
     presets: [jestPreset],
@@ -45,12 +61,28 @@ const BABEL_CONFIG = {
         userScopedImport,
         userPermissionImport,
         clientScopedImport,
-        messageChannelScopedImport
+        messageChannelScopedImport,
     ],
 };
 
+function isTypeScript(filePath) {
+    return path.extname(filePath) === '.ts';
+}
+
+function transformTypeScript(src, filePath) {
+    const { code } = babelCore.transform(src, {
+        ...BABEL_TS_CONFIG,
+        filename: filePath,
+    });
+    return code;
+}
+
 module.exports = {
     process(src, filePath) {
+        if (isTypeScript(filePath)) {
+            src = transformTypeScript(src, filePath);
+        }
+
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
         const { code, map } = lwcCompiler.transformSync(src, filePath, {
             moduleName: 'test',
@@ -65,7 +97,11 @@ module.exports = {
         // **Note: .html and .css don't return valid sourcemaps cause they are used for rollup
         const config = map && map.version ? { inputSourceMap: map } : {};
 
-        return babelCore.transform(code, { ...BABEL_CONFIG, ...config, filename });
+        return babelCore.transform(code, {
+            ...BABEL_CONFIG,
+            ...config,
+            filename,
+        });
     },
     getCacheKey(fileData, filePath, configStr, options) {
         const { NODE_ENV } = process.env;

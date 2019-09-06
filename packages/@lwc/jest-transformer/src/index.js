@@ -13,8 +13,8 @@ const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
 const babelTsPreset = require.resolve('@babel/preset-typescript');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
-const babelClassProperties = require('@babel/plugin-syntax-class-properties');
-const babelSyntaxDecorators = require('@babel/plugin-syntax-decorators');
+const babelClassProperties = require('@babel/plugin-proposal-class-properties');
+const babelSyntaxDecorators = require('@babel/plugin-proposal-decorators');
 
 const engineVersion = getVersion();
 const compilerVersion = require('@lwc/compiler/package.json').version;

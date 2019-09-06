@@ -14,7 +14,10 @@
     ],
     "dependencies": {
         "@babel/core": "7.1.0",
+        "@babel/plugin-proposal-decorators": "7.4.4",
+        "@babel/plugin-proposal-class-properties": "7.5.5",
         "@babel/plugin-transform-modules-commonjs": "7.1.0",
+        "@babel/preset-typescript": "7.1.0",
         "@babel/template": "~7.1.2",
         "@lwc/errors": "1.0.0",
         "babel-preset-jest": "^24.0.0"

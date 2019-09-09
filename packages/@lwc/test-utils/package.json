@@ -1,6 +1,6 @@
 {
     "name": "@lwc/test-utils",
-    "version": "1.1.0-alpha1",
+    "version": "1.0.0",
     "description": "Test utilities for LWC",
     "main": "index.js",
     "license": "MIT",
@@ -9,6 +9,5 @@
     ],
     "engines": {
         "node": ">=10"
-    },
-    "gitHead": "dd5a74f4c4f9a8bb088f689c712d1bd14539efa4"
+    }
 }

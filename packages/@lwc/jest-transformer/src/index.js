@@ -15,6 +15,7 @@ const babelTsPreset = require.resolve('@babel/preset-typescript');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelClassProperties = require('@babel/plugin-proposal-class-properties');
 const babelSyntaxDecorators = require('@babel/plugin-proposal-decorators');
+const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 
 const engineVersion = getVersion();
 const compilerVersion = require('@lwc/compiler/package.json').version;
@@ -50,6 +51,7 @@ const BABEL_CONFIG = {
     presets: [jestPreset],
     plugins: [
         babelCommonJs,
+        babelDynamicImport,
         apexScopedImport,
         apexContinuationScopedImport,
         customPermissionImport,

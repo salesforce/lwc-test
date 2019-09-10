@@ -10,8 +10,7 @@
     "format": "prettier --write '{packages,scripts}/**/*.{js,ts,json,md}'"
   },
   "workspaces": [
-    "packages/@lwc/*",
-    "packages/wdio-lwc-service"
+    "packages/@lwc/*"
   ],
   "license": "MIT",
   "devDependencies": {
@@ -19,7 +18,7 @@
     "lwc": "1.1.0-alpha4",
     "@lwc/module-resolver": "1.1.0-alpha4",
     "babel-eslint": "~10.0.1",
-    "eslint": "^5.13.0",
+    "eslint": "^5.16.0",
     "eslint-plugin-webdriverio": "^1.0.1",
     "jest": "~24.8.0",
     "lerna": "~3.14.1",

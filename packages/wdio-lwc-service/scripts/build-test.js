@@ -17,7 +17,7 @@ const templates = require('./rollup/rollup-itest-resolver/templates');
 const globals = require('./rollup/globals');
 const external = require('./rollup/external');
 
-const banner = (`/**\n * Copyright (C) 2018 salesforce.com, inc.\n */\ntypeof process === 'undefined' && (process = { env: { NODE_ENV: 'dev' } });`);
+const banner = (`/**\n * Copyright (C) 2019 salesforce.com, inc.\n */\ntypeof process === 'undefined' && (process = { env: { NODE_ENV: 'dev' } });`);
 
 module.exports = async function build(test, {
     isCompat, plugins = [], namespace, component,

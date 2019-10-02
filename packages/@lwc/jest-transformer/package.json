@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-transformer",
-    "version": "1.0.0",
+    "version": "2.3.0-alpha",
     "description": "Jest transformer for LWC and engine",
     "license": "MIT",
     "main": "src/index.js",
@@ -14,24 +14,24 @@
     ],
     "dependencies": {
         "@babel/core": "7.1.0",
-        "@babel/plugin-proposal-decorators": "7.4.4",
         "@babel/plugin-proposal-class-properties": "7.5.5",
+        "@babel/plugin-proposal-decorators": "7.4.4",
         "@babel/plugin-transform-modules-commonjs": "7.1.0",
         "@babel/preset-typescript": "7.1.0",
         "@babel/template": "~7.1.2",
-        "babel-plugin-transform-dynamic-import": "^2.1.0",
         "@lwc/errors": "1.0.0",
+        "babel-plugin-transform-dynamic-import": "^2.1.0",
         "babel-preset-jest": "^24.0.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "lwc": "*",
-        "jest": ">= 24.0.0"
+        "jest": ">= 24.0.0",
+        "lwc": "*"
     },
     "devDependencies": {
-        "@lwc/jest-preset": "1.0.0",
-        "@lwc/jest-resolver": "1.0.0",
-        "@lwc/jest-serializer": "1.0.0"
+        "@lwc/jest-preset": "2.3.0-alpha",
+        "@lwc/jest-resolver": "2.3.0-alpha",
+        "@lwc/jest-serializer": "2.3.0-alpha"
     },
     "engines": {
         "node": ">=10"

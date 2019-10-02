@@ -14,9 +14,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@lwc/compiler": "1.1.0-alpha12",
-    "lwc": "1.1.0-alpha12",
-    "@lwc/module-resolver": "1.1.0-alpha12",
+    "@lwc/compiler": "1.1.0-beta7",
+    "lwc": "1.1.0-beta7",
+    "@lwc/module-resolver": "1.1.0-beta7",
     "babel-eslint": "~10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-webdriverio": "^1.0.1",

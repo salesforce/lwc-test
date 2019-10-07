@@ -31,7 +31,13 @@ const WHITELISTED_LWC_PACKAGES = {
     'wire-service': '@lwc/wire-service',
     'wire-service-jest-util': 'lwc-wire-service-jest-util',
 };
-const lwcMap = lwcNpmResolver.resolveLwcNpmModules();
+const pkgJson = JSON.parse(fs.readFileSync(`package.json`, 'utf8'));
+
+let lwcMap = lwcNpmResolver.resolveModules({
+    modules: [...Object.keys(pkgJson.dependencies)],
+});
+
+lwcMap = lwcMap.reduce((map, m) => ((map[m.specifier] = m), map), {});
 
 // This logic is somewhat the same in the compiler resolution system
 // We should try to consolidate it at some point.

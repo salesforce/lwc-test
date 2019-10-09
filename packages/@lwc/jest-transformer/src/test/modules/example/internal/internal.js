@@ -5,10 +5,10 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { LightningElement, api } from 'lwc';
-import appVersion from '@salesforce/private/core.appVersion';
-import untrustedContentDomain from '@salesforce/private/core.untrustedContentDomain';
+import appVersion from '@salesforce/internal/core.appVersion';
+import untrustedContentDomain from '@salesforce/internal/core.untrustedContentDomain';
 
-export default class Private extends LightningElement {
+export default class Internal extends LightningElement {
     @api getAppVersion() {
         return appVersion;
     }

@@ -5,21 +5,21 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { createElement } from 'lwc';
-import Private from 'example/private';
+import Internal from 'example/internal';
 
 jest.mock(
-    '@salesforce/private/core.appVersion',
+    '@salesforce/internal/core.appVersion',
     () => {
         return { default: 'appVersion value set in test' };
     },
     { virtual: true }
 );
 
-describe('example-private-resource', () => {
-    describe('@salesforce/private/core.appVersion', () => {
+describe('example-internal-resource', () => {
+    describe('@salesforce/internal/core.appVersion', () => {
         it('should return value from mock defined in test file', () => {
-            const element = createElement('example-private', {
-                is: Private,
+            const element = createElement('example-internal', {
+                is: Internal,
             });
 
             const value = element.getAppVersion();
@@ -27,10 +27,10 @@ describe('example-private-resource', () => {
         });
     });
 
-    describe('@salesforce/private/core.untrustedContentDomain', () => {
+    describe('@salesforce/internal/core.untrustedContentDomain', () => {
         it('should return default value as import path', () => {
-            const element = createElement('example-private', {
-                is: Private,
+            const element = createElement('example-internal', {
+                is: Internal,
             });
 
             const value = element.getUntrustedContentDomain();

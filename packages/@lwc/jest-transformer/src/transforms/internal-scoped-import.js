@@ -6,7 +6,7 @@
  */
 const { stringScopedImportTransform } = require('./utils');
 
-const PRIVATE_IMPORT_IDENTIFIER = '@salesforce/private/';
+const INTERNAL_IMPORT_IDENTIFIER = '@salesforce/internal/';
 
 module.exports = function({ types: t }) {
     return {
@@ -14,7 +14,7 @@ module.exports = function({ types: t }) {
             ImportDeclaration(path) {
                 const importId = path.get('source.value').node;
 
-                if (importId.startsWith(PRIVATE_IMPORT_IDENTIFIER)) {
+                if (importId.startsWith(INTERNAL_IMPORT_IDENTIFIER)) {
                     const mockValue = getMockValue(importId);
                     stringScopedImportTransform(t, path, importId, mockValue);
                 }
@@ -24,7 +24,7 @@ module.exports = function({ types: t }) {
 };
 
 function getMockValue(importId) {
-    const resource = importId.substring(PRIVATE_IMPORT_IDENTIFIER.length);
+    const resource = importId.substring(INTERNAL_IMPORT_IDENTIFIER.length);
     switch (resource) {
         case 'core.appVersion':
             return '224';

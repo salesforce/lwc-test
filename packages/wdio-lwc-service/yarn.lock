@@ -2,6 +2,19 @@
 # yarn lockfile v1
 
 
+"@lwc/module-resolver@1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@lwc/module-resolver/-/module-resolver-1.1.13.tgz#6302a61c25f26b1801ac7f595b14bc9997bf5714"
+  integrity sha512-kiHRYR+Cy9bxNqKTWvgbvEoRn/t141ipPPTLieMH8nc2B14T7rKH/TgYY0Bnl9Iy6Eah77OxnhdarsElfySCfg==
+
+"@lwc/rollup-plugin@>=1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@lwc/rollup-plugin/-/rollup-plugin-1.1.13.tgz#45351b0a6bb1660938e0434294152711ce60f179"
+  integrity sha512-WhQEoDGoiqr7DcLP9wC0yy4spnsSuCniyZ9svYHr5sA4Anhru6L/mlhHAhuzrvfLHHb7y53T3JOdQCcWzgryZQ==
+  dependencies:
+    "@lwc/module-resolver" "1.1.13"
+    rollup-pluginutils "^2.0.1"
+
 "@salesforce-ux/design-system@^2.9.3":
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/@salesforce-ux/design-system/-/design-system-2.9.3.tgz#fed5a1fcbad046576ecc7ea6bf88f986f2dfca86"
@@ -21,6 +34,13 @@ acorn@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
   integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
+
+angular-youtube-player@^1.0.1:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/angular-youtube-player/-/angular-youtube-player-1.0.3.tgz#4973ec8fb23721699e32d70fe4e5d52a15ee5167"
+  integrity sha512-wbZicjkESd0a7LRGUVmmWGgbGTtS/h6EBuXebeHtyvIUnDcnqrJ7I5ff4HtXhFGUrASVh/k7uOMNZ7+4V69OBw==
+  dependencies:
+    tslib "^1.9.0"
 
 ansi-regex@^0.2.0, ansi-regex@^0.2.1:
   version "0.2.1"
@@ -194,6 +214,11 @@ estree-walker@^0.6.0:
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.0.tgz#5d865327c44a618dde5699f763891ae31f257dae"
   integrity sha512-peq1RfVAVzr3PU/jL31RaOjUKLoZJpObQWJJ+LgfcxDUifyLZ1RjPQZTl0pzj2uJ45b7A7XpyppXvxdEqzo4rw==
 
+estree-walker@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
+  integrity sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
+
 expand-brackets@^2.1.4:
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-2.1.4.tgz#b77735e315ce30f6b6eff0f83b04151a22449622"
@@ -319,6 +344,11 @@ has-values@^1.0.0:
   dependencies:
     is-number "^3.0.0"
     kind-of "^4.0.0"
+
+ipv4s@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ipv4s/-/ipv4s-1.0.0.tgz#92a2be2382469ed36f81775bfd377461f6066555"
+  integrity sha512-2IJww2Z5KbaKXXzyX8sSbwmH7BYBd/QI1J7SnZTmKZXJ6/ziqR5Yc9iiQlCbQBtkhNy033TGpUhJBjcJ4NUHmw==
 
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
@@ -455,6 +485,16 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
+lwc@>=1.1.13:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/lwc/-/lwc-2.0.0.tgz#71679bc1a99da05d62408b028aa9648949bf8ee8"
+  integrity sha512-k2u3OxbtSZlOs+a6OKi066QwDDYhEubMUMJouJUfKHfVKfk/mYLTL6EqadzTaQgOcYVrz+OCjCB6E4rnMGsbJA==
+  dependencies:
+    angular-youtube-player "^1.0.1"
+    ipv4s "^1.0.0"
+    ng-slot-machine-button "0.0.1"
+    slot-machine-button "^0.3.0"
+
 magic-string@^0.25.2:
   version "0.25.2"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.2.tgz#139c3a729515ec55e96e69e82a11fe890a293ad9"
@@ -527,6 +567,13 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
+
+ng-slot-machine-button@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/ng-slot-machine-button/-/ng-slot-machine-button-0.0.1.tgz#60ccc45a708bd150e4ba7ff8e8415e3084a8b2f7"
+  integrity sha512-IdhClQxoytGJ28DI3BTqeKnZ9ZEpenB0vcClmsh3xAMBk48Cskz4YtE9SSCcOSXBQezpJ8e4Y+CTrGDdCGH8Kw==
+  dependencies:
+    tslib "^1.9.0"
 
 object-copy@^0.1.0:
   version "0.1.0"
@@ -609,6 +656,13 @@ rollup-plugin-replace@^2.2.0:
     magic-string "^0.25.2"
     rollup-pluginutils "^2.6.0"
 
+rollup-pluginutils@^2.0.1:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
+  integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
+  dependencies:
+    estree-walker "^0.6.1"
+
 rollup-pluginutils@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.6.0.tgz#203706edd43dfafeaebc355d7351119402fc83ad"
@@ -652,6 +706,11 @@ set-value@^2.0.0:
     is-extendable "^0.1.1"
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
+
+slot-machine-button@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/slot-machine-button/-/slot-machine-button-0.3.0.tgz#ccadac357c528ea0185b203561802f60797e2df6"
+  integrity sha512-qx9fr4ZsJeM9v5qqd6r/aXo+olBDJj09oVarK+j+tR3U5cTXnOgLGLCl23lSp55DUXW/fOS12l59RWOx020ixQ==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"
@@ -771,6 +830,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
+
+tslib@^1.9.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
 
 union-value@^1.0.0:
   version "1.0.0"

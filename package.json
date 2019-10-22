@@ -14,19 +14,18 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "@lwc/compiler": "~1.0.1",
-    "@lwc/engine": "~1.0.1",
-    "@lwc/module-resolver": "~1.0.1",
-    "@lwc/synthetic-shadow": "~1.0.1",
-    "@lwc/wire-service": "~1.0.1",
+    "@lwc/compiler": "^1.1.13",
+    "@lwc/module-resolver": "^1.1.13",
     "babel-eslint": "~10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-webdriverio": "^1.0.1",
-    "jest": "~24.8.0",
+    "jest": "^24.9.0",
     "lerna": "~3.14.1",
+    "lwc": "^1.1.13",
     "prettier": "~1.17.1"
   },
   "resolutions": {
+    "jsdom": "^15.2.1",
     "lodash": "^4.17.13",
     "lodash.template": "^4.5.0"
   }

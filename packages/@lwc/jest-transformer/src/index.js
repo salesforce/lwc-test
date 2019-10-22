@@ -6,6 +6,7 @@
  */
 const path = require('path');
 const crypto = require('crypto');
+const { getVersion } = require('lwc');
 
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
@@ -13,7 +14,7 @@ const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 
-const engineVersion = require('@lwc/engine/package.json').version;
+const engineVersion = getVersion();
 const compilerVersion = require('@lwc/compiler/package.json').version;
 
 const apexScopedImport = require('./transforms/apex-scoped-import');
@@ -54,8 +55,8 @@ module.exports = {
     process(src, filePath) {
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
         const { code, map } = lwcCompiler.transformSync(src, filePath, {
-            moduleName: 'test',
-            moduleNamespace: 'x',
+            name: 'test',
+            namespace: 'x',
             outputConfig: {
                 sourcemap: true,
             },

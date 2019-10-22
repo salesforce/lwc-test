@@ -17,6 +17,7 @@ const templates = require('./rollup/rollup-itest-resolver/templates');
 const globals = require('./rollup/globals');
 const external = require('./rollup/external');
 
+const banner = (`typeof process === 'undefined' && (process = { env: { NODE_ENV: 'dev' } });`);
 
 module.exports = async function build(test, {
     isCompat, plugins = [], namespace, component,
@@ -51,7 +52,7 @@ module.exports = async function build(test, {
     const buildDir = `../build/${namespace}-${component}/${name}`;
     const outputDir = path.join(__dirname, buildDir);
     fs.ensureDirSync(outputDir);
-    
+
     fs.writeFileSync(
         path.join(outputDir, 'index.html'),
         templates.html(name, { isCompat }),
@@ -61,5 +62,6 @@ module.exports = async function build(test, {
         file: path.join(outputDir, 'bundle.js'),
         format: 'iife',
         globals,
+        banner,
     });
-}
+};

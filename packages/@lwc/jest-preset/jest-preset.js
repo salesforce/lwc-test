@@ -4,8 +4,6 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const path = require('path');
-
 module.exports = {
     moduleFileExtensions: ['js', 'html'],
     moduleNameMapper: {
@@ -14,11 +12,11 @@ module.exports = {
         '^instrumentation-service$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
     },
-    testEnvironment: path.resolve(__dirname, 'src/environment.js'),
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {
         '^.+\\.(js|html|css)$': require.resolve('@lwc/jest-transformer'),
     },
+    setupFilesAfterEnv: [require.resolve('./src/setup.js')],
     snapshotSerializers: [require.resolve('@lwc/jest-serializer')],
     testMatch: ['**/__tests__/**/?(*.)(spec|test).js'],
 

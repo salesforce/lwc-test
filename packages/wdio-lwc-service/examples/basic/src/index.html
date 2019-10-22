@@ -10,6 +10,10 @@
 <body>
     <div id="main"></div>
 </body>
+    <script>
+        typeof process === 'undefined' && (process = { env: { NODE_ENV: 'development' } });
+    </script>
+    <script src="/synthetic-shadow.js"></script>
     <script src="/engine.js"></script>
     <script src="/app.js"></script>
 </html>

@@ -6,6 +6,7 @@
  */
 const path = require('path');
 const crypto = require('crypto');
+const { getVersion } = require('lwc');
 
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
@@ -13,7 +14,7 @@ const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 
-const engineVersion = require('@lwc/engine/package.json').version;
+const engineVersion = getVersion();
 const compilerVersion = require('@lwc/compiler/package.json').version;
 
 const apexScopedImport = require('./transforms/apex-scoped-import');

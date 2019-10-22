@@ -2,24 +2,28 @@ const path = require('path');
 const lwcCompiler = require('@lwc/rollup-plugin');
 const replace = require('rollup-plugin-replace');
 const copy = require('rollup-plugin-copy');
+const { getModulePath } = require('lwc');
 
 const isCompat = /^compat$/i.test(process.env.mode);
-const fwEngine = require.resolve(`@lwc/engine/dist/umd/${isCompat ? 'es5' : 'es2017'}/engine.js`);
-const fwShadow = require.resolve('@lwc/synthetic-shadow/dist/umd/es2017/shadow.js');
+const fwEngine = getModulePath('engine', 'umd', isCompat ? 'es5' : 'es2017', 'dev');
+const fwShadow = getModulePath('synthetic-shadow', 'umd', isCompat ? 'es5' : 'es2017', 'dev');
+const globalModules = {
+    lwc: 'LWC',
+};
 
 module.exports = {
     input: path.resolve('src/index.js'),
+    external: id => id in globalModules,
     output: {
         file: path.resolve('build/app.js'),
         format: 'iife',
-        globals: {
-            lwc: 'Engine'
-        }
+        globals: globalModules,
+        sourcemap: !isCompat,
     },
     plugins: [
         lwcCompiler({
-            resolveFromSource: true,
-            resolveFromPackages: true,
+            rootDir: path.join(__dirname, 'src/modules'),
+            sourcemap: !isCompat,
         }),
         copy({
             targets: [

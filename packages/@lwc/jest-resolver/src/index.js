@@ -6,7 +6,7 @@
  */
 const fs = require('fs');
 const { resolve, extname, join, dirname, basename } = require('path');
-const lwcNpmResolver = require('@lwc/module-resolver');
+const lwcResolver = require('@lwc/module-resolver');
 
 /*
  * In Jest version 24 the default resolver was renamed to camelCase. Temporarily
@@ -31,7 +31,7 @@ const WHITELISTED_LWC_PACKAGES = {
     'wire-service': '@lwc/wire-service',
     'wire-service-jest-util': 'lwc-wire-service-jest-util',
 };
-const lwcMap = lwcNpmResolver.resolveLwcNpmModules();
+const lwcMap = lwcResolver.resolveModules();
 
 // This logic is somewhat the same in the compiler resolution system
 // We should try to consolidate it at some point.

@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-preset",
-    "version": "2.2.0",
+    "version": "3.0.0-alpha.0",
     "description": "Jest preset configuration and stubs to help test LWC",
     "license": "MIT",
     "keywords": [
@@ -17,9 +17,9 @@
         "lwc": "*"
     },
     "dependencies": {
-        "@lwc/jest-resolver": "2.2.0",
-        "@lwc/jest-serializer": "2.2.0",
-        "@lwc/jest-transformer": "2.2.0",
+        "@lwc/jest-resolver": "3.0.0-alpha.0",
+        "@lwc/jest-serializer": "3.0.0-alpha.0",
+        "@lwc/jest-transformer": "3.0.0-alpha.0",
         "jest-environment-jsdom-fifteen": "^1.0.0"
     },
     "engines": {

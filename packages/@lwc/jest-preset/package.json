@@ -13,8 +13,8 @@
     ],
     "main": "jest-preset.js",
     "peerDependencies": {
-        "@lwc/synthetic-shadow": "*",
-        "jest": ">= 24.0.0"
+        "jest": ">= 24.0.0",
+        "lwc": "*"
     },
     "dependencies": {
         "@lwc/jest-resolver": "3.0.0",

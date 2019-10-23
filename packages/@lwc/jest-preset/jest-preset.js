@@ -12,7 +12,7 @@ module.exports = {
         '^instrumentation-service$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
     },
-    testEnvironment: 'jest-environment-jsdom-fifteen',
+    testEnvironment: require.resolve('./src/3rdparty/jest-environment-jsdom-fifteen'),
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {
         '^.+\\.(js|html|css)$': require.resolve('@lwc/jest-transformer'),

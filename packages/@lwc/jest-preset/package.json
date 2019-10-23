@@ -17,10 +17,15 @@
         "lwc": "*"
     },
     "dependencies": {
-        "@lwc/jest-resolver": "3.0.0-alpha.0",
-        "@lwc/jest-serializer": "3.0.0-alpha.0",
-        "@lwc/jest-transformer": "3.0.0-alpha.0",
-        "jest-environment-jsdom-fifteen": "^1.0.0"
+        "@jest/environment": "^24.3.0",
+        "@jest/fake-timers": "^24.3.0",
+        "@jest/types": "^24.3.0",
+        "@lwc/jest-resolver": "3.0.0-alpha.1",
+        "@lwc/jest-serializer": "3.0.0-alpha.1",
+        "@lwc/jest-transformer": "3.0.0-alpha.1",
+        "jest-mock": "^24.0.0",
+        "jest-util": "^24.0.0",
+        "jsdom": "^15.2.0"
     },
     "engines": {
         "node": ">=10"

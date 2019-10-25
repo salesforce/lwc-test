@@ -13,7 +13,6 @@ module.exports = function({ types: t }) {
         visitor: {
             ImportDeclaration(path) {
                 const importId = path.get('source.value').node;
-
                 if (importId.startsWith(INTERNAL_IMPORT_IDENTIFIER)) {
                     const mockValue = getMockValue(importId);
                     stringScopedImportTransform(t, path, importId, mockValue);

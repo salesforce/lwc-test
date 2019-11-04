@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-resolver",
-    "version": "3.0.0-alpha.6",
+    "version": "3.0.0-alpha.7",
     "description": "Jest resolver to resolve LWC specific packages",
     "main": "src/index.js",
     "keywords": [

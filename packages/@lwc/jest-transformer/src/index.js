@@ -55,8 +55,8 @@ module.exports = {
     process(src, filePath) {
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
         const { code, map } = lwcCompiler.transformSync(src, filePath, {
-            moduleName: 'test',
-            moduleNamespace: 'x',
+            name: 'test',
+            namespace: 'x',
             outputConfig: {
                 sourcemap: true,
             },

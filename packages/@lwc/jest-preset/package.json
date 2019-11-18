@@ -8,7 +8,6 @@
         "LWC"
     ],
     "files": [
-        "/src/3rdparty/**/*.js",
         "/src/stubs/*.js",
         "/src/*.js"
     ],

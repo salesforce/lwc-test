@@ -12,12 +12,10 @@ module.exports = {
         '^instrumentation-service$': require.resolve('./src/stubs/auraInstrumentation.js'),
         '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
     },
-    testEnvironment: require.resolve('./src/3rdparty/jest-environment-jsdom-fifteen'),
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {
         '^.+\\.(js|html|css)$': require.resolve('@lwc/jest-transformer'),
     },
-    setupFilesAfterEnv: [require.resolve('./src/scripts/setup.js')],
     snapshotSerializers: [require.resolve('@lwc/jest-serializer')],
     testMatch: ['**/__tests__/**/?(*.)(spec|test).js'],
 

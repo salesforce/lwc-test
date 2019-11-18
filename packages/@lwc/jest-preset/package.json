@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-preset",
-    "version": "3.0.0-alpha.11",
+    "version": "3.0.0-alpha.12",
     "description": "Jest preset configuration and stubs to help test LWC",
     "license": "MIT",
     "keywords": [
@@ -20,9 +20,9 @@
         "@jest/environment": "^24.3.0",
         "@jest/fake-timers": "^24.3.0",
         "@jest/types": "^24.3.0",
-        "@lwc/jest-resolver": "3.0.0-alpha.11",
-        "@lwc/jest-serializer": "3.0.0-alpha.11",
-        "@lwc/jest-transformer": "3.0.0-alpha.11",
+        "@lwc/jest-resolver": "3.0.0-alpha.12",
+        "@lwc/jest-serializer": "3.0.0-alpha.12",
+        "@lwc/jest-transformer": "3.0.0-alpha.12",
         "jest-mock": "^24.0.0",
         "jest-util": "^24.0.0",
         "jsdom": "^15.2.1"

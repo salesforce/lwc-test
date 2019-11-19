@@ -32,13 +32,15 @@ const FRAG_ID_ATTRS_TO_REMOVE = [
 
 // Tag names of elements that use attributes that can use fragment id values
 const FRAG_ID_TAG_NAME_SET = new Set([
-    'A',
-    'AREA',
-    'USE',
+    'a',
+    'area',
+    'use',
 ]);
 
 function cleanElementAttributes(elm) {
-    if (FRAG_ID_TAG_NAME_SET.has(elm.tagName)) {
+    // The `use` element's tagName value is lowercase!
+    const tagName = elm.tagName.toLowerCase();
+    if (FRAG_ID_TAG_NAME_SET.has(tagName)) {
         FRAG_ID_ATTRS_TO_REMOVE.forEach(name => {
             const value = elm.getAttribute(name);
             if (/^#/.test(value)) {

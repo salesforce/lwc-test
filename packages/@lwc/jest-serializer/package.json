@@ -8,6 +8,9 @@
         "Jest",
         "LWC"
     ],
+    "scripts": {
+        "test": "jest"
+    },
     "dependencies": {
         "pretty-format": "~24.8.0"
     },

@@ -7,7 +7,7 @@
 const PrettyFormat = require('pretty-format');
 const DOMElement = PrettyFormat.plugins.DOMElement;
 
-const cleanElementAttributes = require('./src/clean-element-attrs');
+const cleanElementAttributes = require('./clean-element-attrs');
 
 function test({ nodeType } = {}) {
     return (

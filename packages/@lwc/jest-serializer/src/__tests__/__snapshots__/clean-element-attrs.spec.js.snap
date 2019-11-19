@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clean element attributes should remove all id-referencing aria attributes 1`] = `
+<div>
+   
+  <div>
+    aria-activedescendant
+  </div>
+   
+  <div>
+    aria-controls
+  </div>
+   
+  <div>
+    aria-describedby
+  </div>
+   
+  <div>
+    aria-details
+  </div>
+   
+  <div>
+    aria-errormessage
+  </div>
+   
+  <div>
+    aria-flowto
+  </div>
+   
+  <div>
+    aria-labelledby
+  </div>
+   
+  <div>
+    aria-owns
+  </div>
+   
+</div>
+`;
+
+exports[`clean element attributes should remove both id and for attributes 1`] = `
+<div>
+   
+  <label>
+    Do you like cheese?
+  </label>
+   
+  <input
+    name="cheese"
+    type="checkbox"
+  />
+   
+</div>
+`;
+
+exports[`clean element attributes should remove the href and xlink:href attributes if it is a fragment id for svg use tags 1`] = `
+<div>
+   
+  <svg
+    height="100px"
+    viewport="0 0 100 100"
+    width="100px"
+  >
+     
+    <defs>
+       
+      <circle
+        cx="10"
+        cy="10"
+        fill="black"
+        r="10"
+      />
+       
+      <circle
+        cx="14"
+        cy="14"
+        fill="red"
+        r="10"
+      />
+       
+    </defs>
+     
+    <use />
+     
+    <use />
+     
+  </svg>
+   
+</div>
+`;
+
+exports[`clean element attributes should remove the href attribute if it is a fragment id for anchor tags 1`] = `
+<div>
+   
+  <a>
+    ny state of mind
+  </a>
+   
+  <a
+    href="https://nystateofmind.com"
+  >
+    ny state of mind
+  </a>
+   
+</div>
+`;
+
+exports[`clean element attributes should remove the href attribute if it is a fragment id for area tags 1`] = `
+<div>
+   
+  <map
+    name="kyoto"
+  >
+     
+    <area />
+     
+    <area />
+     
+    <area
+      href="https://duckduckgo.com/?q=kyoto"
+    />
+     
+  </map>
+   
+</div>
+`;
+
+exports[`clean element attributes should remove the lwc:host attribute 1`] = `
+<div>
+   
+  <div>
+    12345
+  </div>
+   
+  <div>
+    abcde
+  </div>
+   
+</div>
+`;

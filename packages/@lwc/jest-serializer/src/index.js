@@ -7,6 +7,8 @@
 const PrettyFormat = require('pretty-format');
 const DOMElement = PrettyFormat.plugins.DOMElement;
 
+const cleanElementAttributes = require('./clean-element-attrs');
+
 function test({ nodeType } = {}) {
     return (
         nodeType &&
@@ -41,6 +43,11 @@ function printChildren(children, config, indentation, depth, refs, printer) {
 }
 
 function serialize(node, config, indentation, depth, refs, printer) {
+    const isElement = node.nodeType === 1;
+    if (isElement) {
+        cleanElementAttributes(node);
+    }
+
     const lightChildren = Array.prototype.slice.call(node.childNodes);
     defineProperty(node, 'childNodes', {
         get() {

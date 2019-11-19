@@ -2,12 +2,15 @@
     "name": "@lwc/jest-serializer",
     "version": "2.2.0",
     "description": "Custom Jest snapshot serializer",
-    "main": "index.js",
+    "main": "src/index.js",
     "license": "MIT",
     "keywords": [
         "Jest",
         "LWC"
     ],
+    "scripts": {
+        "test": "jest"
+    },
     "dependencies": {
         "pretty-format": "~24.8.0"
     },

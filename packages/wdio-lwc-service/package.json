@@ -18,9 +18,8 @@
     "static-server": "^2.2.1"
   },
   "peerDependencies": {
-    "@lwc/rollup-plugin": ">=1.1.13",
     "compat-polyfills": ">=0.21.4",
-    "lwc": ">=1.1.13",
+    "lwc": "^1.1.15",
     "rollup-plugin-compat": ">=0.21.4"
   },
   "keywords": [

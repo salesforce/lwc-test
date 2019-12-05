@@ -14,8 +14,7 @@ const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 
-const engineVersion = getVersion();
-const compilerVersion = require('@lwc/compiler/package.json').version;
+const lwcVersion = getVersion();
 
 const apexScopedImport = require('./transforms/apex-scoped-import');
 const apexContinuationScopedImport = require('./transforms/apex-continuation-scoped-import');
@@ -75,7 +74,7 @@ module.exports = {
             .createHash('md5')
             .update(JSON.stringify(options), 'utf8')
             .update(
-                fileData + filePath + configStr + NODE_ENV + compilerVersion + engineVersion,
+                fileData + filePath + configStr + NODE_ENV + lwcVersion,
                 'utf8'
             )
             .digest('hex');

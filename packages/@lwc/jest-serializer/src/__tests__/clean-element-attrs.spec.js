@@ -1,5 +1,5 @@
-describe('clean element attributes', () => {
-    it('should remove both id and for attributes', () => {
+describe('serialized element attributes', () => {
+    it('should replace both id and for attributes with placeholders', () => {
         const elm = document.createElement('div');
         elm.innerHTML = `
             <label for="cheese">Do you like cheese?</label>
@@ -8,7 +8,7 @@ describe('clean element attributes', () => {
         expect(elm).toMatchSnapshot();
     });
 
-    it('should remove all id-referencing aria attributes', () => {
+    it('should replace all id-referencing aria attributes with placeholders', () => {
         const elm = document.createElement('div');
         elm.innerHTML = `
             <div aria-activedescendant="aria-activedescendant">aria-activedescendant</div>
@@ -32,7 +32,7 @@ describe('clean element attributes', () => {
         expect(elm).toMatchSnapshot();
     });
 
-    it('should remove the href attribute if it is a fragment id for anchor tags', () => {
+    it('should replace the href attribute with a placeholder if it is a fragment id for anchor tags', () => {
         const elm = document.createElement('div');
         elm.innerHTML = `
             <a href="#ny-state-of-mind">ny state of mind</a>
@@ -41,7 +41,7 @@ describe('clean element attributes', () => {
         expect(elm).toMatchSnapshot();
     });
 
-    it('should remove the href attribute if it is a fragment id for area tags', () => {
+    it('should replace the href attribute with a placeholder if it is a fragment id for area tags', () => {
         const elm = document.createElement('div');
         elm.innerHTML = `
             <map name="kyoto">
@@ -53,7 +53,7 @@ describe('clean element attributes', () => {
         expect(elm).toMatchSnapshot();
     });
 
-    it('should remove the href and xlink:href attributes if it is a fragment id for svg use tags', () => {
+    it('should replace the href and xlink:href attributes with placeholders if it is a fragment id for svg use tags', () => {
         const elm = document.createElement('div');
         elm.innerHTML = `
             <svg width="100px" height="100px" viewport="0 0 100 100">

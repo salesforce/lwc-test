@@ -1,51 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`clean element attributes should remove all id-referencing aria attributes 1`] = `
+exports[`serialized element attributes should remove the lwc:host attribute 1`] = `
 <div>
    
   <div>
+    12345
+  </div>
+   
+  <div>
+    abcde
+  </div>
+   
+</div>
+`;
+
+exports[`serialized element attributes should replace all id-referencing aria attributes with placeholders 1`] = `
+<div>
+   
+  <div
+    aria-activedescendant="[shadow:guid]"
+  >
     aria-activedescendant
   </div>
    
-  <div>
+  <div
+    aria-controls="[shadow:guid]"
+  >
     aria-controls
   </div>
    
-  <div>
+  <div
+    aria-describedby="[shadow:guid]"
+  >
     aria-describedby
   </div>
    
-  <div>
+  <div
+    aria-details="[shadow:guid]"
+  >
     aria-details
   </div>
    
-  <div>
+  <div
+    aria-errormessage="[shadow:guid]"
+  >
     aria-errormessage
   </div>
    
-  <div>
+  <div
+    aria-flowto="[shadow:guid]"
+  >
     aria-flowto
   </div>
    
-  <div>
+  <div
+    aria-labelledby="[shadow:guid]"
+  >
     aria-labelledby
   </div>
    
-  <div>
+  <div
+    aria-owns="[shadow:guid]"
+  >
     aria-owns
   </div>
    
 </div>
 `;
 
-exports[`clean element attributes should remove both id and for attributes 1`] = `
+exports[`serialized element attributes should replace both id and for attributes with placeholders 1`] = `
 <div>
    
-  <label>
+  <label
+    for="[shadow:guid]"
+  >
     Do you like cheese?
   </label>
    
   <input
+    id="[shadow:guid]"
     name="cheese"
     type="checkbox"
   />
@@ -53,7 +86,7 @@ exports[`clean element attributes should remove both id and for attributes 1`] =
 </div>
 `;
 
-exports[`clean element attributes should remove the href and xlink:href attributes if it is a fragment id for svg use tags 1`] = `
+exports[`serialized element attributes should replace the href and xlink:href attributes with placeholders if it is a fragment id for svg use tags 1`] = `
 <div>
    
   <svg
@@ -68,6 +101,7 @@ exports[`clean element attributes should remove the href and xlink:href attribut
         cx="10"
         cy="10"
         fill="black"
+        id="[shadow:guid]"
         r="10"
       />
        
@@ -75,24 +109,31 @@ exports[`clean element attributes should remove the href and xlink:href attribut
         cx="14"
         cy="14"
         fill="red"
+        id="[shadow:guid]"
         r="10"
       />
        
     </defs>
      
-    <use />
+    <use
+      href="[shadow:fragment-id]"
+    />
      
-    <use />
+    <use
+      xlink:href="[shadow:fragment-id]"
+    />
      
   </svg>
    
 </div>
 `;
 
-exports[`clean element attributes should remove the href attribute if it is a fragment id for anchor tags 1`] = `
+exports[`serialized element attributes should replace the href attribute with a placeholder if it is a fragment id for anchor tags 1`] = `
 <div>
    
-  <a>
+  <a
+    href="[shadow:fragment-id]"
+  >
     ny state of mind
   </a>
    
@@ -105,36 +146,26 @@ exports[`clean element attributes should remove the href attribute if it is a fr
 </div>
 `;
 
-exports[`clean element attributes should remove the href attribute if it is a fragment id for area tags 1`] = `
+exports[`serialized element attributes should replace the href attribute with a placeholder if it is a fragment id for area tags 1`] = `
 <div>
    
   <map
     name="kyoto"
   >
      
-    <area />
+    <area
+      href="[shadow:fragment-id]"
+    />
      
-    <area />
+    <area
+      href="[shadow:fragment-id]"
+    />
      
     <area
       href="https://duckduckgo.com/?q=kyoto"
     />
      
   </map>
-   
-</div>
-`;
-
-exports[`clean element attributes should remove the lwc:host attribute 1`] = `
-<div>
-   
-  <div>
-    12345
-  </div>
-   
-  <div>
-    abcde
-  </div>
    
 </div>
 `;

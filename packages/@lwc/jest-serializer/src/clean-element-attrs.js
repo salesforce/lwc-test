@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const FRAG_ID_ATTR_VALUE = '[shadow:fragment-id]';
 const GUID_ATTR_VALUE = '[shadow:guid]';
+const FRAG_ID_ATTR_VALUE = `#${GUID_ATTR_VALUE}`;
 
 // https://github.com/salesforce/lwc/blob/48e546f1d75a92ddc54febff6cecb89c3a2aafde/packages/%40lwc/template-compiler/src/parser/constants.ts#L29-L39
 const ID_REFERENCING_ATTRIBUTES_SET = [

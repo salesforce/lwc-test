@@ -116,11 +116,11 @@ exports[`serialized element attributes should replace the href and xlink:href at
     </defs>
      
     <use
-      href="[shadow:fragment-id]"
+      href="#[shadow:guid]"
     />
      
     <use
-      xlink:href="[shadow:fragment-id]"
+      xlink:href="#[shadow:guid]"
     />
      
   </svg>
@@ -132,7 +132,7 @@ exports[`serialized element attributes should replace the href attribute with a 
 <div>
    
   <a
-    href="[shadow:fragment-id]"
+    href="#[shadow:guid]"
   >
     ny state of mind
   </a>
@@ -154,11 +154,11 @@ exports[`serialized element attributes should replace the href attribute with a 
   >
      
     <area
-      href="[shadow:fragment-id]"
+      href="#[shadow:guid]"
     />
      
     <area
-      href="[shadow:fragment-id]"
+      href="#[shadow:guid]"
     />
      
     <area

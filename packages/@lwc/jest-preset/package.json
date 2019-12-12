@@ -17,15 +17,10 @@
         "lwc": "*"
     },
     "dependencies": {
-        "@jest/environment": "^24.3.0",
-        "@jest/fake-timers": "^24.3.0",
-        "@jest/types": "^24.3.0",
         "@lwc/jest-resolver": "4.1.0-224.0",
         "@lwc/jest-serializer": "4.1.0-224.0",
         "@lwc/jest-transformer": "4.1.0-224.0",
-        "jest-mock": "^24.0.0",
-        "jest-util": "^24.0.0",
-        "jsdom": "^15.2.1"
+        "jest-environment-jsdom-fifteen": "^1.0.2"
     },
     "engines": {
         "node": ">=10"

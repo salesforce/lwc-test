@@ -23,4 +23,8 @@ module.exports = {
     // temp workaround until this is released - https://github.com/facebook/jest/pull/6792
     testURL: 'http://localhost/',
     coveragePathIgnorePatterns: ['.css$', '.html$'],
+
+    // Use an up-to-date version of jsdom. Jest v24 comes with jsdom v11 which doesn't offer support
+    // for native shadow DOM.
+    testEnvironment: 'jest-environment-jsdom-fifteen',
 };

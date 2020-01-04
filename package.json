@@ -25,7 +25,6 @@
     "prettier": "~1.17.1"
   },
   "resolutions": {
-    "jsdom": "^15.2.1",
     "lodash": "^4.17.13",
     "lodash.template": "^4.5.0"
   }

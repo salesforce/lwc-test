@@ -13,8 +13,7 @@
     ],
     "main": "jest-preset.js",
     "peerDependencies": {
-        "jest": ">=24.9.0",
-        "lwc": "*"
+        "jest": ">=24.9.0"
     },
     "dependencies": {
         "@lwc/jest-resolver": "2.2.0",

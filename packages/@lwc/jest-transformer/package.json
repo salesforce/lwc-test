@@ -16,7 +16,7 @@
         "@babel/core": "7.1.0",
         "@babel/plugin-transform-modules-commonjs": "7.1.0",
         "@babel/template": "~7.1.2",
-        "@lwc/errors": "~1.1.15",
+        "@lwc/errors": "1.1.15",
         "babel-plugin-transform-dynamic-import": "^2.1.0",
         "babel-preset-jest": "^24.0.0"
     },

@@ -16,4 +16,8 @@ module.exports = {
             lines: 85,
         },
     },
+
+    // Use an up-to-date version of jsdom. Jest v24 comes with jsdom v11 which doesn't offer support
+    // for native shadow DOM.
+    testEnvironment: 'jest-environment-jsdom-fifteen',
 };

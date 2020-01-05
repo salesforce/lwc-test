@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-resolver",
-    "version": "4.1.0",
+    "version": "4.2.0",
     "description": "Jest resolver to resolve LWC specific packages",
     "main": "src/index.js",
     "keywords": [

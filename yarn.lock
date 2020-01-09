@@ -1505,6 +1505,11 @@
   resolved "https://registry.yarnpkg.com/@lwc/synthetic-shadow/-/synthetic-shadow-1.1.13-224.3.tgz#504858dfe19d29e92144c2062778109ad2e63171"
   integrity sha512-rwnnaA/8zfqfddaXQWBrev9+9NOrVY7poVevQ/AxEUT9KYzQx3xmz1sifOwrIO9VAcMi5/3HMh30D+1LYiw1EQ==
 
+"@lwc/synthetic-shadow@1.1.13-224.4":
+  version "1.1.13-224.4"
+  resolved "https://registry.yarnpkg.com/@lwc/synthetic-shadow/-/synthetic-shadow-1.1.13-224.4.tgz#b08dcca346c2f7e465c3b80e18578248b26c23f7"
+  integrity sha512-Eb7zWrIWHqv+Rnh4mBWHCUHMKXNqIRXEDPe84mmS4zdXLgiYfJXUOqMUlZVYAnPfh+snKU/JoYZCdVlV7St0xw==
+
 "@lwc/template-compiler@1.1.13-224.3":
   version "1.1.13-224.3"
   resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-1.1.13-224.3.tgz#8a3d7c464244c2edbbcf5503bd669f3cebcb3247"

@@ -15,6 +15,7 @@
     "peerDependencies": {
         "@lwc/compiler": "*",
         "@lwc/errors": "*",
+        "@lwc/module-resolver": "*",
         "@lwc/synthetic-shadow": "*",
         "jest": ">=24.9.0"
     },

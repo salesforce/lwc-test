@@ -11,10 +11,10 @@
         "/resources/",
         "/src/index.js"
     ],
-    "peerDependencies": {
-        "@lwc/module-resolver": "*"
-    },
     "license": "MIT",
+    "devDependencies": {
+        "@lwc/jest-preset": "4.1.0-224.2"
+    },
     "engines": {
         "node": ">=10"
     }

@@ -6,7 +6,6 @@
  */
 const fs = require('fs');
 const { resolve, extname, join, dirname, basename } = require('path');
-const lwcResolver = require('@lwc/module-resolver');
 
 /*
  * In Jest version 24 the default resolver was renamed to camelCase. Temporarily
@@ -31,7 +30,6 @@ const WHITELISTED_LWC_PACKAGES = {
     'wire-service': '@lwc/wire-service',
     'wire-service-jest-util': 'lwc-wire-service-jest-util',
 };
-const lwcMap = lwcResolver.resolveModules();
 
 // This logic is somewhat the same in the compiler resolution system
 // We should try to consolidate it at some point.
@@ -53,11 +51,6 @@ function getLwcPath(path, options) {
     // If is a special LWC package, resolve it from commonjs
     if (WHITELISTED_LWC_PACKAGES[path]) {
         return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
-    }
-
-    // If is an LWC module from npm resolve it relative to this folder
-    if (lwcMap[path]) {
-        return resolve(lwcMap[path].entry);
     }
 
     // If is a CSS just resolve it to an empty file

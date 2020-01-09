@@ -12,6 +12,9 @@
         "/src/index.js"
     ],
     "license": "MIT",
+    "devDependencies": {
+        "@lwc/jest-preset": "4.1.0-224.2"
+    },
     "engines": {
         "node": ">=10"
     }

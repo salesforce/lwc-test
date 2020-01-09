@@ -1485,11 +1485,6 @@
   resolved "https://registry.yarnpkg.com/@lwc/features/-/features-1.1.13-224.3.tgz#e4b1f080ba17411c02454c92e8432d493640538c"
   integrity sha512-Max2pu+2HQmSv1OwXETWcBDcqwMcDa943mjKf5YNV37aInRqCVq5gnM4rROVzlKOoetXw3rca4NwS0yCLDrKug==
 
-"@lwc/module-resolver@1.1.13-224.3":
-  version "1.1.13-224.3"
-  resolved "https://registry.yarnpkg.com/@lwc/module-resolver/-/module-resolver-1.1.13-224.3.tgz#d8edfff406388996e0abb6b3f49afc1ce1b0a688"
-  integrity sha512-pZpg5iEs7D8MLenGscYq45ksF2t1IW1GAoup71Ub8/XWoLZ3aCX0j5ymkBc8ZZujeWxq47gQPgzXohpFWiOkEQ==
-
 "@lwc/shared@1.1.13-224.3":
   version "1.1.13-224.3"
   resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-1.1.13-224.3.tgz#b1087a5bb488077ddce30697ebb1bcadfa9ae9b7"

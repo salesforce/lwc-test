@@ -1463,22 +1463,10 @@
     rollup-plugin-replace "^2.1.0"
     terser "^3.17.0"
 
-"@lwc/engine@1.1.13-224.4":
-  version "1.1.13-224.4"
-  resolved "https://registry.yarnpkg.com/@lwc/engine/-/engine-1.1.13-224.4.tgz#ba46da32160f6ad8106576a29cf6fc0c16e4df6e"
-  integrity sha512-6ORVKhbb75m7VkTUohfrezb+RXd7BTst1SY4EHFVWrR19/3ta3D83hvbCOn73DR2gIlnLNEJDVcfG/c6B6KAvQ==
-  dependencies:
-    observable-membrane "0.26.1"
-
 "@lwc/errors@1.1.13-224.4":
   version "1.1.13-224.4"
   resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.1.13-224.4.tgz#23e8b8782ed8332044e9b7161c61890baecda9da"
   integrity sha512-LqCZcj8ZPpjnmkUwJG4DkDk6lYUitUz25kiHBDuwe4aK4V+DwvbL4ckxnqunOXonyGlW3Ln5oJAdwlS5KLq/5Q==
-
-"@lwc/features@1.1.13-224.4":
-  version "1.1.13-224.4"
-  resolved "https://registry.yarnpkg.com/@lwc/features/-/features-1.1.13-224.4.tgz#91a088950ee279be6c58ba490a1e7edcdebc95d1"
-  integrity sha512-mXh4PLtdDatqwuT73i3aMe1yO6S/LfnhIWlvp5SPZmgrsoNwEioc5l0aOaQCN+fyKJo65eJVPtXkXEUO1U7nDg==
 
 "@lwc/shared@1.1.13-224.4":
   version "1.1.13-224.4"
@@ -1516,11 +1504,6 @@
     esutils "^2.0.2"
     he "^1.1.1"
     parse5-with-errors "4.0.3-beta1"
-
-"@lwc/wire-service@1.1.13-224.4":
-  version "1.1.13-224.4"
-  resolved "https://registry.yarnpkg.com/@lwc/wire-service/-/wire-service-1.1.13-224.4.tgz#a71e5dd38c2a882b6499ac75688d3dee6cb68dcc"
-  integrity sha512-5AJw1Ybux4+w+ep6ixIOn7QI1LpG3sgzuiLPayteoMySlbBLDXM1lPKVWviRXWXhzT+w2/5Zj0f72M5d4zW6uA==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -5146,17 +5129,6 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
-lwc@1.1.13-224.4:
-  version "1.1.13-224.4"
-  resolved "https://registry.yarnpkg.com/lwc/-/lwc-1.1.13-224.4.tgz#6688e3faacd0d73bfff30dfab283431309bfdd40"
-  integrity sha512-hbA4DF17AvnG08iONom1mwBfMAzi6+zh82W5249IJqYUZVLle7ky820hpLfrIFuFvcWaSlcWxUGsZ85hFExtUg==
-  dependencies:
-    "@lwc/compiler" "1.1.13-224.4"
-    "@lwc/engine" "1.1.13-224.4"
-    "@lwc/features" "1.1.13-224.4"
-    "@lwc/synthetic-shadow" "1.1.13-224.4"
-    "@lwc/wire-service" "1.1.13-224.4"
-
 macos-release@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/macos-release/-/macos-release-2.2.0.tgz#ab58d55dd4714f0a05ad4b0e90f4370fef5cdea8"
@@ -5764,11 +5736,6 @@ object.pick@^1.3.0:
   integrity sha1-h6EKxMFpS9Lhy/U1kaZhQftd10c=
   dependencies:
     isobject "^3.0.1"
-
-observable-membrane@0.26.1:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/observable-membrane/-/observable-membrane-0.26.1.tgz#5619a7b2f4b0414d62b3e6cc2ea65734a08cce7a"
-  integrity sha512-fBxLHtd0pUFI/rKh6Dfn9fxjEgY4NkRIqlPEKa9fR28rC9CQDfQ5P+t292CtAArtXOQ1mF8Nq9m1cF52IdN8DA==
 
 octokit-pagination-methods@^1.1.0:
   version "1.1.0"

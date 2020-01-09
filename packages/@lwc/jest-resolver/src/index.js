@@ -26,12 +26,18 @@ try {
 const EMPTY_CSS_MOCK = resolve(__dirname, '..', 'resources', 'emptyStyleMock.js');
 const EMPTY_HTML_MOCK = resolve(__dirname, '..', 'resources', 'emptyHtmlMock.js');
 
-const WHITELISTED_LWC_PACKAGES = {
-    lwc: '@lwc/engine',
-    'wire-service': '@lwc/wire-service',
-    'wire-service-jest-util': 'lwc-wire-service-jest-util',
-};
-const lwcMap = lwcResolver.resolveModules();
+const lwcMap = lwcResolver
+    .resolveModules({
+        modules: [
+            '@lwc/engine',
+            '@lwc/wire-service',
+            '@salesforce/wire-service-jest-util',
+        ],
+    })
+    .reduce((acc, { specifier, entry }) => {
+        acc[specifier] = entry;
+        return acc;
+    }, {})
 
 // This logic is somewhat the same in the compiler resolution system
 // We should try to consolidate it at some point.
@@ -50,9 +56,9 @@ function isImplicitHTMLImport(importee, { basedir }) {
 }
 
 function getLwcPath(path, options) {
-    // If is a special LWC package, resolve it from commonjs
-    if (WHITELISTED_LWC_PACKAGES[path]) {
-        return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
+    // Legacy mapping. Not sure if we can remove.
+    if (path === 'wire-service-jest-util') {
+        return require.resolve('lwc-wire-service-jest-util');
     }
 
     // If is an LWC module from npm resolve it relative to this folder

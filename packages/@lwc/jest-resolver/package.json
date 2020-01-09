@@ -11,6 +11,9 @@
         "/resources/",
         "/src/index.js"
     ],
+    "devDependencies": {
+        "@lwc/jest-preset": "4.3.0"
+    },
     "peerDependencies": {
         "@lwc/module-resolver": "*"
     },

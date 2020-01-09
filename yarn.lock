@@ -1475,10 +1475,10 @@
   resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.1.13-224.3.tgz#e3d848cb16edac9835b744d7623ea04726d6276a"
   integrity sha512-og058jAOWbC4xNs9YjesBL3JdqU/M0s+O2OByO9vfd4Jm763UsLTSpxrHFLY22MEkctqOf9b+PI6ftiDJjho9A==
 
-"@lwc/errors@~1.1.13":
-  version "1.1.13"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.1.13.tgz#11308d7b4ffbf52f4785c35e6e524f95320cf41d"
-  integrity sha512-RoMeiL6IPdoAl1M+X9QCCQ/5gWIQ+B3aDDgbZTog2vk33vaLzRinAtsjhZCtLJg6atN2uQ8zJEUCJVCm3IjDNg==
+"@lwc/errors@1.1.13-224.4":
+  version "1.1.13-224.4"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.1.13-224.4.tgz#23e8b8782ed8332044e9b7161c61890baecda9da"
+  integrity sha512-LqCZcj8ZPpjnmkUwJG4DkDk6lYUitUz25kiHBDuwe4aK4V+DwvbL4ckxnqunOXonyGlW3Ln5oJAdwlS5KLq/5Q==
 
 "@lwc/features@1.1.13-224.3":
   version "1.1.13-224.3"

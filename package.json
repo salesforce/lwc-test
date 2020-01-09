@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@lwc/compiler": "1.1.13-224.4",
+    "@lwc/engine": "1.1.13-224.4",
     "@lwc/errors": "1.1.13-224.4",
     "@lwc/synthetic-shadow": "1.1.13-224.4",
     "babel-eslint": "~10.0.1",

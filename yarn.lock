@@ -1463,6 +1463,13 @@
     rollup-plugin-replace "^2.1.0"
     terser "^3.17.0"
 
+"@lwc/engine@1.1.13-224.4":
+  version "1.1.13-224.4"
+  resolved "https://registry.yarnpkg.com/@lwc/engine/-/engine-1.1.13-224.4.tgz#ba46da32160f6ad8106576a29cf6fc0c16e4df6e"
+  integrity sha512-6ORVKhbb75m7VkTUohfrezb+RXd7BTst1SY4EHFVWrR19/3ta3D83hvbCOn73DR2gIlnLNEJDVcfG/c6B6KAvQ==
+  dependencies:
+    observable-membrane "0.26.1"
+
 "@lwc/errors@1.1.13-224.4":
   version "1.1.13-224.4"
   resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-1.1.13-224.4.tgz#23e8b8782ed8332044e9b7161c61890baecda9da"
@@ -5736,6 +5743,11 @@ object.pick@^1.3.0:
   integrity sha1-h6EKxMFpS9Lhy/U1kaZhQftd10c=
   dependencies:
     isobject "^3.0.1"
+
+observable-membrane@0.26.1:
+  version "0.26.1"
+  resolved "https://registry.yarnpkg.com/observable-membrane/-/observable-membrane-0.26.1.tgz#5619a7b2f4b0414d62b3e6cc2ea65734a08cce7a"
+  integrity sha512-fBxLHtd0pUFI/rKh6Dfn9fxjEgY4NkRIqlPEKa9fR28rC9CQDfQ5P+t292CtAArtXOQ1mF8Nq9m1cF52IdN8DA==
 
 octokit-pagination-methods@^1.1.0:
   version "1.1.0"

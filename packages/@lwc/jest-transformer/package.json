@@ -21,6 +21,7 @@
         "babel-preset-jest": "^24.0.0"
     },
     "peerDependencies": {
+        "@lwc/compiler": "*",
         "jest": ">= 24.0.0"
     },
     "devDependencies": {

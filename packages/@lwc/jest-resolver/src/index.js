@@ -48,7 +48,7 @@ function isImplicitHTMLImport(importee, { basedir }) {
 }
 
 function getLwcPath(path, options) {
-    // Legacy mapping. Not sure if we can remove.
+    // If is a special LWC package, resolve it from commonjs
     if (WHITELISTED_LWC_PACKAGES[path]) {
         return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
     }

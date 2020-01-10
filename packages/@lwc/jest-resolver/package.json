@@ -14,9 +14,6 @@
     "devDependencies": {
         "@lwc/jest-preset": "4.3.0"
     },
-    "peerDependencies": {
-        "@lwc/module-resolver": "*"
-    },
     "license": "MIT",
     "engines": {
         "node": ">=10"

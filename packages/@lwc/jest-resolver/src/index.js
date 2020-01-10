@@ -6,7 +6,6 @@
  */
 const fs = require('fs');
 const { resolve, extname, join, dirname, basename } = require('path');
-const lwcResolver = require('@lwc/module-resolver');
 
 /*
  * In Jest version 24 the default resolver was renamed to camelCase. Temporarily
@@ -26,18 +25,11 @@ try {
 const EMPTY_CSS_MOCK = resolve(__dirname, '..', 'resources', 'emptyStyleMock.js');
 const EMPTY_HTML_MOCK = resolve(__dirname, '..', 'resources', 'emptyHtmlMock.js');
 
-const lwcMap = lwcResolver
-    .resolveModules({
-        modules: [
-            '@lwc/engine',
-            '@lwc/wire-service',
-            '@salesforce/wire-service-jest-util',
-        ],
-    })
-    .reduce((acc, { specifier, entry }) => {
-        acc[specifier] = entry;
-        return acc;
-    }, {})
+const WHITELISTED_LWC_PACKAGES = {
+    lwc: '@lwc/engine',
+    'wire-service': '@lwc/wire-service',
+    'wire-service-jest-util': 'lwc-wire-service-jest-util',
+};
 
 // This logic is somewhat the same in the compiler resolution system
 // We should try to consolidate it at some point.
@@ -57,13 +49,8 @@ function isImplicitHTMLImport(importee, { basedir }) {
 
 function getLwcPath(path, options) {
     // Legacy mapping. Not sure if we can remove.
-    if (path === 'wire-service-jest-util') {
-        return require.resolve('lwc-wire-service-jest-util');
-    }
-
-    // If is an LWC module from npm resolve it relative to this folder
-    if (lwcMap[path]) {
-        return resolve(lwcMap[path].entry);
+    if (WHITELISTED_LWC_PACKAGES[path]) {
+        return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
     }
 
     // If is a CSS just resolve it to an empty file

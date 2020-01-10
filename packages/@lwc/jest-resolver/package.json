@@ -11,8 +11,8 @@
         "/resources/",
         "/src/index.js"
     ],
-    "peerDependencies": {
-        "@lwc/module-resolver": "*"
+    "devDependencies": {
+        "@lwc/jest-preset": "4.3.0"
     },
     "license": "MIT",
     "engines": {

@@ -6,7 +6,6 @@
  */
 const path = require('path');
 const crypto = require('crypto');
-const { getVersion } = require('lwc');
 
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
@@ -14,7 +13,6 @@ const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 
-const engineVersion = getVersion();
 const compilerVersion = require('@lwc/compiler/package.json').version;
 
 const apexScopedImport = require('./transforms/apex-scoped-import');
@@ -75,7 +73,7 @@ module.exports = {
             .createHash('md5')
             .update(JSON.stringify(options), 'utf8')
             .update(
-                fileData + filePath + configStr + NODE_ENV + compilerVersion + engineVersion,
+                fileData + filePath + configStr + NODE_ENV + compilerVersion,
                 'utf8'
             )
             .digest('hex');

@@ -13,7 +13,6 @@ module.exports = function({ types: t }) {
         visitor: {
             ImportDeclaration(path) {
                 if (path.get('source.value').node.startsWith(ACCESS_CHECK_IMPORT_IDENTIFIER)) {
-                    debugger
                     stringScopedImportTransform(t, path, ACCESS_CHECK_IMPORT_IDENTIFIER);
                 }
             },

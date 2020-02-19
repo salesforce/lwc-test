@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dynamic-imports should render correct snapshot 1`] = `
+exports[`dynamic-imports should render dynamically imported component 1`] = `
 <example-dynamic-import>
   #shadow-root(open)
     <x-lazy>

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dynamic-imports should render correct snapshot 1`] = `
+<example-dynamic-import>
+  #shadow-root(open)
+    <x-lazy>
+      #shadow-root(open)
+        <p>
+          example-foo
+        </p>
+        <div
+          class="fooClass"
+        >
+          Hi from 
+          foo
+        </div>
+        <example-foo-inner>
+          #shadow-root(open)
+            <p
+              class="exampleFooInner"
+            >
+              example-foo-inner
+            </p>
+            <slot />
+          <div>
+            Passed Element
+          </div>
+        </example-foo-inner>
+        <other-bar>
+          #shadow-root(open)
+            <p
+              class="otherBar"
+            >
+              other-bar
+            </p>
+        </other-bar>
+    </x-lazy>
+</example-dynamic-import>
+`;

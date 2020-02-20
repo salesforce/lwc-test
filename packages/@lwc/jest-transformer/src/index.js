@@ -60,6 +60,9 @@ module.exports = {
             outputConfig: {
                 sourcemap: true,
             },
+            experimentalDynamicComponent: {
+                strictSpecifier: false
+            }
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap

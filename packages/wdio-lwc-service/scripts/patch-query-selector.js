@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+/* global browser */
 function patchQuerySelector() {
     // Patch global $ and $$ to allow selection from test component shadowRoot.
     const root = 'body :last-child';

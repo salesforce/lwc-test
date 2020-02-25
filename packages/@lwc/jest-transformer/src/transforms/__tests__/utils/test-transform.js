@@ -66,7 +66,6 @@ function makeTest(plugin, opts = {}) {
         });
     };
 
-    // eslint-disable-next-line jest/no-disabled-tests
     pluginTest.skip = name => test.skip(name);
 
     return pluginTest;

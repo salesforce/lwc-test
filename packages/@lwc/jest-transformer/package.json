@@ -13,11 +13,11 @@
         "/src/transforms/*.js"
     ],
     "dependencies": {
-        "@babel/core": "7.1.0",
-        "@babel/plugin-transform-modules-commonjs": "7.1.0",
-        "@babel/template": "~7.1.2",
+        "@babel/core": "7.8.4",
+        "@babel/plugin-transform-modules-commonjs": "7.8.3",
+        "@babel/template": "~7.8.3",
         "babel-plugin-transform-dynamic-import": "^2.1.0",
-        "babel-preset-jest": "^24.0.0"
+        "babel-preset-jest": "^25.1.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",

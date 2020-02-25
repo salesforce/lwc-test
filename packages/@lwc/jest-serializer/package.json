@@ -12,7 +12,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "pretty-format": "~24.8.0"
+        "pretty-format": "~25.1.0"
     },
     "engines": {
         "node": ">=10"

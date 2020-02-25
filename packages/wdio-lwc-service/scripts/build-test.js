@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-/* eslint-disable lwc/no-async-await */
 const rollup = require('rollup');
 const fs = require('fs-extra');
 const path = require('path');

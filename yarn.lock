@@ -3687,11 +3687,6 @@ escodegen@^1.11.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-webdriverio@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-webdriverio/-/eslint-plugin-webdriverio-1.0.1.tgz#51fe982fb9d49408ea0dad2fd2ae6e81b89425ce"
-  integrity sha1-Uf6YL7nUlAjqDa0v0q5ugbiUJc4=
-
 eslint-scope@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-5.0.0.tgz#e87c8887c73e8d1ec84f1ca591645c358bfc8fb9"

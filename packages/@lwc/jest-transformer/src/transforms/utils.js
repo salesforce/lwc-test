@@ -97,7 +97,7 @@ function getImportInfo(path, noValidate) {
         !noValidate &&
         (importSpecifiers.length !== 1 || !importSpecifiers[0].isImportDefaultSpecifier())
     ) {
-        throw new Error(
+        throw path.buildCodeFrameError(
             `Invalid import from ${importSource}. Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`
         );
     }

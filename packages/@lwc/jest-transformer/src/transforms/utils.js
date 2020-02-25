@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const { generateErrorMessage, JestTransformerErrors } = require('@lwc/errors');
 const babelTemplate = require('@babel/template').default;
 
 const defaultTemplate = babelTemplate(`
@@ -98,10 +97,9 @@ function getImportInfo(path, noValidate) {
         !noValidate &&
         (importSpecifiers.length !== 1 || !importSpecifiers[0].isImportDefaultSpecifier())
     ) {
-        throw generateError(path, {
-            errorInfo: JestTransformerErrors.INVALID_IMPORT,
-            messageArgs: [importSource],
-        });
+        throw path.buildCodeFrameError(
+            `Invalid import from ${importSource}. Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`
+        );
     }
 
     const resourceNames = importSpecifiers.map(
@@ -112,23 +110,6 @@ function getImportInfo(path, noValidate) {
         importSource,
         resourceNames,
     };
-}
-
-/**
- * Helper function for throwing a consistent error
- * @param {*} path
- * @param {*} config {
- *      errorInfo: Reference to the error info object,
- *      messageArgs: Array of arguments for the error message
- * }
- */
-function generateError(path, { errorInfo, messageArgs } = {}) {
-    const message = generateErrorMessage(errorInfo, messageArgs);
-    const error = path.buildCodeFrameError(message);
-
-    error.lwcCode = errorInfo.code;
-
-    return error;
 }
 
 module.exports = {

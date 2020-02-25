@@ -21,7 +21,6 @@
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "@lwc/errors": "*",
         "jest": ">= 24.9.0"
     },
     "devDependencies": {

@@ -6,3 +6,5 @@ coverage/
 
 fixtures/
 public/
+
+wdio-lwc-service/

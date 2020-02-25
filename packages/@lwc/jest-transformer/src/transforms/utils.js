@@ -6,40 +6,6 @@
  */
 const babelTemplate = require('@babel/template').default;
 
-const DiagnosticLevel = {
-    /** Unexpected error, parsing error, bundling error */
-    Fatal: 0,
-    /** Linting error with error level, invalid external reference, invalid import, invalid transform */
-    Error: 1,
-    /** Linting error with warning level, usage of an API to be deprecated */
-    Warning: 2,
-    /** Logging messages */
-    Log: 3,
-};
-
-const Errors = {
-    INVALID_IMPORT: {
-        code: 1114,
-        message:
-            'Invalid import from {0}. Only import the default using the following syntax: "import foo from \'@salesforce/label/c.foo\'"',
-        level: DiagnosticLevel.Error,
-        url: '',
-    },
-};
-
-function templateString(template, args) {
-    return template.replace(/\{([0-9]+)\}/g, (_, index) => {
-        return args[index];
-    });
-}
-
-function generateErrorMessage(errorInfo, args) {
-    const message = Array.isArray(args)
-        ? templateString(errorInfo.message, args)
-        : errorInfo.message;
-    return `LWC${errorInfo.code}: ${message}`;
-}
-
 const defaultTemplate = babelTemplate(`
     let RESOURCE_NAME;
     try {
@@ -131,10 +97,9 @@ function getImportInfo(path, noValidate) {
         !noValidate &&
         (importSpecifiers.length !== 1 || !importSpecifiers[0].isImportDefaultSpecifier())
     ) {
-        throw generateError(path, {
-            errorInfo: Errors.INVALID_IMPORT,
-            messageArgs: [importSource],
-        });
+        throw new Error(
+            `Invalid import from "${importSource}". Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`
+        );
     }
 
     const resourceNames = importSpecifiers.map(
@@ -145,23 +110,6 @@ function getImportInfo(path, noValidate) {
         importSource,
         resourceNames,
     };
-}
-
-/**
- * Helper function for throwing a consistent error
- * @param {*} path
- * @param {*} config {
- *      errorInfo: Reference to the error info object,
- *      messageArgs: Array of arguments for the error message
- * }
- */
-function generateError(path, { errorInfo, messageArgs } = {}) {
-    const message = generateErrorMessage(errorInfo, messageArgs);
-    const error = path.buildCodeFrameError(message);
-
-    error.lwcCode = errorInfo.code;
-
-    return error;
 }
 
 module.exports = {

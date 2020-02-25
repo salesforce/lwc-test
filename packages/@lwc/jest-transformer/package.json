@@ -17,7 +17,7 @@
         "@babel/plugin-transform-modules-commonjs": "7.1.0",
         "@babel/template": "~7.1.2",
         "babel-plugin-transform-dynamic-import": "^2.1.0",
-        "babel-preset-jest": "^24.0.0"
+        "babel-preset-jest": "^25.1.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",

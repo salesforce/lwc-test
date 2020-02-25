@@ -7,7 +7,6 @@
 // use import like consuming components will, and point to generated file in `dist` folder
 // via jest config
 
-// eslint-disable-next-line lwc/no-compat-execute
 import { labels, executeGlobalController } from 'aura';
 
 describe('auraStub.js', () => {

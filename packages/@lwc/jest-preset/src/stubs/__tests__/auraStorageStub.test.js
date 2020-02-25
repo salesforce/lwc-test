@@ -6,7 +6,7 @@
  */
 // use import like consuming components will, and point to generated file in `dist` folder
 // via jest config
-// eslint-disable-next-line lwc/no-compat-module-storage
+
 import storageService from 'aura-storage';
 
 describe('auraStorageStub.js', () => {

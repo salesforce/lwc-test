@@ -4,8 +4,41 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const { generateErrorMessage, JestTransformerErrors } = require('@lwc/errors');
 const babelTemplate = require('@babel/template').default;
+
+const DiagnosticLevel = {
+    /** Unexpected error, parsing error, bundling error */
+    Fatal: 0,
+    /** Linting error with error level, invalid external reference, invalid import, invalid transform */
+    Error: 1,
+    /** Linting error with warning level, usage of an API to be deprecated */
+    Warning: 2,
+    /** Logging messages */
+    Log: 3,
+};
+
+const Errors = {
+    INVALID_IMPORT: {
+        code: 1114,
+        message:
+            'Invalid import from {0}. Only import the default using the following syntax: "import foo from \'@salesforce/label/c.foo\'"',
+        level: DiagnosticLevel.Error,
+        url: '',
+    },
+};
+
+function templateString(template, args) {
+    return template.replace(/\{([0-9]+)\}/g, (_, index) => {
+        return args[index];
+    });
+}
+
+function generateErrorMessage(errorInfo, args) {
+    const message = Array.isArray(args)
+        ? templateString(errorInfo.message, args)
+        : errorInfo.message;
+    return `LWC${errorInfo.code}: ${message}`;
+}
 
 const defaultTemplate = babelTemplate(`
     let RESOURCE_NAME;
@@ -99,7 +132,7 @@ function getImportInfo(path, noValidate) {
         (importSpecifiers.length !== 1 || !importSpecifiers[0].isImportDefaultSpecifier())
     ) {
         throw generateError(path, {
-            errorInfo: JestTransformerErrors.INVALID_IMPORT,
+            errorInfo: Errors.INVALID_IMPORT,
             messageArgs: [importSource],
         });
     }

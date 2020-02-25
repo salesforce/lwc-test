@@ -98,7 +98,7 @@ function getImportInfo(path, noValidate) {
         (importSpecifiers.length !== 1 || !importSpecifiers[0].isImportDefaultSpecifier())
     ) {
         throw new Error(
-            `Invalid import from "${importSource}". Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`
+            `Invalid import from ${importSource}. Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`
         );
     }
 

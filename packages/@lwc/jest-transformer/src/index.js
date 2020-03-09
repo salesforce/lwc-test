@@ -11,7 +11,10 @@ const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
+const babelClassProperties = require('@babel/plugin-proposal-class-properties');
 const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
+const babelSyntaxDecorators = require('@babel/plugin-proposal-decorators');
+const babelTsPreset = require.resolve('@babel/preset-typescript');
 
 const compilerVersion = require('@lwc/compiler/package.json').version;
 
@@ -28,6 +31,19 @@ const userPermissionImport = require('./transforms/user-permission-scoped-import
 const clientScopedImport = require('./transforms/client-scoped-import');
 const messageChannelScopedImport = require('./transforms/message-channel-scoped-import');
 const accessCheck = require('./transforms/access-check-scoped-import');
+
+const BABEL_TS_CONFIG = {
+    plugins: [
+        babelClassProperties,
+        [
+            babelSyntaxDecorators,
+            {
+                decoratorsBeforeExport: true,
+            },
+        ],
+    ],
+    presets: [babelTsPreset],
+};
 
 const BABEL_CONFIG = {
     sourceMaps: 'both',
@@ -51,8 +67,24 @@ const BABEL_CONFIG = {
     ],
 };
 
+function isTypeScript(filePath) {
+    return path.extname(filePath) === '.ts';
+}
+
+function transformTypeScript(src, filePath) {
+    const { code } = babelCore.transform(src, {
+        ...BABEL_TS_CONFIG,
+        filename: filePath,
+    });
+    return code;
+}
+
 module.exports = {
     process(src, filePath) {
+        if (isTypeScript(filePath)) {
+            src = transformTypeScript(src, filePath);
+        }
+
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
         const { code, map } = lwcCompiler.transformSync(src, filePath, {
             name: 'test',
@@ -61,8 +93,8 @@ module.exports = {
                 sourcemap: true,
             },
             experimentalDynamicComponent: {
-                strictSpecifier: false
-            }
+                strictSpecifier: false,
+            },
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap
@@ -77,10 +109,7 @@ module.exports = {
         return crypto
             .createHash('md5')
             .update(JSON.stringify(options), 'utf8')
-            .update(
-                fileData + filePath + configStr + NODE_ENV + compilerVersion,
-                'utf8'
-            )
+            .update(fileData + filePath + configStr + NODE_ENV + compilerVersion, 'utf8')
             .digest('hex');
     },
 };

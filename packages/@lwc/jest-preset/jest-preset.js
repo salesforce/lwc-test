@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 module.exports = {
-    moduleFileExtensions: ['js', 'html'],
+    moduleFileExtensions: ['ts', 'js', 'html'],
     moduleNameMapper: {
         '^aura$': require.resolve('./src/stubs/aura.js'),
         '^aura-instrumentation$': require.resolve('./src/stubs/auraInstrumentation.js'),
@@ -14,7 +14,7 @@ module.exports = {
     },
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {
-        '^.+\\.(js|html|css)$': require.resolve('@lwc/jest-transformer'),
+        '^.+\\.(js|ts|html|css)$': require.resolve('@lwc/jest-transformer'),
     },
     setupFilesAfterEnv: [require.resolve('./src/setup.js')],
     snapshotSerializers: [require.resolve('@lwc/jest-serializer')],

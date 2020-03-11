@@ -18,7 +18,7 @@ module.exports = {
     },
     setupFilesAfterEnv: [require.resolve('./src/setup.js')],
     snapshotSerializers: [require.resolve('@lwc/jest-serializer')],
-    testMatch: ['**/__tests__/**/?(*.)(spec|test).js'],
+    testMatch: ['**/__tests__/**/?(*.)(spec|test).(js|ts)'],
 
     // temp workaround until this is released - https://github.com/facebook/jest/pull/6792
     testURL: 'http://localhost/',

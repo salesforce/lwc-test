@@ -13,12 +13,12 @@
         "/src/transforms/*.js"
     ],
     "dependencies": {
-        "@babel/core": "7.8.4",
+        "@babel/core": "7.8.7",
         "@babel/plugin-proposal-class-properties": "7.8.3",
         "@babel/plugin-proposal-decorators": "7.8.3",
         "@babel/plugin-transform-modules-commonjs": "7.8.3",
         "@babel/preset-typescript": "7.8.3",
-        "@babel/template": "~7.8.3",
+        "@babel/template": "~7.8.6",
         "babel-plugin-transform-dynamic-import": "^2.1.0",
         "babel-preset-jest": "^25.1.0"
     },

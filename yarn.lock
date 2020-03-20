@@ -1704,7 +1704,7 @@
     "@lwc/errors" "1.3.2"
     line-column "^1.0.2"
 
-"@lwc/compiler@1.3.2":
+"@lwc/compiler@^1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@lwc/compiler/-/compiler-1.3.2.tgz#a1b183b6f1917f972357f7183a69a0119e212242"
   integrity sha512-z7OHgXeS75zqev/SZRXgM1C30PEJW78RSLhnm8xOJdrKQs6ZsQVE3NduIDjG4GYTYcVxRpSAWzJ5nSGDotgrhw==
@@ -1721,7 +1721,7 @@
     rollup "^1.31.0"
     terser "^4.6.3"
 
-"@lwc/engine@1.3.2":
+"@lwc/engine@^1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@lwc/engine/-/engine-1.3.2.tgz#ffcceb5590f7bd8970554d3d983910709fa8100a"
   integrity sha512-cA11f0J3kzC/YpvIF63VOue9d4bVgy8Kfv+EZIrApkzYRsjaIYVYEX+paMsrT6oS737aIY7ByVl078SRElib3g==
@@ -1748,7 +1748,7 @@
     postcss-selector-parser "~6.0.2"
     postcss-value-parser "~4.0.2"
 
-"@lwc/synthetic-shadow@1.3.2":
+"@lwc/synthetic-shadow@^1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@lwc/synthetic-shadow/-/synthetic-shadow-1.3.2.tgz#be06cb086bc99d8750743f4f3e79c6fbc050f52f"
   integrity sha512-FsmV+Fy+87v6phcXaRuz0CsSFTQBl5gboMgOAMrjj0JcTdGgA2N8DXp1Mp6rrbx/c2pc8iPpp233+m0deVoHEg==
@@ -2326,7 +2326,7 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
   integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
 
-babel-eslint@~10.1.0:
+babel-eslint@^10.1.0:
   version "10.1.0"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.1.0.tgz#6968e568a910b78fb3779cdd8b6ac2f479943232"
   integrity sha512-ifWaTHQ0ce+448CYop8AdrQiBsGrnC+bMgfyKFdi6EsPLTAWG+QfyDeM6OH+FmWnKvEq5NnBMLvlBUPKQZoDSg==
@@ -7040,7 +7040,7 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prettier@~1.19.1:
+prettier@^1.19.1:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==

@@ -6,6 +6,7 @@
  */
 const fs = require('fs');
 const { resolve, extname, join, dirname, basename } = require('path');
+const lwcNpmResolver = require('@lwc/module-resolver');
 
 /*
  * In Jest version 24 the default resolver was renamed to camelCase. Temporarily
@@ -31,6 +32,14 @@ const WHITELISTED_LWC_PACKAGES = {
     'wire-service-jest-util': 'lwc-wire-service-jest-util',
 };
 
+const pkgJson = JSON.parse(fs.readFileSync(`package.json`, 'utf8'));
+
+let lwcMap = lwcNpmResolver.resolveModules({
+    modules: [...Object.keys(pkgJson.dependencies), ...Object.keys(pkgJson.devDependencies)],
+});
+
+lwcMap = lwcMap.reduce((map, m) => ((map[m.specifier] = m), map), {});
+
 // This logic is somewhat the same in the compiler resolution system
 // We should try to consolidate it at some point.
 function isImplicitHTMLImport(importee, { basedir }) {
@@ -51,6 +60,11 @@ function getLwcPath(path, options) {
     // If is a special LWC package, resolve it from commonjs
     if (WHITELISTED_LWC_PACKAGES[path]) {
         return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
+    }
+
+    // If is an LWC module from npm, resolve it relative to this folder
+    if (lwcMap[path]) {
+        return resolve(lwcMap[path].entry);
     }
 
     // If is a CSS just resolve it to an empty file

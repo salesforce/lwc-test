@@ -71,24 +71,25 @@ function isTypeScript(filePath) {
     return path.extname(filePath) === '.ts';
 }
 
-function transformTypeScript(src, filePath) {
-    const { code } = babelCore.transform(src, {
-        ...BABEL_TS_CONFIG,
-        filename: filePath,
-    });
-    return code;
-}
 
 module.exports = {
     process(src, filePath) {
+        let typescriptMap = undefined;
+        
         if (isTypeScript(filePath)) {
-            src = transformTypeScript(src, filePath);
+            const { code: tsCode, map: tsMap } = babelCore.transform(src, {
+                ...BABEL_TS_CONFIG,
+                filename: filePath,
+            });
+            src = tsCode;
+            typescriptMap = tsMap;
         }
 
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
         const { code, map } = lwcCompiler.transformSync(src, filePath, {
             name: 'test',
             namespace: 'x',
+            inputSourceMap: typescriptMap,
             outputConfig: {
                 sourcemap: true,
             },

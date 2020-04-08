@@ -75,7 +75,7 @@ function isTypeScript(filePath) {
 
 module.exports = {
     process(src, filePath) {
-        let typescriptSourceMap = undefined;
+        let typescriptSourceMap;
         
         if (isTypeScript(filePath)) {
             const { code: tsCode, map: tsMap } = babelCore.transform(src, {

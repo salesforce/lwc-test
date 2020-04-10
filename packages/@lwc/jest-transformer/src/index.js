@@ -72,17 +72,16 @@ function isTypeScript(filePath) {
     return path.extname(filePath) === '.ts';
 }
 
-function transformTypeScript(src, filePath) {	
-    const { code } = babelCore.transform(src, {	
-        ...BABEL_TS_CONFIG,	
-        filename: filePath,	
-    });	
-    return code;	
+function transformTypeScript(src, filePath) {
+    const { code } = babelCore.transform(src, {
+        ...BABEL_TS_CONFIG,
+        filename: filePath,
+    });
+    return code;
 }
 
 module.exports = {
     process(src, filePath) {
-        
         if (isTypeScript(filePath)) {
             src = transformTypeScript(src, filePath);
         }

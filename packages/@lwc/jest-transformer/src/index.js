@@ -33,6 +33,7 @@ const messageChannelScopedImport = require('./transforms/message-channel-scoped-
 const accessCheck = require('./transforms/access-check-scoped-import');
 
 const BABEL_TS_CONFIG = {
+    sourceMaps: 'inline',
     plugins: [
         babelClassProperties,
         [

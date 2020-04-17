@@ -45,6 +45,17 @@ function isValidWireAdapter(adapter) {
     return isValid;
 }
 
+/**
+ * Returns a wire adapter mock in the shape of:
+ *
+ * fn         : Used when adapter is invoked imperatively. It proxies to the original adapter function, if is callable.
+ * fn.adapter : A valid wire adapter class, consumable by @lwc/engine.
+ *              If the @originalAdapter.adapter or @originalAdapter is a valid wire adapter class, fn.adapter will
+ *              act as a proxy on it until a spy is attached.
+ *
+ * @param originalAdapter
+ * @returns {function(...[*]): *}
+ */
 function createWireAdapterMockClass(originalAdapter) {
     const noopAdapter = {
         connect(){},
@@ -65,7 +76,7 @@ function createWireAdapterMockClass(originalAdapter) {
     }
 
     if (typeof originalAdapter === "function") {
-        // Mostly for apex methods, lets ru
+        // Mostly used in apex methods
         baseAdapterFn = originalAdapter;
     }
 
@@ -76,6 +87,7 @@ function createWireAdapterMockClass(originalAdapter) {
 
     newAdapterMock.adapter = class WireAdapterMock {
         constructor(dataCallback) {
+            // if a test is spying these adapter, it means is overriding the implementation
             this._originalAdapter = (spies.length === 0 && baseAdapter)
                 ? (new baseAdapter(dataCallback)) : noopAdapter;
             this._dataCallback = dataCallback;

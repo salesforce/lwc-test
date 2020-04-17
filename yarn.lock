@@ -1752,6 +1752,11 @@
     he "^1.1.1"
     parse5-with-errors "4.0.3-beta1"
 
+"@lwc/wire-service@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@lwc/wire-service/-/wire-service-1.5.0.tgz#4f5214649adc8b0b664ce62803f667205ad8f097"
+  integrity sha512-8V7REjenJ/Q/zZ1BPZXCimwEEiXIUVE16bRsvTOqQQ/hiG3RyRbyUGS0XwrB5eJUxHpxzzmXUsCtzmLDntlTrQ==
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"

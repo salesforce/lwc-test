@@ -18,6 +18,7 @@
         "@lwc/compiler": "^1.5.0",
         "@lwc/engine": "^1.5.0",
         "@lwc/synthetic-shadow": "^1.5.0",
+        "@lwc/wire-service": "^1.5.0",
         "@types/jest": "^25.1.4",
         "babel-eslint": "^10.1.0",
         "eslint": "^6.8.0",

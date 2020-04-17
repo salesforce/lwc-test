@@ -25,43 +25,87 @@ if (shadowRootPrototype.$constructorCache$ === undefined) {
 }
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0
-global.adapterIdToAdapterMockMap = new Map();
+global.wireAdaptersRegistryHack = new Map();
 let originalRegisterDecorators;
 
-function createWireAdapterClass(baseAdapter) {
+function isValidWireAdapter(adapter) {
+    let isValid = false;
+    if (typeof adapter === "function") {
+        // lets check, if it is a valid adapter
+        try {
+            const adapterInstance = new adapter(()=>{});
+            isValid = typeof adapterInstance.connect === "function" &&
+                typeof adapterInstance.update === "function" &&
+                typeof adapterInstance.disconnect === "function";
+        } catch (e) {
+            isValid = false;
+        }
+    }
+
+    return isValid;
+}
+
+function createWireAdapterMockClass(originalAdapter) {
     const noopAdapter = {
         connect(){},
         update(){},
         disconnect(){},
     };
+    let baseAdapter;
+    let baseAdapterFn = ()=>{};
     const spies = [];
 
-    return class WireAdapterMock {
+    if (Object.prototype.hasOwnProperty.call(originalAdapter, 'adapter')) {
+        // Is more likely that the originalAdapter was registered with the wire service
+        // .adapter is the one that the engine will use, lets make it our base adapter
+        baseAdapter = originalAdapter.adapter;
+    } else if (isValidWireAdapter(originalAdapter)) {
+        // it may be the case that original adapter is a valid one, if is the case, lets use it as our base adapter
+        baseAdapter = originalAdapter;
+    }
+
+    if (typeof originalAdapter === "function") {
+        // Mostly for apex methods, lets ru
+        baseAdapterFn = originalAdapter;
+    }
+
+    // Support for adapters to be called imperatively, mainly for apex.
+    const newAdapterMock = function(...args) {
+        return baseAdapterFn.call(this, ...args);
+    };
+
+    newAdapterMock.adapter = class WireAdapterMock {
         constructor(dataCallback) {
-            this.originalAdapter = baseAdapter ? (new baseAdapter()) : noopAdapter;
+            this._originalAdapter = (spies.length === 0 && baseAdapter)
+                ? (new baseAdapter(dataCallback)) : noopAdapter;
             this._dataCallback = dataCallback;
 
             spies.forEach((spy) => spy.createInstance(this));
         }
         connect() {
             spies.forEach((spy) => spy.connect(this));
-            this.originalAdapter.connect();
+            this._originalAdapter.connect();
         }
         update(config) {
             spies.forEach((spy) => spy.update(this, config));
-            this.originalAdapter.update(config);
+            this._originalAdapter.update(config);
         }
         disconnect() {
             spies.forEach((spy) => spy.disconnect(this));
-            this.originalAdapter.disconnect();
+            this._originalAdapter.disconnect();
         }
         emit(value) {
             this._dataCallback(value);
         }
         static spyAdapter(spy) {
+            // this function is meant to be used by wire-service-jest-util library.
+            // When this is used, register* was called, thus replacing the wire behaviour.
+            // As consequence, it will stop calling the originalAdapter on new instances.
             spies.push(spy);
         }
-    }
+    };
+
+    return newAdapterMock;
 }
 
 function overriddenRegisterDecorators(Ctor, decoratorsMeta) {
@@ -69,35 +113,28 @@ function overriddenRegisterDecorators(Ctor, decoratorsMeta) {
 
     Object.keys(wire).forEach((adapterName) => {
         const adapter = wire[adapterName].adapter;
+        let wireAdapterMock = global.wireAdaptersRegistryHack.has(adapter);
 
-        if (!global.adapterIdToAdapterMockMap.has(adapter)) {
-            // validate the adapter
+        if (!wireAdapterMock) {
+            // Checking if the adapter is extensible, since with the wire reform,
+            // the adapterId must be:
+            // a) An extensible object (so backward compatibility is provided via register)
+            // b) A valid class.
+
             if (!Object.isExtensible(adapter)) {
-                throw new TypeError('Invalid adapterId, it must be extensible');
+                // if we are in case of a) lets throw now so the developer knows that they need to migrate their
+                // adapters.
+                throw new TypeError('Invalid adapterId, it must be extensible.');
             }
 
-            let isValid = false;
-            if (typeof adapter === "function") {
-                // lets check, if it is a valid adapter
-                try {
-                    const adapterInstance = new adapter(()=>{});
-                    isValid = typeof adapterInstance.connect === "function" &&
-                        typeof adapterInstance.update === "function" &&
-                        typeof adapterInstance.disconnect === "function";
-                } catch (e) {
-                    isValid = false;
-                }
-            }
+            // Lets create a whole replacement for this adapter.
+            wireAdapterMock = createWireAdapterMockClass(adapter);
 
-            const originalAdapter = isValid ? adapter : null;
-
-            const mockAdapter = createWireAdapterClass(originalAdapter);
-            Object.defineProperty(adapter, 'adapter', {
-                value: mockAdapter
-            });
-
-            global.adapterIdToAdapterMockMap.set(adapter, mockAdapter);
+            global.wireAdaptersRegistryHack.set(adapter, wireAdapterMock);
         }
+
+        // we are entirely replacing the wire adapter with one that can be spied on.
+        wire[adapterName].adapter = wireAdapterMock;
     });
 
     originalRegisterDecorators(Ctor, decoratorsMeta);
@@ -113,10 +150,8 @@ function installRegisterDecoratorsTrap(lwc) {
     originalRegisterDecorators = originalDescriptor.value;
 
     const newDescriptor = {
+        ...originalDescriptor,
         value: overriddenRegisterDecorators,
-        enumerable: originalDescriptor.enumerable,
-        writable: originalDescriptor.writable,
-        configurable: originalDescriptor.configurable,
     };
 
     Object.defineProperty(lwc, 'registerDecorators', newDescriptor);

@@ -4,14 +4,16 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { LightningElement, wire } from 'lwc';
-import { mockedWireAdapter } from 'example/adapter';
+import { LightningElement, api, wire } from 'lwc';
+import { realAdapter } from 'example/adapter';
 
-export default class SimpleComponent extends LightningElement {
+export default class WiredComponent extends LightningElement {
+    @api txt;
+
     wiredText;
 
-    @wire(mockedWireAdapter)
+    @wire(realAdapter, { text: '$txt' })
     setAdapterResult(value) {
-        this.wiredText = value;
+        this.wiredText = value.text;
     }
 }

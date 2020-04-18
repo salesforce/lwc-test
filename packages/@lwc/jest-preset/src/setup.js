@@ -125,7 +125,7 @@ function overriddenRegisterDecorators(Ctor, decoratorsMeta) {
 
     Object.keys(wire).forEach((adapterName) => {
         const adapter = wire[adapterName].adapter;
-        let wireAdapterMock = global.wireAdaptersRegistryHack.has(adapter);
+        let wireAdapterMock = global.wireAdaptersRegistryHack.get(adapter);
 
         if (!wireAdapterMock) {
             // Checking if the adapter is extensible, since with the wire reform,

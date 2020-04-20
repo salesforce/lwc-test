@@ -29,4 +29,16 @@ describe('example-simpleComponent', () => {
             });
         });
     });
+
+    describe('test a component with invalid, mocked wire-adapter is working in jsdom', () => {
+        it('should render the component without error', () => {
+            const element = createElement('example-simple-component', { is: SimpleComponent });
+            document.body.appendChild(element);
+
+            return Promise.resolve().then(() => {
+                const paragraphWithText = element.shadowRoot.querySelector('.wired-text');
+                expect(paragraphWithText).not.toBeNull();
+            })
+        });
+    });
 });

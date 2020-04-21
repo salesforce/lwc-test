@@ -7,13 +7,7 @@
 import { LightningElement, api, wire } from 'lwc';
 import { realAdapter } from 'example/adapter';
 
-function getNavigationMixin(BaseClass) {
-    return class extends BaseClass {
-        @api foo;
-    }
-}
-
-export default class WiredComponent extends getNavigationMixin(LightningElement) {
+export default class WiredComponent extends LightningElement {
     @api txt;
 
     wiredText;

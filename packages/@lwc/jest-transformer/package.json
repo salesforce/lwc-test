@@ -13,14 +13,14 @@
         "/src/transforms/*.js"
     ],
     "dependencies": {
-        "@babel/core": "7.8.7",
+        "@babel/core": "7.9.0",
         "@babel/plugin-syntax-class-properties": "7.8.3",
         "@babel/plugin-syntax-decorators": "7.8.3",
-        "@babel/plugin-transform-modules-commonjs": "7.8.3",
-        "@babel/preset-typescript": "7.8.3",
+        "@babel/plugin-transform-modules-commonjs": "7.9.0",
+        "@babel/preset-typescript": "7.9.0",
         "@babel/template": "~7.8.6",
         "babel-plugin-transform-dynamic-import": "^2.1.0",
-        "babel-preset-jest": "^25.1.0"
+        "babel-preset-jest": "^25.4.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",

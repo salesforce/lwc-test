@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-resolver",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "Jest resolver to resolve LWC specific packages",
     "main": "src/index.js",
     "keywords": [
@@ -12,7 +12,7 @@
         "/src/index.js"
     ],
     "devDependencies": {
-        "@lwc/jest-preset": "5.0.0"
+        "@lwc/jest-preset": "5.0.1"
     },
     "license": "MIT",
     "engines": {

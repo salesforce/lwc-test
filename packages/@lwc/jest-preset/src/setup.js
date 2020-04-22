@@ -149,7 +149,7 @@ function overriddenRegisterDecorators(Ctor, decoratorsMeta) {
         wire[adapterName].adapter = wireAdapterMock;
     });
 
-    originalRegisterDecorators(Ctor, decoratorsMeta);
+    return originalRegisterDecorators(Ctor, decoratorsMeta);
 }
 
 function installRegisterDecoratorsTrap(lwc) {

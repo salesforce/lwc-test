@@ -4,6 +4,7 @@
   "description": "webdriver.io service for Salesforce LWC",
   "main": "index.js",
   "repository": "git@github.com:salesforce/lwc-test.git",
+  "directory": "wdio-lwc-service",
   "license": "MIT",
   "files": [
     "readme.md",

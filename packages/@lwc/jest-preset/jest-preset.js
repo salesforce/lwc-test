@@ -6,10 +6,6 @@
  */
 module.exports = {
     moduleFileExtensions: ['ts', 'js', 'html'],
-    moduleNameMapper: {
-        '^aura$': require.resolve('./src/stubs/aura.js'),
-        '^aura-storage$': require.resolve('./src/stubs/auraStorage.js'),
-    },
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {
         '^.+\\.(js|ts|html|css)$': require.resolve('@lwc/jest-transformer'),

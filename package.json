@@ -10,8 +10,7 @@
         "format": "prettier --write '{packages,scripts}/**/*.{js,ts,json,md}'"
     },
     "workspaces": [
-        "packages/@lwc/*",
-        "packages/wdio-lwc-service"
+        "packages/@lwc/*"
     ],
     "license": "MIT",
     "devDependencies": {

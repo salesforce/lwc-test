@@ -56,7 +56,7 @@ function getLwcPath(path, options) {
     }
 
     // If it could be an LWC module from npm, resolve it relative to this folder
-    if (path.search('^[A-Za-z]+\/.*') > -1) {
+    if (path.search('^[A-Za-z]+/.*') > -1) {
         try {
             const mod = lwcResolver.resolveModule(path, process.cwd());
             if (mod) {

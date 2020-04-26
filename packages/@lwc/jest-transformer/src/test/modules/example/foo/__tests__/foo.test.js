@@ -27,7 +27,7 @@ describe('example-foo', () => {
         expect(element).toMatchSnapshot();
     });
 
-    it('3renders foo-inner DOM', () => {
+    it('renders foo-inner DOM', () => {
         const element = createElement('example-foo', { is: Foo });
         document.body.appendChild(element);
         const classes = element.shadowRoot

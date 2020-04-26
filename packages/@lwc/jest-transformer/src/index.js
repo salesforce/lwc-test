@@ -11,9 +11,9 @@ const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
-const babelClassProperties = require('@babel/plugin-proposal-class-properties');
+const babelClassProperties = require('@babel/plugin-syntax-class-properties');
 const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
-const babelSyntaxDecorators = require('@babel/plugin-proposal-decorators');
+const babelSyntaxDecorators = require('@babel/plugin-syntax-decorators');
 const babelTsPreset = require.resolve('@babel/preset-typescript');
 
 const compilerVersion = require('@lwc/compiler/package.json').version;
@@ -33,6 +33,7 @@ const messageChannelScopedImport = require('./transforms/message-channel-scoped-
 const accessCheck = require('./transforms/access-check-scoped-import');
 
 const BABEL_TS_CONFIG = {
+    sourceMaps: 'inline',
     plugins: [
         babelClassProperties,
         [

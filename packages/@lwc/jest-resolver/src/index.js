@@ -29,7 +29,7 @@ const EMPTY_HTML_MOCK = resolve(__dirname, '..', 'resources', 'emptyHtmlMock.js'
 const WHITELISTED_LWC_PACKAGES = {
     lwc: '@lwc/engine',
     'wire-service': '@lwc/wire-service',
-    'wire-service-jest-util': 'lwc-wire-service-jest-util',
+    'wire-service-jest-util': '@salesforce/wire-service-jest-util',
 };
 
 

@@ -17,9 +17,9 @@ module.exports = {
         '^(example|other)/(.+)$': '<rootDir>/src/test/modules/$1/$2/$2',
     },
     transform: {
-        '^.+\\.(js|html|css)$': '<rootDir>/src/index.js',
+        '^.+\\.(js|ts|html|css)$': '<rootDir>/src/index.js',
     },
-    testMatch: ['**/__tests__/**/?(*.)(test).js'],
+    testMatch: ['**/__tests__/**/?(*.)(test).(js|ts)'],
     resolver: '@lwc/jest-resolver',
     snapshotSerializers: ['@lwc/jest-serializer'],
 

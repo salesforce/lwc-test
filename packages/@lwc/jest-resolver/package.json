@@ -11,6 +11,9 @@
         "/resources/",
         "/src/index.js"
     ],
+    "dependencies": {
+        "@lwc/module-resolver": "^1.5.0"
+    },
     "devDependencies": {
         "@lwc/jest-preset": "7.0.0"
     },

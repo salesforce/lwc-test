@@ -26,8 +26,6 @@
         "prettier": "^2.0.4"
     },
     "resolutions": {
-        "**/optimist/minimist": "1.2.5",
-        "acorn": "^7.1.1",
-        "micromatch": "^4.0.2"
+        "**/optimist/minimist": "1.2.5"
     }
 }

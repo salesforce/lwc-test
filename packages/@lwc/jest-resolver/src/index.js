@@ -55,17 +55,16 @@ function getLwcPath(path, options) {
         return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
     }
 
-    // If it could be an LWC module from npm, resolve it relative to this folder
-    if (path.search('^[A-Za-z]+/.*') > -1) {
-        try {
-            const mod = lwcResolver.resolveModule(path, process.cwd());
-            if (mod) {
-                return mod.entry;
-            }
-        } catch (e) {
-            // nothing to do here
+
+    try {
+        const mod = lwcResolver.resolveModule(path, process.cwd());
+        if (mod) {
+            return mod.entry;
         }
+    } catch (e) {
+        // nothing to do here
     }
+
 
 
     // If is a CSS just resolve it to an empty file

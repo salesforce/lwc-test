@@ -2,6 +2,15 @@
     "name": "@lwc/jest-resolver",
     "version": "7.0.0",
     "description": "Jest resolver to resolve LWC specific packages",
+    "homepage": "https://lwc.dev/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/salesforce/lwc-test.git",
+        "directory": "packages/@lwc/jest-resolver"
+    },
+    "bugs": {
+        "url": "https://github.com/salesforce/lwc-test/issues"
+    },
     "main": "src/index.js",
     "keywords": [
         "Jest",

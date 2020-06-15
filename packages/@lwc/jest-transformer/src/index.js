@@ -34,6 +34,8 @@ const accessCheck = require('./transforms/access-check-scoped-import');
 
 const BABEL_TS_CONFIG = {
     sourceMaps: 'inline',
+    babelrc: false,
+    configFile: false,
     plugins: [
         babelClassProperties,
         [

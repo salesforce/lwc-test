@@ -24,13 +24,12 @@
     "peerDependencies": {
         "@lwc/compiler": "*",
         "@lwc/synthetic-shadow": "*",
-        "jest": ">=24.9.0"
+        "jest": "^25.5.4"
     },
     "dependencies": {
         "@lwc/jest-resolver": "7.0.0",
         "@lwc/jest-serializer": "7.0.0",
-        "@lwc/jest-transformer": "7.0.0",
-        "jest-environment-jsdom-fifteen": "^1.0.2"
+        "@lwc/jest-transformer": "7.0.0"
     },
     "engines": {
         "node": ">=10"

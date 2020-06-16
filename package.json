@@ -8,7 +8,7 @@
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/ scripts/",
         "format": "prettier --write '{packages,scripts}/**/*.{js,ts,json,md}'",
-        "release": "./scripts/release_npm.sh"
+        "release": "yarn install && ./scripts/release_npm.sh"
     },
     "workspaces": [
         "packages/@lwc/*"

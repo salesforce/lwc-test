@@ -23,6 +23,9 @@
     "dependencies": {
         "pretty-format": "~25.4.0"
     },
+    "peerDependencies": {
+        "jest": "^25.5.4"
+    },
     "engines": {
         "node": ">=10"
     }

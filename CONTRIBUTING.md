@@ -18,4 +18,8 @@ Any code change should be submitted as a pull request. The description should ex
 
 ## Review process
 
-The bigger the pull request, the longer it will take to review and merge. Try to break down large pull requests in smaller chunks that are easier to review and merge. Also make sure to reference the related issues in the pull request message if any.
+The bigger the pull request, the longer it will take to review and merge. Try to break down large pull requests in smaller chunks that are easier to review and merge. Also make sure to reference the related issues in the pull request message, if any.
+
+## Publishing a new release
+
+Checkout the latest `master` branch of the repo. Run `yarn release <version> <npm-tag>` command by providing the appropriate arguments to publish a new release of the package. A release commit should have been automatically created on your local branch. Push the release commit and the git tag to the remote repo.

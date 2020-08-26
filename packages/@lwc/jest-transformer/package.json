@@ -33,7 +33,7 @@
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "jest": "^25.5.4"
+        "jest": ">=25.5.4"
     },
     "devDependencies": {
         "@lwc/jest-preset": "8.0.0",

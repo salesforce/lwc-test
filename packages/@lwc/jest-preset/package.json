@@ -24,7 +24,7 @@
     "peerDependencies": {
         "@lwc/compiler": "*",
         "@lwc/synthetic-shadow": "*",
-        "jest": "^25.5.4"
+        "jest": ">=25.5.4"
     },
     "dependencies": {
         "@lwc/jest-resolver": "8.0.0",

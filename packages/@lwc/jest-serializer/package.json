@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-serializer",
-    "version": "9.0.0",
+    "version": "9.0.0-228.0",
     "description": "Custom Jest snapshot serializer",
     "homepage": "https://lwc.dev/",
     "repository": {

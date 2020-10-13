@@ -17,7 +17,7 @@ function test(obj) {
     const { nodeType } = obj;
 
     // According https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
-    return !!(
+    return (
         nodeType === 1 || // element
         nodeType === 3 || // text
         nodeType === 8    // comment

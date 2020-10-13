@@ -9,13 +9,18 @@ const DOMElement = PrettyFormat.plugins.DOMElement;
 
 const cleanElementAttributes = require('./clean-element-attrs');
 
-function test(node) {
-    const nodeType = node ? node.nodeType : null;
+function test(obj) {
+    if (typeof obj !== 'object' || obj === null) {
+        return false;
+    }
+
+    const { nodeType } = obj;
+
+    // According https://developer.mozilla.org/en-US/docs/Web/API/Node/nodeType
     return !!(
-        nodeType &&
-        (nodeType === 1 || // element
+        nodeType === 1 || // element
         nodeType === 3 || // text
-            nodeType === 6) // comment
+        nodeType === 8    // comment
     );
 }
 

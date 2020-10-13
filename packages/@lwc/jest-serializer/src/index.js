@@ -9,8 +9,9 @@ const DOMElement = PrettyFormat.plugins.DOMElement;
 
 const cleanElementAttributes = require('./clean-element-attrs');
 
-function test({ nodeType } = {}) {
-    return (
+function test(node) {
+    const nodeType = node ? node.nodeType : null;
+    return !!(
         nodeType &&
         (nodeType === 1 || // element
         nodeType === 3 || // text

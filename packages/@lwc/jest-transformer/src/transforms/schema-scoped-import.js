@@ -54,7 +54,7 @@ function schemaScopedImportTransform(t, path) {
     }
 }
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

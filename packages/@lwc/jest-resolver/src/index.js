@@ -66,6 +66,6 @@ function getLwcPath(path, options) {
     return path;
 }
 
-module.exports = function(path, options) {
+module.exports = function (path, options) {
     return resolver(getLwcPath(path, options), options);
 };

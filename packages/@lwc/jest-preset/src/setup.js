@@ -15,7 +15,7 @@ if (shadowRootPrototype.$constructorCache$ === undefined) {
         ShadowRoot: global.ShadowRoot,
         CustomEvent: global.CustomEvent,
         MutationObserver: global.MutationObserver,
-    }
+    };
 } else {
     const { ShadowRoot, CustomEvent, MutationObserver } = shadowRootPrototype.$constructorCache$;
 
@@ -30,13 +30,14 @@ let originalRegisterDecorators;
 
 function isValidWireAdapter(adapter) {
     let isValid = false;
-    if (typeof adapter === "function") {
+    if (typeof adapter === 'function') {
         // lets check, if it is a valid adapter
         try {
-            const adapterInstance = new adapter(()=>{});
-            isValid = typeof adapterInstance.connect === "function" &&
-                typeof adapterInstance.update === "function" &&
-                typeof adapterInstance.disconnect === "function";
+            const adapterInstance = new adapter(() => {});
+            isValid =
+                typeof adapterInstance.connect === 'function' &&
+                typeof adapterInstance.update === 'function' &&
+                typeof adapterInstance.disconnect === 'function';
         } catch (e) {
             isValid = false;
         }
@@ -58,12 +59,12 @@ function isValidWireAdapter(adapter) {
  */
 function createWireAdapterMockClass(originalAdapter) {
     const noopAdapter = {
-        connect(){},
-        update(){},
-        disconnect(){},
+        connect() {},
+        update() {},
+        disconnect() {},
     };
     let baseAdapter;
-    let baseAdapterFn = ()=>{};
+    let baseAdapterFn = () => {};
     const spies = [];
 
     if (Object.prototype.hasOwnProperty.call(originalAdapter, 'adapter')) {
@@ -75,21 +76,21 @@ function createWireAdapterMockClass(originalAdapter) {
         baseAdapter = originalAdapter;
     }
 
-    if (typeof originalAdapter === "function") {
+    if (typeof originalAdapter === 'function') {
         // Mostly used in apex methods
         baseAdapterFn = originalAdapter;
     }
 
     // Support for adapters to be called imperatively, mainly for apex.
-    const newAdapterMock = function(...args) {
+    const newAdapterMock = function (...args) {
         return baseAdapterFn.call(this, ...args);
     };
 
     newAdapterMock.adapter = class WireAdapterMock {
         constructor(dataCallback) {
             // if a test is spying these adapter, it means is overriding the implementation
-            this._originalAdapter = (spies.length === 0 && baseAdapter)
-                ? (new baseAdapter(dataCallback)) : noopAdapter;
+            this._originalAdapter =
+                spies.length === 0 && baseAdapter ? new baseAdapter(dataCallback) : noopAdapter;
             this._dataCallback = dataCallback;
 
             spies.forEach((spy) => spy.createInstance(this));

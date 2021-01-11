@@ -20,7 +20,7 @@ function test(obj) {
     return (
         nodeType === 1 || // element
         nodeType === 3 || // text
-        nodeType === 8    // comment
+        nodeType === 8 // comment
     );
 }
 
@@ -38,7 +38,7 @@ function printText(text, config) {
 function printChildren(children, config, indentation, depth, refs, printer) {
     return children
         .map(
-            child =>
+            (child) =>
                 config.spacingOuter +
                 indentation +
                 (typeof child === 'string'

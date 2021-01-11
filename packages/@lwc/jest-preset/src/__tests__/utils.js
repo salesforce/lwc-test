@@ -29,15 +29,15 @@ export function registerTestAdapter(adapterId) {
         disconnect(wiredEventTarget) {
             lastConfig = undefined;
             wiredEventTargets.delete(wiredEventTarget);
-        }
+        },
     });
 
     return {
         emit(value) {
-            wiredEventTargets.forEach(wiredEventTarget => wiredEventTarget.emit(value));
+            wiredEventTargets.forEach((wiredEventTarget) => wiredEventTarget.emit(value));
         },
         getLastConfig() {
             return lastConfig;
-        }
+        },
     };
 }

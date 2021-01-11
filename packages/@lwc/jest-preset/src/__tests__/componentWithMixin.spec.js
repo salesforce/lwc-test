@@ -22,6 +22,6 @@ describe('example-component-with-mixin', () => {
         return Promise.resolve().then(() => {
             const paragraphWithText = element.shadowRoot.querySelector('.result-text');
             expect(paragraphWithText.textContent).toBe('test value');
-        })
+        });
     });
 });

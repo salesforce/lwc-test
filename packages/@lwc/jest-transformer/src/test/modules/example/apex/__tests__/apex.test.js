@@ -19,7 +19,7 @@ describe('example-apex', () => {
             const element = createElement('example-apex', { is: Apex });
             document.body.appendChild(element);
             const apexCall = element.callDefaultImport();
-            return apexCall.then(ret => {
+            return apexCall.then((ret) => {
                 expect(ret).toBe('from test');
             });
         });
@@ -28,7 +28,7 @@ describe('example-apex', () => {
             const element = createElement('example-apex', { is: Apex });
             document.body.appendChild(element);
             const apexCall = element.callAnotherDefaultImport();
-            return apexCall.then(ret => {
+            return apexCall.then((ret) => {
                 expect(ret).toBe('from test');
             });
         });
@@ -37,7 +37,7 @@ describe('example-apex', () => {
             const element = createElement('example-apex', { is: Apex });
             document.body.appendChild(element);
             const refreshApex = element.callRefreshApex();
-            return refreshApex.then(ret => {
+            return refreshApex.then((ret) => {
                 expect(ret).toBe('from test');
             });
         });

@@ -31,7 +31,7 @@ function transform(plugin, opts = {}) {
         opts
     );
 
-    return function(source) {
+    return function (source) {
         return babel.transform(unpad(source), testConfig);
     };
 }
@@ -39,7 +39,7 @@ function transform(plugin, opts = {}) {
 function makeTest(plugin, opts = {}) {
     const testTransform = transform(plugin, opts);
 
-    const pluginTest = function(name, source, expectedSource, expectedError) {
+    const pluginTest = function (name, source, expectedSource, expectedError) {
         test(name, () => {
             let res;
             let err;
@@ -66,7 +66,7 @@ function makeTest(plugin, opts = {}) {
         });
     };
 
-    pluginTest.skip = name => test.skip(name);
+    pluginTest.skip = (name) => test.skip(name);
 
     return pluginTest;
 }

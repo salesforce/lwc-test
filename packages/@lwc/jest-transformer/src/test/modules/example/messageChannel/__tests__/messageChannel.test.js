@@ -10,7 +10,7 @@ import MessageChannel from 'example/messageChannel';
 jest.mock(
     '@salesforce/messageChannel/myMockedChannel__c',
     () => {
-        return { default: "my channel value from test" };
+        return { default: 'my channel value from test' };
     },
     { virtual: true }
 );
@@ -18,7 +18,7 @@ jest.mock(
 jest.mock(
     '@salesforce/messageChannel/ns__anotherMockedChannel__c',
     () => {
-        return { default: "another channel value from test" };
+        return { default: 'another channel value from test' };
     },
     { virtual: true }
 );
@@ -36,7 +36,7 @@ describe('example-message-channel', () => {
             document.body.appendChild(element);
             const channel = element.getMyMsgChannel();
             expect(channel).not.toBeNull();
-            expect(channel).toBe("my channel value from test");
+            expect(channel).toBe('my channel value from test');
         });
 
         it('returns a value that resolves for a second imported message channel', () => {
@@ -44,7 +44,7 @@ describe('example-message-channel', () => {
             document.body.appendChild(element);
             const channel = element.getAnotherMsgChannel();
             expect(channel).not.toBeNull();
-            expect(channel).toBe("another channel value from test");
+            expect(channel).toBe('another channel value from test');
         });
 
         it('returns default message channel value as import path', () => {
@@ -52,7 +52,7 @@ describe('example-message-channel', () => {
             document.body.appendChild(element);
             const channel = element.getUnmockedChannel();
             expect(channel).not.toBeNull();
-            expect(channel).toBe("myUnmockedChannel__c");
+            expect(channel).toBe('myUnmockedChannel__c');
         });
     });
 });

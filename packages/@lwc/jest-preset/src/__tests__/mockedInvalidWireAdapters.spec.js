@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { createElement } from 'lwc';
-import { registerTestAdapter } from "./utils";
+import { registerTestAdapter } from './utils';
 import SimpleComponent from 'example/simpleComponent';
 import { mockedWireAdapter } from 'example/adapter';
 

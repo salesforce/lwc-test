@@ -103,7 +103,7 @@ function getImportInfo(path, noValidate) {
     }
 
     const resourceNames = importSpecifiers.map(
-        importSpecifier => importSpecifier.get('local').node.name
+        (importSpecifier) => importSpecifier.get('local').node.name
     );
 
     return {

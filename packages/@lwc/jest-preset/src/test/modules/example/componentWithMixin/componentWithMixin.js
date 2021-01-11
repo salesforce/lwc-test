@@ -9,7 +9,7 @@ import { LightningElement, api } from 'lwc';
 function getSimpleMixin(BaseClass) {
     return class extends BaseClass {
         @api txt;
-    }
+    };
 }
 
 export default class ComponentWithMixin extends getSimpleMixin(LightningElement) {}

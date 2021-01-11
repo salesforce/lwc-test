@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { register, ValueChangedEvent } from "wire-service";
+import { register, ValueChangedEvent } from 'wire-service';
 
 export const mockedWireAdapter = jest.fn();
 

@@ -6,7 +6,7 @@
  */
 import { createElement } from 'lwc';
 import WiredComponent from 'example/wiredComponent';
-import { realAdapter } from "example/adapter";
+import { realAdapter } from 'example/adapter';
 
 afterEach(() => {
     while (document.body.firstChild) {
@@ -34,6 +34,6 @@ describe('valid non mocked wire adapters', () => {
             .then(() => {
                 const paragraphWithText = element.shadowRoot.querySelector('.wired-text');
                 expect(paragraphWithText.textContent).toBe('some test value');
-            })
+            });
     });
 });

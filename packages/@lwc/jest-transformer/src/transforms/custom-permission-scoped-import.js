@@ -8,7 +8,7 @@ const { stringScopedImportTransform } = require('./utils');
 
 const CUSTOM_PERMISSION_IMPORT_IDENTIFIER = '@salesforce/customPermission/';
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

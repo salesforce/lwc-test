@@ -8,7 +8,7 @@ const { getImportInfo, resolvedPromiseTemplate } = require('./utils');
 
 const APEX_CONTINUATION_IMPORT_IDENTIFIER = '@salesforce/apexContinuation';
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

@@ -38,7 +38,7 @@ describe('example-simpleComponent', () => {
             return Promise.resolve().then(() => {
                 const paragraphWithText = element.shadowRoot.querySelector('.wired-text');
                 expect(paragraphWithText).not.toBeNull();
-            })
+            });
         });
     });
 });

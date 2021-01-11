@@ -11,7 +11,7 @@ function unpad(str) {
     const m = lines[1] && lines[1].match(/^\s+/);
     const spaces = m[0].length;
     return lines
-        .map(line => line.slice(spaces))
+        .map((line) => line.slice(spaces))
         .join('\n')
         .trim();
 }

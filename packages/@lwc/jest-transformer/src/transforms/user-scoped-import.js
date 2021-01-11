@@ -17,7 +17,7 @@ const IS_GUEST_IMPORT_IDENTIFIER = '@salesforce/user/isGuest';
 const DEFAULT_ID = '005000000000000000';
 const DEFAULT_IS_GUEST = false;
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

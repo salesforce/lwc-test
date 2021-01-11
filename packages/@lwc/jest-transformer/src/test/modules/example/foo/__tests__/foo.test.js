@@ -61,7 +61,7 @@ describe('example-foo', () => {
         const expected = { foo: 'bar' };
         const element = createElement('example-foo', { is: Foo });
 
-        return element.asyncMethod(expected).then(ret => expect(ret).toBe(expected));
+        return element.asyncMethod(expected).then((ret) => expect(ret).toBe(expected));
     });
 
     it('returns value on inner element from mock defined in test file', () => {

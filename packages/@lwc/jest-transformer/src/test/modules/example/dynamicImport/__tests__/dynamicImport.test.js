@@ -7,7 +7,6 @@
 import { createElement } from 'lwc';
 import DynamicImport from 'example/dynamicImport';
 
-
 describe('dynamic-imports', () => {
     it('should render dynamically imported component', () => {
         const element = createElement('example-dynamic-import', { is: DynamicImport });

@@ -3,8 +3,3 @@ node_modules/
 dist/
 lib/
 coverage/
-
-fixtures/
-public/
-
-wdio-lwc-service/

@@ -17,14 +17,13 @@
         "LWC"
     ],
     "files": [
-        "/src/stubs/*.js",
         "/src/*.js"
     ],
     "main": "jest-preset.js",
     "peerDependencies": {
         "@lwc/compiler": "*",
         "@lwc/synthetic-shadow": "*",
-        "jest": ">=25.5.4"
+        "jest": "^26"
     },
     "dependencies": {
         "@lwc/jest-resolver": "9.0.0",

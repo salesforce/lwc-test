@@ -12,14 +12,14 @@
         "url": "https://github.com/salesforce/lwc-test/issues"
     },
     "license": "MIT",
+    "main": "jest-preset.js",
     "keywords": [
-        "Jest",
-        "LWC"
+        "jest",
+        "lwc"
     ],
     "files": [
         "/src/*.js"
     ],
-    "main": "jest-preset.js",
     "peerDependencies": {
         "@lwc/compiler": "*",
         "@lwc/synthetic-shadow": "*",

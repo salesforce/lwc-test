@@ -12,7 +12,6 @@ const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelClassProperties = require('@babel/plugin-syntax-class-properties');
-const babelDynamicImport = require('babel-plugin-transform-dynamic-import');
 const babelSyntaxDecorators = require('@babel/plugin-syntax-decorators');
 const babelTsPreset = require.resolve('@babel/preset-typescript');
 
@@ -53,7 +52,6 @@ const BABEL_CONFIG = {
     presets: [jestPreset],
     plugins: [
         babelCommonJs,
-        babelDynamicImport,
         apexScopedImport,
         apexContinuationScopedImport,
         customPermissionImport,

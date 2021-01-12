@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { createElement } from 'lwc';
-import { registerTestAdapter } from "./utils";
+import { registerTestAdapter } from './utils';
 import WiredComponent from 'example/wiredComponent';
 import { realAdapter } from 'example/adapter';
 
@@ -40,6 +40,6 @@ describe('valid non mocked wire adapters used via register* calls', () => {
             .then(() => {
                 const paragraphWithText = element.shadowRoot.querySelector('.wired-text');
                 expect(paragraphWithText.textContent).toBe(expectedTextResult);
-            })
+            });
     });
 });

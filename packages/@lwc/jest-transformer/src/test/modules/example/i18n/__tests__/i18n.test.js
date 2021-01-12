@@ -59,7 +59,7 @@ describe('example-i18n', () => {
         'number.percentFormat',
         'number.currencyFormat',
         'number.currencySymbol',
-    ])('@salesforce/i18n/%s should be resolved as a default mock value', id => {
+    ])('@salesforce/i18n/%s should be resolved as a default mock value', (id) => {
         const values = createElement('example-i18n', { is: I18n }).getI18nValues();
         const key = id.split('.').pop();
         expect(values[key]).toBeDefined();

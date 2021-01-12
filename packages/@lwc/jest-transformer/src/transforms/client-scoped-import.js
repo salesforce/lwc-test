@@ -11,7 +11,7 @@ const WHITELISTED_RESOURCE_MOCK_VALUE = {
     formFactor: 'Large',
 };
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

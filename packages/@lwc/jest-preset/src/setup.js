@@ -1,28 +1,4 @@
-// Use the ShadowRoot prototype to cache the patched constructor from one JSDOM instance to another.
-// Currently JSDOM reuse the same prototypes for the web interfaces, but created brand new
-// constructor.
-//
-// Note: Once JSDOM starting creating brand new prototype per page, this technique will break.
-// https://github.com/jsdom/jsdom/pull/2691
-const shadowRootPrototype = ShadowRoot.prototype;
-
-if (shadowRootPrototype.$constructorCache$ === undefined) {
-    // We should ideally use getModulePath from the "lwc" package here but our resolver maps that
-    // identifier to @lwc/engine!
-    require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
-
-    shadowRootPrototype.$constructorCache$ = {
-        ShadowRoot: global.ShadowRoot,
-        CustomEvent: global.CustomEvent,
-        MutationObserver: global.MutationObserver,
-    }
-} else {
-    const { ShadowRoot, CustomEvent, MutationObserver } = shadowRootPrototype.$constructorCache$;
-
-    global.ShadowRoot = ShadowRoot;
-    global.CustomEvent = CustomEvent;
-    global.MutationObserver = MutationObserver;
-}
+require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0
 global.wireAdaptersRegistryHack = new Map();
@@ -30,13 +6,14 @@ let originalRegisterDecorators;
 
 function isValidWireAdapter(adapter) {
     let isValid = false;
-    if (typeof adapter === "function") {
+    if (typeof adapter === 'function') {
         // lets check, if it is a valid adapter
         try {
-            const adapterInstance = new adapter(()=>{});
-            isValid = typeof adapterInstance.connect === "function" &&
-                typeof adapterInstance.update === "function" &&
-                typeof adapterInstance.disconnect === "function";
+            const adapterInstance = new adapter(() => {});
+            isValid =
+                typeof adapterInstance.connect === 'function' &&
+                typeof adapterInstance.update === 'function' &&
+                typeof adapterInstance.disconnect === 'function';
         } catch (e) {
             isValid = false;
         }
@@ -58,12 +35,12 @@ function isValidWireAdapter(adapter) {
  */
 function createWireAdapterMockClass(originalAdapter) {
     const noopAdapter = {
-        connect(){},
-        update(){},
-        disconnect(){},
+        connect() {},
+        update() {},
+        disconnect() {},
     };
     let baseAdapter;
-    let baseAdapterFn = ()=>{};
+    let baseAdapterFn = () => {};
     const spies = [];
 
     if (Object.prototype.hasOwnProperty.call(originalAdapter, 'adapter')) {
@@ -75,21 +52,21 @@ function createWireAdapterMockClass(originalAdapter) {
         baseAdapter = originalAdapter;
     }
 
-    if (typeof originalAdapter === "function") {
+    if (typeof originalAdapter === 'function') {
         // Mostly used in apex methods
         baseAdapterFn = originalAdapter;
     }
 
     // Support for adapters to be called imperatively, mainly for apex.
-    const newAdapterMock = function(...args) {
+    const newAdapterMock = function (...args) {
         return baseAdapterFn.call(this, ...args);
     };
 
     newAdapterMock.adapter = class WireAdapterMock {
         constructor(dataCallback) {
             // if a test is spying these adapter, it means is overriding the implementation
-            this._originalAdapter = (spies.length === 0 && baseAdapter)
-                ? (new baseAdapter(dataCallback)) : noopAdapter;
+            this._originalAdapter =
+                spies.length === 0 && baseAdapter ? new baseAdapter(dataCallback) : noopAdapter;
             this._dataCallback = dataCallback;
 
             spies.forEach((spy) => spy.createInstance(this));

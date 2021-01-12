@@ -8,7 +8,7 @@ const { stringScopedImportTransform } = require('./utils');
 
 const MESSAGE_CHANNEL_IMPORT_IDENTIFIER = '@salesforce/messageChannel/';
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

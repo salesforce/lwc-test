@@ -8,7 +8,7 @@ import { LightningElement, api } from 'lwc';
 import { echo } from './lib';
 
 function pause(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
+    return new Promise((resolve) => setTimeout(resolve, time));
 }
 
 export default class Foo extends LightningElement {

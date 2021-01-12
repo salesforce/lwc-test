@@ -8,7 +8,7 @@ const { stringScopedImportTransform } = require('./utils');
 
 const RESOURCE_IMPORT_IDENTIFIER = '@salesforce/resourceUrl/';
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {

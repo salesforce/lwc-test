@@ -71,7 +71,7 @@ function insertNamedImportReplacement(t, path, resource) {
     );
 }
 
-module.exports = function({ types: t }) {
+module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {
@@ -81,7 +81,7 @@ module.exports = function({ types: t }) {
                 // e.g. `import { refreshApex, getSObjectValue } from '@salesforce/apex';`
                 if (importSource === APEX_IMPORT_IDENTIFIER) {
                     // add a try/catch block defining the imported resource for each named import
-                    resourceNames.forEach(resource => {
+                    resourceNames.forEach((resource) => {
                         insertNamedImportReplacement(t, path, resource);
                     });
 

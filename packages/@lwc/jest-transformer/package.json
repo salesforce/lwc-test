@@ -23,6 +23,7 @@
     ],
     "dependencies": {
         "@babel/core": "^7.12.10",
+        "@babel/plugin-proposal-dynamic-import": "^7.12.1",
         "@babel/plugin-syntax-class-properties": "^7.12.1",
         "@babel/plugin-syntax-decorators": "^7.12.1",
         "@babel/plugin-transform-modules-commonjs": "^7.12.1",

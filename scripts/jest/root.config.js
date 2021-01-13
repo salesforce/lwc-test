@@ -11,7 +11,6 @@ module.exports = {
 
     projects: [
         '<rootDir>/packages/@lwc/jest-preset',
-        '<rootDir>/packages/@lwc/jest-serializer',
         '<rootDir>/packages/@lwc/jest-transformer',
     ],
 };

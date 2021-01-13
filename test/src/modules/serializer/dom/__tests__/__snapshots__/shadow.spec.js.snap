@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`prints shadow tree 1`] = `
+<div>
+  #shadow-root(open)
+    <span>
+      In the shadow DOM
+    </span>
+</div>
+`;
+
+exports[`prints shadow tree recursively 1`] = `
+<div>
+  #shadow-root(open)
+    In the top shadow DOM
+    <span>
+      #shadow-root(open)
+        In the inner shadow DOM
+    </span>
+</div>
+`;
+
+exports[`prints slotted content properly 1`] = `
+<div>
+  #shadow-root(open)
+    In the shadow DOM
+    <slot />
+  <span>
+    In the light DOM
+  </span>
+</div>
+`;

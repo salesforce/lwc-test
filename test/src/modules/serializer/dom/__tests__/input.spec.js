@@ -14,9 +14,6 @@ it.each([
     ['with a text node type', document.createTextNode('')],
     ['with a comment node type', document.createComment('')],
     ['with another kind of node type', document.createAttribute('foo')],
-])(
-    'should return the expected state when we have %s',
-    (useCase, input) => {
-        expect(input).toMatchSnapshot();
-    }
-);
+])('should return the expected state when we have %s', (useCase, input) => {
+    expect(input).toMatchSnapshot();
+});

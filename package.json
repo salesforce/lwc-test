@@ -8,7 +8,7 @@
         "test:integration": "jest --config ./test/jest.config.js --no-cache",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/ scripts/",
-        "format": "prettier --write '{packages,scripts}/**/*.{js,ts,json,md}'",
+        "format": "prettier --write '{packages,scripts,test}/**/*.{js,ts,json,md}'",
         "release": "yarn install && ./scripts/release_npm.sh"
     },
     "workspaces": [

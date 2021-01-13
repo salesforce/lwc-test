@@ -9,8 +9,5 @@ module.exports = {
 
     testMatch: ['<rootDir>/**/__tests__/*.spec.js'],
 
-    projects: [
-        '<rootDir>/packages/@lwc/jest-preset',
-        '<rootDir>/packages/@lwc/jest-transformer',
-    ],
+    projects: ['<rootDir>/packages/@lwc/jest-preset', '<rootDir>/packages/@lwc/jest-transformer'],
 };

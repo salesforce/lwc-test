@@ -11,25 +11,22 @@
     "bugs": {
         "url": "https://github.com/salesforce/lwc-test/issues"
     },
+    "license": "MIT",
     "main": "src/index.js",
     "keywords": [
-        "Jest",
-        "LWC"
+        "jest",
+        "lwc"
     ],
     "files": [
         "/resources/",
         "/src/index.js"
     ],
-    "dependencies": {
-        "jest-resolve": "~25.5.1"
-    },
     "devDependencies": {
         "@lwc/jest-preset": "9.0.0"
     },
     "peerDependencies": {
-        "jest": ">=25.5.4"
+        "jest": "^26"
     },
-    "license": "MIT",
     "engines": {
         "node": ">=10"
     }

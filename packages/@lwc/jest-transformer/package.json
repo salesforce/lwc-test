@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-transformer",
-    "version": "9.0.0",
+    "version": "9.0.0-230.0",
     "description": "Jest transformer for LWC and engine",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -36,9 +36,9 @@
         "jest": ">=25.5.4"
     },
     "devDependencies": {
-        "@lwc/jest-preset": "9.0.0",
-        "@lwc/jest-resolver": "9.0.0",
-        "@lwc/jest-serializer": "9.0.0"
+        "@lwc/jest-preset": "9.0.0-230.0",
+        "@lwc/jest-resolver": "9.0.0-230.0",
+        "@lwc/jest-serializer": "9.0.0-230.0"
     },
     "engines": {
         "node": ">=10"

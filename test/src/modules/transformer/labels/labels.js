@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-module.exports = {
-    preset: '@lwc/jest-preset',
+import mockedLabel from '@salesforce/label/c.mocked';
+import unmockedLabel from '@salesforce/label/c.unmocked';
 
-    moduleNameMapper: {
-        '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
-    },
-};
+export {
+    mockedLabel,
+    unmockedLabel
+}

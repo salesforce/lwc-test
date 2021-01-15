@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-module.exports = {
-    preset: '@lwc/jest-preset',
+import mockedAccessCheck from '@salesforce/accessCheck/mocked';
+import unmockedAccessCheck from '@salesforce/accessCheck/unmocked';
 
-    moduleNameMapper: {
-        '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
-    },
-};
+export {
+    mockedAccessCheck,
+    unmockedAccessCheck
+}

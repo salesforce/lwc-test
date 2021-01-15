@@ -4,10 +4,10 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-module.exports = {
-    preset: '@lwc/jest-preset',
+import mockedChannel from '@salesforce/messageChannel/myMockedChannel__c';
+import unmockedChannel from '@salesforce/messageChannel/myUnmockedChannel__c';
 
-    moduleNameMapper: {
-        '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
-    },
-};
+export {
+    mockedChannel,
+    unmockedChannel
+}

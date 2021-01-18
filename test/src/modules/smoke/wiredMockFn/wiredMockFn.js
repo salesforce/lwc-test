@@ -5,13 +5,9 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { LightningElement, wire } from 'lwc';
-import { mockedWireAdapter } from 'example/adapter';
+import { adapter } from './adapter';
 
-export default class SimpleComponent extends LightningElement {
-    wiredText;
-
-    @wire(mockedWireAdapter)
-    setAdapterResult(value) {
-        this.wiredText = value;
-    }
+export default class WiredMockFn extends LightningElement {
+    @wire(adapter)
+    wiredValue;
 }

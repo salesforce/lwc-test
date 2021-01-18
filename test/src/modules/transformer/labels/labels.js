@@ -7,7 +7,4 @@
 import mockedLabel from '@salesforce/label/c.mocked';
 import unmockedLabel from '@salesforce/label/c.unmocked';
 
-export {
-    mockedLabel,
-    unmockedLabel
-}
+export { mockedLabel, unmockedLabel };

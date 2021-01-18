@@ -7,8 +7,4 @@
 import ApexMethod from '@salesforce/apex/FooClass.FooMethod';
 import { refreshApex, getSObjectValue } from '@salesforce/apex';
 
-export {
-    ApexMethod,
-    refreshApex,
-    getSObjectValue,
-}
+export { ApexMethod, refreshApex, getSObjectValue };

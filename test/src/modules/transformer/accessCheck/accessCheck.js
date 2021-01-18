@@ -7,7 +7,4 @@
 import mockedAccessCheck from '@salesforce/accessCheck/mocked';
 import unmockedAccessCheck from '@salesforce/accessCheck/unmocked';
 
-export {
-    mockedAccessCheck,
-    unmockedAccessCheck
-}
+export { mockedAccessCheck, unmockedAccessCheck };

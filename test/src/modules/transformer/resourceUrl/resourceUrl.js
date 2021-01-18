@@ -7,7 +7,4 @@
 import mockedResourceUrl from '@salesforce/resourceUrl/mocked';
 import unmockedResourceUrl from '@salesforce/resourceUrl/unmocked';
 
-export {
-    mockedResourceUrl,
-    unmockedResourceUrl
-}
+export { mockedResourceUrl, unmockedResourceUrl };

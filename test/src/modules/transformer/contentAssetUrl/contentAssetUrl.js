@@ -7,7 +7,4 @@
 import mockedContentAssertUrl from '@salesforce/contentAssetUrl/mocked';
 import unmockedContentAssetUrl from '@salesforce/contentAssetUrl/unmocked';
 
-export {
-    mockedContentAssertUrl,
-    unmockedContentAssetUrl
-}
+export { mockedContentAssertUrl, unmockedContentAssetUrl };

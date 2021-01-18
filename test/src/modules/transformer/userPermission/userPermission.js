@@ -7,7 +7,4 @@
 import mockedUserPermission from '@salesforce/userPermission/mocked';
 import unmockedUserPermission from '@salesforce/userPermission/unmocked';
 
-export {
-    mockedUserPermission,
-    unmockedUserPermission
-}
+export { mockedUserPermission, unmockedUserPermission };

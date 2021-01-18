@@ -6,6 +6,4 @@
  */
 import formFactor from '@salesforce/client/formFactor';
 
-export {
-    formFactor
-}
+export { formFactor };

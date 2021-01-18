@@ -34,11 +34,6 @@
         "@lwc/compiler": "*",
         "jest": "^26"
     },
-    "devDependencies": {
-        "@lwc/jest-preset": "9.0.0",
-        "@lwc/jest-resolver": "9.0.0",
-        "@lwc/jest-serializer": "9.0.0"
-    },
     "engines": {
         "node": ">=10"
     }

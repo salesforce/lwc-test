@@ -51,7 +51,9 @@ export function registerTestAdapter(adapterId) {
 const registeredAdapter = registerTestAdapter(adapter);
 
 it('should re-render the component when a new value is emitted', () => {
-    const elm = createElement('smoke-wire-adapter-global-registry', { is: WireAdapterGlobalRegistry });
+    const elm = createElement('smoke-wire-adapter-global-registry', {
+        is: WireAdapterGlobalRegistry,
+    });
     document.body.appendChild(elm);
 
     expect(elm.shadowRoot.querySelector('p').textContent).toBe('');

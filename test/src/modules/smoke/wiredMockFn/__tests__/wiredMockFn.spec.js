@@ -8,7 +8,7 @@
 import { createElement } from 'lwc';
 import WiredMockFn from '../wiredMockFn';
 
-it('shouldn\'t throw when creating a component with a mocked wire adapter', () => {
+it("shouldn't throw when creating a component with a mocked wire adapter", () => {
     expect(() => {
         const elm = createElement('smoked-wired-mock-fn', { is: WiredMockFn });
         document.body.appendChild(elm);

@@ -7,7 +7,7 @@
 import { createElement } from 'lwc';
 import Component from '../component';
 
-it('resolves component without HTML', () => {
+it('serializes component with HTML', () => {
     const elm = createElement('serializer-component', { is: Component });
     document.body.appendChild(elm);
 

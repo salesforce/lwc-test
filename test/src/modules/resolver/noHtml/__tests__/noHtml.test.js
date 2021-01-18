@@ -8,5 +8,8 @@ import { createElement } from 'lwc';
 import NoHTML from '../noHtml';
 
 it('resolves component without HTML', () => {
-    expect(() => createElement('resolver-no-html', { is: NoHTML })).not.toThrow();
+    expect(() => {
+        const elm = createElement('resolver-no-html', { is: NoHTML });
+        document.body.appendChild(elm);
+    }).not.toThrow();
 });

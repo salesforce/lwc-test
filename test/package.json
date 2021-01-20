@@ -1,0 +1,11 @@
+{
+    "name": "test",
+    "version": "0.0.0",
+    "private": "true",
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@lwc/jest-preset": "9.0.0"
+    }
+}

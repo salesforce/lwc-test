@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serializes component with HTML 1`] = `
+<serializer-component>
+  #shadow-root(open)
+    <h1>
+      I am an LWC component
+    </h1>
+</serializer-component>
+`;

@@ -7,7 +7,7 @@
 const test = require('./utils/test-transform').test(require('../site-scoped-import'));
 
 const DEFAULT_ID = '005000000000000000';
-  
+
 describe('@salesforce/site/Id import', () => {
     test(
         'does default transformation',

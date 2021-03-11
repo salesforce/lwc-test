@@ -31,6 +31,7 @@ const userPermissionImport = require('./transforms/user-permission-scoped-import
 const clientScopedImport = require('./transforms/client-scoped-import');
 const messageChannelScopedImport = require('./transforms/message-channel-scoped-import');
 const accessCheck = require('./transforms/access-check-scoped-import');
+const siteScopedImport = require('./transforms/site-scoped-import');
 
 const BABEL_TS_CONFIG = {
     sourceMaps: 'inline',
@@ -67,6 +68,7 @@ const BABEL_CONFIG = {
         clientScopedImport,
         messageChannelScopedImport,
         accessCheck,
+        siteScopedImport,
     ],
 };
 

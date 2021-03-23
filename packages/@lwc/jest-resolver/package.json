@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-resolver",
-    "version": "9.0.0",
+    "version": "10.0.0",
     "description": "Jest resolver to resolve LWC specific packages",
     "homepage": "https://lwc.dev/",
     "repository": {

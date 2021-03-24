@@ -22,12 +22,12 @@
         "/src/transforms/*.js"
     ],
     "dependencies": {
-        "@babel/core": "^7.12.10",
-        "@babel/plugin-proposal-dynamic-import": "^7.12.1",
-        "@babel/plugin-syntax-class-properties": "^7.12.1",
-        "@babel/plugin-syntax-decorators": "^7.12.1",
-        "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-        "@babel/preset-typescript": "^7.12.7",
+        "@babel/core": "^7.13.10",
+        "@babel/plugin-proposal-dynamic-import": "^7.13.8",
+        "@babel/plugin-syntax-class-properties": "^7.12.13",
+        "@babel/plugin-syntax-decorators": "^7.12.13",
+        "@babel/plugin-transform-modules-commonjs": "^7.13.8",
+        "@babel/preset-typescript": "^7.13.0",
         "babel-preset-jest": "^26.6.2"
     },
     "peerDependencies": {

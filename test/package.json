@@ -6,6 +6,6 @@
         "test": "jest"
     },
     "devDependencies": {
-        "@lwc/jest-preset": "9.0.0"
+        "@lwc/jest-preset": "10.0.0"
     }
 }

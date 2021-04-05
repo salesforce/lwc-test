@@ -1,30 +1,65 @@
 version: 2.1
 
-jobs:
-  build:
+
+executors:
+  node:
+    working_directory: ~/lwc-test
     docker:
-      - image: circleci/node:lts
-    working_directory: ~/repo
+      - image: circleci/node:14
 
+
+commands:
+  save_yarn_cache:
+    description: Save Yarn cache for future build
     steps:
-      - checkout
+      - save_cache:
+          key: yarn-v5-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
 
+  restore_yarn_cache:
+    description: Restore Yarn cache from previous build
+    steps:
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            - yarn-v5-{{ checksum "yarn.lock" }}
 
+  save_workspace:
+    description: Save current workspace
+    steps:
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  load_workspace:
+    description: Load workspace
+    steps:
+      - attach_workspace:
+          at: ~/lwc-test
+
+
+jobs:
+  build:
+    executor: node
+    steps:
+      - checkout
+      - restore_yarn_cache
       - run: yarn install --frozen-lockfile
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
       - run: yarn lint
+      - save_yarn_cache
+      - save_workspace
+
+  test:
+    executor: node
+    steps:
+      - load_workspace
       - run: yarn test --runInBand
+
 
 workflows:
   build_and_test:
     jobs:
       - build
+      - test:
+          requires:
+            - build

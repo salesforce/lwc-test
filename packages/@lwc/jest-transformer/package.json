@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-transformer",
-    "version": "10.0.1",
+    "version": "10.0.2",
     "description": "Jest transformer for LWC and engine",
     "homepage": "https://lwc.dev/",
     "repository": {

@@ -22,7 +22,7 @@
     ],
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "@lwc/engine": "*",
+        "@lwc/engine-dom": "*",
         "@lwc/synthetic-shadow": "*",
         "jest": "^26"
     },

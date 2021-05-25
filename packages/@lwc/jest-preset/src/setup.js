@@ -26,7 +26,7 @@ function isValidWireAdapter(adapter) {
  * Returns a wire adapter mock in the shape of:
  *
  * fn         : Used when adapter is invoked imperatively. It proxies to the original adapter function, if is callable.
- * fn.adapter : A valid wire adapter class, consumable by @lwc/engine.
+ * fn.adapter : A valid wire adapter class, consumable by @lwc/engine-dom.
  *              If the @originalAdapter.adapter or @originalAdapter is a valid wire adapter class, fn.adapter will
  *              act as a proxy on it until a spy is attached.
  *
@@ -146,6 +146,6 @@ function installRegisterDecoratorsTrap(lwc) {
     Object.defineProperty(lwc, 'registerDecorators', newDescriptor);
 }
 
-const lwc = require('@lwc/engine');
+const lwc = require('@lwc/engine-dom');
 
 installRegisterDecoratorsTrap(lwc);

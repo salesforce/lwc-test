@@ -4,8 +4,5 @@
     "private": "true",
     "scripts": {
         "test": "jest"
-    },
-    "devDependencies": {
-        "@lwc/jest-preset": "10.0.2"
     }
 }

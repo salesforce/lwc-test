@@ -11,7 +11,7 @@ const EMPTY_CSS_MOCK = resolve(__dirname, '..', 'resources', 'emptyStyleMock.js'
 const EMPTY_HTML_MOCK = resolve(__dirname, '..', 'resources', 'emptyHtmlMock.js');
 
 const WHITELISTED_LWC_PACKAGES = {
-    lwc: '@lwc/engine',
+    lwc: '@lwc/engine-dom',
     'wire-service': '@lwc/wire-service',
     'wire-service-jest-util': '@salesforce/wire-service-jest-util',
 };

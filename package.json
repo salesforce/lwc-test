@@ -4,8 +4,8 @@
     "description": "LWC test plugins and utilities",
     "scripts": {
         "test": "run-s test:synthetic test:native",
-        "test:synthetic": "jest --no-cache",
-        "test:native": "cross-env NATIVE_SHADOW=1 jest --no-cache",
+        "test:synthetic": "jest --no-cache --runInBand",
+        "test:native": "cross-env NATIVE_SHADOW=1 jest --no-cache --runInBand",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/",
         "format": "prettier --write '{packages,test}/**/*.{js,ts,json,md}'",

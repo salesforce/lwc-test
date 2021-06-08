@@ -68,7 +68,7 @@ jobs:
       - load_workspace
       - run:
           name: Run unit tests
-          command: yarn test --runInBand
+          command: yarn test
 
   deploy:
     executor: node

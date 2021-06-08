@@ -7,7 +7,7 @@
 module.exports = {
     projects: [
         {
-            displayName: 'unit',
+            displayName: `unit (${process.env.NATIVE_SHADOW ? 'native' : 'synthetic'} shadow)`,
             rootDir: '<rootDir>/packages',
 
             testMatch: ['**/__tests__/**/?(*.)(test).js'],

@@ -4,32 +4,52 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
 
 ## Usage
 
-### Jest Preset Configuration
+### Installation
 
-1. Install `@lwc/synthetic-shadow`. This is a polyfill for ShadowRoot that was tailor-made for LWC.
+```shell
+yarn add --dev @lwc/jest-preset @lwc/synthetic-shadow
+```
 
-    `yarn add --dev @lwc/synthetic-shadow`
+Optionally, you can omit `@lwc/synthetic-shadow` if you want to test native shadow DOM rather than the polyfill. (See [`nativeShadow`](#native-shadow) below.)
 
-2. Use this project's preset config. This maps to the settings in `jest-preset.json`. Any settings added to your project's own `jest` config will take precedence to entries in the preset.
+### Configuration
 
-    ```json
-    {
-        "jest": {
-            "preset": "@lwc/jest-preset"
-        }
-    }
-    ```
+Add the preset to your `jest.config.js` like so:
 
-3. Update the `moduleNameMapper` entry in your Jest config to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
+ ```json
+ {
+     "jest": {
+         "preset": "@lwc/jest-preset"
+     }
+ }
+ ```
 
-    ```json
-    {
-        "moduleNameMapper": {
-            "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
-        }
-    }
-    ```
+Then, update the `moduleNameMapper` entry in `jest.config.js` to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
 
-4. Create a `__tests__` inside the bundle of the LWC component under test.
-5. Create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.test.js`. See an example in this projects `src/test` directory.
-6. Write and run the Jest tests!
+ ```json
+ {
+     "moduleNameMapper": {
+         "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
+     }
+ }
+ ```
+
+#### nativeShadow
+
+Optionally, you can configure `@lwc/jest-preset` to use native shadow DOM rather than synthetic shadow DOM. Create a file called `lwc-jest.config.js` with the contents:
+
+```js
+module.exports = {
+    nativeShadow: true
+};
+```
+
+This file should be placed in whichever directory you run your tests (usually, the project root).
+
+### Testing
+
+Create a `__tests__` inside the bundle of the LWC component under test.
+
+Then, create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.test.js`. See an example in this projects `src/test` directory.
+
+Now you can write and run the Jest tests!

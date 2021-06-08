@@ -5,10 +5,5 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 module.exports = {
-    displayName: `integration (${process.env.NATIVE_SHADOW ? 'native' : 'synthetic'} shadow)`,
-    preset: '@lwc/jest-preset',
-
-    moduleNameMapper: {
-        '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
-    },
+    nativeShadow: !!process.env.NATIVE_SHADOW
 };

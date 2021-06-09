@@ -5,6 +5,11 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 module.exports = {
+    globals: {
+        'lwc-jest': {
+            nativeShadow: !!process.env.NATIVE_SHADOW
+        }
+    },
     displayName: `integration (${process.env.NATIVE_SHADOW ? 'native' : 'synthetic'} shadow)`,
     preset: '@lwc/jest-preset',
 

@@ -36,15 +36,17 @@ Then, update the `moduleNameMapper` entry in `jest.config.js` to point to where 
 
 #### nativeShadow
 
-Optionally, you can configure `@lwc/jest-preset` to use native shadow DOM rather than synthetic shadow DOM. Create a file called `lwc-jest.config.js` with the contents:
+Optionally, you can configure `@lwc/jest-preset` to use native shadow DOM rather than synthetic shadow DOM. To do so, add the following to `jest.config.js`:
 
-```js
-module.exports = {
-    nativeShadow: true
-};
+```json
+{
+    "globals": {
+        "lwc-jest": {
+            "nativeShadow": true
+        }
+    },
+}
 ```
-
-This file should be placed in whichever directory you run your tests (usually, the project root).
 
 ### Testing
 

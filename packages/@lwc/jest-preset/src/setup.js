@@ -1,14 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-
-const cwd = process.cwd();
-const configPath = path.resolve(cwd, 'lwc-jest.config.js');
-let nativeShadow = false;
-
-if (fs.existsSync(configPath) && fs.lstatSync(configPath).isFile()) {
-    const config = require(configPath);
-    nativeShadow = config.nativeShadow;
-}
+const config = global['lwc-jest'] || {}
+const { nativeShadow } = config
 
 if (!nativeShadow) {
     require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');

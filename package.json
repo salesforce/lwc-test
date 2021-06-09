@@ -9,7 +9,6 @@
         "format": "prettier --write '{packages,test}/**/*.{js,ts,json,md}'",
         "release:publish:ci": "./scripts/release/publish.js",
         "release:version": "./scripts/release/version.js"
-
     },
     "workspaces": [
         "packages/@lwc/*",
@@ -17,12 +16,13 @@
     ],
     "license": "MIT",
     "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/eslint-parser": "^7.14.4",
         "@lwc/compiler": "^2.1.0",
         "@lwc/engine-dom": "^2.1.0",
         "@lwc/synthetic-shadow": "^2.1.0",
         "@lwc/wire-service": "^2.1.0",
         "@types/jest": "^26.0.21",
-        "babel-eslint": "^10.1.0",
         "eslint": "^7.22.0",
         "jest": "^26.6.3",
         "lerna": "^4.0.0",

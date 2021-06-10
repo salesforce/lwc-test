@@ -7,10 +7,8 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
 ### Installation
 
 ```shell
-yarn add --dev @lwc/jest-preset @lwc/synthetic-shadow
+yarn add --dev @lwc/jest-preset @lwc/compiler @lwc/engine-dom @lwc/synthetic-shadow
 ```
-
-Optionally, you can omit `@lwc/synthetic-shadow` if you want to test native shadow DOM rather than the polyfill. (See [`nativeShadow`](#nativeshadow) below.)
 
 ### Configuration
 

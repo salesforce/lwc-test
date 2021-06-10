@@ -7,7 +7,7 @@
 
 describe('shadow DOM', () => {
     // Smoke test to check that we're running in the right shadow DOM mode
-    if (process.env.NATIVE_SHADOW) {
+    if (global['lwc-jest'].nativeShadow) {
         it('should be using native shadow DOM', () => {
             // sniff for JSOM's ShadowRoot implementation
             expect(ShadowRoot.prototype.constructor.toString()).toContain('class ShadowRoot extends globalObject.DocumentFragment');

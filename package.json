@@ -3,9 +3,7 @@
     "private": true,
     "description": "LWC test plugins and utilities",
     "scripts": {
-        "test": "run-s test:synthetic test:native",
-        "test:synthetic": "jest --no-cache --runInBand",
-        "test:native": "cross-env NATIVE_SHADOW=1 jest --no-cache --runInBand",
+        "test": "jest --no-cache",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/",
         "format": "prettier --write '{packages,test}/**/*.{js,ts,json,md}'",
@@ -24,11 +22,9 @@
         "@lwc/wire-service": "^2.1.0",
         "@types/jest": "^26.0.21",
         "babel-eslint": "^10.1.0",
-        "cross-env": "^7.0.3",
         "eslint": "^7.22.0",
         "jest": "^26.6.3",
         "lerna": "^4.0.0",
-        "npm-run-all": "^4.1.5",
         "prettier": "^2.2.1"
     }
 }

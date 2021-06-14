@@ -28,11 +28,11 @@
         "@babel/plugin-syntax-decorators": "^7.12.13",
         "@babel/plugin-transform-modules-commonjs": "^7.13.8",
         "@babel/preset-typescript": "^7.13.0",
-        "babel-preset-jest": "^26.6.2"
+        "babel-preset-jest": "^27.0.1"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "jest": "^26"
+        "jest": "^26 || ^27"
     },
     "engines": {
         "node": ">=10"

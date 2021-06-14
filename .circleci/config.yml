@@ -1,5 +1,6 @@
 version: 2.1
 
+supported-jest-versions: &supported-jest-versions ["local", "26", "27"]
 
 deploy_filters: &deploy_filters
   filters:
@@ -33,22 +34,16 @@ commands:
           keys:
             - yarn-v5-{{ checksum "yarn.lock" }}
 
-  save_workspace:
-    description: Save current workspace
-    steps:
-      - persist_to_workspace:
-          root: .
-          paths: .
-
-  load_workspace:
-    description: Load workspace
-    steps:
-      - attach_workspace:
-          at: ~/lwc-test
-
 
 jobs:
   build:
+    parameters:
+      jest-version:
+        type: string
+        description: >
+          Overrides the installed version of jest. When set to "local" the version of jest set 
+          frozen in the yarn.lock is used.
+        default: "local"
     executor: node
     steps:
       - checkout
@@ -56,16 +51,18 @@ jobs:
       - run:
           name: Install dependencies and build
           command: yarn install --frozen-lockfile
+      - save_yarn_cache
+      - when:
+          condition: 
+            not:
+              equal: [<<parameters.jest-version>>, "local"]
+          steps:
+            - run:
+                name: Override version of jest@<<parameters.jest-version>>
+                command: yarn add jest@<<parameters.jest-version>> -W --dev
       - run:
           name: Run linter
           command: yarn lint
-      - save_yarn_cache
-      - save_workspace
-
-  test:
-    executor: node
-    steps:
-      - load_workspace
       - run:
           name: Run unit tests
           command: yarn test --runInBand
@@ -73,7 +70,11 @@ jobs:
   deploy:
     executor: node
     steps:
-      - load_workspace
+      - checkout
+      - restore_yarn_cache
+      - run:
+          name: Install dependencies and build
+          command: yarn install --frozen-lockfile
       - run:
           name: Configure NPM authentication
           command: npm config set "//registry.npmjs.org/:_authToken" "$NPM_AUTOMATION_TOKEN"
@@ -84,22 +85,20 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build
-      - test:
-          requires:
-            - build
+      - build:
+          matrix:
+            parameters:
+              jest-version: *supported-jest-versions
 
   build_and_test_and_deploy:
     jobs:
       - build:
           <<: *deploy_filters
-
-      - test:
-          <<: *deploy_filters
-          requires:
-            - build
+          matrix:
+            parameters:
+              jest-version: *supported-jest-versions
 
       - deploy:
           <<: *deploy_filters
           requires:
-            - test
+            - build

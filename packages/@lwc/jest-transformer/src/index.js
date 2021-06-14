@@ -109,12 +109,31 @@ module.exports = {
 
         return babelCore.transform(code, { ...BABEL_CONFIG, ...config, filename });
     },
-    getCacheKey(fileData, filePath, configStr, options) {
+
+    getCacheKey(sourceText, sourcePath, ...rest) {
+        let configString;
+        let transformConfig;
+        
+        if (rest.length === 1) {
+            // Handle jest@27 arguments
+            // type getCacheKey = (sourceText: string, sourcePath: string, options: { configString: string }) => string;
+            transformConfig = rest[0];
+            configString = transformConfig.configString;
+        } else if (rest.length === 2) {
+            // Handle jest@26 arguments
+            // type getCacheKey = (sourceText: string, sourcePath: string, configStr: string, options: any) => string;
+            configString = rest[0];
+            transformConfig = rest[1];
+        } else {
+            throw new Error('Unexpected transform arguments.');
+        }
+
         const { NODE_ENV } = process.env;
+
         return crypto
             .createHash('md5')
-            .update(JSON.stringify(options), 'utf8')
-            .update(fileData + filePath + configStr + NODE_ENV + compilerVersion, 'utf8')
+            .update(JSON.stringify(configString), 'utf8')
+            .update(sourceText + sourcePath + configString + NODE_ENV + compilerVersion, 'utf8')
             .digest('hex');
     },
 };

@@ -1,5 +1,5 @@
-const config = global['lwc-jest'] || {}
-const { nativeShadow } = config
+const config = global['lwc-jest'] || {};
+const { nativeShadow } = config;
 
 if (!nativeShadow) {
     require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');

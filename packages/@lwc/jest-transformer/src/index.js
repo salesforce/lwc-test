@@ -113,7 +113,7 @@ module.exports = {
     getCacheKey(sourceText, sourcePath, ...rest) {
         let configString;
         let transformConfig;
-        
+
         if (rest.length === 1) {
             // Handle jest@27 arguments
             // type getCacheKey = (sourceText: string, sourcePath: string, options: { configString: string }) => string;

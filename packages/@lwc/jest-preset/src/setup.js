@@ -1,4 +1,9 @@
-require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+const config = global['lwc-jest'] || {}
+const { nativeShadow } = config
+
+if (!nativeShadow) {
+    require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+}
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0
 global.wireAdaptersRegistryHack = new Map();

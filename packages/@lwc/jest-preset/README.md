@@ -14,23 +14,23 @@ yarn add --dev @lwc/jest-preset @lwc/compiler @lwc/engine-dom @lwc/synthetic-sha
 
 Add the preset to your `jest.config.js` like so:
 
- ```json
- {
-     "jest": {
-         "preset": "@lwc/jest-preset"
-     }
- }
- ```
+```json
+{
+    "jest": {
+        "preset": "@lwc/jest-preset"
+    }
+}
+```
 
 Then, update the `moduleNameMapper` entry in `jest.config.js` to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
 
- ```json
- {
-     "moduleNameMapper": {
-         "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
-     }
- }
- ```
+```json
+{
+    "moduleNameMapper": {
+        "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
+    }
+}
+```
 
 #### nativeShadow
 
@@ -42,7 +42,7 @@ By default, this preset is configured to run the tests with synthetic shadow DOM
         "lwc-jest": {
             "nativeShadow": true
         }
-    },
+    }
 }
 ```
 

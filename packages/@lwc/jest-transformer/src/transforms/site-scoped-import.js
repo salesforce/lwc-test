@@ -4,25 +4,55 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const { stringScopedImportTransform } = require('./utils');
+const babelTemplate = require('@babel/template').default;
+const { getImportInfo, stringScopedImportTransform } = require('./utils');
 
-/*
- * We use the full path to `Id` instead of `@salesforce/site` like other transforms
- * because only retrieving the id is currently supported. This will need to be updated
- * if more properties are exposed.
- */
-const SITE_ID_IMPORT_IDENTIFIER = '@salesforce/site/Id';
+const SITE_ID_IMPORT_IDENTIFIER = '@salesforce/site/';
 
 const DEFAULT_ID = '005000000000000000';
+
+const siteActiveLanguagesTemplate = babelTemplate(`
+    let RESOURCE_NAME;
+    try {
+        RESOURCE_NAME = require(IMPORT_SOURCE).default;
+    } catch (e) {
+        RESOURCE_NAME = [{ code: 'en-US', label: 'English (US)' }];
+    }
+`);
+
+function siteActiveLanguagesScopedImportTransform(t, path) {
+    const { importSource, resourceNames } = getImportInfo(path);
+    const defaultImport = resourceNames[0];
+
+    path.replaceWithMultiple(
+        siteActiveLanguagesTemplate({
+            RESOURCE_NAME: t.identifier(defaultImport),
+            IMPORT_SOURCE: t.stringLiteral(importSource),
+        })
+    );
+}
 
 module.exports = function ({ types: t }) {
     return {
         visitor: {
             ImportDeclaration(path) {
-                if (path.get('source.value').node.startsWith(SITE_ID_IMPORT_IDENTIFIER)) {
-                    stringScopedImportTransform(t, path, SITE_ID_IMPORT_IDENTIFIER, DEFAULT_ID);
+                const importId = path.get('source.value').node;
+                if (importId.startsWith(SITE_ID_IMPORT_IDENTIFIER)) {
+                    siteScopedImportTransform(t, path, importId);
                 }
             },
         },
     };
 };
+
+function siteScopedImportTransform(t, path, importId) {
+    importId = importId.substring(SITE_ID_IMPORT_IDENTIFIER.length);
+    switch (importId) {
+        case 'activeLanguages':
+            siteActiveLanguagesScopedImportTransform(t, path);
+            break;
+        case 'Id':
+            stringScopedImportTransform(t, path, importId, DEFAULT_ID);
+            break;
+    }
+}

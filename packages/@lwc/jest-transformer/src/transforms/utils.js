@@ -69,14 +69,23 @@ function stringScopedImportTransform(t, path, importIdentifier, fallbackData) {
  * id, it must be the same object in the component under test and the test case
  * itself. Due to this requirement, we save the mock to the global object to be
  * shared.
+ *
+ * When @salesforce/wire-service-jest-util is available, we will try to resolve
+ * to a valid wire (apex) adapter definition.
  */
 const resolvedPromiseTemplate = babelTemplate(`
     let RESOURCE_NAME;
     try {
         RESOURCE_NAME = require(IMPORT_SOURCE).default;
-    } catch (e) {
-        global.MOCK_NAME = global.MOCK_NAME || function RESOURCE_NAME() { return Promise.resolve(); };
-        RESOURCE_NAME = global.MOCK_NAME;
+    } catch (importSourceNotDefined) {
+        try {
+            const { createApexTestWireAdapter } = require('@salesforce/wire-service-jest-util');
+            global.MOCK_NAME = global.MOCK_NAME || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
+            RESOURCE_NAME = global.MOCK_NAME;
+        } catch (wireServiceJestUtilNotDefined) {
+            global.MOCK_NAME = global.MOCK_NAME || function RESOURCE_NAME() { return Promise.resolve(); };
+            RESOURCE_NAME = global.MOCK_NAME;
+        }
     }
 `);
 

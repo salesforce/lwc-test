@@ -17,12 +17,21 @@ describe('@salesforce/apex import', () => {
 
         try {
           myMethod = require("@salesforce/apex/FooController.fooMethod").default;
-        } catch (e) {
-          global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
-            return Promise.resolve();
-          };
-
-          myMethod = global.__lwcJestMock_myMethod;
+        } catch (importSourceNotDefined) {
+          try {
+            const {
+              createApexTestWireAdapter
+            } = require('@salesforce/wire-service-jest-util');
+        
+            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
+            myMethod = global.__lwcJestMock_myMethod;
+          } catch (wireServiceJestUtilNotDefined) {
+            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
+              return Promise.resolve();
+            };
+        
+            myMethod = global.__lwcJestMock_myMethod;
+          }
         }
     `
     );
@@ -39,12 +48,21 @@ describe('@salesforce/apex import', () => {
 
         try {
           myMethod = require("@salesforce/apex/FooController.fooMethod").default;
-        } catch (e) {
-          global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
-            return Promise.resolve();
-          };
-
-          myMethod = global.__lwcJestMock_myMethod;
+        } catch (importSourceNotDefined) {
+          try {
+            const {
+              createApexTestWireAdapter
+            } = require('@salesforce/wire-service-jest-util');
+        
+            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
+            myMethod = global.__lwcJestMock_myMethod;
+          } catch (wireServiceJestUtilNotDefined) {
+            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
+              return Promise.resolve();
+            };
+        
+            myMethod = global.__lwcJestMock_myMethod;
+          }
         }
     `
     );

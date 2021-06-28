@@ -4,11 +4,15 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { ApexMethod, refreshApex, getSObjectValue } from '../apex';
+import { ApexMethod, BarMethod, refreshApex, getSObjectValue } from '../apex';
 
 describe('@salesforce/apex/<class>', () => {
     it('exports a default method returning a promise', () => {
         expect(ApexMethod()).resolves.toEqual(undefined);
+    });
+
+    it('has different identities for different apex classes', () => {
+        expect(ApexMethod).not.toBe(BarMethod);
     });
 });
 

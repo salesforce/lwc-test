@@ -78,14 +78,18 @@ const resolvedPromiseTemplate = babelTemplate(`
     try {
         RESOURCE_NAME = require(IMPORT_SOURCE).default;
     } catch (importSourceNotDefined) {
+        global._apexMethodsModuleRegistryHack = global._apexMethodsModuleRegistryHack || {};
+
         try {
             const { createApexTestWireAdapter } = require('@salesforce/wire-service-jest-util');
-            global.MOCK_NAME = global.MOCK_NAME || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
-            RESOURCE_NAME = global.MOCK_NAME;
+            global._apexMethodsModuleRegistryHack[IMPORT_SOURCE] = global._apexMethodsModuleRegistryHack[IMPORT_SOURCE]
+                || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
         } catch (wireServiceJestUtilNotDefined) {
-            global.MOCK_NAME = global.MOCK_NAME || function RESOURCE_NAME() { return Promise.resolve(); };
-            RESOURCE_NAME = global.MOCK_NAME;
+            global._apexMethodsModuleRegistryHack[IMPORT_SOURCE] = global._apexMethodsModuleRegistryHack[IMPORT_SOURCE]
+                || function RESOURCE_NAME() { return Promise.resolve(); };
         }
+        
+        RESOURCE_NAME = global._apexMethodsModuleRegistryHack[IMPORT_SOURCE];
     }
 `);
 

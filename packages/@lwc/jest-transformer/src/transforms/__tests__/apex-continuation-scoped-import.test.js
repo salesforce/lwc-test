@@ -18,20 +18,21 @@ describe('@salesforce/apexContinuation import', () => {
         try {
           myMethod = require("@salesforce/apexContinuation/FooController.fooMethod").default;
         } catch (importSourceNotDefined) {
+          global._apexMethodsModuleRegistryHack = global._apexMethodsModuleRegistryHack || {};
+        
           try {
             const {
               createApexTestWireAdapter
             } = require('@salesforce/wire-service-jest-util');
         
-            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
-            myMethod = global.__lwcJestMock_myMethod;
+            global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] = global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
           } catch (wireServiceJestUtilNotDefined) {
-            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
+            global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] = global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] || function myMethod() {
               return Promise.resolve();
             };
-        
-            myMethod = global.__lwcJestMock_myMethod;
           }
+        
+          myMethod = global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"];
         }
     `
     );
@@ -45,24 +46,25 @@ describe('@salesforce/apexContinuation import', () => {
         `
         import { otherNamed } from './something-valid';
         let myMethod;
-
+        
         try {
           myMethod = require("@salesforce/apexContinuation/FooController.fooMethod").default;
         } catch (importSourceNotDefined) {
+          global._apexMethodsModuleRegistryHack = global._apexMethodsModuleRegistryHack || {};
+        
           try {
             const {
               createApexTestWireAdapter
             } = require('@salesforce/wire-service-jest-util');
         
-            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
-            myMethod = global.__lwcJestMock_myMethod;
+            global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] = global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] || createApexTestWireAdapter(jest.fn().mockImplementation(() => Promise.resolve()));
           } catch (wireServiceJestUtilNotDefined) {
-            global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
+            global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] = global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"] || function myMethod() {
               return Promise.resolve();
             };
-        
-            myMethod = global.__lwcJestMock_myMethod;
           }
+        
+          myMethod = global._apexMethodsModuleRegistryHack["@salesforce/apexContinuation/FooController.fooMethod"];
         }
     `
     );

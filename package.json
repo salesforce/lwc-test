@@ -16,16 +16,16 @@
     ],
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "^7.14.3",
-        "@babel/eslint-parser": "^7.14.4",
-        "@lwc/compiler": "^2.1.0",
-        "@lwc/engine-dom": "^2.1.0",
-        "@lwc/synthetic-shadow": "^2.1.0",
-        "@lwc/wire-service": "^2.1.0",
-        "@types/jest": "^26.0.21",
-        "eslint": "^7.22.0",
-        "jest": "^27.0.4",
+        "@babel/core": "^7.14.6",
+        "@babel/eslint-parser": "^7.14.7",
+        "@lwc/compiler": "^2.2.6",
+        "@lwc/engine-dom": "^2.2.6",
+        "@lwc/synthetic-shadow": "^2.2.6",
+        "@lwc/wire-service": "^2.2.6",
+        "@types/jest": "^26.0.24",
+        "eslint": "^7.30.0",
+        "jest": "^27.0.6",
         "lerna": "^4.0.0",
-        "prettier": "^2.2.1"
+        "prettier": "^2.3.2"
     }
 }

@@ -2,6 +2,10 @@ const config = global['lwc-jest'] || {};
 const { nativeShadow } = config;
 
 if (!nativeShadow) {
+    if (ShadowRoot.prototype.constructor.toString().includes('function SyntheticShadowRoot')
+        || EventTarget.prototype.addEventListener.toString().includes('function patchedAddEventListener')) {
+        throw new Error('@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.')
+    }
     require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
 }
 

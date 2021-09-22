@@ -7,9 +7,7 @@ exports[`example-typescript should render correct snapshot 1`] = `
       example-typescript
     </p>
     <p>
-      Validating if the transformation to 
-      TypeScript
-       has worked.
+      Validating if the transformation to TypeScript has worked.
     </p>
 </example-typescript>
 `;

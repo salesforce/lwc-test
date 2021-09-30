@@ -49,7 +49,7 @@ try {
     }
 
     const [, releaseBranch] = result;
-    const distTag = releaseBranch === 'master' ? 'next' : releaseBranch;
+    const distTag = releaseBranch === 'master' ? 'latest' : releaseBranch;
 
     console.log(
         `Attempting to release from branch "${releaseBranch}" using dist-tag "${distTag}".`

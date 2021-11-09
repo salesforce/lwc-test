@@ -18,7 +18,7 @@
         "lwc"
     ],
     "dependencies": {
-        "pretty-format": "^27.2.4"
+        "pretty-format": "^27.3.1"
     },
     "peerDependencies": {
         "jest": "^26 || ^27"

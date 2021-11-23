@@ -23,12 +23,17 @@ function isImplicitHTMLImport(importee, { basedir }) {
     const isHTML = ext === '.html';
     const fileName = basename(importee, '.html');
     const absPath = resolve(basedir, importee);
-    const jsFile = join(dirname(absPath), fileName + '.js');
+    const dir = dirname(absPath);
+    const jsFile = join(dir, fileName + '.js');
+    const tsFile = join(dir, fileName + '.ts');
 
     return (
-        isHTML && // if is an HTML file
-        fs.existsSync(jsFile) && // There must be a js file with the same name in the same folder
-        !fs.existsSync(absPath) // and the html must not exist
+        // if is an HTML file
+        isHTML &&
+        // the html must not exist
+        !fs.existsSync(absPath) &&
+        // there must be a js/ts file with the same name in the same folder
+        (fs.existsSync(jsFile) || fs.existsSync(tsFile))
     );
 }
 

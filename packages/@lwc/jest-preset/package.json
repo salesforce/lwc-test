@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-preset",
-    "version": "11.2.1",
+    "version": "11.2.2",
     "description": "Jest preset configuration and stubs to help test LWC",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -27,9 +27,9 @@
         "jest": "^26 || ^27"
     },
     "dependencies": {
-        "@lwc/jest-resolver": "11.2.1",
-        "@lwc/jest-serializer": "11.2.1",
-        "@lwc/jest-transformer": "11.2.1"
+        "@lwc/jest-resolver": "11.2.2",
+        "@lwc/jest-serializer": "11.2.2",
+        "@lwc/jest-transformer": "11.2.2"
     },
     "engines": {
         "node": ">=10"

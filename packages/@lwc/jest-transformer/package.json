@@ -22,13 +22,13 @@
         "/src/transforms/*.js"
     ],
     "dependencies": {
-        "@babel/core": "^7.16.0",
-        "@babel/plugin-proposal-dynamic-import": "^7.16.0",
+        "@babel/core": "^7.16.7",
+        "@babel/plugin-proposal-dynamic-import": "^7.16.7",
         "@babel/plugin-syntax-class-properties": "^7.12.13",
-        "@babel/plugin-syntax-decorators": "^7.16.0",
-        "@babel/plugin-transform-modules-commonjs": "^7.16.0",
-        "@babel/preset-typescript": "^7.16.0",
-        "babel-preset-jest": "^27.2.0"
+        "@babel/plugin-syntax-decorators": "^7.16.7",
+        "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+        "@babel/preset-typescript": "^7.16.7",
+        "babel-preset-jest": "^27.4.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",

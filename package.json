@@ -16,16 +16,16 @@
     ],
     "license": "MIT",
     "devDependencies": {
-        "@babel/core": "^7.17.8",
+        "@babel/core": "^7.17.10",
         "@babel/eslint-parser": "^7.17.0",
         "@lwc/compiler": "^2.11.3",
         "@lwc/engine-dom": "^2.11.3",
         "@lwc/synthetic-shadow": "^2.11.3",
         "@lwc/wire-service": "^2.11.3",
-        "@types/jest": "^27.4.1",
-        "eslint": "^8.12.0",
+        "@types/jest": "^27.5.0",
+        "eslint": "^8.14.0",
         "jest": "^27.5.1",
         "lerna": "^4.0.0",
-        "prettier": "^2.6.1"
+        "prettier": "^2.6.2"
     }
 }

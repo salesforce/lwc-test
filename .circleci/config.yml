@@ -59,7 +59,9 @@ jobs:
           steps:
             - run:
                 name: Override version of jest@<<parameters.jest-version>>
-                command: yarn add jest@<<parameters.jest-version>> -W --dev
+                command: |
+                  yarn remove jest jest-environment-jsdom -W --dev
+                  yarn add jest@<<parameters.jest-version>> -W --dev
       - run:
           name: Run linter
           command: yarn lint

@@ -63,10 +63,10 @@ jobs:
                   yarn remove jest jest-environment-jsdom -W --dev
                   yarn add jest@<<parameters.jest-version>> -W --dev
             - when:
-              condition: 
-                equal: [<<parameters.jest-version>>, "28"]
-              steps:
-                - run: yarn add jest-environment-jsdom@<<parameters.jest-version>> -W --dev
+                condition: 
+                  equal: [<<parameters.jest-version>>, "28"]
+                steps:
+                  - run: yarn add jest-environment-jsdom@<<parameters.jest-version>> -W --dev
       - run:
           name: Run linter
           command: yarn lint

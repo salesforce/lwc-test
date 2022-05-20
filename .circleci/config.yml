@@ -15,7 +15,7 @@ executors:
   node:
     working_directory: ~/lwc-test
     docker:
-      - image: cimg/node:14.9
+      - image: cimg/node:14.19
 
 
 commands:

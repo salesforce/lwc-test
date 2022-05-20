@@ -15,7 +15,7 @@ executors:
   node:
     working_directory: ~/lwc-test
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:14
 
 
 commands:

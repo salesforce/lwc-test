@@ -32,7 +32,7 @@
     },
     "peerDependencies": {
         "@lwc/compiler": "*",
-        "jest": "^26 || ^27"
+        "jest": "^26 || ^27 || ^28"
     },
     "engines": {
         "node": ">=10"

@@ -1,6 +1,6 @@
 version: 2.1
 
-supported-jest-versions: &supported-jest-versions ["local", "26", "27"]
+supported-jest-versions: &supported-jest-versions ["local", "26", "27", "28"]
 
 deploy_filters: &deploy_filters
   filters:
@@ -15,7 +15,7 @@ executors:
   node:
     working_directory: ~/lwc-test
     docker:
-      - image: circleci/node:14
+      - image: cimg/node:14.19
 
 
 commands:
@@ -59,7 +59,14 @@ jobs:
           steps:
             - run:
                 name: Override version of jest@<<parameters.jest-version>>
-                command: yarn add jest@<<parameters.jest-version>> -W --dev
+                command: |
+                  yarn remove jest jest-environment-jsdom -W --dev
+                  yarn add jest@<<parameters.jest-version>> -W --dev
+            - when:
+                condition: 
+                  equal: [<<parameters.jest-version>>, "28"]
+                steps:
+                  - run: yarn add jest-environment-jsdom@<<parameters.jest-version>> -W --dev
       - run:
           name: Run linter
           command: yarn lint

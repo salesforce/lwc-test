@@ -24,7 +24,7 @@
         "@lwc/compiler": "*",
         "@lwc/engine-dom": "*",
         "@lwc/synthetic-shadow": "*",
-        "jest": "^26 || ^27"
+        "jest": "^26 || ^27 || ^28"
     },
     "dependencies": {
         "@lwc/jest-resolver": "11.3.0",

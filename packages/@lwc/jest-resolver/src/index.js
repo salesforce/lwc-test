@@ -40,7 +40,7 @@ function isImplicitHTMLImport(importee, { basedir }) {
 function getLwcPath(path, options) {
     if (path.endsWith('?scoped=true')) {
         // remove query param for scoped styles
-        path = path.substring(0, path.length - 12)
+        path = path.substring(0, path.length - 12);
     }
     // If is a special LWC package, resolve it from commonjs
     if (WHITELISTED_LWC_PACKAGES[path]) {

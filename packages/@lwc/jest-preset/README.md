@@ -10,6 +10,12 @@ Tools to assist with testing Lightning Web Components (LWC) with Jest. This proj
 yarn add --dev @lwc/jest-preset @lwc/compiler @lwc/engine-dom @lwc/synthetic-shadow
 ```
 
+If your project is using **Jest 28** and above, you will also need install `jest-environment-jsdom` separately:
+
+```
+yarn add --dev jest-environment-jsdom
+```
+
 ### Configuration
 
 Add the preset to your `jest.config.js` like so:

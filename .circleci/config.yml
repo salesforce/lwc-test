@@ -63,6 +63,12 @@ jobs:
                   yarn remove jest jest-environment-jsdom -W --dev
                   yarn add jest@<<parameters.jest-version>> -W --dev
             - when:
+                condition:
+                  equal: [<<parameters.jest-version>>, "26"]
+                steps:
+                  - run: yarn clean
+                  - run: yarn install
+            - when:
                 condition: 
                   equal: [<<parameters.jest-version>>, "28"]
                 steps:

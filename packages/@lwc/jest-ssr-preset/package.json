@@ -1,0 +1,35 @@
+{
+    "name": "@lwc/jest-ssr-preset",
+    "version": "11.4.0",
+    "description": "Jest preset configuration and stubs to help test SSR rendering on LWC",
+    "homepage": "https://lwc.dev/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/salesforce/lwc-test.git",
+        "directory": "packages/@lwc/jest-ssr-preset"
+    },
+    "bugs": {
+        "url": "https://github.com/salesforce/lwc-test/issues"
+    },
+    "license": "MIT",
+    "main": "jest-preset.js",
+    "keywords": [
+        "jest",
+        "lwc"
+    ],
+    "files": [
+        "/src/*.js"
+    ],
+    "peerDependencies": {
+        "@lwc/compiler": "*",
+        "@lwc/engine-server": "*",
+        "jest": "^26 || ^27 || ^28"
+    },
+    "dependencies": {
+        "@lwc/jest-resolver": "11.4.0",
+        "@lwc/jest-transformer": "11.4.0"
+    },
+    "engines": {
+        "node": ">=10"
+    }
+}

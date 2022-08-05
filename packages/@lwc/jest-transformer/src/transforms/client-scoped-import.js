@@ -7,7 +7,7 @@
 const { stringScopedImportTransform } = require('./utils');
 
 const CLIENT_IMPORT_IDENTIFIER = '@salesforce/client/';
-const WHITELISTED_RESOURCE_MOCK_VALUE = {
+const ALLOWLISTED_RESOURCE_MOCK_VALUE = {
     formFactor: 'Large',
 };
 
@@ -19,7 +19,7 @@ module.exports = function ({ types: t }) {
 
                 if (importId.startsWith(CLIENT_IMPORT_IDENTIFIER)) {
                     const resourceId = importId.substring(CLIENT_IMPORT_IDENTIFIER.length);
-                    const mockValue = WHITELISTED_RESOURCE_MOCK_VALUE[resourceId];
+                    const mockValue = ALLOWLISTED_RESOURCE_MOCK_VALUE[resourceId];
 
                     stringScopedImportTransform(t, path, importId, mockValue);
                 }

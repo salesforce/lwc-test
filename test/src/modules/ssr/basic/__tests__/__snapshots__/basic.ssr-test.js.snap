@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a basic component and saves formatted snapshot 1`] = `
+<resolver-basic>
+  <template shadowroot="open">
+    <h1>
+      Basic, Hello world
+    </h1>
+  </template>
+</resolver-basic>
+`;

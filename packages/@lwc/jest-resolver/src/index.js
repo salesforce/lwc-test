@@ -10,7 +10,7 @@ const { resolve, extname, join, dirname, basename } = require('path');
 const EMPTY_CSS_MOCK = resolve(__dirname, '..', 'resources', 'emptyStyleMock.js');
 const EMPTY_HTML_MOCK = resolve(__dirname, '..', 'resources', 'emptyHtmlMock.js');
 
-const WHITELISTED_LWC_PACKAGES = {
+const ALLOWLISTED_LWC_PACKAGES = {
     lwc: '@lwc/engine-dom',
     'wire-service': '@lwc/wire-service',
     'wire-service-jest-util': '@salesforce/wire-service-jest-util',
@@ -43,8 +43,8 @@ function getLwcPath(path, options) {
         path = path.substring(0, path.length - 12);
     }
     // If is a special LWC package, resolve it from commonjs
-    if (WHITELISTED_LWC_PACKAGES[path]) {
-        return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
+    if (ALLOWLISTED_LWC_PACKAGES[path]) {
+        return require.resolve(ALLOWLISTED_LWC_PACKAGES[path]);
     }
 
     // If is a CSS just resolve it to an empty file

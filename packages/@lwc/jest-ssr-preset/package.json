@@ -15,7 +15,9 @@
     "main": "jest-preset.js",
     "keywords": [
         "jest",
-        "lwc"
+        "lwc",
+        "ssr",
+        "server"
     ],
     "files": [
         "/src/*.js"

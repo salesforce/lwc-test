@@ -1,4 +1,4 @@
-# @lwc/jest-ssr-preset
+# @lwc/jest-preset-ssr
 
 Tools to assist with testing Lightning Web Components (LWC) rendered on the server with Jest. This project provides 2 services: preset Jest configuration for testing Lightning web components, and stubs for common external libraries used in Lightning web components.
 
@@ -7,7 +7,7 @@ Tools to assist with testing Lightning Web Components (LWC) rendered on the serv
 ### Installation
 
 ```shell
-yarn add --dev @lwc/jest-ssr-preset @lwc/compiler @lwc/engine-server
+yarn add --dev @lwc/jest-preset-ssr @lwc/compiler @lwc/engine-server
 ```
 
 ### Configuration
@@ -17,7 +17,7 @@ Add the preset to your `jest.config.js` like so:
 ```json
 {
     "jest": {
-        "preset": "@lwc/jest-ssr-preset"
+        "preset": "@lwc/jest-preset-ssr"
     }
 }
 ```
@@ -32,7 +32,18 @@ Then, update the `moduleNameMapper` entry in `jest.config.js`(**_1_**) to point 
 }
 ```
 
-**_1:_** Notice that a jest config only allows one preset per configuration. In order to allow client and server jest tests to live alongside, you might consider creating a new configuration, eg: create `jest-ssr.config.js` and run jest with the `--config` [option](https://jestjs.io/docs/cli#--configpath) to run ssr tests. 
+**_1:_** Notice that a jest config only allows one preset per configuration. In order to allow client and server jest tests to live alongside, you might consider creating a new configuration.
+
+Example: Use `jest.config.js` for client tests (`@lwc/jest-preset`) and create `jest-ssr.config.js` for server tests; then add a `test:unit:ssr` script to your `package.json` to run jest with the [`--config` option](https://jestjs.io/docs/cli#--configpath)
+
+```json
+{
+    "scripts": {
+        "test:unit": "jest",
+        "test:unit:ssr": "jest --config=jest-ssr.config.js"
+    }
+}
+``` 
 
 
 ### Testing

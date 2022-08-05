@@ -56,7 +56,7 @@ module.exports = {
             },
 
             rootDir: '<rootDir>/test',
-            preset: '@lwc/jest-ssr-preset'
+            preset: '@lwc/jest-preset-ssr'
         }
     ],
 };

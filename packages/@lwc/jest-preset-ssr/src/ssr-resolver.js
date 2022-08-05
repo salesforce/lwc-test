@@ -6,13 +6,13 @@
  */
 const lwcResolver = require('@lwc/jest-resolver');
 
-const WHITELISTED_LWC_PACKAGES = {
+const ALLOWLISTED_LWC_PACKAGES = {
     lwc: '@lwc/engine-server',
 };
 
 function getLwcPath(path) {
-    if (WHITELISTED_LWC_PACKAGES[path]) {
-        return require.resolve(WHITELISTED_LWC_PACKAGES[path]);
+    if (ALLOWLISTED_LWC_PACKAGES[path]) {
+        return require.resolve(ALLOWLISTED_LWC_PACKAGES[path]);
     }
 
     return path;

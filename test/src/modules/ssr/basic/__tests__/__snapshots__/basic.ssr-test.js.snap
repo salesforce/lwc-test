@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a basic component and saves formatted snapshot 1`] = `
-<resolver-basic>
+<x-basic>
   <template shadowroot="open">
+    <style type="text/css">
+      h1 {color: red;}
+    </style>
     <h1>
       Basic, Hello world
     </h1>
   </template>
-</resolver-basic>
+</x-basic>
 `;

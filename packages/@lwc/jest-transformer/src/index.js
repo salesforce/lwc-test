@@ -84,6 +84,15 @@ function transformTypeScript(src, filePath) {
     return code;
 }
 
+function getScopedCssOption(src, filePath) {
+    const ext = path.extname(filePath);
+    const isCSS = ext === '.css';
+    let fileName = path.basename(filePath, '.css');
+    const isScoped = path.extname(fileName) === '.scoped';
+
+    return src && src.length > 0 && isCSS && isScoped;
+}
+
 module.exports = {
     process(src, filePath) {
         if (isTypeScript(filePath)) {
@@ -100,6 +109,7 @@ module.exports = {
             experimentalDynamicComponent: {
                 strictSpecifier: false,
             },
+            scopedStyles: getScopedCssOption(src, filePath),
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap

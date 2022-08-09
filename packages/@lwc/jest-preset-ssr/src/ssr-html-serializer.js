@@ -66,7 +66,7 @@ function formatHTML(src) {
 
             start = pos;
             while (src.charAt(pos++) !== '>') {
-                // Keep advancing until consuming the closing tag.
+                // Keep advancing until the closing tag.
             }
 
             // Adjust current depth and print the element tag or comment.

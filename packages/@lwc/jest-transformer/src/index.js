@@ -87,7 +87,7 @@ function transformTypeScript(src, filePath) {
 function getScopedStylesOption(src, filePath) {
     const ext = path.extname(filePath);
     const isCSS = ext === '.css';
-    let fileName = path.basename(filePath, '.css');
+    const fileName = path.basename(filePath, '.css');
     const isScoped = path.extname(fileName) === '.scoped';
 
     return src && src.length > 0 && isCSS && isScoped;

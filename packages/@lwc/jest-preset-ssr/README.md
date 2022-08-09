@@ -50,7 +50,7 @@ Example: Use `jest.config.js` for client tests (`@lwc/jest-preset`) and create `
 
 Create a `__tests__` inside the bundle of the LWC component under test.
 
-Then, create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.ssr-test.js`. See an example in this projects `src/test/ssr` directory.
+Then, create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.ssr-test.js`. See an example in this project's `src/test/ssr` directory.
 
 Now you can write and run the Jest tests using SSR!
 

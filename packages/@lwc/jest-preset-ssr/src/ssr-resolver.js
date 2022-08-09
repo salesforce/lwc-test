@@ -42,7 +42,7 @@ module.exports = function (path, options) {
         return options.defaultResolver(require.resolve(ALLOWLISTED_LWC_PACKAGES[effectivePath]), options);
     }
 
-    // If it is a CSS and it exist, we should parse it since it must be rendered in ssr. The default resolver will
+    // If it is a CSS and it exists, we should parse it since it must be rendered in ssr. The default resolver will
     // just replace it with an empty string.
     if (isValidCSSImport(effectivePath, options)) {
         return options.defaultResolver(effectivePath, options);

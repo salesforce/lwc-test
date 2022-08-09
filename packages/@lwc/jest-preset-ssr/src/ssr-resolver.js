@@ -26,7 +26,7 @@ function isValidCSSImport(importee, { basedir }) {
     const tsFile = join(dir, fileName + '.ts');
 
     return (
-        // if it is an css file
+        // if it is a css file
         isCSS &&
         // the css file must exist
         fs.existsSync(absPath) &&

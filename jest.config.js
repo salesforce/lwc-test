@@ -56,7 +56,7 @@ module.exports = {
             },
 
             rootDir: '<rootDir>/test',
-            preset: '@lwc/jest-preset-ssr',
+            preset: '@lwc/jest-preset/ssr',
             moduleNameMapper: {
                 '^ssr/(.+)$': '<rootDir>/src/modules/ssr/$1/$1',
             },

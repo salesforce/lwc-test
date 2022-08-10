@@ -36,7 +36,7 @@ function isValidCSSImport(importee, { basedir }) {
 }
 
 module.exports = function (path, options) {
-    const effectivePath = path.endsWith('?scoped=true') ? path = path.substring(0, path.length - 12) : path;
+    const effectivePath = path.endsWith('?scoped=true') ? path.substring(0, path.length - 12) : path;
 
     if (ALLOWLISTED_LWC_PACKAGES[effectivePath]) {
         return options.defaultResolver(require.resolve(ALLOWLISTED_LWC_PACKAGES[effectivePath]), options);

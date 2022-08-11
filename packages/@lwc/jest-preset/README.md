@@ -32,7 +32,7 @@ To test how LWC components render in the DOM, add `@lwc/jest-preset` to the `pac
 }
 ```
 
-Then, update the `moduleNameMapper` entry of the Jest config to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
+Then, update the [`moduleNameMapper`](https://jestjs.io/docs/configuration#modulenamemapper-objectstring-string--arraystring) entry of the Jest config to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
 
 ```json
 {

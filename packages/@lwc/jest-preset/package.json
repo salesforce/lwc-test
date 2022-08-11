@@ -18,11 +18,13 @@
         "lwc"
     ],
     "files": [
-        "/src/*.js"
+        "/ssr/*.js",
+        "/src/**/*.js"
     ],
     "peerDependencies": {
         "@lwc/compiler": "*",
         "@lwc/engine-dom": "*",
+        "@lwc/engine-server": ">=2",
         "@lwc/synthetic-shadow": "*",
         "jest": "^26 || ^27 || ^28"
     },

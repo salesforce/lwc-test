@@ -48,6 +48,18 @@ module.exports = {
         unitTest({ nativeShadow: false }),
         unitTest({ nativeShadow: true }),
         integration({ nativeShadow: false }),
-        integration({ nativeShadow: true })
+        integration({ nativeShadow: true }),
+        {
+            displayName: {
+                name: `integration (ssr)`,
+                color: 'magenta'
+            },
+
+            rootDir: '<rootDir>/test',
+            preset: '@lwc/jest-preset/ssr',
+            moduleNameMapper: {
+                '^ssr/(.+)$': '<rootDir>/src/modules/ssr/$1/$1',
+            },
+        }
     ],
 };

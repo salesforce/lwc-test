@@ -5,17 +5,14 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 module.exports = {
-    // Starting jest@27, the default test environment is "node". Force test environment to "jsdom"
-    // regardless of the jest version.
-    testEnvironment: 'jsdom',
+    // Jest 26 default testEnvironment is jsdom: https://jestjs.io/blog/2021/05/25/jest-27#flipping-defaults
+    testEnvironment: 'node',
     moduleFileExtensions: ['ts', 'js', 'html'],
-    resolver: require.resolve('@lwc/jest-resolver'),
+    snapshotSerializers: [require.resolve('../src/ssr/html-serializer.js')],
+    resolver: require.resolve('../src/ssr/resolver.js'),
     transform: {
         '^.+\\.(js|ts|html|css)$': require.resolve('@lwc/jest-transformer'),
     },
-    setupFilesAfterEnv: [require.resolve('./src/setup.js')],
-    snapshotSerializers: [require.resolve('@lwc/jest-serializer')],
-    testMatch: ['**/__tests__/**/?(*.)(spec|test).(js|ts)'],
+    testMatch: ['**/__tests__/**/?(*.)ssr-(spec|test).(js|ts)'],
     coveragePathIgnorePatterns: ['.css$', '.html$'],
 };
-

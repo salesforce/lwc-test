@@ -61,7 +61,7 @@ By default, this preset is configured to run the tests with synthetic shadow DOM
 
 #### LWC components rendered on the Server
 
-Add the `@lwc/jest-preset/ssr` preset to the Jest configuration of your `package.json` (also see [LWC DOM and SSR component test setup](#LWC-DOM-and-SSR-component-test-setup) section) like so:
+Add the `@lwc/jest-preset/ssr` preset to the Jest configuration like so:
 
 ```json
 {

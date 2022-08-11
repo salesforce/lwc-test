@@ -26,9 +26,7 @@ To test how LWC components render in the DOM, add the `@lwc/jest-preset` preset 
 
 ```json
 {
-    "jest": {
-        "preset": "@lwc/jest-preset"
-    }
+    "preset": "@lwc/jest-preset"
 }
 ```
 
@@ -36,11 +34,9 @@ Then, update the [`moduleNameMapper`](https://jestjs.io/docs/configuration#modul
 
 ```json
 {
-    "jest": {
-        "preset": "@lwc/jest-preset",
-        "moduleNameMapper": {
-            "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
-        }
+    "preset": "@lwc/jest-preset",
+    "moduleNameMapper": {
+        "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
     }
 }
 ```
@@ -65,9 +61,7 @@ Add the `@lwc/jest-preset/ssr` preset to the Jest configuration like so:
 
 ```json
 {
-    "jest": {
-        "preset": "@lwc/jest-preset/ssr"
-    }
+    "preset": "@lwc/jest-preset/ssr"
 }
 ```
 

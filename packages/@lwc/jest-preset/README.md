@@ -71,18 +71,6 @@ Add the `@lwc/jest-preset/ssr` preset to the Jest configuration of your `package
 }
 ```
 
-Then, update the `moduleNameMapper` entry of the Jest config to point to where your LWC components live. For example, use the following to map all components in the `example` and `other` namespaces:
-
-```json
-{
-  "jest": {
-    "preset": "@lwc/jest-preset/ssr",
-    "moduleNameMapper": {
-      "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
-    }
-  }
-}
-```
 
 #### LWC DOM and SSR component test setup
 

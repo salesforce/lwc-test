@@ -22,7 +22,7 @@ yarn add --dev jest-environment-jsdom
 
 #### Testing LWC components rendered on the DOM
 
-To test how LWC components render in the DOM, add `@lwc/jest-preset` to the `package.json` of your project:
+To test how LWC components render in the DOM, add the `@lwc/jest-preset` preset to your [jest configuration](https://jestjs.io/docs/configuration):
 
 ```json
 {

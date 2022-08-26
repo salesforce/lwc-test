@@ -37,6 +37,29 @@ function isImplicitHTMLImport(importee, { basedir }) {
     );
 }
 
+function isValidCSSImport(importee, { basedir }) {
+    const ext = extname(importee);
+    const isCSS = ext === '.css';
+    let fileName = basename(importee, '.css');
+    const isScoped = extname(fileName) === '.scoped';
+    if (isScoped) {
+        fileName = basename(fileName, '.scoped');
+    }
+    const absPath = resolve(basedir, importee);
+    const dir = dirname(absPath);
+    const jsFile = join(dir, fileName + '.js');
+    const tsFile = join(dir, fileName + '.ts');
+
+    return (
+        // if it is a css file
+        isCSS &&
+        // the css file must exist
+        fs.existsSync(absPath) &&
+        // there must be a js/ts file with the same name in the same folder
+        (fs.existsSync(jsFile) || fs.existsSync(tsFile))
+    );
+}
+
 function getLwcPath(path, options) {
     if (path.endsWith('?scoped=true')) {
         // remove query param for scoped styles
@@ -47,8 +70,8 @@ function getLwcPath(path, options) {
         return require.resolve(ALLOWLISTED_LWC_PACKAGES[path]);
     }
 
-    // If is a CSS just resolve it to an empty file
-    if (extname(path) === '.css') {
+    // If is an implicit imported CSS just resolve it to an empty file
+    if (extname(path) === '.css' && !isValidCSSImport(path, options)) {
         return EMPTY_CSS_MOCK;
     }
 

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return the expected state when we have empty object 1`] = `{}`;
+
+exports[`should return the expected state when we have null 1`] = `null`;
+
+exports[`should return the expected state when we have undefined 1`] = `undefined`;
+
+exports[`should return the expected state when we have with a comment node type 1`] = `<!---->`;
+
+exports[`should return the expected state when we have with a text node type 1`] = ``;
+
+exports[`should return the expected state when we have with an element node type 1`] = `<div />`;
+
+exports[`should return the expected state when we have with another kind of node type 1`] = `Attr {}`;
+
+exports[`should return the expected state when we have without the nodeType property 1`] = `
+{
+  "anotherKindOfProperty": 5,
+}
+`;

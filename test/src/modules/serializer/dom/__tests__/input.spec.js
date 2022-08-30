@@ -10,7 +10,7 @@ import { version as jestVersion } from 'jest/package.json'
 const jestMajorVersion = semver.major(jestVersion)
 
 // These snapshots differ between Jest <=28 and Jest 29+. It's not really feasible to maintain snapshots
-// for multiple Jest versions, since Jets will complain about any obsolete snapshots.
+// for multiple Jest versions, since Jest will complain about any obsolete snapshots.
 // So we test only in Jest 29. For earlier versions of Jest, these are only tested in CI, and we can
 // ignore Jest's warnings in that case.
 if (jestMajorVersion >= 29) {

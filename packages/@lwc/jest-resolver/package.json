@@ -22,7 +22,7 @@
         "/src/index.js"
     ],
     "peerDependencies": {
-        "jest": "^26 || ^27 || ^28"
+        "jest": "^26 || ^27 || ^28 || ^29"
     },
     "engines": {
         "node": ">=10"

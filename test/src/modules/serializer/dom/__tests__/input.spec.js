@@ -7,36 +7,56 @@
 import semver from 'semver';
 import { version as jestVersion } from 'jest/package.json';
 
+const jestMajorVersion = semver.major(jestVersion);
+
 describe('should return the expected state', () => {
     it('undefined', () => {
-        expect(undefined).toMatchInlineSnapshot('undefined');
+        const input = undefined;
+        expect(input).toMatchInlineSnapshot('undefined');
     });
     it('null', () => {
-        expect(null).toMatchInlineSnapshot('', `null`);
+        const input = null;
+        expect(input).toMatchInlineSnapshot(`null`);
     });
     it('empty object', () => {
-        expect({}).toMatchInlineSnapshot('', `{}`);
+        const input = {};
+        if (jestMajorVersion >= 29) { // Jest changed its snapshot format in v29
+            expect(input).toMatchInlineSnapshot(`{}`);
+        } else {
+            expect(input).toMatchInlineSnapshot(`Object {}`);
+        }
     });
     it('without the nodeType property', () => {
-        expect({ anotherKindOfProperty: 5 }).toMatchInlineSnapshot(
-            '',
-            `
-            {
-              "anotherKindOfProperty": 5,
-            }
-        `
-        );
+        const input = { anotherKindOfProperty: 5 };
+        if (jestMajorVersion >= 29) { // Jest changed its snapshot format in v29
+            expect(input).toMatchInlineSnapshot(`
+                            {
+                              "anotherKindOfProperty": 5,
+                            }
+                    `
+            );
+        } else {
+            expect(input).toMatchInlineSnapshot(`
+                Object {
+                  "anotherKindOfProperty": 5,
+                }
+            `);
+        }
     });
     it('with an element node type', () => {
-        expect(document.createElement('div')).toMatchInlineSnapshot('', `<div />`);
+        const input = document.createElement('div');
+        expect(input).toMatchInlineSnapshot(`<div />`);
     });
     it('with a text node type', () => {
-        expect(document.createTextNode('')).toMatchInlineSnapshot('');
+        const input = document.createTextNode('');
+        expect(input).toMatchInlineSnapshot('');
     });
     it('with a comment node type', () => {
-        expect(document.createComment('')).toMatchInlineSnapshot('', `<!---->`);
+        const input = document.createComment('');
+        expect(input).toMatchInlineSnapshot(`<!---->`);
     });
     it('with another kind of node type', () => {
-        expect(document.createAttribute('foo')).toMatchInlineSnapshot('', `Attr {}`);
+        const input = document.createAttribute('foo');
+        expect(input).toMatchInlineSnapshot(`Attr {}`);
     });
 });

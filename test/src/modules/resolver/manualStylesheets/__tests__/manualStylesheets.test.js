@@ -7,6 +7,19 @@
 import { createElement } from 'lwc';
 import ManualStylesheets from '../manualStylesheets';
 
+// There is an expected deprecation error message we can ignore
+beforeEach(() => {
+    jest.spyOn(console, 'error').mockImplementation((message) => {
+        if (!message.includes('Dynamically setting the "stylesheets" property on a template function is deprecated')) {
+            throw new Error('Unexpected console error message: ' + message)
+        }
+    });
+});
+
+afterEach(() => {
+    jest.restoreAllMocks();
+});
+
 it('works with attaching manual stylesheets', () => {
     const element = createElement('resolver-basic', { is: ManualStylesheets });
     document.body.appendChild(element);

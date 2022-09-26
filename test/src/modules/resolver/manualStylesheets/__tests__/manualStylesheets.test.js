@@ -11,7 +11,7 @@ import ManualStylesheets from '../manualStylesheets';
 beforeEach(() => {
     jest.spyOn(console, 'error').mockImplementation((message) => {
         if (!message.includes('Dynamically setting the "stylesheets" property on a template function is deprecated')) {
-            throw new Error('Unexpected console error message: ' + message)
+            throw new Error('Unexpected console error message: ' + message);
         }
     });
 });

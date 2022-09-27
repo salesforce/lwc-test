@@ -5,14 +5,13 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { createElement } from 'lwc';
-import NoCSS from '../noCss';
+import Basic from '../basic';
 
-it('resolves components without CSS', () => {
-    const element = createElement('resolver-no-css', { is: NoCSS });
+it('component has expected scoped styles', () => {
+    const element = createElement('resolver-basic', { is: Basic });
     document.body.appendChild(element);
 
-    expect(element.shadowRoot.querySelector('h1').textContent).toBe('No CSS');
-
     const styleContainer = global['lwc-jest'].nativeShadow ? element.shadowRoot : document.head;
-    expect(styleContainer.querySelectorAll('style').length).toEqual(0)
-});
+    const css = styleContainer.querySelector('style').textContent;
+    expect(css).toEqual('h1.x-test_basic {color: red;}');
+})

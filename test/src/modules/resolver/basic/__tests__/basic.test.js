@@ -11,5 +11,16 @@ it('resolves basic component', () => {
     const element = createElement('resolver-basic', { is: Basic });
     document.body.appendChild(element);
 
-    expect(element.shadowRoot.querySelector('h1').textContent).toBe('Basic');
+    expect(element.shadowRoot.querySelector('h1').textContent).toEqual('Basic');
 });
+
+it('component has expected styles', () => {
+    const element = createElement('resolver-basic', { is: Basic });
+    document.body.appendChild(element);
+
+    const { nativeShadow } = global['lwc-jest']
+    const styleContainer = nativeShadow ? element.shadowRoot : document.head;
+    const css = styleContainer.querySelector('style').textContent;
+    const expectedCss = nativeShadow ? 'h1 {color: red;}' : 'h1[x-test_basic] {color: red;}'
+    expect(css).toEqual(expectedCss);
+})

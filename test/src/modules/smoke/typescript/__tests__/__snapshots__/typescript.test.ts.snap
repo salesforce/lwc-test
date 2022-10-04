@@ -9,5 +9,8 @@ exports[`example-typescript should render correct snapshot 1`] = `
     <p>
       Validating if the transformation to TypeScript has worked.
     </p>
+    <div>
+      Validating if unitialized  is tracked.
+    </div>
 </example-typescript>
 `;

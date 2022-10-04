@@ -34,4 +34,13 @@ describe('example-typescript', () => {
         const elementP = element.shadowRoot.querySelectorAll('p')[1];
         expect(elementP.textContent).toEqual(message);
     });
+
+    it('tracks dynamic text in div which was not initialized', async () => {
+        const element = createElement('example-typescript', { is: TypeScript });
+        document.body.appendChild(element);
+        element.initialize();
+        await Promise.resolve();
+        const elementDiv = element.shadowRoot.querySelector('div');
+        expect(elementDiv.textContent).toEqual('Validating if unitialized initialized is tracked.');
+    });
 });

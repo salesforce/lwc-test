@@ -46,7 +46,7 @@ const BABEL_TS_CONFIG = {
             },
         ],
     ],
-    presets: [babelTsPreset],
+    presets: [[babelTsPreset, { allowDeclareFields: true }]],
 };
 
 const BABEL_CONFIG = {

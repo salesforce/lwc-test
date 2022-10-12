@@ -33,6 +33,7 @@ function integration({ nativeShadow }) {
         preset: '@lwc/jest-preset',
         moduleNameMapper: {
             '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
+            "^(components)/(.+)$": "<rootDir>/src/modules/$1/$2/$2"
         },
 
         globals: {

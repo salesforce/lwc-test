@@ -78,7 +78,7 @@ function getLwcPath(path, options) {
     // If the extension is empty, try to infer it
     if (extname(path) === '') {
         if (isValidImport(path + '.ts', options)) {
-            return path + '.ts'
+            return path // the resolution algo will automatically add '.ts' as necessary
         }
 
         if (isValidImport(path + '.js', options)) {

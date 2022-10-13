@@ -77,12 +77,8 @@ function getLwcPath(path, options) {
 
     // If the extension is empty, try to infer it
     if (extname(path) === '') {
-        if (isValidImport(path + '.ts', options)) {
-            return path // the resolution algo will automatically add '.ts' as necessary
-        }
-
-        if (isValidImport(path + '.js', options)) {
-            return path // the resolution algo will automatically add '.js' as necessary
+        if (isValidImport(path + '.ts', options) || isValidImport(path + '.js', options)) {
+            return path // the resolution algo will automatically add '.ts'/'.js' as necessary
         }
 
         // If there is no extension, try to infer a .css path. We do a special check for CSS to handle @imports inside of

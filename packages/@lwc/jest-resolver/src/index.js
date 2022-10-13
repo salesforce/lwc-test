@@ -82,7 +82,7 @@ function getLwcPath(path, options) {
         }
 
         if (isValidImport(path + '.ts', options)) {
-            return path // the resolution algo will automatically add '.ts' as necessary
+            return path + '.ts'
         }
 
         // If there is no extension, try to infer a .css path. We do a special check for CSS to handle @imports inside of

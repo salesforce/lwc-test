@@ -5,7 +5,7 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { createElement } from 'lwc';
-import WithNamespaceImportTypeScript from '../WithNamespaceImportTypeScript';
+import WithNamespaceImportTypeScript from '../withNamespaceImportTypeScript';
 
 it('component can import superclass from namespace - typescript', () => {
     const element = createElement('with-namespace-import-typescript', { is: WithNamespaceImportTypeScript });

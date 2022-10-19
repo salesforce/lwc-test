@@ -85,7 +85,8 @@ function getLwcPath(path, options) {
         // CSS files, which can be something like `"foo/bar"` resolving to `"foo/bar.css"`, but unlike '.js', Node's
         // resolution algorithm doesn't automatically add the '.css'
         // TODO: this will fail if there is a .js file in the same directory as the .css file. Need a way to distinguish
-        // between `@import "foo/bar"` in CSS and `import "foo/bar"` in JS
+        // between `@import "foo/bar"` in CSS and `import "foo/bar"` in JS (assuming platform 
+        // compiler supports this)
         if (isValidCSSImport(path + '.css', options)) {
             return path + '.css'
         }

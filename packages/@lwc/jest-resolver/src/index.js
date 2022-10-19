@@ -50,7 +50,7 @@ function isValidCSSImport(importee, { basedir }) {
     );
 }
 
-function isValidImport(importee, { basedir }) {
+function isValidScriptImport(importee, { basedir }) {
     const absPath = resolve(basedir, importee);
     return fs.existsSync(absPath)
 }

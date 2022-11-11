@@ -36,6 +36,11 @@ function transform(plugin, opts = {}) {
     };
 }
 
+function collapseNewlines(str) {
+    // At some point Babel stopped emitting duplicate newlines
+    return str.replace(/\n{2,}/g, '\n');
+}
+
 function makeTest(plugin, opts = {}) {
     const testTransform = transform(plugin, opts);
 
@@ -60,7 +65,7 @@ function makeTest(plugin, opts = {}) {
                     throw new Error('Did not receive expected error: ' + expectedError.message);
                 }
                 if (expectedSource) {
-                    expect(res.code).toBe(unpad(expectedSource));
+                    expect(collapseNewlines(res.code)).toBe(collapseNewlines(unpad(expectedSource)));
                 }
             }
         });

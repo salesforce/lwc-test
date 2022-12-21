@@ -110,6 +110,8 @@ module.exports = {
                 strictSpecifier: false,
             },
             scopedStyles: getScopedStylesOption(src, filePath),
+            enableScopedSlots: true,
+            enableLwcSpread: true,
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap

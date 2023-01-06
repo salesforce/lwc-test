@@ -1,3 +1,3 @@
-## jest-serializer
+## @lwc/jest-serializer
 
 Standarize snapshots for Shadow DOM.

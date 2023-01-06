@@ -6,6 +6,8 @@
  */
 const fs = require('fs');
 const { resolve, extname, join, dirname, basename } = require('path');
+const { URLSearchParams } = require('url')
+const { addKnownScopedCssFile } = require('@lwc/jest-shared');
 
 const EMPTY_CSS_MOCK = resolve(__dirname, '..', 'resources', 'emptyStyleMock.js');
 const EMPTY_HTML_MOCK = resolve(__dirname, '..', 'resources', 'emptyHtmlMock.js');
@@ -55,10 +57,17 @@ function isValidScriptImport(importee, { basedir }) {
     return fs.existsSync(absPath)
 }
 
+function parseForQueryParams(path) {
+    const [ filename, search ] = path.split('?')
+    const params = new URLSearchParams(search);
+    return { filename, params };
+}
+
 function getLwcPath(path, options) {
-    if (path.endsWith('?scoped=true')) {
-        // remove query param for scoped styles
-        path = path.substring(0, path.length - 12);
+    const { filename, params } = parseForQueryParams(path);
+    path = filename; // remove query param for scoped styles (`?scoped=true`)
+    if (params.get('scoped') === 'true') {
+        addKnownScopedCssFile(resolve(options.basedir, path));
     }
     // If is a special LWC package, resolve it from commonjs
     if (ALLOWLISTED_LWC_PACKAGES[path]) {

@@ -7,6 +7,8 @@
 const path = require('path');
 const crypto = require('crypto');
 
+const { isKnownScopedCssFile } = require('@lwc/jest-shared');
+
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
@@ -84,15 +86,6 @@ function transformTypeScript(src, filePath) {
     return code;
 }
 
-function getScopedStylesOption(src, filePath) {
-    const ext = path.extname(filePath);
-    const isCSS = ext === '.css';
-    const fileName = path.basename(filePath, '.css');
-    const isScoped = path.extname(fileName) === '.scoped';
-
-    return src && src.length > 0 && isCSS && isScoped;
-}
-
 module.exports = {
     process(src, filePath) {
         if (isTypeScript(filePath)) {
@@ -109,7 +102,7 @@ module.exports = {
             experimentalDynamicComponent: {
                 strictSpecifier: false,
             },
-            scopedStyles: getScopedStylesOption(src, filePath),
+            scopedStyles: isKnownScopedCssFile(filePath),
             enableScopedSlots: true,
             enableLwcSpread: true,
         });

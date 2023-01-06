@@ -1,11 +1,11 @@
-const knownScopedCssFiles = new Set()
+const knownScopedCssFiles = new Set();
 
 /**
  * Indicate that this file is a scoped CSS file.
  * @param filename - full absolute file path
  */
 function addKnownScopedCssFile(filename) {
-    knownScopedCssFiles.add(filename)
+    knownScopedCssFiles.add(filename);
 }
 
 /**
@@ -14,10 +14,10 @@ function addKnownScopedCssFile(filename) {
  * @returns {boolean} - true if scoped
  */
 function isKnownScopedCssFile(filename) {
-    return knownScopedCssFiles.has(filename)
+    return knownScopedCssFiles.has(filename);
 }
 
 module.exports = {
     addKnownScopedCssFile,
     isKnownScopedCssFile
-}
+};

@@ -6,7 +6,7 @@
  */
 const fs = require('fs');
 const { resolve, extname, join, dirname, basename } = require('path');
-const { URLSearchParams } = require('url')
+const { URLSearchParams } = require('url');
 const { addKnownScopedCssFile } = require('@lwc/jest-shared');
 
 const EMPTY_CSS_MOCK = resolve(__dirname, '..', 'resources', 'emptyStyleMock.js');

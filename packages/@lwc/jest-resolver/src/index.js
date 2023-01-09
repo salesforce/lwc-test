@@ -61,7 +61,7 @@ function parseForQueryParams(path) {
     // There is a chance that the filename contains a ? character, but Jest itself throws an error in this case.
     // Even if there is a ? in a parent/grandparent folder, this function only parses the immediate path (e.g.
     // `./filename.css`), so it doesn't matter.
-    const [ filename, search ] = path.split('?')
+    const [ filename, search ] = path.split('?');
     const params = new URLSearchParams(search);
     return { filename, params };
 }

@@ -103,7 +103,6 @@ module.exports = {
                 strictSpecifier: false,
             },
             scopedStyles: isKnownScopedCssFile(filePath),
-            enableScopedSlots: true,
             enableLwcSpread: true,
         });
 

@@ -764,7 +764,7 @@
 
 "@lwc/babel-plugin-component@2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/babel-plugin-component/-/babel-plugin-component-2.40.0.tgz#73459c11a9bda924ba4d319cc91ca565351a7d56"
+  resolved "https://registry.yarnpkg.com/@lwc/babel-plugin-component/-/babel-plugin-component-2.40.0.tgz#73459c11a9bda924ba4d319cc91ca565351a7d56"
   integrity sha512-4+LNmg/v141FBM8JHsHb7ZWk2dlT23fYDwgQAxgMHvgrCzDaUgWvstltj4ezFy2xTpKgpnWEAv6rrR13rikx0Q==
   dependencies:
     "@babel/helper-module-imports" "~7.18.6"
@@ -774,7 +774,7 @@
 
 "@lwc/compiler@^2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/compiler/-/compiler-2.40.0.tgz#185def97a676568f125f88b432a7cb384e9e5cd7"
+  resolved "https://registry.yarnpkg.com/@lwc/compiler/-/compiler-2.40.0.tgz#185def97a676568f125f88b432a7cb384e9e5cd7"
   integrity sha512-o48HH8qGlba0+VSrd0R+yFM7mXJq6dH2CR+vF4frWzRVXgT3kaf8UAW9BI1ODaZEDobrJnIgMBZVeEndAu33Pw==
   dependencies:
     "@babel/core" "~7.21.0"
@@ -788,27 +788,27 @@
 
 "@lwc/engine-dom@^2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/engine-dom/-/engine-dom-2.40.0.tgz#243e1ca0b81b4317917fa087c5c4dc3a94d95fb1"
+  resolved "https://registry.yarnpkg.com/@lwc/engine-dom/-/engine-dom-2.40.0.tgz#243e1ca0b81b4317917fa087c5c4dc3a94d95fb1"
   integrity sha512-QVGOzfwXHLn5yzFIDhoo9hdXC9MSlNR9cjXrMTV9xf3HXSPrU+qtg3jz9v7YnR7Uq/9gmmnxH5BIfMGxMyfifg==
 
 "@lwc/engine-server@^2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/engine-server/-/engine-server-2.40.0.tgz#83473baabb7a7f7e7861e87642490369ad8443cd"
+  resolved "https://registry.yarnpkg.com/@lwc/engine-server/-/engine-server-2.40.0.tgz#83473baabb7a7f7e7861e87642490369ad8443cd"
   integrity sha512-pE8Vp14hL6RBjYR8eeqJuWRMbgd9XwXcjqkWNLpG/kioNVkyQeribmfeYNc/gpOkDYFmr6RxQyqWX/PCla3agA==
 
 "@lwc/errors@2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/errors/-/errors-2.40.0.tgz#36068166120c84f97d2f63b4abdc8478b72f0e13"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-2.40.0.tgz#36068166120c84f97d2f63b4abdc8478b72f0e13"
   integrity sha512-xCu2rV+2OLILID5uIn/zJZTbCDuF56UTYc7DRWwpCLgkVLUebBaZWAX1uEnfxRhTQc9Oo1o/ecPyowcd8OfkaQ==
 
 "@lwc/shared@2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/shared/-/shared-2.40.0.tgz#1c90f47aad37ecf4492b007778b74dfe0ad2a2fc"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-2.40.0.tgz#1c90f47aad37ecf4492b007778b74dfe0ad2a2fc"
   integrity sha512-vEBhBIIAAH9uGMlA71MNSrys3gdDDwfiWAvtNbXlf+5jA38GIY48J3+UEHik+h+fVVgFZnD7ja0W7MbQZ1rzXg==
 
 "@lwc/style-compiler@2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/style-compiler/-/style-compiler-2.40.0.tgz#68ebc72b8f7fb8b3bce6eb7d92fcd973ba2a3ac3"
+  resolved "https://registry.yarnpkg.com/@lwc/style-compiler/-/style-compiler-2.40.0.tgz#68ebc72b8f7fb8b3bce6eb7d92fcd973ba2a3ac3"
   integrity sha512-qp4nKKvu28T8mm0jBx96Sm1SdnGeafXbGH4pvNNGat4diqA45NyVK2v67umkmapbBwSlIY9jxD+oiqR0LgFT6w==
   dependencies:
     "@lwc/shared" "2.40.0"
@@ -819,12 +819,12 @@
 
 "@lwc/synthetic-shadow@^2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/synthetic-shadow/-/synthetic-shadow-2.40.0.tgz#b47621e5bf7f1a4ba6c87bfbc09f35140d641698"
+  resolved "https://registry.yarnpkg.com/@lwc/synthetic-shadow/-/synthetic-shadow-2.40.0.tgz#b47621e5bf7f1a4ba6c87bfbc09f35140d641698"
   integrity sha512-rHv28lcY++aVavngupApiKnfcEsxBxetHQw2SuyXJ+OnNBBelYmjEQxWzxXqNB391p6AEAAxABjuNnb4yQ2XxQ==
 
 "@lwc/template-compiler@2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/template-compiler/-/template-compiler-2.40.0.tgz#6bcb627b2a212dc07c063c2e559ecd1623b49afa"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-2.40.0.tgz#6bcb627b2a212dc07c063c2e559ecd1623b49afa"
   integrity sha512-co88sYx28WtTFx9FdstnNTIUYxw3d6m6fBAJQiLX43cvs8C5XKIKXizHyrhox/xgqVxY3c2dEqc/6juhTZrI5w==
   dependencies:
     "@lwc/errors" "2.40.0"
@@ -837,7 +837,7 @@
 
 "@lwc/wire-service@^2.40.0":
   version "2.40.0"
-  resolved "https://ash-nexus-proxy.internal.salesforce.com/nexus/content/groups/npm-all/@lwc/wire-service/-/wire-service-2.40.0.tgz#58d11c8975a9d3c9c3b7c825fc7eac28d10ec267"
+  resolved "https://registry.yarnpkg.com/@lwc/wire-service/-/wire-service-2.40.0.tgz#58d11c8975a9d3c9c3b7c825fc7eac28d10ec267"
   integrity sha512-MKBxAbGMAT/7KhbgVY3v2jhhN9CYDnBCeOscR2rjCDi4sev4OZx/iSUTEgYwn9duUME55Y02Wu3hsMFF72oYJQ==
 
 "@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1":

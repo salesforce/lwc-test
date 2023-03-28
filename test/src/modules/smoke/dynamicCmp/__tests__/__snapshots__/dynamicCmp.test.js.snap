@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render dynamically imported component 1`] = `
+<smoke-dynamic-import>
+  #shadow-root(open)
+    <x-test>
+      #shadow-root(open)
+        <span>
+          Child
+        </span>
+    </x-test>
+</smoke-dynamic-import>
+`;

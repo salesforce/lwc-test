@@ -12,7 +12,19 @@ if (!nativeShadow) {
             '@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.'
         );
     }
-    require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+    try {
+        // In old versions of @lwc/synthetic shadow (<3.0.0), `require('@lwc/synthetic-shadow')`
+        // is a no-op, and you have to directly require the actual main file.
+        require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+    } catch (err) {
+        // In newer versions of @lwc/synthetic-shadow (>=3.0.0), the above file does not exist,
+        // and you can `require()` normally.
+        if (err && err.code === 'MODULE_NOT_FOUND') {
+            require('@lwc/synthetic-shadow');
+        } else {
+            throw err;
+        }
+    }
 }
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0

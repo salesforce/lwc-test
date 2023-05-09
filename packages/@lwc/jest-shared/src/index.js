@@ -19,5 +19,5 @@ function isKnownScopedCssFile(filename) {
 
 module.exports = {
     addKnownScopedCssFile,
-    isKnownScopedCssFile
+    isKnownScopedCssFile,
 };

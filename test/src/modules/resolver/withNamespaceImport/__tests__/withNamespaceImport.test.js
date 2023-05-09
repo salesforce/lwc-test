@@ -11,6 +11,6 @@ it('component can import superclass from namespace', () => {
     const element = createElement('with-namespace-import', { is: WithNamespaceImport });
     document.body.appendChild(element);
 
-    expect(element.foo).toEqual('foo') // from superclass
-    expect(element.bar).toEqual('bar') // from own class
-})
+    expect(element.foo).toEqual('foo'); // from superclass
+    expect(element.bar).toEqual('bar'); // from own class
+});

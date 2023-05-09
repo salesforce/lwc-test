@@ -54,14 +54,14 @@ function isValidCSSImport(importee, { basedir }) {
 
 function isValidScriptImport(importee, { basedir }) {
     const absPath = resolve(basedir, importee);
-    return fs.existsSync(absPath)
+    return fs.existsSync(absPath);
 }
 
 function parseForQueryParams(path) {
     // There is a chance that the filename contains a ? character, but Jest itself throws an error in this case.
     // Even if there is a ? in a parent/grandparent folder, this function only parses the immediate path (e.g.
     // `./filename.css`), so it doesn't matter.
-    const [ filename, search ] = path.split('?');
+    const [filename, search] = path.split('?');
     const params = new URLSearchParams(search);
     return { filename, params };
 }
@@ -89,18 +89,21 @@ function getLwcPath(path, options) {
 
     // If the extension is empty, try to infer it
     if (extname(path) === '') {
-        if (isValidScriptImport(path + '.ts', options) || isValidScriptImport(path + '.js', options)) {
-            return path // the resolution algo will automatically add '.ts'/'.js' as necessary
+        if (
+            isValidScriptImport(path + '.ts', options) ||
+            isValidScriptImport(path + '.js', options)
+        ) {
+            return path; // the resolution algo will automatically add '.ts'/'.js' as necessary
         }
 
         // If there is no extension, try to infer a .css path. We do a special check for CSS to handle @imports inside of
         // CSS files, which can be something like `"foo/bar"` resolving to `"foo/bar.css"`, but unlike '.js', Node's
         // resolution algorithm doesn't automatically add the '.css'
         // TODO: this will fail if there is a .js file in the same directory as the .css file. Need a way to distinguish
-        // between `@import "foo/bar"` in CSS and `import "foo/bar"` in JS (assuming platform 
+        // between `@import "foo/bar"` in CSS and `import "foo/bar"` in JS (assuming platform
         // compiler supports this)
         if (isValidCSSImport(path + '.css', options)) {
-            return path + '.css'
+            return path + '.css';
         }
     }
 

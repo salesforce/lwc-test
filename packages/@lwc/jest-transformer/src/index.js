@@ -104,7 +104,7 @@ module.exports = {
             },
             scopedStyles: isKnownScopedCssFile(filePath),
             enableLwcSpread: true,
-            enableDynamicComponents: true
+            enableDynamicComponents: true,
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap

@@ -20,6 +20,27 @@ const siteActiveLanguagesTemplate = babelTemplate(`
     }
 `);
 
+const siteDefaultLanguagesTemplate = babelTemplate(`
+    let RESOURCE_NAME;
+    try {
+        RESOURCE_NAME = require(IMPORT_SOURCE).default;
+    } catch (e) {
+        RESOURCE_NAME = { code: 'en-US', label: 'English (US)' };
+    }
+`);
+
+function siteDefaultLanguagesScopedImportTransform(t, path) {
+    const { importSource, resourceNames } = getImportInfo(path);
+    const defaultImport = resourceNames[0];
+
+    path.replaceWithMultiple(
+        siteDefaultLanguagesTemplate({
+            RESOURCE_NAME: t.identifier(defaultImport),
+            IMPORT_SOURCE: t.stringLiteral(importSource),
+        })
+    );
+}
+
 function siteActiveLanguagesScopedImportTransform(t, path) {
     const { importSource, resourceNames } = getImportInfo(path);
     const defaultImport = resourceNames[0];
@@ -48,6 +69,9 @@ module.exports = function ({ types: t }) {
 function siteScopedImportTransform(t, path, importId) {
     importId = importId.substring(SITE_ID_IMPORT_IDENTIFIER.length);
     switch (importId) {
+        case 'defaultLanguages':
+            siteDefaultLanguagesScopedImportTransform(t, path);
+            break;
         case 'activeLanguages':
             siteActiveLanguagesScopedImportTransform(t, path);
             break;

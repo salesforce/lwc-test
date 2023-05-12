@@ -139,3 +139,28 @@ describe('@salesforce/site/activeLanguages import', () => {
         'Invalid import from @salesforce/site/activeLanguages'
     );
 });
+
+describe('@salesforce/site/defaultLanguage import', () => {
+    test(
+        'does default transformation',
+        `
+    import defaultLanguage from '@salesforce/site/defaultLanguage';
+`,
+        `
+        import defaultLanguage from '@salesforce/site/defaultLanguage';
+`
+    );
+
+    test(
+        'allows non-@salesforce/site/defaultLanguages named imports',
+        `
+    import { otherNamed } from './something-valid';
+    import defaultLanguage from '@salesforce/site/defaultLanguage';
+`,
+        `
+        import { otherNamed } from './something-valid';
+        import defaultLanguage from '@salesforce/site/defaultLanguage';
+`
+    );
+    
+});

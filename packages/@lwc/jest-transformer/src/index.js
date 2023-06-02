@@ -9,6 +9,7 @@ const crypto = require('crypto');
 
 const { isKnownScopedCssFile } = require('@lwc/jest-shared');
 
+const MagicString = require('magic-string');
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
 const jestPreset = require('babel-preset-jest');
@@ -93,7 +94,7 @@ module.exports = {
         }
 
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
-        const { code, map } = lwcCompiler.transformSync(src, filePath, {
+        const { code, map, cssScopeTokens } = lwcCompiler.transformSync(src, filePath, {
             name: 'test',
             namespace: 'x',
             outputConfig: {
@@ -112,7 +113,36 @@ module.exports = {
         // **Note: .html and .css don't return valid sourcemaps cause they are used for rollup
         const config = map && map.version ? { inputSourceMap: map } : {};
 
-        return babelCore.transform(code, { ...BABEL_CONFIG, ...config, filename });
+        let result = babelCore.transform(code, { ...BABEL_CONFIG, ...config, filename });
+
+        if (cssScopeTokens) {
+            // Modify the code so that it calls into @lwc/jest-shared and adds the scope token as a
+            // known scope token so we can replace it later.
+            // Note we have to modify the code rather than use @lwc/jest-shared directly because
+            // the transformer does not run in the same Node process as the serializer.
+            const magicString = new MagicString(result.code);
+
+            magicString.append(`\nconst { addKnownScopeToken } = require('@lwc/jest-shared');`);
+
+            for (const scopeToken of cssScopeTokens) {
+                magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`)
+            }
+
+            const map = magicString.generateMap({
+                source: filePath,
+                includeContent: true,
+            });
+
+            const modifiedCode = magicString.toString() + `\n//# sourceMappingURL=${map.toUrl()}\n`;
+
+            result = {
+                ...result,
+                code: modifiedCode,
+                map,
+            };
+        }
+
+        return result
     },
 
     getCacheKey(sourceText, sourcePath, ...rest) {

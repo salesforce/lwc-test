@@ -29,7 +29,8 @@
         "@babel/plugin-transform-modules-commonjs": "^7.21.2",
         "@babel/preset-typescript": "^7.21.0",
         "@lwc/jest-shared": "11.8.0",
-        "babel-preset-jest": "^29.5.0"
+        "babel-preset-jest": "^29.5.0",
+        "magic-string": "^0.30.0"
     },
     "peerDependencies": {
         "@lwc/compiler": "*",

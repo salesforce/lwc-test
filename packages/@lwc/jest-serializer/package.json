@@ -18,6 +18,7 @@
         "lwc"
     ],
     "dependencies": {
+        "@lwc/jest-shared": "11.8.0",
         "pretty-format": "^29.5.0"
     },
     "peerDependencies": {

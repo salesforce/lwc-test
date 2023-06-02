@@ -12,7 +12,21 @@ if (!nativeShadow) {
             '@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.'
         );
     }
-    require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+    try {
+        // Prior to @lwc/synthetic-shadow v2.45.3, calling `require('@lwc/synthetic-shadow')`
+        // is a no-op, and you have to directly require the file below.
+        // At some point (probably LWC v3.0.0), the below line should throw because the file does
+        // not exist anymore. See: https://github.com/salesforce/lwc/pull/3456
+        require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+    } catch (err) {
+        // In newer versions of @lwc/synthetic-shadow, you can just do
+        // `require('@lwc/synthetic-shadow')` normally.
+        if (err && err.code === 'MODULE_NOT_FOUND') {
+            require('@lwc/synthetic-shadow');
+        } else {
+            throw err;
+        }
+    }
 }
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0

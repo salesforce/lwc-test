@@ -51,11 +51,12 @@ function cleanElementAttributes(elm) {
     ATTRS_TO_REMOVE.forEach((name) => {
         elm.removeAttribute(name);
     });
-    // const shadowToken = elm.$shadowToken$
-    // if (shadowToken) {
-    //     elm.removeAttribute(shadowToken)
-    //     elm.removeAttribute(`${shadowToken}-host`)
-    // }
+    debugger
+    const shadowToken = elm.$shadowToken$
+    if (shadowToken) {
+        elm.removeAttribute(shadowToken)
+        elm.removeAttribute(`${shadowToken}-host`)
+    }
 }
 
 module.exports = cleanElementAttributes;

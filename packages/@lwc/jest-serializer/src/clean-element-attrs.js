@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+const { isKnownScopeToken } = require('@lwc/jest-shared');
 const GUID_ATTR_VALUE = '[shadow:guid]';
 const FRAG_ID_ATTR_VALUE = `#${GUID_ATTR_VALUE}`;
 
@@ -51,11 +52,12 @@ function cleanElementAttributes(elm) {
     ATTRS_TO_REMOVE.forEach((name) => {
         elm.removeAttribute(name);
     });
-    debugger
-    const shadowToken = elm.$shadowToken$
-    if (shadowToken) {
-        elm.removeAttribute(shadowToken)
-        elm.removeAttribute(`${shadowToken}-host`)
+
+    for (const { name } of [...elm.attributes]) {
+        // LWC may add '-host' to the end in some cases
+        if (isKnownScopeToken(name) || isKnownScopeToken(name.replace(/-host$/, ''))) {
+            elm.removeAttribute(name)
+        }
     }
 }
 

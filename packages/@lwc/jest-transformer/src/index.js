@@ -7,7 +7,7 @@
 const path = require('path');
 const crypto = require('crypto');
 
-const { isKnownScopedCssFile } = require('@lwc/jest-shared');
+const { isKnownScopedCssFile, addKnownScopeToken } = require('@lwc/jest-shared');
 
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
@@ -106,6 +106,13 @@ module.exports = {
             enableLwcSpread: true,
             enableDynamicComponents: true
         });
+
+        let matcher;
+        const scopeToken = filePath.endsWith('.html') && (matcher = code.match(/tmpl.stylesheetToken = "([^"]+)";/)) && matcher[1];
+
+        if (scopeToken) {
+            addKnownScopeToken(scopeToken);
+        }
 
         // if is not .js, we add the .compiled extension in the sourcemap
         const filename = path.extname(filePath) === '.js' ? filePath : filePath + '.compiled';

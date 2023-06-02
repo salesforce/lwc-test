@@ -5,11 +5,14 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 
+const { isKnownScopeToken } = require('@lwc/jest-shared');
+
 function cleanElementClasses(elm) {
-    const shadowToken = elm.$shadowToken$
-    if (shadowToken) {
-        elm.classList.remove(shadowToken)
-        elm.classList.remove(`${shadowToken}-host`)
+    for (const name of [...elm.classList]) {
+        // LWC may add '-host' to the end in some cases
+        if (isKnownScopeToken(name) || isKnownScopeToken(name.replace(/-host$/, ''))) {
+            elm.classList.remove(name)
+        }
     }
 }
 

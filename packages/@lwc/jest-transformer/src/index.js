@@ -7,7 +7,7 @@
 const path = require('path');
 const crypto = require('crypto');
 
-const { isKnownScopedCssFile, addKnownScopeToken } = require('@lwc/jest-shared');
+const { isKnownScopedCssFile } = require('@lwc/jest-shared');
 
 const MagicString = require('magic-string');
 const babelCore = require('@babel/core');
@@ -94,7 +94,7 @@ module.exports = {
         }
 
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
-        let { code, map } = lwcCompiler.transformSync(src, filePath, {
+        const { code, map } = lwcCompiler.transformSync(src, filePath, {
             name: 'test',
             namespace: 'x',
             outputConfig: {

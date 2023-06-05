@@ -7,7 +7,7 @@
 import { createElement } from 'lwc';
 import Styled from '../styled';
 
-it('serializes component with HTML - styled in native shadow', () => {
+it('serializes component with HTML - styled in shadow DOM', () => {
     const elm = createElement('serializer-component', { is: Styled });
     document.body.appendChild(elm);
 

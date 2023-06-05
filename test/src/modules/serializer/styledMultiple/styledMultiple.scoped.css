@@ -1,0 +1,11 @@
+:host {
+    color: goldenrod;
+}
+
+h1 {
+    background: blue;
+}
+
+.foo {
+    opacity: 0.7;
+}

@@ -1,0 +1,11 @@
+:host {
+    opacity: 0.5;
+}
+
+h1 {
+    color: red;
+}
+
+.foo {
+    background: azure;
+}

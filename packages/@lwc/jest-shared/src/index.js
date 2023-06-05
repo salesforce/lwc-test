@@ -40,7 +40,7 @@ function isKnownScopeToken(str) {
 
 /**
  * Get all known scope tokens
- @returns {tokens} - list of known scope tokens
+ @returns {string[]} - list of known scope tokens
  */
 function getKnownScopeTokens() {
     return [...knownScopeTokens];

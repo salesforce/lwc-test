@@ -43,7 +43,6 @@ function isKnownScopeToken(str) {
  @returns {tokens} - list of known scope tokens
  */
 function getKnownScopeTokens() {
-    // attributes in the HTML namespace are case-insensitive, so we treat everything as lowercase
     return [...knownScopeTokens];
 }
 

@@ -10,7 +10,7 @@ const { isKnownScopeToken } = require('@lwc/jest-shared');
 function cleanElementClasses(elm) {
     for (const name of [...elm.classList]) {
         if (isKnownScopeToken(name)) {
-            elm.classList.replace(name, 'lwc:scope-token');
+            elm.classList.replace(name, '__lwc_scope_token__');
         }
     }
 }

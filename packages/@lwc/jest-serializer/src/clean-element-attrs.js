@@ -56,7 +56,7 @@ function cleanElementAttributes(elm) {
     for (const { name, value } of [...elm.attributes]) {
         if (isKnownScopeToken(name)) {
             elm.removeAttribute(name);
-            elm.setAttribute('lwc:scope-token', value);
+            elm.setAttribute('__lwc_scope_token__', value);
         }
     }
 }

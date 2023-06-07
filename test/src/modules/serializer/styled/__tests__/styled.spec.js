@@ -14,7 +14,7 @@ it('serializes component with HTML - styled in shadow DOM', () => {
     if (global['lwc-jest'].nativeShadow) {
         expect(elm).toMatchInlineSnapshot(`
             <serializer-component
-              class="lwc:scope-token"
+              class="__lwc_scope_token__"
             >
               #shadow-root(open)
                 <style
@@ -25,10 +25,10 @@ it('serializes component with HTML - styled in shadow DOM', () => {
                 <style
                   type="text/css"
                 >
-                  h1.lwc:scope-token {background: blue;}
+                  h1.__lwc_scope_token__ {background: blue;}
                 </style>
                 <h1
-                  class="lwc:scope-token"
+                  class="__lwc_scope_token__"
                 >
                   I am an LWC component
                 </h1>
@@ -37,13 +37,13 @@ it('serializes component with HTML - styled in shadow DOM', () => {
     } else {
         expect(elm).toMatchInlineSnapshot(`
             <serializer-component
-              class="lwc:scope-token"
-              lwc:scope-token=""
+              __lwc_scope_token__=""
+              class="__lwc_scope_token__"
             >
               #shadow-root(open)
                 <h1
-                  class="lwc:scope-token"
-                  lwc:scope-token=""
+                  __lwc_scope_token__=""
+                  class="__lwc_scope_token__"
                 >
                   I am an LWC component
                 </h1>

@@ -1,9 +1,10 @@
 /*
- * Copyright (c) 2018, salesforce.com, inc.
+ * Copyright (c) 2023, salesforce.com, inc.
  * All rights reserved.
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+const { isKnownScopeToken } = require('@lwc/jest-shared');
 const GUID_ATTR_VALUE = '[shadow:guid]';
 const FRAG_ID_ATTR_VALUE = `#${GUID_ATTR_VALUE}`;
 
@@ -51,6 +52,13 @@ function cleanElementAttributes(elm) {
     ATTRS_TO_REMOVE.forEach((name) => {
         elm.removeAttribute(name);
     });
+
+    for (const { name, value } of [...elm.attributes]) {
+        if (isKnownScopeToken(name)) {
+            elm.removeAttribute(name);
+            elm.setAttribute('__lwc_scope_token__', value);
+        }
+    }
 }
 
 module.exports = cleanElementAttributes;

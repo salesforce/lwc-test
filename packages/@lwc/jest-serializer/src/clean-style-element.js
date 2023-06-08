@@ -10,7 +10,7 @@ const { getKnownScopeTokens } = require('@lwc/jest-shared');
 function cleanStyleElement(elm) {
     // attributes in the HTML namespace are case-insensitive, so the regex must be case-insensitive
     const regex = new RegExp(getKnownScopeTokens().join('|'), 'gi');
-    elm.textContent = elm.textContent.replace(regex, '__lwc_scope_token__');
+    elm.textContent = elm.textContent.replace(regex, 'lwc-xxxxxx');
 }
 
 module.exports = cleanStyleElement;

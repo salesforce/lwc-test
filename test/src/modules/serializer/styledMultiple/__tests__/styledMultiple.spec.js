@@ -14,7 +14,7 @@ it('serializes component with HTML - styled in shadow DOM - multiple attrs/class
     if (global['lwc-jest'].nativeShadow) {
         expect(elm).toMatchInlineSnapshot(`
             <serializer-component
-              class="__lwc_scope_token__"
+              class="lwc-xxxxxx"
             >
               #shadow-root(open)
                 <style
@@ -25,10 +25,10 @@ it('serializes component with HTML - styled in shadow DOM - multiple attrs/class
                 <style
                   type="text/css"
                 >
-                  :host {color: goldenrod;}h1.__lwc_scope_token__ {background: blue;}.foo.__lwc_scope_token__ {opacity: 0.7;}
+                  :host {color: goldenrod;}h1.lwc-xxxxxx {background: blue;}.foo.lwc-xxxxxx {opacity: 0.7;}
                 </style>
                 <h1
-                  class="foo bar __lwc_scope_token__"
+                  class="foo bar lwc-xxxxxx"
                   data-bar="bar"
                   data-foo="foo"
                 >
@@ -39,15 +39,15 @@ it('serializes component with HTML - styled in shadow DOM - multiple attrs/class
     } else {
         expect(elm).toMatchInlineSnapshot(`
             <serializer-component
-              __lwc_scope_token__=""
-              class="__lwc_scope_token__"
+              class="lwc-xxxxxx"
+              lwc-xxxxxx=""
             >
               #shadow-root(open)
                 <h1
-                  __lwc_scope_token__=""
-                  class="foo bar __lwc_scope_token__"
+                  class="foo bar lwc-xxxxxx"
                   data-bar="bar"
                   data-foo="foo"
+                  lwc-xxxxxx=""
                 >
                   I am an LWC component with multiple classes, attributes, and styles
                 </h1>

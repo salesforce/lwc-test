@@ -11,7 +11,7 @@ it('renders a basic component with scoped styles', () => {
     const renderedComponent = renderComponent('x-scoped-style', ScopedStyle);
 
     expect(renderedComponent).toMatchInlineSnapshot(`
-        <x-scoped-style class="__lwc_scope_token__-host">
+        <x-scoped-style class="__lwc_scope_token__">
           <template shadowroot="open">
             <style class="__lwc_scope_token__" type="text/css">
               h1.__lwc_scope_token__ {color: red;}

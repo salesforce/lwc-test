@@ -43,8 +43,12 @@ function isKnownScopeToken(str) {
  @returns {RegExp} - regex representing the list of known scope tokens
  */
 function getKnownScopeTokensRegex() {
+    // sort from longest to shortest so that `{foo-host}` is fully replaced, not just `{foo}-host`
+    const regexString = [...knownScopeTokens]
+        .sort((a, b) => b.length - a.length)
+        .join('|')
     // attributes in the HTML namespace are case-insensitive, so the regex must be case-insensitive
-    return new RegExp([...knownScopeTokens].join('|'), 'gi');
+    return new RegExp(regexString, 'gi');
 }
 
 module.exports = {

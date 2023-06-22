@@ -39,11 +39,12 @@ function isKnownScopeToken(str) {
 }
 
 /**
- * Get all known scope tokens
- @returns {string[]} - list of known scope tokens
+ * Get a regex matching all known scope tokens
+ @returns {RegExp} - regex representing the list of known scope tokens
  */
-function getKnownScopeTokens() {
-    return [...knownScopeTokens];
+function getKnownScopeTokensRegex() {
+    // attributes in the HTML namespace are case-insensitive, so the regex must be case-insensitive
+    return new RegExp([...knownScopeTokens].join('|'), 'gi');
 }
 
 module.exports = {
@@ -51,5 +52,5 @@ module.exports = {
     isKnownScopedCssFile,
     addKnownScopeToken,
     isKnownScopeToken,
-    getKnownScopeTokens,
+    getKnownScopeTokensRegex,
 };

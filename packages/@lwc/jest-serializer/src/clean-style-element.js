@@ -5,12 +5,10 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 
-const { getKnownScopeTokens } = require('@lwc/jest-shared');
+const { getKnownScopeTokensRegex } = require('@lwc/jest-shared');
 
 function cleanStyleElement(elm) {
-    // attributes in the HTML namespace are case-insensitive, so the regex must be case-insensitive
-    const regex = new RegExp(getKnownScopeTokens().join('|'), 'gi');
-    elm.textContent = elm.textContent.replace(regex, '__lwc_scope_token__');
+    elm.textContent = elm.textContent.replace(getKnownScopeTokensRegex(), '__lwc_scope_token__');
 }
 
 module.exports = cleanStyleElement;

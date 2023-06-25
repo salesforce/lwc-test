@@ -17,7 +17,44 @@ function isKnownScopedCssFile(filename) {
     return knownScopedCssFiles.has(filename);
 }
 
+const knownScopeTokens = new Set();
+
+/**
+ * Indicate that this string is a scope token (used by LWC for style scoping).
+ * @param str - scope token string
+ */
+function addKnownScopeToken(str) {
+    // attributes in the HTML namespace are case-insensitive, so we treat everything as lowercase
+    knownScopeTokens.add(str.toLowerCase());
+}
+
+/**
+ * Check if this string is a known scope token
+ * @param str - string to check
+ * @returns {boolean} - true if it's a known scope token
+ */
+function isKnownScopeToken(str) {
+    // attributes in the HTML namespace are case-insensitive, so we treat everything as lowercase
+    return knownScopeTokens.has(str.toLowerCase());
+}
+
+/**
+ * Get a regex matching all known scope tokens
+ @returns {RegExp} - regex representing the list of known scope tokens
+ */
+function getKnownScopeTokensRegex() {
+    // sort from longest to shortest so that `{foo-host}` is fully replaced, not just `{foo}-host`
+    const regexString = [...knownScopeTokens]
+        .sort((a, b) => b.length - a.length)
+        .join('|');
+    // attributes in the HTML namespace are case-insensitive, so the regex must be case-insensitive
+    return new RegExp(regexString, 'gi');
+}
+
 module.exports = {
     addKnownScopedCssFile,
-    isKnownScopedCssFile
+    isKnownScopedCssFile,
+    addKnownScopeToken,
+    isKnownScopeToken,
+    getKnownScopeTokensRegex,
 };

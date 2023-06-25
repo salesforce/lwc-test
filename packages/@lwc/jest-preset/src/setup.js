@@ -12,7 +12,7 @@ if (!nativeShadow) {
             '@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.'
         );
     }
-    require('@lwc/synthetic-shadow/dist/synthetic-shadow.js');
+    require('@lwc/synthetic-shadow');
 }
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0

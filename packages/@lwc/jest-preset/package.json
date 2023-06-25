@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-preset",
-    "version": "11.8.0",
+    "version": "12.0.2",
     "description": "Jest preset configuration and stubs to help test LWC",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -22,16 +22,16 @@
         "/src/**/*.js"
     ],
     "peerDependencies": {
-        "@lwc/compiler": "*",
-        "@lwc/engine-dom": "*",
-        "@lwc/engine-server": ">=2",
-        "@lwc/synthetic-shadow": "*",
+        "@lwc/compiler": "^2.48.0",
+        "@lwc/engine-dom": "^2.48.0",
+        "@lwc/engine-server": "^2.48.0",
+        "@lwc/synthetic-shadow": "^2.48.0",
         "jest": "^26 || ^27 || ^28 || ^29"
     },
     "dependencies": {
-        "@lwc/jest-resolver": "11.8.0",
-        "@lwc/jest-serializer": "11.8.0",
-        "@lwc/jest-transformer": "11.8.0"
+        "@lwc/jest-resolver": "12.0.2",
+        "@lwc/jest-serializer": "12.0.2",
+        "@lwc/jest-transformer": "12.0.2"
     },
     "engines": {
         "node": ">=10"

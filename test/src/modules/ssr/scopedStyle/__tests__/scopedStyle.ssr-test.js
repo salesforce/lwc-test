@@ -11,12 +11,12 @@ it('renders a basic component with scoped styles', () => {
     const renderedComponent = renderComponent('x-scoped-style', ScopedStyle);
 
     expect(renderedComponent).toMatchInlineSnapshot(`
-        <x-scoped-style class="x-test_scopedStyle-host">
+        <x-scoped-style class="__lwc_scope_token__">
           <template shadowroot="open">
-            <style class="x-test_scopedStyle" type="text/css">
-              h1.x-test_scopedStyle {color: red;}
+            <style class="__lwc_scope_token__" type="text/css">
+              h1.__lwc_scope_token__ {color: red;}
             </style>
-            <h1 class="x-test_scopedStyle">
+            <h1 class="__lwc_scope_token__">
               Scoped style test
             </h1>
           </template>

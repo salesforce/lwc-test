@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+const { getKnownScopeTokensRegex } = require('@lwc/jest-shared');
+
 const HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
 
 // Void elements are elements that self-close even without an explicit solidus (slash),
@@ -93,7 +95,7 @@ function formatHTML(src) {
         }
     }
 
-    return res.trim();
+    return res.trim().replace(getKnownScopeTokensRegex(), '__lwc_scope_token__');
 }
 
 module.exports = {

@@ -1,13 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render dynamically imported component 1`] = `
+exports[`Dynamic components mocking dynamic component should render default namespace and name when file path is nonconforming 1`] = `
 <smoke-dynamic-import>
   #shadow-root(open)
     <x-test>
       #shadow-root(open)
+    </x-test>
+</smoke-dynamic-import>
+`;
+
+exports[`Dynamic components mocking dynamic component should render with non virtual mock 1`] = `
+<smoke-dynamic-import>
+  #shadow-root(open)
+    <dynamic-cmp-__tests__>
+      #shadow-root(open)
+    </dynamic-cmp-__tests__>
+</smoke-dynamic-import>
+`;
+
+exports[`Dynamic components mocking dynamic component should render with virtual mock  1`] = `
+<smoke-dynamic-import>
+  #shadow-root(open)
+    <dynamic-cmp-__tests__>
+      #shadow-root(open)
+    </dynamic-cmp-__tests__>
+</smoke-dynamic-import>
+`;
+
+exports[`Dynamic components should render dynamically imported component 1`] = `
+<smoke-dynamic-import>
+  #shadow-root(open)
+    <smoke-child>
+      #shadow-root(open)
         <span>
           Child
         </span>
-    </x-test>
+    </smoke-child>
 </smoke-dynamic-import>
 `;

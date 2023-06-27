@@ -4,19 +4,24 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class extends LightningElement {
-    ctor = null;
+    @api ctor;
+    _moduleName;
 
-    connectedCallback() {
+    @api
+    set moduleName(name) {
+        this._moduleName = name;
         this.loadCtor();
     }
 
-    async loadCtor() {
-        const moduleName = 'smoke/child';
-        const module = await import(moduleName);
+    get moduleName() {
+        return this._moduleName;
+    }
 
+    async loadCtor() {
+        const module = await import(this.moduleName);
         this.ctor = module.default;
     }
 }

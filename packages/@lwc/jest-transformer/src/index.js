@@ -6,8 +6,9 @@
  */
 const path = require('path');
 const crypto = require('crypto');
+const isPotentialCustomElementName = require('is-potential-custom-element-name')
 
-const { isKnownScopedCssFile } = require('@lwc/jest-shared');
+const { isKnownScopedCssFile, camelToKebabCase } = require('@lwc/jest-shared');
 
 const MagicString = require('magic-string');
 const babelCore = require('@babel/core');
@@ -87,16 +88,35 @@ function transformTypeScript(src, filePath) {
     return code;
 }
 
+function getNamespaceAndName(filePath) {
+    // retrieve the namespace and name from the file path
+    let [namespace, name] = path.dirname(filePath).split(path.sep).slice(-2);
+    
+    // convert to kebab case
+    namespace = camelToKebabCase(namespace);
+    name = camelToKebabCase(name);
+
+    // verify namespace and name are valid
+    // https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name
+    if (!isPotentialCustomElementName(`${namespace}-${name}`)) {
+        // set default namespace and name if not valid
+        namespace = 'x';
+        name = 'test';
+    }
+
+    return ({ namespace, name });
+}
+
 module.exports = {
     process(src, filePath) {
         if (isTypeScript(filePath)) {
             src = transformTypeScript(src, filePath);
         }
 
-        // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
+        const { namespace, name } = getNamespaceAndName(filePath);
         const { code, map, cssScopeTokens } = lwcCompiler.transformSync(src, filePath, {
-            name: 'test',
-            namespace: 'x',
+            name,
+            namespace,
             outputConfig: {
                 sourcemap: true,
             },

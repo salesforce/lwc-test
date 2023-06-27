@@ -40,7 +40,7 @@ function isKnownScopeToken(str) {
 
 /**
  * Get a regex matching all known scope tokens
- @returns {RegExp} - regex representing the list of known scope tokens
+ * @returns {RegExp} - regex representing the list of known scope tokens
  */
 function getKnownScopeTokensRegex() {
     // sort from longest to shortest so that `{foo-host}` is fully replaced, not just `{foo}-host`
@@ -51,10 +51,19 @@ function getKnownScopeTokensRegex() {
     return new RegExp(regexString, 'gi');
 }
 
+/**
+ * Converts camel to kebab case string
+ * @returns {string} - kebab case string format
+ */
+function camelToKebabCase(name) {
+    return name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
 module.exports = {
     addKnownScopedCssFile,
     isKnownScopedCssFile,
     addKnownScopeToken,
     isKnownScopeToken,
     getKnownScopeTokensRegex,
+    camelToKebabCase,
 };

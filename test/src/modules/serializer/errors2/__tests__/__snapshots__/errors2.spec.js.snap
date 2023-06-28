@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serializes component that may cause errors in serializer, part 2 1`] = `
+<serializer-component>
+  #shadow-root(open)
+    <div />
+</serializer-component>
+`;

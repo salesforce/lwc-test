@@ -35,7 +35,7 @@ function addKnownScopeToken(str) {
  */
 function isKnownScopeToken(str) {
     // attributes in the HTML namespace are case-insensitive, so we treat everything as lowercase
-    return knownScopeTokens.has(str.toLowerCase());
+    return typeof str === 'string' && knownScopeTokens.has(str.toLowerCase());
 }
 
 /**

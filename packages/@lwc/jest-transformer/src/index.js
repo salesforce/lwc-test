@@ -122,7 +122,11 @@ module.exports = {
             // the transformer does not run in the same Node process as the serializer.
             const magicString = new MagicString(result.code);
 
-            magicString.append(`\nconst { addKnownScopeToken } = require('@lwc/jest-shared');`);
+            // lwc-test may live in a different directory from the component module code, so
+            // we need to provide an absolute path
+            const jestSharedPath = require.resolve('@lwc/jest-shared');
+
+            magicString.append(`\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`);
 
             for (const scopeToken of cssScopeTokens) {
                 magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`)

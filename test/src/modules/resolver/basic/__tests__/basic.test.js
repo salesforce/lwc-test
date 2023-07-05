@@ -21,6 +21,6 @@ it('component has expected styles', () => {
     const { nativeShadow } = global['lwc-jest']
     const styleContainer = nativeShadow ? element.shadowRoot : document.head;
     const css = styleContainer.querySelector('style').textContent;
-    const expectedCss = nativeShadow ? 'h1 {color: red;}' : 'h1[x-test_basic] {color: red;}'
+    const expectedCss = nativeShadow ? 'h1 {color: red;}' : 'h1[lwc-2upvglv5e7t] {color: red;}'
     expect(css).toEqual(expectedCss);
 })

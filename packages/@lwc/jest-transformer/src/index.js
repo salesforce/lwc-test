@@ -6,6 +6,7 @@
  */
 const path = require('path');
 const crypto = require('crypto');
+const semver = require('semver');
 
 const { isKnownScopedCssFile } = require('@lwc/jest-shared');
 
@@ -104,8 +105,13 @@ module.exports = {
                 strictSpecifier: false,
             },
             scopedStyles: isKnownScopedCssFile(filePath),
-            enableLwcSpread: true,
-            enableDynamicComponents: true
+            enableDynamicComponents: true,
+            /**
+             * Prevent causing tons of warning log lines.
+             * @see {@link https://github.com/salesforce/lwc/pull/3544}
+             * @see {@link https://github.com/salesforce/lwc/releases/tag/v2.49.1}
+             */
+            ...(semver.lt(compilerVersion, '2.49.1') ? { enableLwcSpread: true } : {}),
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap

@@ -53,8 +53,11 @@ function cleanElementAttributes(elm) {
         elm.removeAttribute(name);
     });
 
-    for (const { name, value } of [...elm.attributes]) {
+    // We've seen cases where elm.attributes is not iterable.
+    // We could do elm.getAttributeNames() here, but we can be a bit extra cautious.
+    for (const name of Element.prototype.getAttributeNames.apply(elm)) {
         if (isKnownScopeToken(name)) {
+            const value = elm.getAttribute(name);
             elm.removeAttribute(name);
             elm.setAttribute('__lwc_scope_token__', value);
         }

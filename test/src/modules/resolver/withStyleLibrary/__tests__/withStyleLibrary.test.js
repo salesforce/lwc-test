@@ -18,8 +18,8 @@ it('component has expected styles', () => {
         'h1 {color: blue;}',
         'h1 {background: yellow;}'
     ] : [
-        'h1[x-test_withStyleLibrary] {color: blue;}',
-        'h1[x-test_withStyleLibrary] {background: yellow;}'
+        'h1[lwc-72bnmlfttf2] {color: blue;}',
+        'h1[lwc-72bnmlfttf2] {background: yellow;}'
     ];
     expect(css).toEqual(expectedCss);
 });

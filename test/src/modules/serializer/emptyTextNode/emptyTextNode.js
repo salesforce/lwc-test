@@ -11,7 +11,7 @@ export default class EmptyTextNode extends LightningElement {
     static renderMode = 'light';
 
     renderedCallback() {
-        const h1 = document.createElement('h1')
+        const h1 = document.createElement('h1');
         h1.textContent = 'hello';
 
         this.refs.div.appendChild(document.createTextNode(''));

@@ -8,5 +8,5 @@ import { api } from 'lwc';
 import Superclass  from 'components/superclass';
 
 export default class extends Superclass {
-    @api bar = "bar"
+    @api bar = "bar";
 }

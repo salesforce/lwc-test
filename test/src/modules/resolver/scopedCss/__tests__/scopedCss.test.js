@@ -14,4 +14,4 @@ it('component has expected scoped styles', () => {
     const styleContainer = global['lwc-jest'].nativeShadow ? element.shadowRoot : document.head;
     const css = styleContainer.querySelector('style').textContent;
     expect(css).toEqual('h1.x-test_basic {color: red;}');
-})
+});

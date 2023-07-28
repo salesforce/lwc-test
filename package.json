@@ -3,9 +3,10 @@
     "private": true,
     "description": "LWC test plugins and utilities",
     "scripts": {
+        "prepare": "husky install",
         "test": "jest --no-cache",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
-        "lint": "eslint packages/",
+        "lint": "eslint packages/ test/ --ext=js,mjs,ts",
         "format": "prettier --write '{packages,test}/**/*.{js,ts,json,md}'",
         "release:publish:ci": "./scripts/release/publish.js",
         "release:version": "./scripts/release/version.js"
@@ -24,12 +25,19 @@
         "@lwc/synthetic-shadow": "^2.48.0",
         "@lwc/wire-service": "^2.48.0",
         "@types/jest": "^29.5.0",
+        "@typescript-eslint/eslint-plugin": "^6.2.0",
+        "@typescript-eslint/parser": "^6.2.0",
         "eslint": "^8.37.0",
+        "husky": "^8.0.3",
         "jest": "^29.5.0",
         "jest-environment-jsdom": "^29.5.0",
         "lerna": "^6.6.1",
+        "lint-staged": "^13.2.3",
         "prettier": "^2.8.7",
         "semver": "^7.3.8"
+    },
+    "lint-staged": {
+        "**/*.{js,mjs,ts}": "eslint --fix"
     },
     "volta": {
         "node": "16.19.0",

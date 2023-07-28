@@ -8,5 +8,5 @@ import { api } from 'lwc';
 import Superclass from 'components/superclassTypeScript';
 
 export default class extends Superclass {
-    @api bar = "barTS"
+    @api bar = "barTS";
 }

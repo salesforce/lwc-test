@@ -22,4 +22,4 @@ it('component has expected styles', () => {
         'h1[x-test_withStyleLibrary] {background: yellow;}'
     ];
     expect(css).toEqual(expectedCss);
-})
+});

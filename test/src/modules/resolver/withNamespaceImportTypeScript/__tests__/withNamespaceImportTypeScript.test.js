@@ -11,6 +11,6 @@ it('component can import superclass from namespace - typescript', () => {
     const element = createElement('with-namespace-import-typescript', { is: WithNamespaceImportTypeScript });
     document.body.appendChild(element);
 
-    expect(element.foo).toEqual('fooTS') // from superclass
-    expect(element.bar).toEqual('barTS') // from own class
-})
+    expect(element.foo).toEqual('fooTS'); // from superclass
+    expect(element.bar).toEqual('barTS'); // from own class
+});

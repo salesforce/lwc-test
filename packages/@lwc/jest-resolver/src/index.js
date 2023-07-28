@@ -54,7 +54,7 @@ function isValidCSSImport(importee, { basedir }) {
 
 function isValidScriptImport(importee, { basedir }) {
     const absPath = resolve(basedir, importee);
-    return fs.existsSync(absPath)
+    return fs.existsSync(absPath);
 }
 
 function parseForQueryParams(path) {
@@ -90,7 +90,7 @@ function getLwcPath(path, options) {
     // If the extension is empty, try to infer it
     if (extname(path) === '') {
         if (isValidScriptImport(path + '.ts', options) || isValidScriptImport(path + '.js', options)) {
-            return path // the resolution algo will automatically add '.ts'/'.js' as necessary
+            return path; // the resolution algo will automatically add '.ts'/'.js' as necessary
         }
 
         // If there is no extension, try to infer a .css path. We do a special check for CSS to handle @imports inside of
@@ -100,7 +100,7 @@ function getLwcPath(path, options) {
         // between `@import "foo/bar"` in CSS and `import "foo/bar"` in JS (assuming platform 
         // compiler supports this)
         if (isValidCSSImport(path + '.css', options)) {
-            return path + '.css'
+            return path + '.css';
         }
     }
 

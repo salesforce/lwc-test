@@ -30,7 +30,8 @@
         "@babel/preset-typescript": "^7.22.5",
         "@lwc/jest-shared": "12.0.3",
         "babel-preset-jest": "^29.5.0",
-        "magic-string": "^0.30.0"
+        "magic-string": "^0.30.0",
+        "semver": "^7.5.3"
     },
     "peerDependencies": {
         "@lwc/compiler": "^2.48.0",

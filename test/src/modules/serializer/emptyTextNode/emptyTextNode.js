@@ -12,10 +12,10 @@ export default class EmptyTextNode extends LightningElement {
 
     renderedCallback() {
         const h1 = document.createElement('h1')
-        h1.textContent = 'hello'
+        h1.textContent = 'hello';
 
-        this.refs.div.appendChild(document.createTextNode(''))
-        this.refs.div.appendChild(h1)
-        this.refs.div.appendChild(document.createTextNode(''))
+        this.refs.div.appendChild(document.createTextNode(''));
+        this.refs.div.appendChild(h1);
+        this.refs.div.appendChild(document.createTextNode(''));
     }
 }

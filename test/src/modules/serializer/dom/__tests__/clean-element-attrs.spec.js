@@ -14,4 +14,15 @@ describe('serialized element attributes', () => {
         `.replace(/\s+/g, ' ');
         expect(elm).toMatchSnapshot();
     });
+
+    it('should not serialize id/idref attributes', () => {
+        const elm = document.createElement('div');
+        elm.innerHTML = `
+            <label for="foo">foo label</label>
+            <input id="foo">
+            <button aria-labelledby="color">Red</button>
+            <span id="color">Yellow</span>
+        `.replace(/\s+/g, ' ');
+        expect(elm).toMatchSnapshot();
+    });
 });

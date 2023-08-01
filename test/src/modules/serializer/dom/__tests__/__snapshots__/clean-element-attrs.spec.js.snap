@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`serialized element attributes should not serialize id/idref attributes 1`] = `
+<div>
+   
+  <label
+    for="foo"
+  >
+    foo label
+  </label>
+   
+  <input
+    id="foo"
+  />
+   
+  <button
+    aria-labelledby="color"
+  >
+    Red
+  </button>
+   
+  <span
+    id="color"
+  >
+    Yellow
+  </span>
+   
+</div>
+`;
+
 exports[`serialized element attributes should remove the lwc:host attribute 1`] = `
 <div>
    

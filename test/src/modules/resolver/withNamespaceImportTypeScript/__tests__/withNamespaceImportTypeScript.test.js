@@ -8,7 +8,9 @@ import { createElement } from 'lwc';
 import WithNamespaceImportTypeScript from '../withNamespaceImportTypeScript';
 
 it('component can import superclass from namespace - typescript', () => {
-    const element = createElement('with-namespace-import-typescript', { is: WithNamespaceImportTypeScript });
+    const element = createElement('with-namespace-import-typescript', {
+        is: WithNamespaceImportTypeScript,
+    });
     document.body.appendChild(element);
 
     expect(element.foo).toEqual('fooTS'); // from superclass

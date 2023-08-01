@@ -7,7 +7,8 @@
         "test": "jest --no-cache",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/ test/ --ext=js,mjs,ts",
-        "format": "prettier --write '{packages,test}/**/*.{js,ts,json,md}'",
+        "format": "prettier --write '{packages,test}/**/*.{js,mjs,ts,json,md}'",
+        "format:check": "prettier --check '{packages,test}/**/*.{js,mjs,ts,json,md}'",
         "release:publish:ci": "./scripts/release/publish.js",
         "release:version": "./scripts/release/version.js"
     },
@@ -36,7 +37,8 @@
         "semver": "^7.5.3"
     },
     "lint-staged": {
-        "**/*.{js,mjs,ts}": "eslint --fix"
+        "**/*.{js,mjs,ts}": "eslint --fix",
+        "**/*.{js,mjs,ts,json,md}": "prettier --write"
     },
     "volta": {
         "node": "16.19.0",

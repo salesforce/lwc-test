@@ -17,8 +17,5 @@
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended"
-    ],
-    "rules": {
-        "semi": ["error", "always"]
-    }
+    ]
 }

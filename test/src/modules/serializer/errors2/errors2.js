@@ -14,9 +14,7 @@ export default class extends LightningElement {
         // Cause an error to be thrown only when called from @lwc/jest-serializer,
         // so that we don't break unrelated code
         if (stack.includes('clean-element-attrs.js')) {
-            return [
-                { name: null, value: null }
-            ];
+            return [{ name: null, value: null }];
         }
         return [];
     }

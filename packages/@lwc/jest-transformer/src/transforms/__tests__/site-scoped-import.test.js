@@ -162,5 +162,4 @@ describe('@salesforce/site/defaultLanguage import', () => {
         import defaultLanguage from '@salesforce/site/defaultLanguage';
 `
     );
-    
 });

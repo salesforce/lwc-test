@@ -79,6 +79,9 @@ jobs:
           name: Run linter
           command: yarn lint
       - run:
+          name: Check format
+          command: yarn format:check
+      - run:
           name: Run unit tests
           command: yarn test --runInBand
 

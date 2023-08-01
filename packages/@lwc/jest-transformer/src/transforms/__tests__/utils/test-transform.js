@@ -65,7 +65,9 @@ function makeTest(plugin, opts = {}) {
                     throw new Error('Did not receive expected error: ' + expectedError.message);
                 }
                 if (expectedSource) {
-                    expect(collapseNewlines(res.code)).toBe(collapseNewlines(unpad(expectedSource)));
+                    expect(collapseNewlines(res.code)).toBe(
+                        collapseNewlines(unpad(expectedSource))
+                    );
                 }
             }
         });

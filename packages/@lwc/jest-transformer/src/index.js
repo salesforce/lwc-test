@@ -105,7 +105,7 @@ module.exports = {
             },
             scopedStyles: isKnownScopedCssFile(filePath),
             enableLwcSpread: true,
-            enableDynamicComponents: true
+            enableDynamicComponents: true,
         });
 
         // if is not .js, we add the .compiled extension in the sourcemap
@@ -126,7 +126,9 @@ module.exports = {
             // we need to provide an absolute path
             const jestSharedPath = require.resolve('@lwc/jest-shared');
 
-            magicString.append(`\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`);
+            magicString.append(
+                `\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`
+            );
 
             for (const scopeToken of cssScopeTokens) {
                 magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`);

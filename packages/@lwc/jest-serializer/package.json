@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-serializer",
-    "version": "12.0.3",
+    "version": "13.0.0",
     "description": "Custom Jest snapshot serializer",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -18,7 +18,7 @@
         "lwc"
     ],
     "dependencies": {
-        "@lwc/jest-shared": "12.0.3",
+        "@lwc/jest-shared": "13.0.0",
         "pretty-format": "^29.5.0"
     },
     "peerDependencies": {

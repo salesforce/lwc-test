@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serializes component with empty text nodes 1`] = `
+<serializer-component>
+  <div>
+    <h1>
+      hello
+    </h1>
+  </div>
+</serializer-component>
+`;

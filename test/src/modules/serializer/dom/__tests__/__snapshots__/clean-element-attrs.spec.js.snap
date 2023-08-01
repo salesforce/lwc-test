@@ -1,5 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`serialized element attributes should not serialize id/idref attributes 1`] = `
+<div>
+   
+  <label
+    for="foo"
+  >
+    foo label
+  </label>
+   
+  <input
+    id="foo"
+  />
+   
+  <button
+    aria-labelledby="color"
+  >
+    Red
+  </button>
+   
+  <span
+    id="color"
+  >
+    Yellow
+  </span>
+   
+</div>
+`;
+
 exports[`serialized element attributes should remove the lwc:host attribute 1`] = `
 <div>
    
@@ -10,162 +38,6 @@ exports[`serialized element attributes should remove the lwc:host attribute 1`] 
   <div>
     abcde
   </div>
-   
-</div>
-`;
-
-exports[`serialized element attributes should replace all id-referencing aria attributes with placeholders 1`] = `
-<div>
-   
-  <div
-    aria-activedescendant="[shadow:guid]"
-  >
-    aria-activedescendant
-  </div>
-   
-  <div
-    aria-controls="[shadow:guid]"
-  >
-    aria-controls
-  </div>
-   
-  <div
-    aria-describedby="[shadow:guid]"
-  >
-    aria-describedby
-  </div>
-   
-  <div
-    aria-details="[shadow:guid]"
-  >
-    aria-details
-  </div>
-   
-  <div
-    aria-errormessage="[shadow:guid]"
-  >
-    aria-errormessage
-  </div>
-   
-  <div
-    aria-flowto="[shadow:guid]"
-  >
-    aria-flowto
-  </div>
-   
-  <div
-    aria-labelledby="[shadow:guid]"
-  >
-    aria-labelledby
-  </div>
-   
-  <div
-    aria-owns="[shadow:guid]"
-  >
-    aria-owns
-  </div>
-   
-</div>
-`;
-
-exports[`serialized element attributes should replace both id and for attributes with placeholders 1`] = `
-<div>
-   
-  <label
-    for="[shadow:guid]"
-  >
-    Do you like cheese?
-  </label>
-   
-  <input
-    id="[shadow:guid]"
-    name="cheese"
-    type="checkbox"
-  />
-   
-</div>
-`;
-
-exports[`serialized element attributes should replace the href and xlink:href attributes with placeholders if it is a fragment id for svg use tags 1`] = `
-<div>
-   
-  <svg
-    height="100px"
-    viewport="0 0 100 100"
-    width="100px"
-  >
-     
-    <defs>
-       
-      <circle
-        cx="10"
-        cy="10"
-        fill="black"
-        id="[shadow:guid]"
-        r="10"
-      />
-       
-      <circle
-        cx="14"
-        cy="14"
-        fill="red"
-        id="[shadow:guid]"
-        r="10"
-      />
-       
-    </defs>
-     
-    <use
-      href="#[shadow:guid]"
-    />
-     
-    <use
-      xlink:href="#[shadow:guid]"
-    />
-     
-  </svg>
-   
-</div>
-`;
-
-exports[`serialized element attributes should replace the href attribute with a placeholder if it is a fragment id for anchor tags 1`] = `
-<div>
-   
-  <a
-    href="#[shadow:guid]"
-  >
-    ny state of mind
-  </a>
-   
-  <a
-    href="https://nystateofmind.com"
-  >
-    ny state of mind
-  </a>
-   
-</div>
-`;
-
-exports[`serialized element attributes should replace the href attribute with a placeholder if it is a fragment id for area tags 1`] = `
-<div>
-   
-  <map
-    name="kyoto"
-  >
-     
-    <area
-      href="#[shadow:guid]"
-    />
-     
-    <area
-      href="#[shadow:guid]"
-    />
-     
-    <area
-      href="https://duckduckgo.com/?q=kyoto"
-    />
-     
-  </map>
    
 </div>
 `;

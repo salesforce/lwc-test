@@ -18,7 +18,7 @@ yarn add --dev jest-environment-jsdom
 
 ### Configuration
 
-`@lwc/jest-preset` comes with two presets: `@lwc/jest-preset` (default) and `@lwc/jest-preset/ssr` used to test how a LWC component renders on the dom, and the server. 
+`@lwc/jest-preset` comes with two presets: `@lwc/jest-preset` (default) and `@lwc/jest-preset/ssr` used to test how a LWC component renders on the dom, and the server.
 
 #### Testing LWC components rendered on the DOM
 
@@ -65,7 +65,6 @@ Add the `@lwc/jest-preset/ssr` preset to the Jest configuration like so:
 }
 ```
 
-
 #### LWC DOM and SSR component test setup
 
 Jest config only allows one preset per configuration. In order to allow client and server jest tests to live alongside, you might consider creating a new configuration.
@@ -82,22 +81,24 @@ Example: Use `jest.config.js` for DOM tests (`@lwc/jest-preset`) and create `jes
 ```
 
 `jest.config.js` (DOM tests):
+
 ```js
 module.exports = {
-    "preset": "@lwc/jest-preset",
-    "moduleNameMapper": {
-        "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
-    }
+    preset: '@lwc/jest-preset',
+    moduleNameMapper: {
+        '^(example|other)/(.+)$': '<rootDir>/src/test/modules/$1/$2/$2',
+    },
 };
 ```
 
 `jest-ssr.config.js` (SSR tests):
+
 ```js
 module.exports = {
-    "preset": "@lwc/jest-preset/ssr",
-    "moduleNameMapper": {
-        "^(example|other)/(.+)$": "<rootDir>/src/test/modules/$1/$2/$2"
-    }
+    preset: '@lwc/jest-preset/ssr',
+    moduleNameMapper: {
+        '^(example|other)/(.+)$': '<rootDir>/src/test/modules/$1/$2/$2',
+    },
 };
 ```
 

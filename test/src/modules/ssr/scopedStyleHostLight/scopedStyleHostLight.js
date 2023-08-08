@@ -7,5 +7,5 @@
 import { LightningElement } from 'lwc';
 
 export default class ScopedStyleHostLight extends LightningElement {
-    static renderMode = 'light'
+    static renderMode = 'light';
 }

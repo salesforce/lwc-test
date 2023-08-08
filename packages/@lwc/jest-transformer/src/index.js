@@ -132,10 +132,12 @@ module.exports = {
             // we need to provide an absolute path
             const jestSharedPath = require.resolve('@lwc/jest-shared');
 
-            magicString.append(`\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`);
+            magicString.append(
+                `\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`
+            );
 
             for (const scopeToken of cssScopeTokens) {
-                magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`)
+                magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`);
             }
 
             const map = magicString.generateMap({
@@ -152,7 +154,7 @@ module.exports = {
             };
         }
 
-        return result
+        return result;
     },
 
     getCacheKey(sourceText, sourcePath, ...rest) {

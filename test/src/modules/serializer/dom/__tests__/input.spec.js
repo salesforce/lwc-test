@@ -20,7 +20,8 @@ describe('should return the expected state', () => {
     });
     it('empty object', () => {
         const input = {};
-        if (jestMajorVersion >= 29) { // Jest changed its snapshot format in v29
+        if (jestMajorVersion >= 29) {
+            // Jest changed its snapshot format in v29
             expect(input).toMatchInlineSnapshot(`{}`);
         } else {
             expect(input).toMatchInlineSnapshot(`Object {}`);
@@ -28,13 +29,13 @@ describe('should return the expected state', () => {
     });
     it('without the nodeType property', () => {
         const input = { anotherKindOfProperty: 5 };
-        if (jestMajorVersion >= 29) { // Jest changed its snapshot format in v29
+        if (jestMajorVersion >= 29) {
+            // Jest changed its snapshot format in v29
             expect(input).toMatchInlineSnapshot(`
                             {
                               "anotherKindOfProperty": 5,
                             }
-                    `
-            );
+                    `);
         } else {
             expect(input).toMatchInlineSnapshot(`
                 Object {

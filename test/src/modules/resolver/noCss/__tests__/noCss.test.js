@@ -14,5 +14,5 @@ it('resolves components without CSS', () => {
     expect(element.shadowRoot.querySelector('h1').textContent).toBe('No CSS');
 
     const styleContainer = global['lwc-jest'].nativeShadow ? element.shadowRoot : document.head;
-    expect(styleContainer.querySelectorAll('style').length).toEqual(0)
+    expect(styleContainer.querySelectorAll('style').length).toEqual(0);
 });

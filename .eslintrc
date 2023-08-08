@@ -1,6 +1,5 @@
 {
-    "extends": "eslint:recommended",
-    "parser": "@babel/eslint-parser",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 9,
         "sourceType": "module",
@@ -11,5 +10,12 @@
         "browser": true,
         "jest": true,
         "node": true
-    }
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended"
+    ]
 }

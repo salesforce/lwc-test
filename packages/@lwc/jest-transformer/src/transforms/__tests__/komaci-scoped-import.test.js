@@ -20,6 +20,6 @@ describe('@salesforce/komaci import', () => {
         } catch (e) {
           komaciModule = "c__targetModule";
         }
-    `
+    `,
     );
 });

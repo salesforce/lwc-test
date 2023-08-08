@@ -24,7 +24,7 @@ describe('@salesforce/apexContinuation import', () => {
 
           myMethod = global.__lwcJestMock_myMethod;
         }
-    `
+    `,
     );
 
     test(
@@ -46,6 +46,6 @@ describe('@salesforce/apexContinuation import', () => {
 
           myMethod = global.__lwcJestMock_myMethod;
         }
-    `
+    `,
     );
 });

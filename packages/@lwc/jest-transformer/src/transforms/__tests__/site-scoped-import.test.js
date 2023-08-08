@@ -22,7 +22,7 @@ describe('@salesforce/site/Id import', () => {
         } catch (e) {
           id = "${DEFAULT_ID}";
         }
-    `
+    `,
     );
 
     test(
@@ -40,7 +40,7 @@ describe('@salesforce/site/Id import', () => {
         } catch (e) {
           id = "${DEFAULT_ID}";
         }
-    `
+    `,
     );
 
     test(
@@ -49,7 +49,7 @@ describe('@salesforce/site/Id import', () => {
       import { id } from '@salesforce/site/Id';
   `,
         undefined,
-        'Invalid import from @salesforce/site/Id'
+        'Invalid import from @salesforce/site/Id',
     );
 
     test(
@@ -58,7 +58,7 @@ describe('@salesforce/site/Id import', () => {
       import { default as id } from '@salesforce/site/Id';
   `,
         undefined,
-        'Invalid import from @salesforce/site/Id'
+        'Invalid import from @salesforce/site/Id',
     );
 
     test(
@@ -67,7 +67,7 @@ describe('@salesforce/site/Id import', () => {
       import { default as id, foo } from '@salesforce/site/Id';
   `,
         undefined,
-        'Invalid import from @salesforce/site/Id'
+        'Invalid import from @salesforce/site/Id',
     );
 });
 
@@ -88,7 +88,7 @@ describe('@salesforce/site/activeLanguages import', () => {
         label: 'English (US)'
       }];
     }
-`
+`,
     );
 
     test(
@@ -109,7 +109,7 @@ describe('@salesforce/site/activeLanguages import', () => {
         label: 'English (US)'
       }];
     }
-`
+`,
     );
 
     test(
@@ -118,7 +118,7 @@ describe('@salesforce/site/activeLanguages import', () => {
     import { activeLanguages } from '@salesforce/site/activeLanguages';
 `,
         undefined,
-        'Invalid import from @salesforce/site/activeLanguages'
+        'Invalid import from @salesforce/site/activeLanguages',
     );
 
     test(
@@ -127,7 +127,7 @@ describe('@salesforce/site/activeLanguages import', () => {
     import { default as activeLanguages } from '@salesforce/site/activeLanguages';
 `,
         undefined,
-        'Invalid import from @salesforce/site/activeLanguages'
+        'Invalid import from @salesforce/site/activeLanguages',
     );
 
     test(
@@ -136,7 +136,7 @@ describe('@salesforce/site/activeLanguages import', () => {
     import { default as activeLanguages, foo } from '@salesforce/site/activeLanguages';
 `,
         undefined,
-        'Invalid import from @salesforce/site/activeLanguages'
+        'Invalid import from @salesforce/site/activeLanguages',
     );
 });
 
@@ -148,7 +148,7 @@ describe('@salesforce/site/defaultLanguage import', () => {
 `,
         `
         import defaultLanguage from '@salesforce/site/defaultLanguage';
-`
+`,
     );
 
     test(
@@ -160,6 +160,6 @@ describe('@salesforce/site/defaultLanguage import', () => {
         `
         import { otherNamed } from './something-valid';
         import defaultLanguage from '@salesforce/site/defaultLanguage';
-`
+`,
     );
 });

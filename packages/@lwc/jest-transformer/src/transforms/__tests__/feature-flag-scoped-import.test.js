@@ -20,6 +20,6 @@ describe('@salesforce/featureFlag import', () => {
         } catch (e) {
           flag = "TestOnly.org.featureName";
         }
-    `
+    `,
     );
 });

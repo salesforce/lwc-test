@@ -9,7 +9,7 @@ if (!nativeShadow) {
             .includes('function patchedAddEventListener')
     ) {
         throw new Error(
-            '@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.'
+            '@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.',
         );
     }
     require('@lwc/synthetic-shadow');

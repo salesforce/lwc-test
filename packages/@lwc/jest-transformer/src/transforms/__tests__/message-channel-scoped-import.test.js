@@ -20,7 +20,7 @@ describe('@salesforce/messageChannel import', () => {
         } catch (e) {
           myMessageChannel = "foo__c";
         }
-    `
+    `,
     );
 
     test(
@@ -36,7 +36,7 @@ describe('@salesforce/messageChannel import', () => {
         } catch (e) {
           myMessageChannel = "ns__foo";
         }
-    `
+    `,
     );
 
     test(
@@ -52,7 +52,7 @@ describe('@salesforce/messageChannel import', () => {
         } catch (e) {
           myMessageChannel = "ns__foo__c";
         }
-    `
+    `,
     );
 
     test(
@@ -70,7 +70,7 @@ describe('@salesforce/messageChannel import', () => {
         } catch (e) {
           myMessageChannel = "foo__c";
         }
-    `
+    `,
     );
 
     test(
@@ -79,7 +79,7 @@ describe('@salesforce/messageChannel import', () => {
         import { myMessageChannel } from '@salesforce/messageChannel/foo__c';
     `,
         undefined,
-        'Invalid import from @salesforce/messageChannel/foo__c'
+        'Invalid import from @salesforce/messageChannel/foo__c',
     );
 
     test(
@@ -88,7 +88,7 @@ describe('@salesforce/messageChannel import', () => {
         import { default as messageChannel } from '@salesforce/messageChannel/foo__c';
     `,
         undefined,
-        'Invalid import from @salesforce/messageChannel/foo__c'
+        'Invalid import from @salesforce/messageChannel/foo__c',
     );
 
     test(
@@ -97,6 +97,6 @@ describe('@salesforce/messageChannel import', () => {
         import { default as messageChannel, foo } from '@salesforce/messageChannel/foo__c';
     `,
         undefined,
-        'Invalid import from @salesforce/messageChannel/foo__c'
+        'Invalid import from @salesforce/messageChannel/foo__c',
     );
 });

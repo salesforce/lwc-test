@@ -28,7 +28,7 @@ function transform(plugin, opts = {}) {
         {
             plugins: [plugin],
         },
-        opts
+        opts,
     );
 
     return function (source) {
@@ -66,7 +66,7 @@ function makeTest(plugin, opts = {}) {
                 }
                 if (expectedSource) {
                     expect(collapseNewlines(res.code)).toBe(
-                        collapseNewlines(unpad(expectedSource))
+                        collapseNewlines(unpad(expectedSource)),
                     );
                 }
             }

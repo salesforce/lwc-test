@@ -34,7 +34,7 @@
         "semver": "^7.5.3"
     },
     "peerDependencies": {
-        "@lwc/compiler": "^2.48.0",
+        "@lwc/compiler": "^2.48.0 || ^3.0.0",
         "jest": "^26 || ^27 || ^28 || ^29"
     },
     "engines": {

@@ -11,7 +11,7 @@ describe('shadow DOM', () => {
         it('should be using native shadow DOM', () => {
             // sniff for JSOM's ShadowRoot implementation
             expect(ShadowRoot.prototype.constructor.toString()).not.toContain(
-                'function SyntheticShadowRoot'
+                'function SyntheticShadowRoot',
             );
         });
     } else {
@@ -19,7 +19,7 @@ describe('shadow DOM', () => {
         it('should be using synthetic shadow DOM', () => {
             // sniff for @lwc/synthetic shadow
             expect(ShadowRoot.prototype.constructor.toString()).toContain(
-                'function SyntheticShadowRoot'
+                'function SyntheticShadowRoot',
             );
         });
     }

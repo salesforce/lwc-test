@@ -11,7 +11,7 @@ jest.mock(
     () => {
         return { default: 'mock override' };
     },
-    { virtual: true }
+    { virtual: true },
 );
 
 it('returns default value when import is not mocked', () => {

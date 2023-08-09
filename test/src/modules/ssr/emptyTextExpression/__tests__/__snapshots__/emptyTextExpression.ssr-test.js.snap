@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a basic component with an empty text expression 1`] = `
+<ssr-empty-text-expression>
+  <template shadowroot="open">
+    <div>
+    </div>
+  </template>
+</ssr-empty-text-expression>
+`;

@@ -44,6 +44,11 @@ function isVoidElement(name, namespace) {
  * @returns the formatter HTML fragment.
  */
 function formatHTML(src) {
+    // Replace all ZWJ characters _before_ doing any other text processing, because otherwise we will add unnecessary
+    // whitespace and newlines. LWC uses the ZWJ character as a special character to represent empty text nodes.
+    // See: https://github.com/salesforce/lwc/pull/2656
+    src = src.replace(/\u200D/g, '');
+
     let res = '';
     let pos = 0;
     let start = pos;

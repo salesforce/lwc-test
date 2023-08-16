@@ -4,7 +4,7 @@
 function cleanElementTextContent(node) {
     for (const child of [...node.childNodes]) {
         if (child.nodeType === Node.TEXT_NODE && child.textContent === '') {
-            node.removeChild(child);
+            child.remove();
         }
     }
 }

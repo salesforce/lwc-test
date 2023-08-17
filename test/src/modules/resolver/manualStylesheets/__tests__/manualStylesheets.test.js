@@ -7,15 +7,11 @@
 import { createElement } from 'lwc';
 import ManualStylesheets from '../manualStylesheets';
 
-// There is an expected deprecation error message we can ignore
+// There is an expected deprecation warning message we can ignore
 beforeEach(() => {
-    jest.spyOn(console, 'error').mockImplementation((message) => {
-        if (
-            !message.includes(
-                'Dynamically setting the "stylesheets" property on a template function is deprecated',
-            )
-        ) {
-            throw new Error('Unexpected console error message: ' + message);
+    jest.spyOn(console, 'warn').mockImplementation((message) => {
+        if (!message.includes('Mutating the "stylesheets" property on a template is deprecated')) {
+            throw new Error('Unexpected console warning message: ' + message);
         }
     });
 });

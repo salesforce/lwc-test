@@ -1,3 +1,6 @@
+// TODO: remove after JSDOM merges this PR: https://github.com/jsdom/jsdom/pull/3586
+require('./aria-reflection-polyfill');
+
 const config = global['lwc-jest'] || {};
 const { nativeShadow } = config;
 

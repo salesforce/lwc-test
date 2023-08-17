@@ -109,3 +109,43 @@ Create a `__tests__` inside the bundle of the LWC component under test.
 Then, create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.test.js` for DOM tests and `<js-file-under-test>.ssr-test.js` for ssr tests. See an example in this projects `src/test` directory.
 
 Now you can write and run the Jest tests!
+
+### Custom matchers
+
+This package contains convenience functions to help test web components, including Lightning Web Components.
+
+#### expect().toThrowInConnectedCallback
+
+Allows you to test for an error thrown by the `connectedCallback` of a web component. `connectedCallback` [does not necessarily throw errors synchronously](https://github.com/salesforce/lwc/pull/3662), so this utility makes it easier to test for `connectedCallback` errors.
+
+```js
+// Component
+export default class Throws extends LightningElement {
+    connectedCallback() {
+        throw new Error('whee!');
+    }
+}
+```
+
+```js
+// Test
+import { createElement } from 'lwc';
+
+it('Should throw in connectedCallback', () => {
+    const element = createElement('x-throws', { is: Throws });
+    expect(() => {
+        document.body.appendChild(element);
+    }).toThrowErrorInConnectedCallback(/whee!/);
+});
+```
+
+The argument passed in to `toThrowInConnectedCallback` behaves the same as for [Jest's built-in `toThrow`](https://jestjs.io/docs/expect#tothrowerror):
+
+-   Regular expression: error message matches the pattern.
+-   String: error message includes the substring.
+-   Error object: error message is equal to the message property of the object.
+-   Error class: error object is instance of class.
+
+#### expect().toThrowErrorInConnectedCallback
+
+Equivalent to `toThrowInConnectedCallback`.

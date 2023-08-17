@@ -164,3 +164,5 @@ function installRegisterDecoratorsTrap(lwc) {
 const lwc = require('@lwc/engine-dom');
 
 installRegisterDecoratorsTrap(lwc);
+
+require('./matchers/expect-throw-in-connected-callback');

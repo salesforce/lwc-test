@@ -11,7 +11,7 @@ import ManualStylesheets from '../manualStylesheets';
 beforeEach(() => {
     jest.spyOn(console, 'warn').mockImplementation((message) => {
         if (!message.includes('Mutating the "stylesheets" property on a template is deprecated')) {
-            throw new Error('Unexpected console error message: ' + message);
+            throw new Error('Unexpected console warning message: ' + message);
         }
     });
 });

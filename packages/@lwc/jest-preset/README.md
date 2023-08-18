@@ -160,10 +160,12 @@ The argument passed in to `toThrowInConnectedCallback` behaves the same as for [
 
 Note that, to avoid false positives, you should try to include _only_ the `document.body.appendChild` call inside of your callback; otherwise you could get a false positive:
 
+```js
 expect(() => {
     document.body.appendChild(elm);
     throw new Error('false positive!');
 }).toThrowInConnectedCallback();
+```
 
 The above Error will be successfully caught by `toThrowInConnectedCallback`, even though it doesn't really occur in the `connectedCallback`.
 

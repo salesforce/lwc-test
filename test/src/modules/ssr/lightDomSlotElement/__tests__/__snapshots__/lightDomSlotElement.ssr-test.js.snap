@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a basic component with light DOM slot with element slotted 1`] = `
+<ssr-light-dom-slot-element>
+  <ssr-light-dom-slottable>
+    <div>
+      Hello
+    </div>
+  </ssr-light-dom-slottable>
+</ssr-light-dom-slot-element>
+`;

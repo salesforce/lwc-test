@@ -114,6 +114,12 @@ Now you can write and run the Jest tests!
 
 This package contains convenience functions to help test web components, including Lightning Web Components.
 
+Note that, for these matchers to work properly in TypeScript, you must import this package from your `*.spec.ts` files:
+
+```js
+import '@lwc/jest-preset';
+```
+
 #### expect().toThrowInConnectedCallback
 
 Allows you to test for an error thrown by the `connectedCallback` of a web component. `connectedCallback` [does not necessarily throw errors synchronously](https://github.com/salesforce/lwc/pull/3662), so this utility makes it easier to test for `connectedCallback` errors.
@@ -145,6 +151,9 @@ The argument passed in to `toThrowInConnectedCallback` behaves the same as for [
 -   String: error message includes the substring.
 -   Error object: error message is equal to the message property of the object.
 -   Error class: error object is instance of class.
+
+This matcher works both with LWC components and with non-LWC custom elements that use standard
+`connectedCallback` semantics.
 
 #### expect().toThrowErrorInConnectedCallback
 

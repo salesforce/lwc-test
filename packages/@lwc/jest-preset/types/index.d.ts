@@ -2,8 +2,13 @@
 // Inspired by:
 // - https://unpkg.com/browse/expect@29.6.2/build/index.d.ts
 // - https://unpkg.com/browse/@testing-library/jest-dom@6.0.1/types/matchers.d.ts
-
 import { type expect } from '@jest/globals';
+
+// These types come from @types/jest
+// https://github.com/DefinitelyTyped/DefinitelyTyped/blob/bd28a85/types/jest/index.d.ts#L1154-L1161
+interface Constructable {
+    new (...args: any[]): any;
+}
 
 interface LwcJestMatchers<E, R> {
     /**
@@ -16,7 +21,8 @@ interface LwcJestMatchers<E, R> {
      * @see
      * [@lwc/jest-preset docs](https://github.com/salesforce/lwc-test/blob/master/packages/%40lwc/jest-preset/README.md#custom-matchers)
      */
-    toThrowInConnectedCallback(expected?: unknown): R;
+    // These types come from @types/jest, see above
+    toThrowInConnectedCallback(expected?: string | Constructable | RegExp | Error): R;
 
     /**
      * @description
@@ -30,7 +36,8 @@ interface LwcJestMatchers<E, R> {
      * @see
      * [@lwc/jest-preset docs](https://github.com/salesforce/lwc-test/blob/master/packages/%40lwc/jest-preset/README.md#custom-matchers)
      */
-    toThrowErrorInConnectedCallback(expected?: unknown): R;
+    // These types come from @types/jest, see above
+    toThrowErrorInConnectedCallback(expected?: string | Constructable | RegExp | Error): R;
 }
 
 declare global {

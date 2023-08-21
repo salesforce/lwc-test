@@ -58,5 +58,11 @@ describe('ARIA string reflection', () => {
             div[prop] = null;
             expect(div.getAttribute(attribute)).toBeNull();
         });
+
+        it(`${prop} is configurable/enumerable`, () => {
+            const descriptor = Object.getOwnPropertyDescriptor(Element.prototype, prop);
+            expect(descriptor.configurable).toBe(true);
+            expect(descriptor.enumerable).toBe(true);
+        });
     }
 });

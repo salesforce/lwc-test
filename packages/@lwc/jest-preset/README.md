@@ -109,3 +109,73 @@ Create a `__tests__` inside the bundle of the LWC component under test.
 Then, create a new test file in `__tests__` that follows the naming convention `<js-file-under-test>.test.js` for DOM tests and `<js-file-under-test>.ssr-test.js` for ssr tests. See an example in this projects `src/test` directory.
 
 Now you can write and run the Jest tests!
+
+### Custom matchers
+
+This package contains convenience functions to help test web components, including Lightning Web Components.
+
+Note that, for these matchers to work properly in TypeScript, you must import this package from your `*.spec.ts` files:
+
+```js
+import '@lwc/jest-preset';
+```
+
+#### expect().toThrowInConnectedCallback
+
+Allows you to test for an error thrown by the `connectedCallback` of a web component. `connectedCallback` [does not necessarily throw errors synchronously](https://github.com/salesforce/lwc/pull/3662), so this utility makes it easier to test for `connectedCallback` errors.
+
+##### Example
+
+```js
+// Component
+export default class Throws extends LightningElement {
+    connectedCallback() {
+        throw new Error('whee!');
+    }
+}
+```
+
+```js
+// Test
+import { createElement } from 'lwc';
+
+it('Should throw in connectedCallback', () => {
+    const element = createElement('x-throws', { is: Throws });
+    expect(() => {
+        document.body.appendChild(element);
+    }).toThrowErrorInConnectedCallback(/whee!/);
+});
+```
+
+##### Error matching
+
+The argument passed in to `toThrowInConnectedCallback` behaves the same as for [Jest's built-in `toThrow`](https://jestjs.io/docs/expect#tothrowerror):
+
+-   Regular expression: error message matches the pattern.
+-   String: error message includes the substring.
+-   Error object: error message is equal to the message property of the object.
+-   Error class: error object is instance of class.
+
+##### Best practices
+
+Note that, to avoid false positives, you should try to include _only_ the `document.body.appendChild` call inside of your callback; otherwise you could get a false positive:
+
+```js
+expect(() => {
+    document.body.appendChild(elm);
+    throw new Error('false positive!');
+}).toThrowInConnectedCallback();
+```
+
+The above Error will be successfully caught by `toThrowInConnectedCallback`, even though it doesn't really occur in the `connectedCallback`.
+
+##### Web component support
+
+This matcher works both with LWC components and with non-LWC custom elements that use standard
+`connectedCallback` semantics (e.g. [Lit](https://lit.dev/) or [vanilla](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements)).
+
+It also works with LWC components regardless of whether they use the standard `connectedCallback` or the legacy [synthetic lifecycle](https://github.com/salesforce/lwc/issues/3198) `connectedCallback`.
+
+#### expect().toThrowErrorInConnectedCallback
+
+Equivalent to `toThrowInConnectedCallback`.

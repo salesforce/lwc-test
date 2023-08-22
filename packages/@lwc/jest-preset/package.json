@@ -13,13 +13,15 @@
     },
     "license": "MIT",
     "main": "jest-preset.js",
+    "types": "types/index.d.ts",
     "keywords": [
         "jest",
         "lwc"
     ],
     "files": [
         "/ssr/*.js",
-        "/src/**/*.js"
+        "/src/**/*.js",
+        "/types"
     ],
     "peerDependencies": {
         "@lwc/compiler": ">=2.48.0",

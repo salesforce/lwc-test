@@ -67,6 +67,10 @@ for (const prop of ARIA_STRING_PROPS) {
                     this.setAttribute(attribute, value);
                 }
             },
+            // These props in both WebKit and Chromium are configurable/enumerable. This allows overriding
+            // (Try `Object.getOwnPropertyDescriptor(Element.prototype, 'ariaLabel')` in either browser)
+            configurable: true,
+            enumerable: true,
         });
     }
 }

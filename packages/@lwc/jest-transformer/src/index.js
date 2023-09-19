@@ -94,6 +94,10 @@ module.exports = {
             src = transformTypeScript(src, filePath);
         }
 
+        // Replace `import.meta.env.SSR` with `false` prior to parsing the
+        // JavaScript inside the LWC compiler.
+        src = src.replace(/\bimport\.meta\.env\.SSR\b/g, 'false');
+
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
         const { code, map, cssScopeTokens } = lwcCompiler.transformSync(src, filePath, {
             name: 'test',

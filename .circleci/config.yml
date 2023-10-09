@@ -15,7 +15,7 @@ executors:
   node:
     working_directory: ~/lwc-test
     docker:
-      - image: cimg/node:18.17.0
+      - image: cimg/node:18.18.0
 
 
 commands:
@@ -41,7 +41,7 @@ jobs:
       jest-version:
         type: string
         description: >
-          Overrides the installed version of jest. When set to "local" the version of jest set 
+          Overrides the installed version of jest. When set to "local" the version of jest set
           frozen in the yarn.lock is used.
         default: "local"
     executor: node
@@ -53,7 +53,7 @@ jobs:
           command: yarn install --frozen-lockfile
       - save_yarn_cache
       - when:
-          condition: 
+          condition:
             not:
               equal: [<<parameters.jest-version>>, "local"]
           steps:

@@ -41,7 +41,7 @@
         "**/*.{js,mjs,ts,json,md}": "prettier --write"
     },
     "volta": {
-        "node": "18.17.0",
+        "node": "18.18.0",
         "yarn": "1.22.19"
     }
 }

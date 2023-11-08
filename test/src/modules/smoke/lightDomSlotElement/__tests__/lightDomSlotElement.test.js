@@ -5,7 +5,6 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { createElement } from 'lwc';
-// import LightDomSlotElement from '../lightDomSlotElement';
 import LightDomSlotElement from 'smoke/lightDomSlotElement';
 
 it('serializes slotted light DOM content', () => {
@@ -22,4 +21,3 @@ it('serializes slotted light DOM content', () => {
       </serializer-component>
     `);
 });
-    // expect(renderedComponent).toMatchSnapshot();

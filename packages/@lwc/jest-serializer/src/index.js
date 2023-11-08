@@ -10,7 +10,7 @@ const DOMElement = PrettyFormat.plugins.DOMElement;
 const cleanElementAttributes = require('./clean-element-attrs');
 const cleanElementClasses = require('./clean-element-classes');
 const cleanStyleElement = require('./clean-style-element');
-const cleanElementTextContent = require('./clean-element-text-content');
+const cleanEmptyTextAndComments = require('./clean-empty-text-and-comments');
 
 function test(obj) {
     if (typeof obj !== 'object' || obj === null) {
@@ -56,7 +56,7 @@ function serialize(node, config, indentation, depth, refs, printer) {
     if (isElement) {
         cleanElementAttributes(node);
         cleanElementClasses(node);
-        cleanElementTextContent(node);
+        cleanEmptyTextAndComments(node);
         if (node.tagName === 'STYLE') {
             cleanStyleElement(node);
         }

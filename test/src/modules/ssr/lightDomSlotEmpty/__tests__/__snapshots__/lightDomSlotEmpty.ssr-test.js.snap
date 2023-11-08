@@ -3,6 +3,8 @@
 exports[`renders a basic component with light DOM slot with nothing slotted 1`] = `
 <ssr-light-dom-slot-empty>
   <ssr-light-dom-slottable>
+    <!---->
+    <!---->
   </ssr-light-dom-slottable>
 </ssr-light-dom-slot-empty>
 `;

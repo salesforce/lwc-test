@@ -36,6 +36,7 @@ const clientScopedImport = require('./transforms/client-scoped-import');
 const messageChannelScopedImport = require('./transforms/message-channel-scoped-import');
 const accessCheck = require('./transforms/access-check-scoped-import');
 const siteScopedImport = require('./transforms/site-scoped-import');
+const importMeta = require('./transforms/import-meta');
 
 const BABEL_TS_CONFIG = {
     sourceMaps: 'inline',
@@ -73,6 +74,7 @@ const BABEL_CONFIG = {
         messageChannelScopedImport,
         accessCheck,
         siteScopedImport,
+        importMeta,
     ],
 };
 

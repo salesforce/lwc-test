@@ -22,15 +22,15 @@
         "/src/transforms/*.js"
     ],
     "dependencies": {
-        "@babel/core": "^7.22.10",
+        "@babel/core": "^7.23.3",
         "@babel/plugin-proposal-dynamic-import": "^7.18.6",
         "@babel/plugin-syntax-class-properties": "^7.12.13",
-        "@babel/plugin-syntax-decorators": "^7.22.10",
-        "@babel/plugin-transform-modules-commonjs": "^7.22.5",
-        "@babel/preset-typescript": "^7.22.5",
+        "@babel/plugin-syntax-decorators": "^7.23.3",
+        "@babel/plugin-transform-modules-commonjs": "^7.23.3",
+        "@babel/preset-typescript": "^7.23.3",
         "@lwc/jest-shared": "14.2.0",
-        "babel-preset-jest": "^29.5.0",
-        "magic-string": "^0.30.2",
+        "babel-preset-jest": "^29.6.3",
+        "magic-string": "^0.30.5",
         "semver": "^7.5.4"
     },
     "peerDependencies": {

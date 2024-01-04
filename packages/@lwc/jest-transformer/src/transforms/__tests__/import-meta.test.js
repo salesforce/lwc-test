@@ -36,4 +36,18 @@ describe('import.meta properties', () => {
         /true/i.test(process.env['SSR']) ? doCsr() : doSsr();
         `,
     );
+
+    test(
+        'does not transform new.target',
+        `
+        function Foo() {
+          console.log(new.target);
+        }
+        `,
+        `
+        function Foo() {
+          console.log(new.target);
+        }
+        `,
+    );
 });

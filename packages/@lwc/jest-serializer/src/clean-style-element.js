@@ -9,6 +9,7 @@ const { getKnownScopeTokensRegex } = require('@lwc/jest-shared');
 
 function cleanStyleElement(elm) {
     elm.textContent = elm.textContent.replace(getKnownScopeTokensRegex(), '__lwc_scope_token__');
+    elm.removeAttribute('data-rendered-by-lwc'); // irrelevant for the snapshot, added by the framework
 }
 
 module.exports = cleanStyleElement;

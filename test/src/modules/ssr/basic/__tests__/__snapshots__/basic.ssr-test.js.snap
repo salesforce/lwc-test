@@ -2,7 +2,7 @@
 
 exports[`renders a basic component and saves formatted snapshot 1`] = `
 <x-basic>
-  <template shadowroot="open">
+  <template shadowrootmode="open">
     <style type="text/css">
       h1 {color: red;}
     </style>

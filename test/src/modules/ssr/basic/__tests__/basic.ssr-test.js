@@ -18,7 +18,7 @@ it('renders a basic component and saves inline formatted snapshot', () => {
 
     expect(renderedComponent).toMatchInlineSnapshot(`
         <x-basic>
-          <template shadowroot="open">
+          <template shadowrootmode="open">
             <style type="text/css">
               h1 {color: red;}
             </style>

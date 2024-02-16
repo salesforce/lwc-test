@@ -7,7 +7,7 @@
 const lwcResolver = require('@lwc/jest-resolver');
 
 const ALLOWLISTED_LWC_PACKAGES = {
-    lwc: '@lwc/engine-server',
+    lwc: 'lwc/engine-server',
 };
 
 module.exports = function (path, options) {

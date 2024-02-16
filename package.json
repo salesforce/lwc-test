@@ -19,11 +19,7 @@
     "license": "MIT",
     "devDependencies": {
         "@babel/core": "^7.23.9",
-        "@lwc/compiler": "^6.0.0",
-        "@lwc/engine-dom": "^6.0.0",
-        "@lwc/engine-server": "^6.0.0",
-        "@lwc/synthetic-shadow": "^6.0.0",
-        "@lwc/wire-service": "^6.0.0",
+        "lwc": "^6.1.1",
         "@types/jest": "^29.5.11",
         "@typescript-eslint/eslint-plugin": "^6.20.0",
         "@typescript-eslint/parser": "^6.20.0",

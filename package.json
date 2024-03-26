@@ -7,8 +7,8 @@
         "test": "jest --no-cache",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/ test/ --ext=js,mjs,ts",
-        "format": "prettier --write '{packages,test}/**/*.{js,mjs,ts,json,md}'",
-        "format:check": "prettier --check '{packages,test}/**/*.{js,mjs,ts,json,md}'",
+        "format": "prettier --write '{packages,test}/**/*.{js,mjs,ts,json,md,yaml}'",
+        "format:check": "prettier --check '{packages,test}/**/*.{js,mjs,ts,json,md,yaml}'",
         "release:publish:ci": "./scripts/release/publish.js",
         "release:version": "./scripts/release/version.js"
     },
@@ -38,7 +38,7 @@
     },
     "lint-staged": {
         "**/*.{js,mjs,ts}": "eslint --fix",
-        "**/*.{js,mjs,ts,json,md}": "prettier --write"
+        "**/*.{js,mjs,ts,json,md,yaml}": "prettier --write"
     },
     "volta": {
         "node": "18.18.0",

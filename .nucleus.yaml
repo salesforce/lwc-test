@@ -1,64 +1,64 @@
 branches:
-  ~DEFAULT~:
-    pull-request: &branch-definition
-      auto-start: true
-      auto-start-from-forks: false
-      merge-method: disabled # do not auto-merge; we'll do it ourselves
-      validate-optional-downstream-deps: true # temporarily test non-required downstreams
-      required-downstream-deps:
-        - automation-platform/ui-externalservices-builder-components
-        - automation-platform/ui-interaction-builder-components
-        - automation-platform/ui-interaction-explorer-components
-        - automation-platform/ui-interaction-orchestrator-components
-        - BuilderFramework/builder-framework-salesforce
-        - communities/microsite-template-marketing
-        - communities/shared-experience-components
-        - communities/ui-commerce-components
-        - communities/ui-commerce-management-components
-        - communities/ui-lightning-community
-        - communities/webruntime
-        - salesforce-experience-platform-emu/komaci
-        - salesforce-experience-platform-emu/lwr
-        - salesforce-experience-platform-emu/lwr-everywhere
-        - Skilling-and-Enablement/storybook-utils
-        # Based on the results of PR #229
-        # - a360/ui-cdp-components-fe # Failed on 'install dependencies'
-        # - communities/talon-template-byo # Failed on 'build project'
-        # - communities/ui-b2b-components # Failed on 'Run LCT tests'
-        # - communities/ui-cms-components # Failed on 'build project'
-        # - communities/ui-dxp-components # Failed on 'Run tests against example app'
-        # - communities/ui-feeds-components # Failed on 'build project'
-        # - LightningMobileRuntime/lsdk-modules # Failed on 'install dependencies'
-        # - omnistudio/ui-flexcards-components # Failed on 'install dependencies'
-        # - omnistudio/ui-omniscript-components # Failed on 'install dependencies'
-        # - omnistudio/ui-omnistudio-components # Failed on 'install dependencies'
-        # - omnistudio/ui-omnistudiobase-components # Failed on 'install dependencies'
-        # - salesforce-experience-platform-emu/lightning-components # Long-running
-        # - salesforce-experience-platform-emu/lws-apps # Failed on 'install dependencies'
-        # - Skilling-and-Enablement/ui-external-enablement # Failed on 'run unit test'
-        # - Skilling-and-Enablement/ui-in-app-guidance # Failed on 'run unit tests'
-        # - Skilling-and-Enablement/ui-ses-experience-cloud # Failed on 'run unit test'
-  (winter|spring|summer)[2-9][0-9]:
-    pull-request:
-      <<: *branch-definition
+    ~DEFAULT~:
+        pull-request: &branch-definition
+            auto-start: true
+            auto-start-from-forks: false
+            merge-method: disabled # do not auto-merge; we'll do it ourselves
+            validate-optional-downstream-deps: true # temporarily test non-required downstreams
+            required-downstream-deps:
+                - automation-platform/ui-externalservices-builder-components
+                - automation-platform/ui-interaction-builder-components
+                - automation-platform/ui-interaction-explorer-components
+                - automation-platform/ui-interaction-orchestrator-components
+                - BuilderFramework/builder-framework-salesforce
+                - communities/microsite-template-marketing
+                - communities/shared-experience-components
+                - communities/ui-commerce-components
+                - communities/ui-commerce-management-components
+                - communities/ui-lightning-community
+                - communities/webruntime
+                - salesforce-experience-platform-emu/komaci
+                - salesforce-experience-platform-emu/lwr
+                - salesforce-experience-platform-emu/lwr-everywhere
+                - Skilling-and-Enablement/storybook-utils
+                # Based on the results of PR #229
+                # - a360/ui-cdp-components-fe # Failed on 'install dependencies'
+                # - communities/talon-template-byo # Failed on 'build project'
+                # - communities/ui-b2b-components # Failed on 'Run LCT tests'
+                # - communities/ui-cms-components # Failed on 'build project'
+                # - communities/ui-dxp-components # Failed on 'Run tests against example app'
+                # - communities/ui-feeds-components # Failed on 'build project'
+                # - LightningMobileRuntime/lsdk-modules # Failed on 'install dependencies'
+                # - omnistudio/ui-flexcards-components # Failed on 'install dependencies'
+                # - omnistudio/ui-omniscript-components # Failed on 'install dependencies'
+                # - omnistudio/ui-omnistudio-components # Failed on 'install dependencies'
+                # - omnistudio/ui-omnistudiobase-components # Failed on 'install dependencies'
+                # - salesforce-experience-platform-emu/lightning-components # Long-running
+                # - salesforce-experience-platform-emu/lws-apps # Failed on 'install dependencies'
+                # - Skilling-and-Enablement/ui-external-enablement # Failed on 'run unit test'
+                # - Skilling-and-Enablement/ui-in-app-guidance # Failed on 'run unit tests'
+                # - Skilling-and-Enablement/ui-ses-experience-cloud # Failed on 'run unit test'
+    (winter|spring|summer)[2-9][0-9]:
+        pull-request:
+            <<: *branch-definition
 steps:
-  node-conformance:
-    run:
-      command: yarn run lint
-    after: node-build
-  node-unit-tests:
-    run:
-      command: yarn test
-  node-pre-release-tests:
-    params:
-      command: yarn test
-  npm-configure:
-    params:
-      registry-url: https://registry.yarnpkg.com
-  npm-configure-for-publish:
-    params:
-      registry-url: https://registry.npmjs.org
-  npm-publish-release:
-    params:
-      access: public
-      tag: latest # note: this should be summer22, winter23, etc. if this .nucleus.yaml file is in a non-master branch
+    node-conformance:
+        run:
+            command: yarn run lint
+        after: node-build
+    node-unit-tests:
+        run:
+            command: yarn test
+    node-pre-release-tests:
+        params:
+            command: yarn test
+    npm-configure:
+        params:
+            registry-url: https://registry.yarnpkg.com
+    npm-configure-for-publish:
+        params:
+            registry-url: https://registry.npmjs.org
+    npm-publish-release:
+        params:
+            access: public
+            tag: summer24 # note: this should be summer22, winter23, etc. if this .nucleus.yaml file is in a non-master branch

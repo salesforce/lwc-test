@@ -5,26 +5,22 @@ exports[`serializes component with different whitespace 1`] = `
   #shadow-root(open)
     <!-- static style, static optimized -->
     <div
-      style=" color:blue; text-align:center "
+      style="color:blue; text-align:center"
     />
     <div
-      style="color:blue;text-align:center "
+      style="color:blue;text-align:center"
     />
     <div
-      style=" color:blue;text-align:center"
+      style="color:blue;text-align:center"
     />
     <div
-      style="color:blue;  text-align:center"
+      style="color:blue; text-align:center"
     />
     <div
-      style="  color:  blue;   text-align:   center  "
+      style="color: blue; text-align: center"
     />
-    <div
-      style=""
-    />
-    <div
-      style=" "
-    />
+    <div />
+    <div />
     <!-- static style, not static optimized -->
     <div
       style="color: blue; text-align: center;"
@@ -50,23 +46,21 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div />
+    <div />
     <div
-      style=" "
+      style="color:blue; text-align:center"
     />
     <div
-      style=" color:blue; text-align:center "
+      style="color:blue;text-align:center"
     />
     <div
-      style="color:blue;text-align:center "
+      style="color:blue;text-align:center"
     />
     <div
-      style=" color:blue;text-align:center"
+      style="color:blue; text-align:center"
     />
     <div
-      style="color:blue;  text-align:center"
-    />
-    <div
-      style="  color:  blue;   text-align:   center  "
+      style="color: blue; text-align: center"
     />
     <!-- dynamic style, not static optimized -->
     <div />
@@ -75,23 +69,21 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div />
+    <div />
     <div
-      style=" "
+      style="color:blue; text-align:center"
     />
     <div
-      style=" color:blue; text-align:center "
+      style="color:blue;text-align:center"
     />
     <div
-      style="color:blue;text-align:center "
+      style="color:blue;text-align:center"
     />
     <div
-      style=" color:blue;text-align:center"
+      style="color:blue; text-align:center"
     />
     <div
-      style="color:blue;  text-align:center"
-    />
-    <div
-      style="  color:  blue;   text-align:   center  "
+      style="color: blue; text-align: center"
     />
 </serializer-component>
 `;

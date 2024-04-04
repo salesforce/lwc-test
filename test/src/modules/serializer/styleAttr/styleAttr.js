@@ -20,4 +20,18 @@ export default class ClassAttr extends LightningElement {
     test3 = ' color:blue;text-align:center';
     test4 = 'color:blue;  text-align:center';
     test5 = '  color:  blue;   text-align:   center  ';
+    test6 = '  color:  blue;   text-align:   center;  ';
+    test7 = '  color:  blue  ;   text-align:   center  ;';
+    test8 = '  ;  color  :  blue  ;   text-align  :   center  ;  ;  ';
+    test9 = 'background-color: red !important ;';
+    test10 = 'background-color: red  !important  ;';
+    test11 = 'background-color:  red  !important  ;  ';
+    test12 = '  background-color  :  red  !important  ;  ';
+    test13 = '  background-color  :  red  !  important  ;  ';
+    test14 = 'color: \nline-break';
+    test15 = 'color:\ttab;';
+    test16 = 'color :\ttab ; \ntext-align: line-break;';
+    test17 = ';;';
+    test18 = ' ; ; ';
+    test19 = '  color: blue  ';
 }

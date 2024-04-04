@@ -3,7 +3,11 @@
 exports[`serializes component with different whitespace 1`] = `
 <serializer-component>
   #shadow-root(open)
-    <!-- static style, static optimized -->
+    <!-- static style, static opti
+        mized -->
+    <div
+      style="color: blue"
+    />
     <div
       style="color:blue; text-align:center"
     />
@@ -19,10 +23,61 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="color: blue; text-align: center"
     />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="; color : blue; text-align : center;;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color : red !important;"
+    />
+    <div
+      style="background-color : red ! important;"
+    />
+    <div
+      style="color: line-break"
+    />
+    <div
+      style="color: tab;"
+    />
+    <div
+      style="color : tab; text-align: line-break;"
+    />
+    <div
+      style=";;"
+    />
+    <div
+      style=";;"
+    />
     <div />
     <div />
     <!-- static style, not static optimized -->
     <div
+      style="color: blue;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
       style="color: blue; text-align: center;"
     />
     <div
@@ -37,6 +92,26 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="color: blue; text-align: center;"
     />
+    <div
+      style="background-color: red;"
+    />
+    <div
+      style="background-color: red;"
+    />
+    <div
+      style="background-color: red;"
+    />
+    <div
+      style="background-color: red;"
+    />
+    <div />
+    <div />
+    <div />
+    <div
+      style="text-align: line-break;"
+    />
+    <div />
+    <div />
     <div />
     <div />
     <!-- dynamic style, static optimized -->
@@ -62,6 +137,48 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="color: blue; text-align: center"
     />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="; color : blue; text-align : center;;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color : red !important;"
+    />
+    <div
+      style="background-color : red ! important;"
+    />
+    <div
+      style="color: line-break"
+    />
+    <div
+      style="color: tab;"
+    />
+    <div
+      style="color : tab; text-align: line-break;"
+    />
+    <div
+      style=";;"
+    />
+    <div
+      style=";;"
+    />
+    <div
+      style="color: blue"
+    />
     <!-- dynamic style, not static optimized -->
     <div />
     <div />
@@ -84,6 +201,48 @@ exports[`serializes component with different whitespace 1`] = `
     />
     <div
       style="color: blue; text-align: center"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="; color : blue; text-align : center;;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color : red !important;"
+    />
+    <div
+      style="background-color : red ! important;"
+    />
+    <div
+      style="color: line-break"
+    />
+    <div
+      style="color: tab;"
+    />
+    <div
+      style="color : tab; text-align: line-break;"
+    />
+    <div
+      style=";;"
+    />
+    <div
+      style=";;"
+    />
+    <div
+      style="color: blue"
     />
 </serializer-component>
 `;

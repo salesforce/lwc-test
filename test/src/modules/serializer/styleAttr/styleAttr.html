@@ -1,20 +1,55 @@
 <template lwc:preserve-comments>
-    <!-- static style, static optimized -->
+    <!-- static style, static opti
+        mized -->
+    <div style="  color: blue  "></div>
     <div style=" color:blue; text-align:center "></div>
     <div style="color:blue;text-align:center "></div>
     <div style=" color:blue;text-align:center"></div>
     <div style="color:blue;  text-align:center"></div>
     <div style="  color:  blue;   text-align:   center  "></div>
+    <div style="  color:  blue;   text-align:   center;  "></div>
+    <div style="  color:  blue  ;   text-align:   center  ;"></div>
+    <div style="  ;  color  :  blue  ;   text-align  :   center  ;  ;  "></div>
+    <div style="background-color: red !important ;"></div>
+    <div style="background-color: red  !important  ;"></div>
+    <div style="background-color:  red  !important  ;  "></div>
+    <div style="  background-color  :  red  !important  ;  "></div>
+    <div style="  background-color  :  red  !  important  ;  "></div>
+    <div style="color:
+    line-break"></div>
+    <div style="color:	tab;"></div>
+    <div style="color : 	 tab ; 
+    text-align: line-break;"></div>
+    <div style=";;"></div>
+    <div style=" ; ; "></div>
     <div style=""></div>
     <div style=" "></div>
+
     <!-- static style, not static optimized -->
+    <div lwc:spread={undef} style="  color: blue  "></div>
     <div lwc:spread={undef} style=" color:blue; text-align:center "></div>
     <div lwc:spread={undef} style="color:blue;text-align:center "></div>
     <div lwc:spread={undef} style=" color:blue;text-align:center"></div>
     <div lwc:spread={undef} style="color:blue;  text-align:center"></div>
     <div lwc:spread={undef} style="  color:  blue;   text-align:   center  "></div>
+    <div lwc:spread={undef} style="  color:  blue;   text-align:   center;  "></div>
+    <div lwc:spread={undef} style="  color:  blue  ;   text-align:   center  ;"></div>
+    <div lwc:spread={undef} style="  ;  color  :  blue  ;   text-align  :   center  ;  ;  "></div>
+    <div lwc:spread={undef} style="background-color: red !important ;"></div>
+    <div lwc:spread={undef} style="background-color: red  !important  ;"></div>
+    <div lwc:spread={undef} style="background-color:  red  !important  ;  "></div>
+    <div lwc:spread={undef} style="  background-color  :  red  !important  ;  "></div>
+    <div lwc:spread={undef} style="  background-color  :  red  !  important  ;  "></div>
+    <div lwc:spread={undef} style="color:
+    line-break"></div>
+    <div lwc:spread={undef} style="color:	tab;"></div>
+    <div lwc:spread={undef} style="color : 	 tab ; 
+    text-align: line-break;"></div>
+    <div lwc:spread={undef} style=";;"></div>
+    <div lwc:spread={undef} style=" ; ; "></div>
     <div lwc:spread={undef} style=""></div>
     <div lwc:spread={undef} style=" "></div>
+
     <!-- dynamic style, static optimized -->
     <div style={obj}></div>
     <div style={num}></div>
@@ -28,6 +63,21 @@
     <div style={test3}></div>
     <div style={test4}></div>
     <div style={test5}></div>
+    <div style={test6}></div>
+    <div style={test7}></div>
+    <div style={test8}></div>
+    <div style={test9}></div>
+    <div style={test10}></div>
+    <div style={test11}></div>
+    <div style={test12}></div>
+    <div style={test13}></div>
+    <div style={test14}></div>
+    <div style={test15}></div>
+    <div style={test16}></div>
+    <div style={test17}></div>
+    <div style={test18}></div>
+    <div style={test19}></div>
+
     <!-- dynamic style, not static optimized -->
     <div lwc:spread={obj} style={obj}></div>
     <div lwc:spread={num} style={num}></div>
@@ -41,4 +91,18 @@
     <div lwc:spread={undef} style={test3}></div>
     <div lwc:spread={undef} style={test4}></div>
     <div lwc:spread={undef} style={test5}></div>
+    <div lwc:spread={undef} style={test6}></div>
+    <div lwc:spread={undef} style={test7}></div>
+    <div lwc:spread={undef} style={test8}></div>
+    <div lwc:spread={undef} style={test9}></div>
+    <div lwc:spread={undef} style={test10}></div>
+    <div lwc:spread={undef} style={test11}></div>
+    <div lwc:spread={undef} style={test12}></div>
+    <div lwc:spread={undef} style={test13}></div>
+    <div lwc:spread={undef} style={test14}></div>
+    <div lwc:spread={undef} style={test15}></div>
+    <div lwc:spread={undef} style={test16}></div>
+    <div lwc:spread={undef} style={test17}></div>
+    <div lwc:spread={undef} style={test18}></div>
+    <div lwc:spread={undef} style={test19}></div>
 </template>

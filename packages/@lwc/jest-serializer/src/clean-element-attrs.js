@@ -23,6 +23,18 @@ function cleanElementAttributes(elm) {
             elm.removeAttribute(name);
             elm.setAttribute('__lwc_scope_token__', value);
         }
+
+        if (name === 'style') {
+            // Normalize trivial whitespace differences (e.g. `style="  foo   bar "` becomes `style="foo bar"`
+            // and `style=""` is just removed).
+            const styleAttribute = elm.getAttribute(name) || '';
+            const normalizedStyleAttribute = styleAttribute.replace(/\s+/g, ' ').trim();
+            if (normalizedStyleAttribute) {
+                elm.setAttribute(name, normalizedStyleAttribute);
+            } else {
+                elm.removeAttribute(name);
+            }
+        }
     }
 }
 

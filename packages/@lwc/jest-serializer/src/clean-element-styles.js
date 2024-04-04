@@ -13,7 +13,7 @@ function cleanElementStyles(elm) {
         // Remove leading/trailing space
         .trim()
         // Replace multiple space, tab, line break with single space
-        .replace(/[\s\n\t]+/g, ' ')
+        .replace(/\s+/g, ' ')
         .split(';')
         .map((_) => `${_.trim()};`)
         .filter((_) => _ !== ';')

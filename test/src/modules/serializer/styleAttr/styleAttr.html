@@ -1,0 +1,44 @@
+<template lwc:preserve-comments>
+    <!-- static style, static optimized -->
+    <div style=" color:blue; text-align:center "></div>
+    <div style="color:blue;text-align:center "></div>
+    <div style=" color:blue;text-align:center"></div>
+    <div style="color:blue;  text-align:center"></div>
+    <div style="  color:  blue;   text-align:   center  "></div>
+    <div style=""></div>
+    <div style=" "></div>
+    <!-- static style, not static optimized -->
+    <div lwc:spread={undef} style=" color:blue; text-align:center "></div>
+    <div lwc:spread={undef} style="color:blue;text-align:center "></div>
+    <div lwc:spread={undef} style=" color:blue;text-align:center"></div>
+    <div lwc:spread={undef} style="color:blue;  text-align:center"></div>
+    <div lwc:spread={undef} style="  color:  blue;   text-align:   center  "></div>
+    <div lwc:spread={undef} style=""></div>
+    <div lwc:spread={undef} style=" "></div>
+    <!-- dynamic style, static optimized -->
+    <div style={obj}></div>
+    <div style={num}></div>
+    <div style={bool}></div>
+    <div style={undef}></div>
+    <div style={nullo}></div>
+    <div style={empty}></div>
+    <div style={space}></div>
+    <div style={test1}></div>
+    <div style={test2}></div>
+    <div style={test3}></div>
+    <div style={test4}></div>
+    <div style={test5}></div>
+    <!-- dynamic style, not static optimized -->
+    <div lwc:spread={obj} style={obj}></div>
+    <div lwc:spread={num} style={num}></div>
+    <div lwc:spread={bool} style={bool}></div>
+    <div lwc:spread={undef} style={undef}></div>
+    <div lwc:spread={undef} style={nullo}></div>
+    <div lwc:spread={undef} style={empty}></div>
+    <div lwc:spread={undef} style={space}></div>
+    <div lwc:spread={undef} style={test1}></div>
+    <div lwc:spread={undef} style={test2}></div>
+    <div lwc:spread={undef} style={test3}></div>
+    <div lwc:spread={undef} style={test4}></div>
+    <div lwc:spread={undef} style={test5}></div>
+</template>

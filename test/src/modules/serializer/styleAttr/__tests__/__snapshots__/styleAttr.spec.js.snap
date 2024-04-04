@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serializes component with different whitespace 1`] = `
+<serializer-component>
+  #shadow-root(open)
+    <!-- static style, static optimized -->
+    <div
+      style=" color:blue; text-align:center "
+    />
+    <div
+      style="color:blue;text-align:center "
+    />
+    <div
+      style=" color:blue;text-align:center"
+    />
+    <div
+      style="color:blue;  text-align:center"
+    />
+    <div
+      style="  color:  blue;   text-align:   center  "
+    />
+    <div
+      style=""
+    />
+    <div
+      style=" "
+    />
+    <!-- static style, not static optimized -->
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div />
+    <div />
+    <!-- dynamic style, static optimized -->
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      style=" "
+    />
+    <div
+      style=" color:blue; text-align:center "
+    />
+    <div
+      style="color:blue;text-align:center "
+    />
+    <div
+      style=" color:blue;text-align:center"
+    />
+    <div
+      style="color:blue;  text-align:center"
+    />
+    <div
+      style="  color:  blue;   text-align:   center  "
+    />
+    <!-- dynamic style, not static optimized -->
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      style=" "
+    />
+    <div
+      style=" color:blue; text-align:center "
+    />
+    <div
+      style="color:blue;text-align:center "
+    />
+    <div
+      style=" color:blue;text-align:center"
+    />
+    <div
+      style="color:blue;  text-align:center"
+    />
+    <div
+      style="  color:  blue;   text-align:   center  "
+    />
+</serializer-component>
+`;

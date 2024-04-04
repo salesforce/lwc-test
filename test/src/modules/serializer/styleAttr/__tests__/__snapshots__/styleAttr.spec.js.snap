@@ -6,22 +6,19 @@ exports[`serializes component with different whitespace 1`] = `
     <!-- static style, static opti
         mized -->
     <div
-      style="color: blue"
+      style="color: blue;"
     />
     <div
-      style="color:blue; text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue;text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue;text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue; text-align:center"
-    />
-    <div
-      style="color: blue; text-align: center"
+      style="color:blue; text-align:center;"
     />
     <div
       style="color: blue; text-align: center;"
@@ -30,7 +27,10 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue; text-align: center;"
     />
     <div
-      style="; color : blue; text-align : center;;"
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color : blue; text-align : center;"
     />
     <div
       style="background-color: red !important;"
@@ -48,7 +48,7 @@ exports[`serializes component with different whitespace 1`] = `
       style="background-color : red ! important;"
     />
     <div
-      style="color: line-break"
+      style="color: line-break;"
     />
     <div
       style="color: tab;"
@@ -56,12 +56,8 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="color : tab; text-align: line-break;"
     />
-    <div
-      style=";;"
-    />
-    <div
-      style=";;"
-    />
+    <div />
+    <div />
     <div />
     <div />
     <!-- static style, not static optimized -->
@@ -121,19 +117,16 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div
-      style="color:blue; text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue;text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue;text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue; text-align:center"
-    />
-    <div
-      style="color: blue; text-align: center"
+      style="color:blue; text-align:center;"
     />
     <div
       style="color: blue; text-align: center;"
@@ -142,7 +135,10 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue; text-align: center;"
     />
     <div
-      style="; color : blue; text-align : center;;"
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color : blue; text-align : center;"
     />
     <div
       style="background-color: red !important;"
@@ -160,7 +156,7 @@ exports[`serializes component with different whitespace 1`] = `
       style="background-color : red ! important;"
     />
     <div
-      style="color: line-break"
+      style="color: line-break;"
     />
     <div
       style="color: tab;"
@@ -168,14 +164,10 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="color : tab; text-align: line-break;"
     />
+    <div />
+    <div />
     <div
-      style=";;"
-    />
-    <div
-      style=";;"
-    />
-    <div
-      style="color: blue"
+      style="color: blue;"
     />
     <!-- dynamic style, not static optimized -->
     <div />
@@ -184,19 +176,16 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div
-      style="color:blue; text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue;text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue;text-align:center"
+      style="color:blue; text-align:center;"
     />
     <div
-      style="color:blue; text-align:center"
-    />
-    <div
-      style="color: blue; text-align: center"
+      style="color:blue; text-align:center;"
     />
     <div
       style="color: blue; text-align: center;"
@@ -205,7 +194,10 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue; text-align: center;"
     />
     <div
-      style="; color : blue; text-align : center;;"
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color : blue; text-align : center;"
     />
     <div
       style="background-color: red !important;"
@@ -223,7 +215,7 @@ exports[`serializes component with different whitespace 1`] = `
       style="background-color : red ! important;"
     />
     <div
-      style="color: line-break"
+      style="color: line-break;"
     />
     <div
       style="color: tab;"
@@ -231,14 +223,10 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="color : tab; text-align: line-break;"
     />
+    <div />
+    <div />
     <div
-      style=";;"
-    />
-    <div
-      style=";;"
-    />
-    <div
-      style="color: blue"
+      style="color: blue;"
     />
 </serializer-component>
 `;

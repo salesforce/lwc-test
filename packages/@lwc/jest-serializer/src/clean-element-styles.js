@@ -15,7 +15,7 @@ function cleanElementStyles(elm) {
         // Replace multiple space, tab, line break with single space
         .replace(/[\s\n\t]+/g, ' ')
         .split(';')
-        // Preserve space character in front of a ';', style="color: blue; text-align: center"
+        // Preserve space character following a ';', style="color: blue; text-align: center"
         .map((attr) => attr.trimEnd())
         .join(';');
     if (normalizedStyleAttribute) {

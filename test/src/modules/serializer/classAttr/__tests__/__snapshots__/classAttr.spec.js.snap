@@ -5,23 +5,19 @@ exports[`serializes component with different whitespace 1`] = `
   #shadow-root(open)
     <!-- static class, static optimized -->
     <div
-      class=" foo bar"
+      class="foo bar"
     />
     <div
-      class="foo bar "
+      class="foo bar"
     />
     <div
-      class="foo  bar"
+      class="foo bar"
     />
     <div
-      class=" foo   bar    baz "
+      class="foo bar baz"
     />
-    <div
-      class=""
-    />
-    <div
-      class=" "
-    />
+    <div />
+    <div />
     <!-- static class, not static optimized -->
     <div
       class="foo bar"

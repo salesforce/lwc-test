@@ -1,0 +1,36 @@
+<template lwc:preserve-comments>
+    <!-- static class, static optimized -->
+    <div class=" foo bar"></div>
+    <div class="foo bar "></div>
+    <div class="foo  bar"></div>
+    <div class=" foo   bar    baz "></div>
+    <div class=""></div>
+    <div class=" "></div>
+    <!-- static class, not static optimized -->
+    <div lwc:spread={undef} class=" foo bar"></div>
+    <div lwc:spread={undef} class="foo bar "></div>
+    <div lwc:spread={undef} class="foo  bar"></div>
+    <div lwc:spread={undef} class=" foo   bar    baz "></div>
+    <div lwc:spread={undef} class=""></div>
+    <div lwc:spread={undef} class=" "></div>
+    <!-- dynamic class, static optimized -->
+    <div class={undef}></div>
+    <div class={nullo}></div>
+    <div class={empty}></div>
+    <div class={space}></div>
+    <div class={test1}></div>
+    <div class={test2}></div>
+    <div class={test3}></div>
+    <div class={test4}></div>
+    <div class={test5}></div>
+    <!-- dynamic class, not static optimized -->
+    <div lwc:spread={undef} class={undef}></div>
+    <div lwc:spread={undef} class={nullo}></div>
+    <div lwc:spread={undef} class={empty}></div>
+    <div lwc:spread={undef} class={space}></div>
+    <div lwc:spread={undef} class={test1}></div>
+    <div lwc:spread={undef} class={test2}></div>
+    <div lwc:spread={undef} class={test3}></div>
+    <div lwc:spread={undef} class={test4}></div>
+    <div lwc:spread={undef} class={test5}></div>
+</template>

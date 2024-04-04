@@ -120,8 +120,6 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div />
-    <div />
-    <div />
     <div
       style="color:blue; text-align:center"
     />
@@ -180,8 +178,6 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue"
     />
     <!-- dynamic style, not static optimized -->
-    <div />
-    <div />
     <div />
     <div />
     <div />

@@ -8,8 +8,6 @@
 import { LightningElement } from 'lwc';
 
 export default class ClassAttr extends LightningElement {
-    obj = {};
-    num = 1;
     bool = false;
     undef = undefined;
     nullo = null;

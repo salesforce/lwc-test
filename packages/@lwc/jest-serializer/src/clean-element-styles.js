@@ -17,6 +17,14 @@ function cleanElementStyles(elm) {
         .split(';')
         .map((_) => `${_.trim()};`)
         .filter((_) => _ !== ';')
+        // Normalize whitespace around colons, e.g. `color :  red` -> `color: red`
+        .map((declaration) =>
+            declaration
+                .split(':')
+                // remove whitespace before `important`, e.g. `! important` -> `!important`
+                .map((_) => _.trim().replace(/!\simportant/, '!important'))
+                .join(': '),
+        )
         .join(' ');
     if (normalizedStyleAttribute) {
         elm.setAttribute('style', normalizedStyleAttribute);

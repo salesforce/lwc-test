@@ -8,26 +8,16 @@
 function cleanElementStyles(elm) {
     // Normalize trivial whitespace differences (e.g. `style="  foo   bar "` becomes `style="foo bar"`
     // and `style=""` is just removed).
-    const styleAttribute = elm.getAttribute('style') || '';
-    const normalizedStyleAttribute = styleAttribute
-        // Remove leading/trailing space
-        .trim()
-        // Replace multiple space, tab, line break with single space
-        .replace(/\s+/g, ' ')
-        .split(';')
-        .map((_) => `${_.trim()};`)
-        .filter((_) => _ !== ';')
-        // Normalize whitespace around colons, e.g. `color :  red` -> `color: red`
-        .map((declaration) =>
-            declaration
-                .split(':')
-                // remove whitespace before `important`, e.g. `! important` -> `!important`
-                .map((_) => _.trim().replace(/!\simportant/, '!important'))
-                .join(': '),
-        )
-        .join(' ');
-    if (normalizedStyleAttribute) {
-        elm.setAttribute('style', normalizedStyleAttribute);
+    const styles = [];
+    for (let i = 0; i < elm.style.length; i++) {
+        const prop = elm.style[i];
+        const value = elm.style.getPropertyValue(prop);
+        const priority = elm.style.getPropertyPriority(prop);
+        styles.push(`${prop}: ${value}${priority === 'important' ? ' !important' : ''};`);
+    }
+
+    if (styles.length) {
+        elm.setAttribute('style', styles.join(' '));
     } else {
         elm.removeAttribute('style');
     }

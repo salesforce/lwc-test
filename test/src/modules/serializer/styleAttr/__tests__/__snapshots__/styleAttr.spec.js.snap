@@ -3,8 +3,7 @@
 exports[`serializes component with different whitespace 1`] = `
 <serializer-component>
   #shadow-root(open)
-    <!-- static style, static opti
-        mized -->
+    <!-- static style, static optimized -->
     <div
       style="color: blue;"
     />
@@ -48,18 +47,21 @@ exports[`serializes component with different whitespace 1`] = `
       style="background-color: red !important;"
     />
     <div
-      style="color: line-break;"
+      style="color: yellow;"
     />
     <div
-      style="color: tab;"
+      style="color: purple;"
     />
     <div
-      style="color: tab; text-align: line-break;"
+      style="color: purple; text-align: right;"
     />
     <div />
     <div />
     <div />
     <div />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+    />
     <!-- static style, not static optimized -->
     <div
       style="color: blue;"
@@ -89,27 +91,34 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue; text-align: center;"
     />
     <div
-      style="background-color: red;"
+      style="background-color: red !important;"
     />
     <div
-      style="background-color: red;"
+      style="background-color: red !important;"
     />
     <div
-      style="background-color: red;"
+      style="background-color: red !important;"
     />
     <div
-      style="background-color: red;"
+      style="background-color: red !important;"
     />
+    <div
+      style="background-color: red !important;"
+    />
+    <div />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
+    />
+    <div />
     <div />
     <div />
     <div />
     <div
-      style="text-align: line-break;"
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
     />
-    <div />
-    <div />
-    <div />
-    <div />
     <!-- dynamic style, static optimized -->
     <div />
     <div />
@@ -155,19 +164,18 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="background-color: red !important;"
     />
+    <div />
+    <div />
     <div
-      style="color: line-break;"
-    />
-    <div
-      style="color: tab;"
-    />
-    <div
-      style="color: tab; text-align: line-break;"
+      style="text-align: line-break;"
     />
     <div />
     <div />
     <div
       style="color: blue;"
+    />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
     />
     <!-- dynamic style, not static optimized -->
     <div />
@@ -214,19 +222,18 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="background-color: red !important;"
     />
+    <div />
+    <div />
     <div
-      style="color: line-break;"
-    />
-    <div
-      style="color: tab;"
-    />
-    <div
-      style="color: tab; text-align: line-break;"
+      style="text-align: line-break;"
     />
     <div />
     <div />
     <div
       style="color: blue;"
+    />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
     />
 </serializer-component>
 `;

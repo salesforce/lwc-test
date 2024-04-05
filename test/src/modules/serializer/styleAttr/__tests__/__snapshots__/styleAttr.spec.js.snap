@@ -164,10 +164,14 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="background-color: red !important;"
     />
-    <div />
-    <div />
     <div
-      style="text-align: line-break;"
+      style="color: yellow;"
+    />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
     />
     <div />
     <div />
@@ -222,10 +226,14 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="background-color: red !important;"
     />
-    <div />
-    <div />
     <div
-      style="text-align: line-break;"
+      style="color: yellow;"
+    />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
     />
     <div />
     <div />

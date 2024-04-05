@@ -26,9 +26,9 @@ export default class ClassAttr extends LightningElement {
     test11 = 'background-color:  red  !important  ;  ';
     test12 = '  background-color  :  red  !important  ;  ';
     test13 = '  background-color  :  red  !important  ;  ';
-    test14 = 'color: \nline-break';
-    test15 = 'color:\ttab;';
-    test16 = 'color :\ttab ; \ntext-align: line-break;';
+    test14 = 'color: \nyellow';
+    test15 = 'color:\tpurple;';
+    test16 = 'color :\tpurple ; \ntext-align: right;';
     test17 = ';;';
     test18 = ' ; ; ';
     test19 = '  color: blue  ';

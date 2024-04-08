@@ -1,6 +1,5 @@
 <template lwc:preserve-comments>
-    <!-- static style, static opti
-        mized -->
+    <!-- static style, static optimized -->
     <div style="  color: blue  "></div>
     <div style=" color:blue; text-align:center "></div>
     <div style="color:blue;text-align:center "></div>
@@ -9,21 +8,22 @@
     <div style="  color:  blue;   text-align:   center  "></div>
     <div style="  color:  blue;   text-align:   center;  "></div>
     <div style="  color:  blue  ;   text-align:   center  ;"></div>
-    <div style="  ;  color  :  blue  ;   text-align  :   center  ;  ;  "></div>
+    <div style="  color  :  blue  ;   text-align  :   center  ;  ;  "></div>
     <div style="background-color: red !important ;"></div>
     <div style="background-color: red  !important  ;"></div>
     <div style="background-color:  red  !important  ;  "></div>
     <div style="  background-color  :  red  !important  ;  "></div>
-    <div style="  background-color  :  red  !  important  ;  "></div>
+    <div style="  background-color  :  red  !important  ;  "></div>
     <div style="color:
-    line-break"></div>
-    <div style="color:	tab;"></div>
-    <div style="color : 	 tab ; 
-    text-align: line-break;"></div>
+    yellow"></div>
+    <div style="color:	purple;"></div>
+    <div style="color : 	 purple ;
+    text-align: right;"></div>
     <div style=";;"></div>
     <div style=" ; ; "></div>
     <div style=""></div>
     <div style=" "></div>
+    <div style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"></div>
 
     <!-- static style, not static optimized -->
     <div lwc:spread={undef} style="  color: blue  "></div>
@@ -34,21 +34,22 @@
     <div lwc:spread={undef} style="  color:  blue;   text-align:   center  "></div>
     <div lwc:spread={undef} style="  color:  blue;   text-align:   center;  "></div>
     <div lwc:spread={undef} style="  color:  blue  ;   text-align:   center  ;"></div>
-    <div lwc:spread={undef} style="  ;  color  :  blue  ;   text-align  :   center  ;  ;  "></div>
+    <div lwc:spread={undef} style="  color  :  blue  ;   text-align  :   center  ;  ;  "></div>
     <div lwc:spread={undef} style="background-color: red !important ;"></div>
     <div lwc:spread={undef} style="background-color: red  !important  ;"></div>
     <div lwc:spread={undef} style="background-color:  red  !important  ;  "></div>
     <div lwc:spread={undef} style="  background-color  :  red  !important  ;  "></div>
-    <div lwc:spread={undef} style="  background-color  :  red  !  important  ;  "></div>
+    <div lwc:spread={undef} style="  background-color  :  red  !important  ;  "></div>
     <div lwc:spread={undef} style="color:
-    line-break"></div>
-    <div lwc:spread={undef} style="color:	tab;"></div>
-    <div lwc:spread={undef} style="color : 	 tab ; 
-    text-align: line-break;"></div>
+    yellow"></div>
+    <div lwc:spread={undef} style="color:	purple;"></div>
+    <div lwc:spread={undef} style="color : 	 purple ;
+    text-align: right;"></div>
     <div lwc:spread={undef} style=";;"></div>
     <div lwc:spread={undef} style=" ; ; "></div>
     <div lwc:spread={undef} style=""></div>
     <div lwc:spread={undef} style=" "></div>
+    <div lwc:spread={undef} style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"></div>
 
     <!-- dynamic style, static optimized -->
     <div style={bool}></div>
@@ -75,6 +76,7 @@
     <div style={test17}></div>
     <div style={test18}></div>
     <div style={test19}></div>
+    <div style={test20}></div>
 
     <!-- dynamic style, not static optimized -->
     <div lwc:spread={bool} style={bool}></div>
@@ -101,4 +103,5 @@
     <div lwc:spread={undef} style={test17}></div>
     <div lwc:spread={undef} style={test18}></div>
     <div lwc:spread={undef} style={test19}></div>
+    <div lwc:spread={undef} style={test20}></div>
 </template>

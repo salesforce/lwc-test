@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serializes component with different whitespace 1`] = `
+<serializer-component>
+  #shadow-root(open)
+    <!-- static style, static optimized -->
+    <div
+      style="color: blue;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="color: yellow;"
+    />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
+    />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+    />
+    <!-- static style, not static optimized -->
+    <div
+      style="color: blue;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
+    />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+    />
+    <!-- dynamic style, static optimized -->
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="color: yellow;"
+    />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
+    />
+    <div />
+    <div />
+    <div
+      style="color: blue;"
+    />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+    />
+    <!-- dynamic style, not static optimized -->
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="color: blue; text-align: center;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="background-color: red !important;"
+    />
+    <div
+      style="color: yellow;"
+    />
+    <div
+      style="color: purple;"
+    />
+    <div
+      style="color: purple; text-align: right;"
+    />
+    <div />
+    <div />
+    <div
+      style="color: blue;"
+    />
+    <div
+      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+    />
+</serializer-component>
+`;

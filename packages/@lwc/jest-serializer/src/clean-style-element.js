@@ -10,7 +10,7 @@ const { getKnownScopeTokensRegex, hasKnownScopeTokens } = require('@lwc/jest-sha
 function cleanStyleElement(elm) {
     // Only do this replacement if we actually know about any scope tokens. Otherwise, the regex will
     // just be `(?:)` which replaces every character.
-    if (hasKnownScopeTokens) {
+    if (hasKnownScopeTokens()) {
         elm.textContent = elm.textContent.replace(
             getKnownScopeTokensRegex(),
             '__lwc_scope_token__',

@@ -39,6 +39,14 @@ function isKnownScopeToken(str) {
 }
 
 /**
+ * Check if there are any scope tokens we know about
+ * @returns {boolean} - true if we have any scope tokens
+ */
+function hasKnownScopeTokens() {
+    return knownScopeTokens.size > 0;
+}
+
+/**
  * Get a regex matching all known scope tokens
  @returns {RegExp} - regex representing the list of known scope tokens
  */
@@ -55,4 +63,5 @@ module.exports = {
     addKnownScopeToken,
     isKnownScopeToken,
     getKnownScopeTokensRegex,
+    hasKnownScopeTokens,
 };

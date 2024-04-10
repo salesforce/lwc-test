@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serializes component with different whitespace 1`] = `
+<serializer-component>
+  #shadow-root(open)
+    <!-- static class, static optimized -->
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar baz"
+    />
+    <div />
+    <div />
+    <!-- static class, not static optimized -->
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar baz"
+    />
+    <div />
+    <div />
+    <!-- dynamic class, static optimized -->
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar baz"
+    />
+    <!-- dynamic class, not static optimized -->
+    <div />
+    <div />
+    <div />
+    <div />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar"
+    />
+    <div
+      class="foo bar baz"
+    />
+</serializer-component>
+`;

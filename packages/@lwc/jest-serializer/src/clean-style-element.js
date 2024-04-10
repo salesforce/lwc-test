@@ -5,10 +5,17 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 
-const { getKnownScopeTokensRegex } = require('@lwc/jest-shared');
+const { getKnownScopeTokensRegex, hasKnownScopeTokens } = require('@lwc/jest-shared');
 
 function cleanStyleElement(elm) {
-    elm.textContent = elm.textContent.replace(getKnownScopeTokensRegex(), '__lwc_scope_token__');
+    // Only do this replacement if we actually know about any scope tokens. Otherwise, the regex will
+    // just be `(?:)` which replaces every character.
+    if (hasKnownScopeTokens()) {
+        elm.textContent = elm.textContent.replace(
+            getKnownScopeTokensRegex(),
+            '__lwc_scope_token__',
+        );
+    }
     elm.removeAttribute('data-rendered-by-lwc'); // irrelevant for the snapshot, added by the framework
 }
 

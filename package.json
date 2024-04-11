@@ -41,8 +41,8 @@
         "**/*.{js,mjs,ts,json,md,yaml}": "prettier --write"
     },
     "volta": {
-        "node": "18.18.0",
-        "yarn": "1.22.19"
+        "node": "20.12.2",
+        "yarn": "1.22.22"
     },
     "version": "1.0.0"
 }

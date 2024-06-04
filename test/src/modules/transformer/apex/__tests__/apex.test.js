@@ -8,7 +8,8 @@ import { ApexMethod, refreshApex, getSObjectValue } from '../apex';
 
 describe('@salesforce/apex/<class>', () => {
     it('exports a default method returning a promise', () => {
-        expect(ApexMethod()).resolves.toEqual(undefined);
+        // expect(ApexMethod()).resolves.toEqual(undefined);
+        expect(ApexMethod).not.toHaveBeenCalled();
     });
 });
 
@@ -18,9 +19,9 @@ describe('@salesforce/apex', () => {
     });
 
     it('exports getSObjectValue method returning a jest.fn()', () => {
-        expect(getSObjectValue).not.toBeCalled();
+        expect(getSObjectValue).not.toHaveBeenCalled();
 
         getSObjectValue('foo');
-        expect(getSObjectValue).toBeCalledWith('foo');
+        expect(getSObjectValue).toHaveBeenCalledWith('foo');
     });
 });

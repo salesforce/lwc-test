@@ -7,6 +7,19 @@
 import { createElement } from 'lwc';
 import StyleAttr from '../styleAttr';
 
+// There is an expected warning message we can ignore
+beforeEach(() => {
+    jest.spyOn(console, 'error').mockImplementation((message) => {
+        if (!message.includes("Invalid 'style' attribute passed to <div>")) {
+            throw new Error('Unexpected console error message: ' + message);
+        }
+    });
+});
+
+afterEach(() => {
+    jest.restoreAllMocks();
+});
+
 it('serializes component with different whitespace', () => {
     const elm = createElement('serializer-component', { is: StyleAttr });
     document.body.appendChild(elm);

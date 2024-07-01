@@ -14,7 +14,9 @@ describe('@salesforce/apex/<class>', () => {
 
 describe('@salesforce/apex', () => {
     it('exports refreshApex method returning a promise', () => {
-        expect(refreshApex()).resolves.toEqual(undefined);
+        expect(refreshApex()).not.toBeUndefined();
+        expect(refreshApex().then).toEqual(expect.any(Function)); // should be a thenable (promise)
+        expect(refreshApex()).resolves.toEqual(undefined); // should resolve to undefined
     });
 
     it('exports getSObjectValue method returning a jest.fn()', () => {

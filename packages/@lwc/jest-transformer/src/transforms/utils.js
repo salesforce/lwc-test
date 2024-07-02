@@ -75,7 +75,7 @@ const resolvedPromiseTemplate = babelTemplate(`
     try {
         RESOURCE_NAME = require(IMPORT_SOURCE).default;
     } catch (e) {
-        global.MOCK_NAME = global.MOCK_NAME || function RESOURCE_NAME() { return Promise.resolve(); };
+        global.MOCK_NAME = global.MOCK_NAME || jest.fn(Promise.resolve());
         RESOURCE_NAME = global.MOCK_NAME;
     }
 `);

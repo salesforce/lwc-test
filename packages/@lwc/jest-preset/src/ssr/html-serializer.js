@@ -100,7 +100,14 @@ function formatHTML(src) {
         }
     }
 
-    return res.trim().replace(getKnownScopeTokensRegex(), '__lwc_scope_token__');
+    return (
+        res
+            .trim()
+            .replace(getKnownScopeTokensRegex(), '__lwc_scope_token__')
+            // These special attributes are reserved by the framework and are meaningless to component authors
+            .replace(/ data-lwc-host-mutated/g, '')
+            .replace(/ data-rendered-by-lwc/g, '')
+    );
 }
 
 module.exports = {

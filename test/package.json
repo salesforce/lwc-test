@@ -1,6 +1,6 @@
 {
     "name": "test",
-    "version": "16.0.0",
+    "version": "16.0.1",
     "private": "true",
     "scripts": {
         "test": "jest"

@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-transformer",
-    "version": "16.0.2",
+    "version": "16.0.3",
     "description": "Jest transformer for LWC and engine",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -28,7 +28,7 @@
         "@babel/plugin-syntax-decorators": "^7.24.1",
         "@babel/plugin-transform-modules-commonjs": "^7.24.1",
         "@babel/preset-typescript": "^7.24.1",
-        "@lwc/jest-shared": "16.0.2",
+        "@lwc/jest-shared": "16.0.3",
         "babel-preset-jest": "^29.6.3",
         "magic-string": "^0.30.9",
         "semver": "^7.6.0"

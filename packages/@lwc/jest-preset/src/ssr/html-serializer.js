@@ -104,8 +104,10 @@ function formatHTML(src) {
         res
             .trim()
             .replace(getKnownScopeTokensRegex(), '__lwc_scope_token__')
-            // These special attributes are reserved by the framework and are meaningless to component authors
-            .replace(/ data-lwc-host-mutated/g, '')
+            // These special attributes are reserved by the framework and are meaningless to component authors.
+            // `data-lwc-host-mutated` may or may not have an attribute value depending on the version of LWC.
+            // See: https://github.com/salesforce/lwc/pull/4385
+            .replace(/ data-lwc-host-mutated(="[^"]*")?/g, '')
             .replace(/ data-rendered-by-lwc/g, '')
     );
 }

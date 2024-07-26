@@ -110,6 +110,36 @@ Then, create a new test file in `__tests__` that follows the naming convention `
 
 Now you can write and run the Jest tests!
 
+#### @Salesforce/apex/ Method Mocks
+
+Imports of `@Salesforce/apex/*` automatically resolve to `jest.fn()`, these can be optionally overwritten.
+
+```js
+import apexMethod from '@Salesforce/apex/apexClass.apexMethod';
+
+it('test apex cal', async () => {
+    apexMethod.mockResolvedValue({ foo: 'bar' });
+});
+```
+
+Optional set function for method manually
+
+```js
+import apexMethod from '@Salesforce/apex/apexClass.apexMethod';
+
+jest.mock(
+    '@salesforce/apex/apexClass.apexMethod',
+    () => ({
+        default: jest.fn(),
+    }),
+    { virtual: true },
+);
+
+it('test apex callout', async () => {
+    apexMethod.mockResolvedValue({ foo: 'bar' });
+});
+```
+
 ### Custom matchers
 
 This package contains convenience functions to help test web components, including Lightning Web Components.

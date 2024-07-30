@@ -71,6 +71,7 @@ function stringScopedImportTransform(t, path, importIdentifier, fallbackData) {
  * shared.
  */
 const resolvedPromiseTemplate = babelTemplate(`
+    import { jest } from '@jest/globals';
     let RESOURCE_NAME;
     try {
         RESOURCE_NAME = require(IMPORT_SOURCE).default;

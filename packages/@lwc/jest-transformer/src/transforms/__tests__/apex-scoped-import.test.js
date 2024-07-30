@@ -13,6 +13,7 @@ describe('@salesforce/apex import', () => {
         import myMethod from '@salesforce/apex/FooController.fooMethod';
     `,
         `
+        import { jest } from '@jest/globals';
         let myMethod;
 
         try {
@@ -33,6 +34,7 @@ describe('@salesforce/apex import', () => {
     `,
         `
         import { otherNamed } from './something-valid';
+        import { jest } from '@jest/globals';
         let myMethod;
 
         try {

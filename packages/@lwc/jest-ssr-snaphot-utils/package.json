@@ -1,0 +1,26 @@
+{
+    "name": "@lwc/ssr-snapshot-utils",
+    "version": "16.1.0",
+    "description": "Jest snapshot utils for SSR",
+    "homepage": "https://lwc.dev/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/salesforce/lwc-test.git",
+        "directory": "packages/@lwc/ssr-snapshot-utils"
+    },
+    "bugs": {
+        "url": "https://github.com/salesforce/lwc-test/issues"
+    },
+    "license": "MIT",
+    "main": "src/ssr-snapshot-utils.js",
+    "keywords": [
+        "jest",
+        "lwc"
+    ],
+    "peerDependencies": {
+        "jest": "^26 || ^27 || ^28 || ^29"
+    },
+    "engines": {
+        "node": ">=10"
+    }
+}

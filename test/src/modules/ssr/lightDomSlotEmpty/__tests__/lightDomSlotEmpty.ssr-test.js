@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { renderComponent } from 'lwc';
+import {generateAndSnapshotMarkup} from '@lwc/ssr-snapshot-utils/src/ssr-snapshot-utils';
 import LightDomSlotEmpty from 'ssr/lightDomSlotEmpty';
 
 it('renders a basic component with light DOM slot with nothing slotted', () => {
-    const renderedComponent = renderComponent('ssr-light-dom-slot-empty', LightDomSlotEmpty, {});
+    const {renderedComponent, snapshotHash} = generateAndSnapshotMarkup('ssr-light-dom-slot-empty', LightDomSlotEmpty, {});
 
-    expect(renderedComponent).toMatchSnapshot();
+    expect(renderedComponent).toMatchSnapshot(snapshotHash);
 });

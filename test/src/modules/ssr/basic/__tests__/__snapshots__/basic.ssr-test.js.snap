@@ -1,14 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a basic component and saves formatted snapshot 1`] = `
-<x-basic>
-  <template shadowrootmode="open">
-    <style type="text/css">
-      h1 {color: red;}
-    </style>
-    <h1>
-      Basic, Hello world
-    </h1>
-  </template>
-</x-basic>
-`;
+exports[`renders a basic component and saves formatted snapshot: cfedd28db9ff757018e60f881de4df84f4b00d2d9b482b3c9be67c4712f9551c 1`] = `<x-basic><template shadowrootmode="open"><style type="text/css">h1 {color: red;}</style><h1>Basic, Hello world</h1></template></x-basic>`;

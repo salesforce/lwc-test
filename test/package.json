@@ -1,8 +1,10 @@
 {
     "name": "test",
     "version": "16.1.0",
-    "private": "true",
     "scripts": {
         "test": "jest"
+    },
+    "dependencies": {
+        "@lwc/ssr-snapshot-utils": "16.1.0"
     }
 }

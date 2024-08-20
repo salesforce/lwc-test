@@ -31,6 +31,7 @@
         "jest": "^26 || ^27 || ^28 || ^29"
     },
     "dependencies": {
+        "@lwc/jest-jsdom-custom-test-env": "16.1.0",
         "@lwc/jest-resolver": "16.1.0",
         "@lwc/jest-serializer": "16.1.0",
         "@lwc/jest-transformer": "16.1.0"

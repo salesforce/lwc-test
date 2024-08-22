@@ -4,11 +4,15 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import {generateAndSnapshotMarkup} from '@lwc/ssr-snapshot-utils/src/ssr-snapshot-utils';
+import { generateAndSnapshotMarkup } from '@lwc/ssr-snapshot-utils/src/ssr-snapshot-utils';
 import FrameworkAttrs from '../frameworkAttrs';
 
 it('serializes component with framework-supplied attributes', () => {
-    const {renderedComponent, snapshotHash} = generateAndSnapshotMarkup('x-basic', FrameworkAttrs, {});
+    const { renderedComponent, snapshotHash } = generateAndSnapshotMarkup(
+        'x-basic',
+        FrameworkAttrs,
+        {},
+    );
 
     expect(renderedComponent).toMatchSnapshot(snapshotHash);
 });

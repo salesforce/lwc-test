@@ -13,12 +13,7 @@ const { join, dirname, basename, extname } = require('path');
  * @param {Object} [customTestEnv={}] - An object representing the custom test env where the component is being validated.
  * @returns {{markup: string, snapshotHash: string}} - An object containing the rendered markup and the generated snapshot hash.
  */
-function generateAndSnapshotMarkup(
-    tagName,
-    Ctor,
-    props = {},
-    customTestEnv = {}
-) {
+function generateAndSnapshotMarkup(tagName, Ctor, props = {}, customTestEnv = {}) {
     expect.addSnapshotSerializer(jestCustomSnapshotSerializer);
 
     const renderedComponent = lwcRenderComponent(tagName, Ctor, props);
@@ -39,14 +34,12 @@ function generateAndSnapshotMarkup(
  * @returns {string} - The markup associated with the given hash from the snapshot.
  * @throws {Error} - If the snapshot with the specified hash is not found.
  */
-function readSnapshotMarkup(
-    tagName,
-    props = {},
-    customTestEnv = {}
-) {
+function readSnapshotMarkup(tagName, props = {}, customTestEnv = {}) {
     const testAbsPath = global.testFilePath;
     if (!testAbsPath) {
-        throw new Error('Test file path must be available in the global context. Make sure you utilize the custom JSDOM environment for SSR tests.');
+        throw new Error(
+            'Test file path must be available in the global context. Make sure you utilize the custom JSDOM environment for SSR tests.',
+        );
     }
 
     const snapshotPath = findFileByPrefix(testAbsPath);
@@ -57,7 +50,9 @@ function readSnapshotMarkup(
     const match = new RegExp(regexPattern).exec(fileContent);
 
     if (!match) {
-        throw new Error(`Snapshot with hash ${snapshotHash} not found. Ensure the SSR tests have been run to generate the snapshot.`);
+        throw new Error(
+            `Snapshot with hash ${snapshotHash} not found. Ensure the SSR tests have been run to generate the snapshot.`,
+        );
     }
 
     return match[1];
@@ -71,11 +66,7 @@ function readSnapshotMarkup(
  * @param {Object} [customTestEnv={}] - An object representing the custom test env where the component is being validated.
  * @returns {string} - A hexadecimal string representing the generated hash.
  */
-function generateSnapshotHash(
-    tagName,
-    props = {},
-    customTestEnv = {}
-) {
+function generateSnapshotHash(tagName, props = {}, customTestEnv = {}) {
     return createHash('sha256')
         .update(tagName)
         .update(JSON.stringify(props))
@@ -102,10 +93,14 @@ function findFileByPrefix(testSuiteAbsPath) {
     const fileNamePrefix = periodIndex === -1 ? baseName : baseName.substring(0, periodIndex + 1);
 
     try {
-        const matchedFile = readdirSync(snapshotsDir).find(file => file.startsWith(fileNamePrefix));
+        const matchedFile = readdirSync(snapshotsDir).find((file) =>
+            file.startsWith(fileNamePrefix),
+        );
 
         if (!matchedFile) {
-            throw new Error(`File starting with prefix '${fileNamePrefix}' not found in directory '${snapshotsDir}'.`);
+            throw new Error(
+                `File starting with prefix '${fileNamePrefix}' not found in directory '${snapshotsDir}'.`,
+            );
         }
 
         return join(snapshotsDir, matchedFile);
@@ -115,5 +110,4 @@ function findFileByPrefix(testSuiteAbsPath) {
     }
 }
 
-module.exports = { generateAndSnapshotMarkup,
-    readSnapshotMarkup};
+module.exports = { generateAndSnapshotMarkup, readSnapshotMarkup };

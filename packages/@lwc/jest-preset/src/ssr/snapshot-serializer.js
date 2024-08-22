@@ -8,8 +8,8 @@ const jestCustomSnapshotSerializer = {
      *
      * @returns {string} The serialized markup string.
      */
-    serialize: function() {
-      return this.dynamicValues.get('renderedComponent') || '';
+    serialize: function () {
+        return this.dynamicValues.get('renderedComponent') || '';
     },
 
     /**
@@ -18,8 +18,8 @@ const jestCustomSnapshotSerializer = {
      * @param {*} _value - The value to test.
      * @returns {boolean} A boolean indicating if the serializer can handle the value.
      */
-    test: function(_value) {
-      return typeof _value === 'string' && _value.length > 0;
+    test: function (_value) {
+        return typeof _value === 'string' && _value.length > 0;
     },
 
     /**
@@ -28,9 +28,9 @@ const jestCustomSnapshotSerializer = {
      * @param {string} key - The key under which the value is stored.
      * @param {string} value - The string value to be stored.
      */
-    setDynamicValue: function(key, value) {
-      this.dynamicValues.set(key, value);
+    setDynamicValue: function (key, value) {
+        this.dynamicValues.set(key, value);
     },
-  };
+};
 
-  module.exports = { jestCustomSnapshotSerializer };
+module.exports = { jestCustomSnapshotSerializer };

@@ -4,19 +4,19 @@ const { createHash } = require('crypto');
 const { join } = require('path');
 
 jest.mock('@lwc/engine-server', () => ({
-    renderComponent: jest.fn()
+    renderComponent: jest.fn(),
 }));
 
 jest.mock('fs', () => ({
     readdirSync: jest.fn(),
-    readFileSync: jest.fn()
+    readFileSync: jest.fn(),
 }));
 
 jest.mock('crypto', () => ({
     createHash: jest.fn(() => ({
         update: jest.fn().mockReturnThis(),
-        digest: jest.fn().mockReturnValue('mockedHash')
-    }))
+        digest: jest.fn().mockReturnValue('mockedHash'),
+    })),
 }));
 
 describe('Snapshot utilities service', () => {
@@ -26,17 +26,26 @@ describe('Snapshot utilities service', () => {
             const mockTagName = 'my-component';
             const mockCtor = jest.fn();
             const mockProps = { prop: 'value' };
-            const customTestEnv = {wire: ''}
+            const customTestEnv = { wire: '' };
 
             require('@lwc/engine-server').renderComponent.mockReturnValue(mockMarkup);
 
-            const result = generateAndSnapshotMarkup(mockTagName, mockCtor, mockProps, customTestEnv);
+            const result = generateAndSnapshotMarkup(
+                mockTagName,
+                mockCtor,
+                mockProps,
+                customTestEnv,
+            );
 
             expect(result).toEqual({
                 renderedComponent: mockMarkup,
-                snapshotHash: 'mockedHash'
+                snapshotHash: 'mockedHash',
             });
-            expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(mockTagName, mockCtor, mockProps);
+            expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(
+                mockTagName,
+                mockCtor,
+                mockProps,
+            );
             expect(createHash).toHaveBeenCalledWith('sha256');
         });
     });
@@ -60,9 +69,12 @@ describe('Snapshot utilities service', () => {
 
             expect(result).toBe('<div>Mocked Markup</div>');
             expect(readdirSync).toHaveBeenCalledWith(join('/test/path/to', '__snapshots__'));
-            expect(readFileSync).toHaveBeenCalledWith('/test/path/to/__snapshots__/testFile.snap.js', 'utf8');
+            expect(readFileSync).toHaveBeenCalledWith(
+                '/test/path/to/__snapshots__/testFile.snap.js',
+                'utf8',
+            );
         });
-        
+
         it('should throw an error if the snapshot with the specified hash is not found', () => {
             const mockTagName = 'my-component';
             const mockProps = { prop: 'value' };
@@ -73,15 +85,17 @@ describe('Snapshot utilities service', () => {
             readdirSync.mockReturnValue(['testFile.snap.js']);
             readFileSync.mockReturnValue(mockFileContent);
 
-            expect(() => readSnapshotMarkup(mockTagName, mockProps)).toThrowError('Snapshot with hash mockedHash not found.');
+            expect(() => readSnapshotMarkup(mockTagName, mockProps)).toThrowError(
+                'Snapshot with hash mockedHash not found.',
+            );
         });
 
         it('should throw an error if the global test file path is not set', () => {
             delete global.testFilePath;
 
-            expect(() => readSnapshotMarkup('tagName')).toThrowError('Test file path must be available in the global context.');
+            expect(() => readSnapshotMarkup('tagName')).toThrowError(
+                'Test file path must be available in the global context.',
+            );
         });
     });
 });
-
-

@@ -49,8 +49,8 @@ function readSnapshotMarkup(
         throw new Error('Test file path must be available in the global context. Make sure you utilize the custom JSDOM environment for SSR tests.');
     }
 
-    const snapPath = findFileByPrefix(testAbsPath);
-    const fileContent = readFileSync(snapPath, 'utf8');
+    const snapshotPath = findFileByPrefix(testAbsPath);
+    const fileContent = readFileSync(snapshotPath, 'utf8');
     const snapshotHash = generateSnapshotHash(tagName, props, customTestEnv);
 
     const regexPattern = `exports\\[\\\`[^\\\`]*${snapshotHash}[^\\\`]*\\\`] = \\\`([^\\\`]*)\\\`;`;

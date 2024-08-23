@@ -28,7 +28,7 @@ module.exports = function ({ types: t }) {
                         t,
                         path,
                         IS_GUEST_IMPORT_IDENTIFIER,
-                        DEFAULT_IS_GUEST,
+                        DEFAULT_IS_GUEST
                     );
                 }
             },

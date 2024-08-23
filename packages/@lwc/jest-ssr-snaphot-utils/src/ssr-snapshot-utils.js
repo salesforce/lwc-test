@@ -33,7 +33,7 @@ function readSnapshotMarkup(tagName, props = {}, customTestEnv = {}) {
     const testAbsPath = global.testFilePath;
     if (!testAbsPath) {
         throw new Error(
-            'Test file path must be available in the global context. Make sure you utilize the custom JSDOM environment for SSR tests.',
+            'Test file path must be available in the global context. Make sure you utilize the custom JSDOM environment for SSR tests.'
         );
     }
 
@@ -46,7 +46,7 @@ function readSnapshotMarkup(tagName, props = {}, customTestEnv = {}) {
 
     if (!match) {
         throw new Error(
-            `Snapshot with hash ${snapshotHash} not found. Ensure the SSR tests have been run to generate the snapshot.`,
+            `Snapshot with hash ${snapshotHash} not found. Ensure the SSR tests have been run to generate the snapshot.`
         );
     }
 
@@ -89,12 +89,12 @@ function findFileByPrefix(testSuiteAbsPath) {
 
     try {
         const matchedFile = readdirSync(snapshotsDir).find((file) =>
-            file.startsWith(fileNamePrefix),
+            file.startsWith(fileNamePrefix)
         );
 
         if (!matchedFile) {
             throw new Error(
-                `File starting with prefix '${fileNamePrefix}' not found in directory '${snapshotsDir}'.`,
+                `File starting with prefix '${fileNamePrefix}' not found in directory '${snapshotsDir}'.`
             );
         }
 

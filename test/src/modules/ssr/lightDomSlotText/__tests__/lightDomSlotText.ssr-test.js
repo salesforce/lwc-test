@@ -11,7 +11,7 @@ it('renders a basic component with light DOM slot with text node slotted', () =>
     const { renderedComponent, snapshotHash } = renderAndHashComponent(
         'ssr-light-dom-slot-text',
         LightDomSlotText,
-        {},
+        {}
     );
 
     expect(renderedComponent).toMatchSnapshot(snapshotHash);

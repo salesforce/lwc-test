@@ -47,7 +47,7 @@ function printChildren(children, config, indentation, depth, refs, printer) {
                 indentation +
                 (typeof child === 'string'
                     ? printText(child, config)
-                    : printer(child, config, indentation, depth, refs)),
+                    : printer(child, config, indentation, depth, refs))
         )
         .join('');
 }
@@ -95,7 +95,7 @@ function serialize(node, config, indentation, depth, refs, printer) {
                         currentIndentation + config.indent,
                         currentDepth + 1,
                         currentRefs,
-                        printer,
+                        printer
                     ),
                 ].join('');
             }
@@ -104,9 +104,9 @@ function serialize(node, config, indentation, depth, refs, printer) {
                 currentConfig,
                 currentIndentation,
                 currentDepth,
-                currentRefs,
+                currentRefs
             );
-        },
+        }
     );
     delete node.childNodes;
 

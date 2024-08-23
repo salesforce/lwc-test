@@ -60,7 +60,7 @@ function stringScopedImportTransform(t, path, importIdentifier, fallbackData) {
             RESOURCE_NAME: t.identifier(defaultImport),
             IMPORT_SOURCE: t.stringLiteral(importSource),
             FALLBACK_DATA: fallbackData,
-        }),
+        })
     );
 }
 
@@ -99,12 +99,12 @@ function getImportInfo(path, noValidate) {
         (importSpecifiers.length !== 1 || !importSpecifiers[0].isImportDefaultSpecifier())
     ) {
         throw path.buildCodeFrameError(
-            `Invalid import from ${importSource}. Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`,
+            `Invalid import from ${importSource}. Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`
         );
     }
 
     const resourceNames = importSpecifiers.map(
-        (importSpecifier) => importSpecifier.get('local').node.name,
+        (importSpecifier) => importSpecifier.get('local').node.name
     );
 
     return {

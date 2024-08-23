@@ -20,7 +20,7 @@ describe('@salesforce/customPermission import', () => {
         } catch (e) {
           permValue = "foo";
         }
-    `,
+    `
     );
 
     test(
@@ -36,7 +36,7 @@ describe('@salesforce/customPermission import', () => {
         } catch (e) {
           permValue = "ns__foo";
         }
-    `,
+    `
     );
 
     test(
@@ -45,7 +45,7 @@ describe('@salesforce/customPermission import', () => {
         import { permValue } from '@salesforce/customPermission/foo';
     `,
         undefined,
-        'Invalid import from @salesforce/customPermission/foo',
+        'Invalid import from @salesforce/customPermission/foo'
     );
 
     test(
@@ -54,7 +54,7 @@ describe('@salesforce/customPermission import', () => {
         import { default as resource } from '@salesforce/customPermission/foo';
     `,
         undefined,
-        'Invalid import from @salesforce/customPermission/foo',
+        'Invalid import from @salesforce/customPermission/foo'
     );
 
     test(
@@ -63,6 +63,6 @@ describe('@salesforce/customPermission import', () => {
         import { default as resource, foo } from '@salesforce/customPermission/foo';
     `,
         undefined,
-        'Invalid import from @salesforce/customPermission/foo',
+        'Invalid import from @salesforce/customPermission/foo'
     );
 });

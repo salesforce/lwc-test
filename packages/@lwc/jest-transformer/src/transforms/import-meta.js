@@ -35,7 +35,7 @@ module.exports = function ({ types: t }) {
                         const envPath = Array.from(currentMemberExpressions.values()).at(-2);
                         const envName = envPath?.get?.('property.name')?.node;
                         envPath?.replaceWithSourceString?.(
-                            `/true/i.test(process.env['${envName}'])`,
+                            `/true/i.test(process.env['${envName}'])`
                         );
                     } else {
                         // Transform e.g. `import.meta.url` with `process.url`

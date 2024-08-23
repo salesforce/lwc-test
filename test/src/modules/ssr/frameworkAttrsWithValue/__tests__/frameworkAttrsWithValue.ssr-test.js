@@ -11,7 +11,7 @@ it('serializes component with framework-supplied attributes with value', () => {
     const { renderedComponent, snapshotHash } = renderAndHashComponent(
         'x-basic',
         FrameworkAttrsWithValue,
-        {},
+        {}
     );
 
     expect(renderedComponent).toMatchSnapshot(snapshotHash);

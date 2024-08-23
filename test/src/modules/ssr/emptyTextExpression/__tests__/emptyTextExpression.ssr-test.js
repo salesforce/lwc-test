@@ -11,7 +11,7 @@ it('renders a basic component with an empty text expression', () => {
     const { renderedComponent, snapshotHash } = renderAndHashComponent(
         'ssr-empty-text-expression',
         EmptyTextExpression,
-        {},
+        {}
     );
 
     expect(renderedComponent).toMatchSnapshot(snapshotHash);

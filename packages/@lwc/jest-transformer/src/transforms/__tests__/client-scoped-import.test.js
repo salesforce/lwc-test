@@ -22,7 +22,7 @@ describe('@salesforce/client/formFactor import', () => {
     } catch (e) {
       formFactor = "${DEFAULT_FORM_FACTOR}";
     }
-`,
+`
     );
 
     test(
@@ -40,7 +40,7 @@ describe('@salesforce/client/formFactor import', () => {
     } catch (e) {
       formFactor = "${DEFAULT_FORM_FACTOR}";
     }
-`,
+`
     );
 
     test(
@@ -49,7 +49,7 @@ describe('@salesforce/client/formFactor import', () => {
     import { formFactor } from '@salesforce/client/formFactor';
 `,
         undefined,
-        'Invalid import from @salesforce/client/formFactor',
+        'Invalid import from @salesforce/client/formFactor'
     );
 
     test(
@@ -58,7 +58,7 @@ describe('@salesforce/client/formFactor import', () => {
     import { default as clientSize } from '@salesforce/client/formFactor';
 `,
         undefined,
-        'Invalid import from @salesforce/client/formFactor',
+        'Invalid import from @salesforce/client/formFactor'
     );
 
     test(
@@ -67,6 +67,6 @@ describe('@salesforce/client/formFactor import', () => {
     import { default as label, foo } from '@salesforce/client/formFactor';
 `,
         undefined,
-        'Invalid import from @salesforce/client/formFactor',
+        'Invalid import from @salesforce/client/formFactor'
     );
 });

@@ -14,7 +14,7 @@ describe('import.meta properties', () => {
         `,
         `
         if (process.url.startsWith('/test/')) {}
-        `,
+        `
     );
 
     test(
@@ -24,7 +24,7 @@ describe('import.meta properties', () => {
         `,
         `
         !/true/i.test(process.env['SSR']) ? doCsr() : doSsr();
-        `,
+        `
     );
 
     test(
@@ -34,7 +34,7 @@ describe('import.meta properties', () => {
         `,
         `
         /true/i.test(process.env['SSR']) ? doCsr() : doSsr();
-        `,
+        `
     );
 
     test(
@@ -48,6 +48,6 @@ describe('import.meta properties', () => {
         function Foo() {
           console.log(new.target);
         }
-        `,
+        `
     );
 });

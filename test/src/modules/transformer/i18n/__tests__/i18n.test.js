@@ -11,5 +11,5 @@ it.each(Object.entries(i18nValues))(
     (_, value) => {
         expect(value).toBeDefined();
         expect(value).not.toEqual('');
-    },
+    }
 );

@@ -135,7 +135,7 @@ module.exports = {
             const jestSharedPath = require.resolve('@lwc/jest-shared');
 
             magicString.append(
-                `\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`,
+                `\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`
             );
 
             for (const scopeToken of cssScopeTokens) {

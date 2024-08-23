@@ -30,12 +30,7 @@ describe('Snapshot utilities service', () => {
 
             require('@lwc/engine-server').renderComponent.mockReturnValue(mockMarkup);
 
-            const result = renderAndHashComponent(
-                mockTagName,
-                mockCtor,
-                mockProps,
-                customTestEnv,
-            );
+            const result = renderAndHashComponent(mockTagName, mockCtor, mockProps, customTestEnv);
 
             expect(result).toEqual({
                 renderedComponent: mockMarkup,
@@ -44,7 +39,7 @@ describe('Snapshot utilities service', () => {
             expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(
                 mockTagName,
                 mockCtor,
-                mockProps,
+                mockProps
             );
             expect(createHash).toHaveBeenCalledWith('sha256');
         });
@@ -71,7 +66,7 @@ describe('Snapshot utilities service', () => {
             expect(readdirSync).toHaveBeenCalledWith(join('/test/path/to', '__snapshots__'));
             expect(readFileSync).toHaveBeenCalledWith(
                 '/test/path/to/__snapshots__/testFile.snap.js',
-                'utf8',
+                'utf8'
             );
         });
 
@@ -86,7 +81,7 @@ describe('Snapshot utilities service', () => {
             readFileSync.mockReturnValue(mockFileContent);
 
             expect(() => readSnapshotMarkup(mockTagName, mockProps)).toThrowError(
-                'Snapshot with hash mockedHash not found.',
+                'Snapshot with hash mockedHash not found.'
             );
         });
 
@@ -94,7 +89,7 @@ describe('Snapshot utilities service', () => {
             delete global.testFilePath;
 
             expect(() => readSnapshotMarkup('tagName')).toThrowError(
-                'Test file path must be available in the global context.',
+                'Test file path must be available in the global context.'
             );
         });
     });

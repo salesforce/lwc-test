@@ -1400,7 +1400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lwc/ssr-snapshot-utils@16.1.0, @lwc/ssr-snapshot-utils@workspace:packages/@lwc/jest-ssr-snaphot-utils":
+"@lwc/ssr-snapshot-utils@workspace:packages/@lwc/jest-ssr-snaphot-utils":
   version: 0.0.0-use.local
   resolution: "@lwc/ssr-snapshot-utils@workspace:packages/@lwc/jest-ssr-snaphot-utils"
   peerDependencies:
@@ -8587,8 +8587,6 @@ __metadata:
 "test@workspace:test":
   version: 0.0.0-use.local
   resolution: "test@workspace:test"
-  dependencies:
-    "@lwc/ssr-snapshot-utils": 16.1.0
   languageName: unknown
   linkType: soft
 

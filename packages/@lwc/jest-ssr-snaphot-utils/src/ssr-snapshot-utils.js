@@ -1,5 +1,4 @@
 const { renderComponent: lwcRenderComponent } = require('@lwc/engine-server');
-const { jestCustomSnapshotSerializer } = require('@lwc/jest-preset/src/ssr/snapshot-serializer');
 const { createHash } = require('crypto');
 const { readdirSync, readFileSync } = require('fs');
 const { join, dirname, basename, extname } = require('path');
@@ -13,12 +12,8 @@ const { join, dirname, basename, extname } = require('path');
  * @param {Object} [customTestEnv={}] - An object representing the custom test env where the component is being validated.
  * @returns {{markup: string, snapshotHash: string}} - An object containing the rendered markup and the generated snapshot hash.
  */
-function generateAndSnapshotMarkup(tagName, Ctor, props = {}, customTestEnv = {}) {
-    expect.addSnapshotSerializer(jestCustomSnapshotSerializer);
-
+function renderAndHashComponent(tagName, Ctor, props = {}, customTestEnv = {}) {
     const renderedComponent = lwcRenderComponent(tagName, Ctor, props);
-    jestCustomSnapshotSerializer.setDynamicValue('renderedComponent', renderedComponent);
-
     const snapshotHash = generateSnapshotHash(tagName, props, customTestEnv);
 
     return { renderedComponent, snapshotHash };
@@ -110,4 +105,4 @@ function findFileByPrefix(testSuiteAbsPath) {
     }
 }
 
-module.exports = { generateAndSnapshotMarkup, readSnapshotMarkup };
+module.exports = { renderAndHashComponent, readSnapshotMarkup };

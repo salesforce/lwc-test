@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a basic component with light DOM slot with element slotted: 44b6c0b2650576ce13601cbe89a0b227a19d0075f65230e16237d10fcd98f994 1`] = `<ssr-light-dom-slot-element><ssr-light-dom-slottable><!----><div>Hello</div><!----></ssr-light-dom-slottable></ssr-light-dom-slot-element>`;
+exports[`renders a basic component with light DOM slot with element slotted: 44b6c0b2650576ce13601cbe89a0b227a19d0075f65230e16237d10fcd98f994 1`] = `
+<ssr-light-dom-slot-element>
+  <ssr-light-dom-slottable>
+    <div>
+      Hello
+    </div>
+  </ssr-light-dom-slottable>
+</ssr-light-dom-slot-element>
+`;

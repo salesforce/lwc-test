@@ -1,4 +1,4 @@
-const { generateAndSnapshotMarkup, readSnapshotMarkup } = require('../ssr-snapshot-utils');
+const { renderAndHashComponent, readSnapshotMarkup } = require('../ssr-snapshot-utils');
 const { readdirSync, readFileSync } = require('fs');
 const { createHash } = require('crypto');
 const { join } = require('path');
@@ -20,7 +20,7 @@ jest.mock('crypto', () => ({
 }));
 
 describe('Snapshot utilities service', () => {
-    describe("'generateAndSnapshotMarkup' service to genarate markup and hash", () => {
+    describe("'renderAndHashComponent' service to genarate markup and hash", () => {
         it('should render the component and return the markup and snapshot hash', () => {
             const mockMarkup = '<div>some markup</div>';
             const mockTagName = 'my-component';
@@ -30,7 +30,7 @@ describe('Snapshot utilities service', () => {
 
             require('@lwc/engine-server').renderComponent.mockReturnValue(mockMarkup);
 
-            const result = generateAndSnapshotMarkup(
+            const result = renderAndHashComponent(
                 mockTagName,
                 mockCtor,
                 mockProps,

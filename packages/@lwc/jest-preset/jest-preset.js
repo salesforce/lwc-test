@@ -7,7 +7,7 @@
 module.exports = {
     // Starting jest@27, the default test environment is "node". Force test environment to "jsdom"
     // regardless of the jest version.
-    testEnvironment: require.resolve('@lwc/jest-jsdom-custom-test-env'),
+    testEnvironment: 'jsdom',
     moduleFileExtensions: ['ts', 'js', 'html'],
     resolver: require.resolve('@lwc/jest-resolver'),
     transform: {

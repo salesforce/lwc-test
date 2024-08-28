@@ -8,7 +8,7 @@ function unitTest({ nativeShadow }) {
     return {
         displayName: {
             name: `unit (${nativeShadow ? 'native' : 'synthetic'} shadow)`,
-            color: nativeShadow ? 'blue' : 'cyan'
+            color: nativeShadow ? 'blue' : 'cyan',
         },
 
         rootDir: '<rootDir>/packages',
@@ -16,8 +16,8 @@ function unitTest({ nativeShadow }) {
 
         globals: {
             'lwc-jest': {
-                nativeShadow
-            }
+                nativeShadow,
+            },
         },
     };
 }
@@ -26,20 +26,20 @@ function integration({ nativeShadow }) {
     return {
         displayName: {
             name: `integration (${nativeShadow ? 'native' : 'synthetic'} shadow)`,
-            color: nativeShadow ? 'blue' : 'cyan'
+            color: nativeShadow ? 'blue' : 'cyan',
         },
 
         rootDir: '<rootDir>/test',
-        preset: '@lwc/jest-preset',
+        preset: '@lwc/jest-preset/ssr-client',
         moduleNameMapper: {
             '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
-            "^(components)/(.+)$": "<rootDir>/src/modules/$1/$2/$2"
+            '^(components)/(.+)$': '<rootDir>/src/modules/$1/$2/$2',
         },
 
         globals: {
             'lwc-jest': {
-                nativeShadow
-            }
+                nativeShadow,
+            },
         },
     };
 }
@@ -53,14 +53,14 @@ module.exports = {
         {
             displayName: {
                 name: `integration (ssr)`,
-                color: 'magenta'
+                color: 'magenta',
             },
 
             rootDir: '<rootDir>/test',
-            preset: '@lwc/jest-preset/ssr',
+            preset: '@lwc/jest-preset/ssr-server',
             moduleNameMapper: {
                 '^ssr/(.+)$': '<rootDir>/src/modules/ssr/$1/$1',
             },
-        }
+        },
     ],
 };

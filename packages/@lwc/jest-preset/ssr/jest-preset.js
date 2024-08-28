@@ -8,7 +8,7 @@ module.exports = {
     // Jest 26 default testEnvironment is jsdom: https://jestjs.io/blog/2021/05/25/jest-27#flipping-defaults
     testEnvironment: 'node',
     moduleFileExtensions: ['ts', 'js', 'html'],
-    snapshotSerializers: ['jest-serializer-html'],
+    snapshotSerializers: [require.resolve('../src/ssr/html-serializer.js')],
     resolver: require.resolve('../src/ssr/resolver.js'),
     transform: {
         '^.+\\.(js|ts|html|css)$': require.resolve('@lwc/jest-transformer'),

@@ -168,9 +168,6 @@ module.exports = {
             // type getCacheKey = (sourceText: string, sourcePath: string, options: { configString: string }) => string;
             transformConfig = rest[0];
             configString = transformConfig.configString;
-        } else if (rest.length === 2) {
-            configString = rest[0];
-            transformConfig = rest[1];
         } else {
             throw new Error('Unexpected transform arguments.');
         }

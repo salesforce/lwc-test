@@ -1,7 +1,6 @@
 version: 2.1
 
 supported-jest-versions: &supported-jest-versions ["local", "28", "29"]
-supported-jest-versions: &supported-jest-versions ["local", "28", "29"]
 
 deploy_filters: &deploy_filters
   filters:

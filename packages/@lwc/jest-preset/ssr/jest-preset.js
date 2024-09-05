@@ -5,7 +5,6 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 module.exports = {
-    // Jest 26 default testEnvironment is jsdom: https://jestjs.io/blog/2021/05/25/jest-27#flipping-defaults
     testEnvironment: 'node',
     moduleFileExtensions: ['ts', 'js', 'html'],
     snapshotSerializers: [require.resolve('../src/ssr/html-serializer.js')],

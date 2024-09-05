@@ -1,6 +1,6 @@
 version: 2.1
 
-supported-jest-versions: &supported-jest-versions ["local", "26", "27", "28", "29"]
+supported-jest-versions: &supported-jest-versions ["local", "28", "29"]
 
 deploy_filters: &deploy_filters
   filters:
@@ -62,12 +62,6 @@ jobs:
                 command: |
                   yarn remove jest jest-environment-jsdom -W --dev
                   yarn add jest@<<parameters.jest-version>> -W --dev
-            - when:
-                condition:
-                  equal: [<<parameters.jest-version>>, "26"]
-                steps:
-                  - run: yarn clean
-                  - run: yarn install
             - when:
                 condition:
                   or:

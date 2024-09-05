@@ -28,7 +28,7 @@
         "@lwc/engine-dom": ">=5.0.0",
         "@lwc/engine-server": ">=5.0.0",
         "@lwc/synthetic-shadow": ">=5.0.0",
-        "jest": "^26 || ^27 || ^28 || ^29"
+        "jest": "^28 || ^29"
     },
     "dependencies": {
         "@lwc/jest-resolver": "16.1.0",

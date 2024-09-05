@@ -169,8 +169,6 @@ module.exports = {
             transformConfig = rest[0];
             configString = transformConfig.configString;
         } else if (rest.length === 2) {
-            // Handle jest@26 arguments
-            // type getCacheKey = (sourceText: string, sourcePath: string, configStr: string, options: any) => string;
             configString = rest[0];
             transformConfig = rest[1];
         } else {

@@ -22,7 +22,7 @@
         "pretty-format": "^29.7.0"
     },
     "peerDependencies": {
-        "jest": "^26 || ^27 || ^28 || ^29"
+        "jest": "^28 || ^29"
     },
     "engines": {
         "node": ">=10"

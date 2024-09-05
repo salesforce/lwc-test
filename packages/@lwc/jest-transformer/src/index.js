@@ -166,9 +166,6 @@ module.exports = {
         if (rest.length === 1) {
             transformConfig = rest[0];
             configString = transformConfig.configString;
-        } else if (rest.length === 2) {
-            configString = rest[0];
-            transformConfig = rest[1];
         } else {
             throw new Error('Unexpected transform arguments.');
         }

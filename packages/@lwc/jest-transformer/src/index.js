@@ -168,11 +168,6 @@ module.exports = {
             // type getCacheKey = (sourceText: string, sourcePath: string, options: { configString: string }) => string;
             transformConfig = rest[0];
             configString = transformConfig.configString;
-        } else if (rest.length === 2) {
-            // Handle jest@26 arguments
-            // type getCacheKey = (sourceText: string, sourcePath: string, configStr: string, options: any) => string;
-            configString = rest[0];
-            transformConfig = rest[1];
         } else {
             throw new Error('Unexpected transform arguments.');
         }

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { renderAndHashComponent } from '@lwc/ssr-snapshot-utils/src/ssr-snapshot-utils';
+import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils/src/ssr-snapshot-utils';
 import Basic from 'ssr/basic';
 
 it('renders a basic component and saves formatted snapshot', () => {

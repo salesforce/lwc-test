@@ -25,7 +25,7 @@
         "@lwc/jest-shared": "16.1.0"
     },
     "peerDependencies": {
-        "jest": "^26 || ^27 || ^28 || ^29"
+        "jest": "^28 || ^29"
     },
     "engines": {
         "node": ">=10"

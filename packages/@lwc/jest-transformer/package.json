@@ -35,7 +35,7 @@
     },
     "peerDependencies": {
         "@lwc/compiler": ">=2.48.0",
-        "jest": "^26 || ^27 || ^28 || ^29"
+        "jest": "^28 || ^29"
     },
     "engines": {
         "node": ">=10"

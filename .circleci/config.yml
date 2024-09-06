@@ -1,6 +1,6 @@
 version: 2.1
 
-supported-jest-versions: &supported-jest-versions ["local", "26", "27", "28", "29"]
+supported-jest-versions: &supported-jest-versions ["local", "28", "29"]
 
 deploy_filters: &deploy_filters
   filters:
@@ -58,23 +58,11 @@ jobs:
               equal: [<<parameters.jest-version>>, "local"]
           steps:
             - run:
-                name: Override version of jest@<<parameters.jest-version>>
+                name: Override version of jest@<<parameters.jest-version>> and jest-environment-jsdom@<<parameters.jest-version>>
                 command: |
                   yarn remove jest jest-environment-jsdom -W --dev
                   yarn add jest@<<parameters.jest-version>> -W --dev
-            - when:
-                condition:
-                  equal: [<<parameters.jest-version>>, "26"]
-                steps:
-                  - run: yarn clean
-                  - run: yarn install
-            - when:
-                condition:
-                  or:
-                    - equal: [<<parameters.jest-version>>, "28"]
-                    - equal: [<<parameters.jest-version>>, "29"]
-                steps:
-                  - run: yarn add jest-environment-jsdom@<<parameters.jest-version>> -W --dev
+                  yarn add jest-environment-jsdom@<<parameters.jest-version>> -W --dev
       - run:
           name: Run linter
           command: yarn lint

@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-jsdom-test-env",
-    "version": "16.1.0",
+    "version": "17.0.0",
     "description": "Jest custom test environment for JSDOM",
     "homepage": "https://lwc.dev/",
     "repository": {

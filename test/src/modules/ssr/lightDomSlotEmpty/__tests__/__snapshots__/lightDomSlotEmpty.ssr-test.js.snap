@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a basic component with light DOM slot with nothing slotted 1`] = `
+exports[`renders a basic component with light DOM slot with nothing slotted: 306b1dcfa33ed9915860d9de7e7760909a2de9bb311b32b0ed2712cc725fb69a 1`] = `
 <ssr-light-dom-slot-empty>
   <ssr-light-dom-slottable>
-    <!---->
-    <!---->
   </ssr-light-dom-slottable>
 </ssr-light-dom-slot-empty>
 `;

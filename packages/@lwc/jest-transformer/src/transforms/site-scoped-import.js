@@ -37,7 +37,7 @@ function siteDefaultLanguagesScopedImportTransform(t, path) {
         siteDefaultLanguagesTemplate({
             RESOURCE_NAME: t.identifier(defaultImport),
             IMPORT_SOURCE: t.stringLiteral(importSource),
-        }),
+        })
     );
 }
 
@@ -49,7 +49,7 @@ function siteActiveLanguagesScopedImportTransform(t, path) {
         siteActiveLanguagesTemplate({
             RESOURCE_NAME: t.identifier(defaultImport),
             IMPORT_SOURCE: t.stringLiteral(importSource),
-        }),
+        })
     );
 }
 

@@ -22,7 +22,7 @@ module.exports = function ({ types: t }) {
                             RESOURCE_NAME: t.identifier(resourceNames[0]),
                             IMPORT_SOURCE: t.stringLiteral(importSource),
                             MOCK_NAME: `__lwcJestMock_${resourceNames[0]}`,
-                        }),
+                        })
                     );
                 }
             },

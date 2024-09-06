@@ -20,7 +20,7 @@ describe('@salesforce/accessCheck import', () => {
         } catch (e) {
           permValue = "Record.recordDataInvalidation";
         }
-    `,
+    `
     );
 
     test(
@@ -29,7 +29,7 @@ describe('@salesforce/accessCheck import', () => {
         import { permValue } from '@salesforce/accessCheck/Record.recordDataInvalidation';
     `,
         undefined,
-        'Invalid import from @salesforce/accessCheck/Record.recordDataInvalidation',
+        'Invalid import from @salesforce/accessCheck/Record.recordDataInvalidation'
     );
 
     test(
@@ -38,7 +38,7 @@ describe('@salesforce/accessCheck import', () => {
         import { default as resource } from '@salesforce/accessCheck/Record.recordDataInvalidation';
     `,
         undefined,
-        'Invalid import from @salesforce/accessCheck/Record.recordDataInvalidation',
+        'Invalid import from @salesforce/accessCheck/Record.recordDataInvalidation'
     );
 
     test(
@@ -47,6 +47,6 @@ describe('@salesforce/accessCheck import', () => {
         import { default as resource, Record } from '@salesforce/accessCheck/Record.recordDataInvalidation';
     `,
         undefined,
-        'Invalid import from @salesforce/accessCheck/Record.recordDataInvalidation',
+        'Invalid import from @salesforce/accessCheck/Record.recordDataInvalidation'
     );
 });

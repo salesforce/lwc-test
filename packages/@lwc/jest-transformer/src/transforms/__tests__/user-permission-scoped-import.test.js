@@ -20,7 +20,7 @@ describe('@salesforce/userPermission import', () => {
         } catch (e) {
           permValue = "foo";
         }
-    `,
+    `
     );
 
     test(
@@ -29,7 +29,7 @@ describe('@salesforce/userPermission import', () => {
         import { permValue } from '@salesforce/userPermission/foo';
     `,
         undefined,
-        'Invalid import from @salesforce/userPermission/foo',
+        'Invalid import from @salesforce/userPermission/foo'
     );
 
     test(
@@ -38,7 +38,7 @@ describe('@salesforce/userPermission import', () => {
         import { default as resource } from '@salesforce/userPermission/foo';
     `,
         undefined,
-        'Invalid import from @salesforce/userPermission/foo',
+        'Invalid import from @salesforce/userPermission/foo'
     );
 
     test(
@@ -47,6 +47,6 @@ describe('@salesforce/userPermission import', () => {
         import { default as resource, foo } from '@salesforce/userPermission/foo';
     `,
         undefined,
-        'Invalid import from @salesforce/userPermission/foo',
+        'Invalid import from @salesforce/userPermission/foo'
     );
 });

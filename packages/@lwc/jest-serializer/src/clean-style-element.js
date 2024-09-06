@@ -13,7 +13,7 @@ function cleanStyleElement(elm) {
     if (hasKnownScopeTokens()) {
         elm.textContent = elm.textContent.replace(
             getKnownScopeTokensRegex(),
-            '__lwc_scope_token__',
+            '__lwc_scope_token__'
         );
     }
     elm.removeAttribute('data-rendered-by-lwc'); // irrelevant for the snapshot, added by the framework

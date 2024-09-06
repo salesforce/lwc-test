@@ -23,7 +23,7 @@ describe('@salesforce/user/Id import', () => {
         } catch (e) {
           id = "${DEFAULT_ID}";
         }
-    `,
+    `
     );
 
     test(
@@ -41,7 +41,7 @@ describe('@salesforce/user/Id import', () => {
         } catch (e) {
           id = "${DEFAULT_ID}";
         }
-    `,
+    `
     );
 
     test(
@@ -50,7 +50,7 @@ describe('@salesforce/user/Id import', () => {
         import { Id } from '@salesforce/user/Id';
     `,
         undefined,
-        'Invalid import from @salesforce/user/Id',
+        'Invalid import from @salesforce/user/Id'
     );
 
     test(
@@ -59,7 +59,7 @@ describe('@salesforce/user/Id import', () => {
         import { default as label } from '@salesforce/user/Id';
     `,
         undefined,
-        'Invalid import from @salesforce/user/Id',
+        'Invalid import from @salesforce/user/Id'
     );
 
     test(
@@ -68,7 +68,7 @@ describe('@salesforce/user/Id import', () => {
         import { default as label, foo } from '@salesforce/user/Id';
     `,
         undefined,
-        'Invalid import from @salesforce/user/Id',
+        'Invalid import from @salesforce/user/Id'
     );
 });
 
@@ -86,7 +86,7 @@ describe('@salesforce/user/isGuest', () => {
         } catch (e) {
           isGuest = ${DEFAULT_IS_GUEST};
         }
-    `,
+    `
     );
 
     test(
@@ -95,7 +95,7 @@ describe('@salesforce/user/isGuest', () => {
         import { isGuest } from '@salesforce/user/isGuest';
     `,
         undefined,
-        'Invalid import from @salesforce/user/isGuest',
+        'Invalid import from @salesforce/user/isGuest'
     );
 
     test(
@@ -104,7 +104,7 @@ describe('@salesforce/user/isGuest', () => {
         import { default as label } from '@salesforce/user/isGuest';
     `,
         undefined,
-        'Invalid import from @salesforce/user/isGuest',
+        'Invalid import from @salesforce/user/isGuest'
     );
 
     test(
@@ -113,6 +113,6 @@ describe('@salesforce/user/isGuest', () => {
         import { default as label, foo } from '@salesforce/user/isGuest';
     `,
         undefined,
-        'Invalid import from @salesforce/user/isGuest',
+        'Invalid import from @salesforce/user/isGuest'
     );
 });

@@ -132,7 +132,7 @@ jest.mock(
     () => ({
         default: jest.fn(),
     }),
-    { virtual: true },
+    { virtual: true }
 );
 
 it('test apex callout', async () => {

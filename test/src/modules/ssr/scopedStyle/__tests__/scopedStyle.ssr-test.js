@@ -4,19 +4,21 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { renderComponent } from 'lwc';
+import { renderAndHashComponent } from '@lwc/ssr-snapshot-utils/src/ssr-snapshot-utils';
 import ScopedStyle from 'ssr/scopedStyle';
 
 it('renders a basic component with scoped styles', () => {
-    const renderedComponent = renderComponent('x-scoped-style', ScopedStyle);
+    const { renderedComponent } = renderAndHashComponent('x-scoped-style', ScopedStyle);
 
     expect(renderedComponent).toMatchInlineSnapshot(`
-        <x-scoped-style class="__lwc_scope_token__">
+        <x-scoped-style class="lwc-49s1fn4727b-host">
           <template shadowrootmode="open">
-            <style class="__lwc_scope_token__" type="text/css">
-              h1.__lwc_scope_token__ {color: red;}
+            <style class="lwc-49s1fn4727b"
+                   type="text/css"
+            >
+              h1.lwc-49s1fn4727b {color: red;}
             </style>
-            <h1 class="__lwc_scope_token__">
+            <h1 class="lwc-49s1fn4727b">
               Scoped style test
             </h1>
           </template>

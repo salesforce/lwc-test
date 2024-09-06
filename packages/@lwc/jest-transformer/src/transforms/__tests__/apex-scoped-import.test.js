@@ -23,7 +23,7 @@ describe('@salesforce/apex import', () => {
 
           myMethod = global.__lwcJestMock_myMethod;
         }
-    `,
+    `
     );
 
     test(
@@ -44,7 +44,7 @@ describe('@salesforce/apex import', () => {
 
           myMethod = global.__lwcJestMock_myMethod;
         }
-    `,
+    `
     );
 
     test(
@@ -70,6 +70,6 @@ describe('@salesforce/apex import', () => {
         } catch (e) {
           getSObjectValue = jest.fn();
         }
-    `,
+    `
     );
 });

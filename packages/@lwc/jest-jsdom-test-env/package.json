@@ -1,18 +1,18 @@
 {
-    "name": "@lwc/jest-jsdom-custom-test-env",
+    "name": "@lwc/jest-jsdom-test-env",
     "version": "16.1.0",
     "description": "Jest custom test environment for JSDOM",
     "homepage": "https://lwc.dev/",
     "repository": {
         "type": "git",
         "url": "https://github.com/salesforce/lwc-test.git",
-        "directory": "packages/@lwc/jest-jsdom-custom-test-env"
+        "directory": "packages/@lwc/jest-jsdom-test-env"
     },
     "bugs": {
         "url": "https://github.com/salesforce/lwc-test/issues"
     },
     "license": "MIT",
-    "main": "src/jsdom-custom-test-env.js",
+    "main": "src/jsdom-test-env.js",
     "peerDependencies": {
         "jest": "^26 || ^27 || ^28 || ^29",
         "jest-environment-jsdom": "^28 || ^29"

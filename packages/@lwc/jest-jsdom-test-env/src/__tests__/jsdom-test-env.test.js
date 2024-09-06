@@ -1,5 +1,5 @@
 /**
- * @jest-environment @lwc/jest-jsdom-custom-test-env
+ * @jest-environment @lwc/jest-jsdom-test-env
  */
 
 const path = require('path');

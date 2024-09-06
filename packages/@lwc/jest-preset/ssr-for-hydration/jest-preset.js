@@ -8,5 +8,5 @@ const originalCSRPreset = require('../jest-preset.js');
 
 module.exports = {
     ...originalCSRPreset,
-    testEnvironment: require.resolve('@lwc/jest-jsdom-custom-test-env'),
+    testEnvironment: require.resolve('@lwc/jest-jsdom-test-env'),
 };

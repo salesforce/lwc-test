@@ -21,6 +21,8 @@
     "files": [
         "/ssr/*.js",
         "/src/**/*.js",
+        "/ssr-for-hydration/**/*.js",
+        "/ssr-server/**/*.js",
         "/types"
     ],
     "peerDependencies": {

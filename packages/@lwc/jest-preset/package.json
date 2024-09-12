@@ -36,7 +36,8 @@
         "@lwc/jest-jsdom-test-env": "18.0.1",
         "@lwc/jest-resolver": "18.0.1",
         "@lwc/jest-serializer": "18.0.1",
-        "@lwc/jest-transformer": "18.0.1"
+        "@lwc/jest-transformer": "18.0.1",
+        "jest-serializer-html": "7.1.0"
     },
     "engines": {
         "node": ">=10"

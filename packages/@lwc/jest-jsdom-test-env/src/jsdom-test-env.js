@@ -8,7 +8,7 @@ class CustomJSDOMEnvironment extends JSDOMEnvironment {
      * Initializes the custom environment.
      *
      * @param {object} config - Jest configuration.
-     * @param {object} context - Test context including file path.
+     * @param {object} context - Test context, including file path.
      */
     constructor(config, context) {
         super(config, context);

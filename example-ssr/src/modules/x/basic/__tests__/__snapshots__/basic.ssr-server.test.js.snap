@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<x-basic> should render on the server: 4da3f8ca30774dda15f0aa526a0101c3229e8df7b695c739f96bcf1bc52d3ddd 1`] = `"<x-basic><template shadowrootmode="open"><h1>Basic, Welcome!</h1></template></x-basic>"`;

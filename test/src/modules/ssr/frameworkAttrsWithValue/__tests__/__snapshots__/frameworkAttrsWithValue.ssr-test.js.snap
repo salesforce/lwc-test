@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`serializes component with framework-supplied attributes with value: 416f3237a6d312810c94cc923fb1abf3582ed89fa7a032a8514a06f57ee086dc 1`] = `
-<x-basic data-lwc-host-mutated="class data-foo">
+<x-basic>
   <style type="text/css">
     h1 {color: blue;}
   </style>

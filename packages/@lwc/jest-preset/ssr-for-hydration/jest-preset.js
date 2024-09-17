@@ -9,4 +9,5 @@ const originalCSRPreset = require('../jest-preset.js');
 module.exports = {
     ...originalCSRPreset,
     testEnvironment: require.resolve('@lwc/jest-jsdom-test-env'),
+    snapshotSerializers: [],
 };

@@ -33,6 +33,10 @@ const screenshotPath = path.join(process.cwd(), 'tmp');
 exports.config = {
     specs: ['**/__component__/**/*.test.js'],
     framework: 'jasmine',
+    jasmineOpts: {
+        // max execution time for a script, set to 5 min
+        defaultTimeoutInterval: 100000 * 60 * 5,
+    },
     capabilities: [
         {
             browserName: 'chrome',

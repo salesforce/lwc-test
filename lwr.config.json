@@ -4,12 +4,17 @@
         {
             "id": "basic",
             "path": "/basic",
-            "rootComponent": "x/basic"
+            "rootComponent": "x/basic",
+            "bootstrap": {
+                "ssr": true
+            }
         },
         {
             "id": "hello",
             "path": "/hello",
-            "rootComponent": "x/hello"
+            "rootComponent": "x/hello","bootstrap": {
+                "ssr": true
+            }
         }
     ]
 }

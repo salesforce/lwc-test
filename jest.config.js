@@ -30,7 +30,7 @@ function integration({ nativeShadow }) {
         },
 
         rootDir: '<rootDir>/test',
-        preset: '@lwc/jest-preset/ssr-for-hydration',
+        preset: '@lwc/jest-preset',
         moduleNameMapper: {
             '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
             '^(components)/(.+)$': '<rootDir>/src/modules/$1/$2/$2',

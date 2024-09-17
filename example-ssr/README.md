@@ -22,8 +22,6 @@ module.exports = {
     displayName: 'Server-side rendering',
     preset: '@lwc/jest-preset/ssr-server',
     testMatch: ['**/*.ssr-server.(spec|test).(js|ts)'],
-    collectCoverage: true,
-    collectCoverageFrom: ['**/*.ssr-server.(spec|test).(js|ts)'],
 };
 ```
 
@@ -39,8 +37,6 @@ module.exports = {
     preset: '@lwc/jest-preset/ssr-for-hydration',
     testMatch: ['**/*.ssr-client.(spec|test).(js|ts)'],
     setupFilesAfterEnv: ['./jest.ssr-client.setup.js'],
-    collectCoverage: true,
-    collectCoverageFrom: ['**/*.ssr-client.(spec|test).(js|ts)'],
 };
 ```
 

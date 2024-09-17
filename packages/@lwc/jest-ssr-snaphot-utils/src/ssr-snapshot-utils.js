@@ -10,7 +10,7 @@ const { join, dirname, basename, extname } = require('path');
  * @param {Function} Ctor - The constructor of the Lightning Web Component.
  * @param {Object} [props={}] - An object representing the properties of the component.
  * @param {Object} [customTestEnv={}] - An object representing the custom test env where the component is being validated.
- * @returns {{markup: string, snapshotHash: string}} - An object containing the rendered markup and the generated snapshot hash.
+ * @returns {{renderedComponent: string, snapshotHash: string}} - An object containing the rendered markup and the generated snapshot hash.
  */
 function renderAndHashComponent(tagName, Ctor, props = {}, customTestEnv = {}) {
     const renderedComponent = lwcRenderComponent(tagName, Ctor, props);

@@ -4,15 +4,11 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils/src/ssr-snapshot-utils';
+import { renderComponent } from 'lwc';
 import LightDomSlotText from 'ssr/lightDomSlotText';
 
 it('renders a basic component with light DOM slot with text node slotted', () => {
-    const { renderedComponent, snapshotHash } = renderAndHashComponent(
-        'ssr-light-dom-slot-text',
-        LightDomSlotText,
-        {}
-    );
+    const renderedComponent = renderComponent('ssr-light-dom-slot-text', LightDomSlotText, {});
 
-    expect(renderedComponent).toMatchSnapshot(snapshotHash);
+    expect(renderedComponent).toMatchSnapshot();
 });

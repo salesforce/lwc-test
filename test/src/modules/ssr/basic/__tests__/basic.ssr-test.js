@@ -4,21 +4,16 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils/src/ssr-snapshot-utils';
+import { renderComponent } from 'lwc';
 import Basic from 'ssr/basic';
 
 it('renders a basic component and saves formatted snapshot', () => {
-    const { renderedComponent, snapshotHash } = renderAndHashComponent('x-basic', Basic, {
-        msg: 'Hello world',
-    });
-
-    expect(renderedComponent).toMatchSnapshot(snapshotHash);
+    const renderedComponent = renderComponent('x-basic', Basic, { msg: 'Hello world' });
+    expect(renderedComponent).toMatchSnapshot();
 });
 
 it('renders a basic component and saves inline formatted snapshot', () => {
-    const { renderedComponent } = renderAndHashComponent('x-basic', Basic, {
-        msg: 'Hello world',
-    });
+    const renderedComponent = renderComponent('x-basic', Basic, { msg: 'Hello world' });
 
     expect(renderedComponent).toMatchInlineSnapshot(`
         <x-basic>

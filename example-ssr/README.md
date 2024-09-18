@@ -22,6 +22,7 @@ module.exports = {
     displayName: 'Server-side rendering',
     preset: '@lwc/jest-preset/ssr-server',
     testMatch: ['**/*.ssr-server.(spec|test).(js|ts)'],
+    collectCoverageFrom: ['**/*.ssr-server.(spec|test).(js|ts)'],
 };
 ```
 
@@ -35,23 +36,34 @@ For client-side testing, we validate how the component behaves after the client-
 module.exports = {
     displayName: 'SSR with hydration',
     preset: '@lwc/jest-preset/ssr-for-hydration',
+    setupFilesAfterEnv: ['./jest.ssr-client.setupAfterEnv.js'],
     testMatch: ['**/*.ssr-client.(spec|test).(js|ts)'],
-    setupFilesAfterEnv: ['./jest.ssr-client.setup.js'],
+    transformIgnorePatterns: ['node_modules/(?!(@webcomponents/.+)/)'],
 };
 ```
 
 At present, hydration errors are tracked by monitoring the console.warn event.
 
-`jest.ssr-client.setup.js`
+`jest.ssr-client.setupAfterEnv.js`
 
 ```js
+let hydrationMismatchOccurred = false;
+let hydrationMismatchMessage = '';
+
 beforeEach(() => {
+    // Reset the flag and message before each test
+    hydrationMismatchOccurred = false;
+    hydrationMismatchMessage = '';
+
     // Spy on console.warn and intercept warnings
     jest.spyOn(console, 'warn').mockImplementation((message) => {
         if (message.includes('Hydration mismatch')) {
-            throw new Error(`Test failed due to hydration mismatch: ${message}`);
+            // Set the flag to indicate a hydration mismatch occurred
+            hydrationMismatchOccurred = true;
+            // Store the hydration mismatch message
+            hydrationMismatchMessage = message;
         } else {
-            // If it's not a hydration mismatch, print the warning as usual
+            // If it's not a hydration mismatch, call the original console.warn
             console.warn(message);
         }
     });
@@ -60,6 +72,11 @@ beforeEach(() => {
 afterEach(() => {
     // Restore original console.warn after each test
     jest.restoreAllMocks();
+
+    // Check if a hydration mismatch occurred and fail the test if so
+    if (hydrationMismatchOccurred) {
+        throw new Error(`Test failed due to hydration mismatch: ${hydrationMismatchMessage}`);
+    }
 });
 ```
 

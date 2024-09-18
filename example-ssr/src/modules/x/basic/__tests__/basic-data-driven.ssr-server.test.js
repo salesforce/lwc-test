@@ -1,0 +1,10 @@
+import Basic from '../basic';
+import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils';
+import tests from './ssr';
+
+describe('<x-basic>', () => {
+    it.each(tests)('should render on the server (props = $props)', async ({ props }) => {
+        const { renderedComponent, snapshotHash } = renderAndHashComponent('x-basic', Basic, props);
+        expect(renderedComponent).toMatchSnapshot(snapshotHash);
+    });
+});

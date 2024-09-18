@@ -5,6 +5,8 @@
     "scripts": {
         "prepare": "husky",
         "test": "jest --no-cache",
+        "test:ssr": "jest --no-cache --projects=./example-ssr/jest.ssr-server.config.js",
+        "test:csr": "jest --no-cache --projects=./example-ssr/jest.ssr-client.config.js",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/ test/ --ext=js,mjs,ts",
         "format": "prettier --write '{packages,test}/**/*.{js,mjs,ts,json,md,yaml}'",
@@ -35,6 +37,9 @@
         "lint-staged": "^15.2.2",
         "prettier": "^2.0.0",
         "semver": "^7.6.0"
+    },
+    "dependencies": {
+        "@webcomponents/template-shadowroot": "0.2.1"
     },
     "lint-staged": {
         "**/*.{js,mjs,ts}": "eslint --fix",

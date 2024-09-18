@@ -4,15 +4,11 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils/src/ssr-snapshot-utils';
+import { renderComponent } from 'lwc';
 import FrameworkAttrsWithValue from '../frameworkAttrsWithValue';
 
 it('serializes component with framework-supplied attributes with value', () => {
-    const { renderedComponent, snapshotHash } = renderAndHashComponent(
-        'x-basic',
-        FrameworkAttrsWithValue,
-        {}
-    );
+    const renderedComponent = renderComponent('x-basic', FrameworkAttrsWithValue, {});
 
-    expect(renderedComponent).toMatchSnapshot(snapshotHash);
+    expect(renderedComponent).toMatchSnapshot();
 });

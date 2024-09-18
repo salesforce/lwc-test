@@ -8,5 +8,5 @@ const originalSSRPreset = require('../ssr/jest-preset.js');
 
 module.exports = {
     ...originalSSRPreset,
-    snapshotSerializers: ['jest-serializer-html'],
+    snapshotSerializers: [],
 };

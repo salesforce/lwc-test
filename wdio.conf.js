@@ -1,42 +1,43 @@
 const path = require('node:path');
+const { UtamWdioService } = require('wdio-utam-service');
+const { createServer } = require('lwr');
 
+let server;
+
+const onPrepare = async () => {
+    server = createServer();
+
+    await server.listen(({ port, serverMode }) => {
+        console.log(`[LWR Service] App listening on port ${port} in ${serverMode} mode\n`);
+    });
+};
+
+// Shut the server down once tests are complete
+const onComplete = async () => {
+    if (server) {
+        await server.close();
+        console.log('LWR Service stopped.');
+    }
+};
 exports.config = {
-    // ===================
-    // Runner Configuration
-    // ===================
-    runner: 'local',
-
-    // ==================
-    // Specify Test Files
-    // ==================
-    specs: ['**/*.visual-ssr.spec.js'],
+    specs: ['**/__component__/**/*.test.js'],
     exclude: [],
     framework: 'jasmine', // Specify the framework here
-
-    // ============
-    // Capabilities
-    // ============
     capabilities: [
         {
-            maxInstances: 1,
-            browserName: 'chrome',
+            browserName: 'chrome', // Choose your browser (chrome, firefox, etc.)
             'goog:chromeOptions': {
-                args: ['--headless'], // Example argument for headless mode
+                args: ['--disable-gpu', '--no-sandbox'],
             },
         },
     ],
-
-    // ===================
-    // Test Configurations
-    // ===================
     logLevel: 'info',
     bail: 0,
-    baseUrl: 'http://localhost',
     waitforTimeout: 10000,
     connectionRetryTimeout: 90000,
     connectionRetryCount: 3,
     services: [
-        ['chromedriver'],
+        [UtamWdioService, { baseUrl: 'http://localhost:3000' }],
         [
             'visual',
             {
@@ -50,11 +51,9 @@ exports.config = {
         ],
     ],
     reporters: ['spec'],
+    runner: 'local',
 
-    // ============
-    // Hooks
-    // ============
-    before: function () {},
-
-    // Add additional configurations as needed
+    // We add our server start and stop hooks
+    onPrepare,
+    onComplete,
 };

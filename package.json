@@ -13,14 +13,10 @@
         "format:check": "prettier --check '{packages,test}/**/*.{js,mjs,ts,json,md,yaml}'",
         "release:publish:ci": "./scripts/release/publish.js",
         "release:version": "./scripts/release/version.js",
-        "dev": "lwr dev",
-        "lwr:build": "lwr build --clean",
-        "start": "lwr start",
-        "stage": "yarn lwr:build && yarn start",
-        "stage:prod-compat": "yarn lwr:build --mode prod-compat && yarn start --mode prod-compat",
         "generate:utam": "utam-generate -c utam.config.json",
+        "compile:utam": "utam --config utam.config.json",
         "wdio": "wdio run ./wdio.conf.js",
-        "test:visual": "yarn generate:utam && (yarn dev & echo $! > .yarn-dev.pid && yarn wdio && kill $(cat .yarn-dev.pid))"
+        "test:component": "yarn generate:utam && yarn compile:utam && wdio run ./wdio.conf.js"
     },
     "workspaces": [
         "packages/@lwc/*",
@@ -40,9 +36,11 @@
         "@typescript-eslint/eslint-plugin": "^7.5.0",
         "@typescript-eslint/parser": "^7.5.0",
         "@wdio/cli": "^9.0.9",
+        "@wdio/types": "9.0.8",
         "@wdio/jasmine-framework": "^9.0.9",
         "@wdio/local-runner": "^9.0.9",
         "@wdio/spec-reporter": "^9.0.8",
+        "wdio-utam-service": "3.1.1",
         "@wdio/visual-service": "^6.0.0",
         "chromedriver": "^129.0.0",
         "eslint": "^8.57.0",
@@ -56,9 +54,7 @@
         "prettier": "^2.0.0",
         "semver": "^7.6.0",
         "utam": "^3.2.2",
-        "wdio-chromedriver-service": "^8.1.1",
-        "webdriver-image-comparison": "^7.0.0",
-        "webdriverio": "^9.0.9"
+        "webdriver-image-comparison": "^7.0.0"
     },
     "dependencies": {
         "@utam/core": "^3.2.2",

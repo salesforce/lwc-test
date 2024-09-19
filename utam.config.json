@@ -1,0 +1,10 @@
+{
+    "inputRootDir": "./",
+    "ignore": ["**/node_modules/**", "**/test/**"],
+    "inputFileMask": ["**/*.html"],
+    "outputDir": "__utam__",
+    "relativeOutputDir": false,
+    "outputFileExtension": ".utam.json",
+    "overrideExisting": true,
+    "rulesFileMask": ["**/*.rules.json"]
+}

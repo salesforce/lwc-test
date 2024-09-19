@@ -1,0 +1,15 @@
+{
+    "lwc": { "modules": [{ "dir": "$rootDir/example-ssr/src/modules" }] },
+    "routes": [
+        {
+            "id": "basic",
+            "path": "/basic",
+            "rootComponent": "x/basic"
+        },
+        {
+            "id": "hello",
+            "path": "/hello",
+            "rootComponent": "x/hello"
+        }
+    ]
+}

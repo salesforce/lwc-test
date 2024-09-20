@@ -15,8 +15,8 @@
         "release:version": "./scripts/release/version.js",
         "generate:utam": "utam-generate -c utam.config.json",
         "compile:utam": "utam --config utam.config.json",
-        "wdio": "wdio run ./wdio.conf.js",
-        "test:component": "yarn generate:utam && yarn compile:utam && wdio run ./wdio.conf.js"
+        "test:component": "yarn generate:utam && yarn compile:utam && wdio run ./wdio.config.js",
+        "test:performance": "wdio run ./wdio.perf.config.js"
     },
     "workspaces": [
         "packages/@lwc/*",
@@ -31,21 +31,17 @@
         "@lwc/module-resolver": "^8.1.0",
         "@lwc/synthetic-shadow": "7.2.3",
         "@lwc/wire-service": "7.2.3",
-        "@types/jasmine": "^5.1.4",
         "@types/jest": "^29.5.12",
         "@typescript-eslint/eslint-plugin": "^7.5.0",
         "@typescript-eslint/parser": "^7.5.0",
         "@wdio/cli": "^9.0.9",
-        "@wdio/types": "9.0.8",
-        "@wdio/jasmine-framework": "^9.0.9",
         "@wdio/local-runner": "^9.0.9",
         "@wdio/spec-reporter": "^9.0.8",
-        "wdio-utam-service": "3.1.1",
+        "@wdio/types": "9.0.8",
         "@wdio/visual-service": "^6.0.0",
         "chromedriver": "^129.0.0",
         "eslint": "^8.57.0",
         "husky": "^9.0.11",
-        "jasmine": "^5.3.0",
         "jest": "^29.7.0",
         "jest-environment-jsdom": "^29.7.0",
         "lerna": "^8.1.2",
@@ -54,10 +50,13 @@
         "prettier": "^2.0.0",
         "semver": "^7.6.0",
         "utam": "^3.2.2",
-        "webdriver-image-comparison": "^7.0.0"
-    },
-    "dependencies": {
+        "wdio-utam-service": "^3.2.2",
+        "webdriver-image-comparison": "^7.0.0",
+        "webdriverio": "^9.0.9",
+        "@types/jasmine": "5.1.4",
+        "@wdio/jasmine-framework": "9.0.9",
         "@utam/core": "^3.2.2",
+        "@utam/loader": "3.2.2",
         "@webcomponents/template-shadowroot": "0.2.1"
     },
     "lint-staged": {

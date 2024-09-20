@@ -6,6 +6,6 @@
     "outputFileExtension": ".utam.json",
     "overrideExisting": true,
     "pageObjectsOutputDir": "./example-ssr/pageObjects",
-    "moduleTarget": "module",
-    "skipCommonJs": true
+    "moduleTarget": "commonjs",
+    "skipCommonJs": false
 }

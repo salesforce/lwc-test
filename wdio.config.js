@@ -5,27 +5,37 @@ const { createServer } = require('lwr');
 let server;
 
 const onPrepare = async () => {
-    server = createServer();
-
-    await server.listen(({ port, serverMode }) => {
+    try {
+        server = createServer({ serverMode: 'prod-compat' });
+        const { port, serverMode } = await server.listen();
         console.log(`[LWR Service] App listening on port ${port} in ${serverMode} mode\n`);
-    });
+    } catch (error) {
+        console.error('Error starting LWR Service:', error);
+    }
 };
 
 // Shut the server down once tests are complete
 const onComplete = async () => {
     if (server) {
-        await server.close();
-        console.log('LWR Service stopped.');
+        try {
+            await server.close();
+            console.log('LWR Service stopped.');
+        } catch (error) {
+            console.error('Error stopping LWR Service:', error);
+        }
     }
 };
+
+// Reusable path constants
+const baselineFolder = path.join(process.cwd(), 'tests', 'baseline');
+const screenshotPath = path.join(process.cwd(), 'tmp');
+
 exports.config = {
     specs: ['**/__component__/**/*.test.js'],
-    exclude: [],
-    framework: 'jasmine', // Specify the framework here
+    framework: 'jasmine',
     capabilities: [
         {
-            browserName: 'chrome', // Choose your browser (chrome, firefox, etc.)
+            browserName: 'chrome',
             'goog:chromeOptions': {
                 args: ['--disable-gpu', '--no-sandbox'],
             },
@@ -41,19 +51,17 @@ exports.config = {
         [
             'visual',
             {
-                // Some options, see the docs for more
-                baselineFolder: path.join(process.cwd(), 'tests', 'baseline'),
+                baselineFolder,
                 formatImageName: '{tag}-{logName}-{width}x{height}',
-                screenshotPath: path.join(process.cwd(), 'tmp'),
+                screenshotPath,
                 savePerInstance: true,
-                // ... more options
             },
         ],
+        ['utam'],
     ],
     reporters: ['spec'],
     runner: 'local',
-
-    // We add our server start and stop hooks
+    baseUrl: 'http://localhost:3000',
     onPrepare,
     onComplete,
 };

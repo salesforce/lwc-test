@@ -274,7 +274,7 @@
     regenerator-runtime "^0.14.0"
     v8flags "^3.1.1"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.14.7", "@babel/parser@^7.20.7", "@babel/parser@^7.21.3", "@babel/parser@^7.23.9", "@babel/parser@^7.24.7", "@babel/parser@^7.25.0", "@babel/parser@^7.25.6":
+"@babel/parser@^7.1.0", "@babel/parser@^7.14.7", "@babel/parser@^7.20.7", "@babel/parser@^7.21.3", "@babel/parser@^7.23.9", "@babel/parser@^7.25.0", "@babel/parser@^7.25.6":
   version "7.25.6"
   resolved "https://registry.npmjs.org/@babel/parser/-/parser-7.25.6.tgz"
   integrity sha512-trGdfBdbD0l1ZPmcJ83eNxB9rbEax4ALFTF7fN386TMYbeCQbyme5cOEXQhbGXKebwGaB/J52w1mrklMcbgy6Q==
@@ -4337,9 +4337,9 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jasmine@^5.1.4":
+"@types/jasmine@5.1.4":
   version "5.1.4"
-  resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-5.1.4.tgz"
+  resolved "https://registry.npmjs.org/@types/jasmine/-/jasmine-5.1.4.tgz#0de3f6ca753e10d1600ce1864ae42cfd47cf9924"
   integrity sha512-px7OMFO/ncXxixDe1zR13V1iycqWae0MxTaw62RpFlksUi5QuNWgQJFkTQjIOvrmutJbI7Fp2Y2N1F6D2R4G6w==
 
 "@types/jest@^29.5.12":
@@ -4743,14 +4743,6 @@
   resolved "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz"
   integrity sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==
 
-"@utam/compiler@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@utam/compiler/-/compiler-3.1.1.tgz#a3b1158b68b1443c5508db947979ccdf1ad559b3"
-  integrity sha512-lXa4CkoemzLnEL668IqJCvLoY7Vx6jLJZaJIxeEB/Cr9d6PYVV77Gvsh7M8HHz6AUReeNR8osaDwEXXDYPIp/w==
-  dependencies:
-    "@utam/diagnostics" "3.1.1"
-    jsonc-parser "^3.2.1"
-
 "@utam/compiler@3.2.2":
   version "3.2.2"
   resolved "https://registry.npmjs.org/@utam/compiler/-/compiler-3.2.2.tgz"
@@ -4759,34 +4751,15 @@
     "@utam/diagnostics" "3.2.2"
     jsonc-parser "^3.3.1"
 
-"@utam/core@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@utam/core/-/core-3.1.1.tgz#367d99ef8ea34e4f12f5058ff032ab3777cb0e05"
-  integrity sha512-/jd1V93B+/Tf0dlA0snOQE3Mx+KdCpicnU0keK5Nex3q2BnMja+vkE8TwZ6Bvm5pZJB+LZA8h5ZNIa5AtHKPZg==
-
 "@utam/core@3.2.2", "@utam/core@^3.2.2":
   version "3.2.2"
   resolved "https://registry.npmjs.org/@utam/core/-/core-3.2.2.tgz#3d4f86ef487acc5acb44be5c7fc68d8c164821ba"
   integrity sha512-fYMtaKK1pF69t7jy4Ezuau8FuY4Bi19aTiBaHoTPO7rGPRpp1/2T8ibZIiE4S4DF+mUpPyd4kXBRH7PlH8lzZQ==
 
-"@utam/diagnostics@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@utam/diagnostics/-/diagnostics-3.1.1.tgz#85dbb5367ab8ddcf46e31d1fb3aed551fe999bce"
-  integrity sha512-CY1HEilA84zKN9WlvQZrJKKrx0lb62xGxxKmLJd+On+59w8rPPpsrv0FcIjctOx70rnGbm0MhTtLBaIY214axw==
-
 "@utam/diagnostics@3.2.2":
   version "3.2.2"
   resolved "https://registry.npmjs.org/@utam/diagnostics/-/diagnostics-3.2.2.tgz"
   integrity sha512-evzBhDFMPYRAhrdWWN+HExhixVkSP99mPtJvw5nh8EXJnYWeU9RFhEpVuU+J1Y90MRJapShzYfoIyTqyzTaJQg==
-
-"@utam/generator@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@utam/generator/-/generator-3.1.1.tgz#2536b72dd5be09ec2fd8427b41d51918f7f519a7"
-  integrity sha512-L2CUBcKCuJnh1mgiYKoQvfJD08XOwKgK39XwwIIAF2bZhGUI2L1Eci2wx8VYs5bnxoJfkSehyS45IfeyWOMKGw==
-  dependencies:
-    "@babel/parser" "^7.24.7"
-    "@babel/traverse" "^7.24.7"
-    parse5 "^6.0.1"
 
 "@utam/generator@3.2.2":
   version "3.2.2"
@@ -4797,14 +4770,6 @@
     "@babel/traverse" "^7.25.6"
     parse5 "^6.0.1"
 
-"@utam/lint@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@utam/lint/-/lint-3.1.1.tgz#4a09f846b3791ec77dca9ec25eaa96b5b97436dc"
-  integrity sha512-wFlKWhgUkhAnJrCvOYqkZ32zWALzlRpVQi5lr99VzmJaeHQgPm7BIpULTFCQ4AyXYATLPFU+kzXctGgqJ411wQ==
-  dependencies:
-    "@utam/diagnostics" "3.1.1"
-    node-sarif-builder "^3.1.0"
-
 "@utam/lint@3.2.2":
   version "3.2.2"
   resolved "https://registry.npmjs.org/@utam/lint/-/lint-3.2.2.tgz"
@@ -4812,13 +4777,6 @@
   dependencies:
     "@utam/diagnostics" "3.2.2"
     node-sarif-builder "^3.2.0"
-
-"@utam/loader@3.1.1":
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/@utam/loader/-/loader-3.1.1.tgz#5bc936fd5b76e28ae388c22a43837603b2a79f09"
-  integrity sha512-aijHm/EeA7jvje2/9sa0fwmREJwF+LbU2dqwsN31rzAKh1IO6SaAQXhs3ZWElnkhm0JqzCcNwAaziTIHmZQShA==
-  dependencies:
-    "@utam/core" "3.1.1"
 
 "@utam/loader@3.2.2":
   version "3.2.2"
@@ -4913,9 +4871,9 @@
     expect-webdriverio "^5.0.1"
     webdriverio "9.0.9"
 
-"@wdio/jasmine-framework@^9.0.9":
+"@wdio/jasmine-framework@9.0.9":
   version "9.0.9"
-  resolved "https://registry.npmjs.org/@wdio/jasmine-framework/-/jasmine-framework-9.0.9.tgz"
+  resolved "https://registry.npmjs.org/@wdio/jasmine-framework/-/jasmine-framework-9.0.9.tgz#49f4b06fc4097d52bd3c4356f3856b41426d1fb0"
   integrity sha512-QZ+xB46yJxUmKuHXvQS9lKl4PpXT4hJ2aUoswO4sPflkBAZEl6z/xMrc3QLsP1j2OuytjkpxcUbEcZW/8TtgWA==
   dependencies:
     "@types/node" "^20.1.0"
@@ -10440,12 +10398,12 @@ jake@^10.8.5:
 
 jasmine-core@~5.3.0:
   version "5.3.0"
-  resolved "https://registry.npmjs.org/jasmine-core/-/jasmine-core-5.3.0.tgz"
+  resolved "https://registry.npmjs.org/jasmine-core/-/jasmine-core-5.3.0.tgz#ed784e5a10af43988d8408bad80b9f08e240a3f8"
   integrity sha512-zsOmeBKESky4toybvWEikRiZ0jHoBEu79wNArLfMdSnlLMZx3Xcp6CSm2sUcYyoJC+Uyj8LBJap/MUbVSfJ27g==
 
-jasmine@^5.0.0, jasmine@^5.3.0:
+jasmine@^5.0.0:
   version "5.3.0"
-  resolved "https://registry.npmjs.org/jasmine/-/jasmine-5.3.0.tgz"
+  resolved "https://registry.npmjs.org/jasmine/-/jasmine-5.3.0.tgz#523dea612f3573f896e7f680f54752685e48581b"
   integrity sha512-Vrv5VWTXVZ/5xcNawlYCmE24pOaZu3KduLr9iAaENoMJ8W8Ryvhfpw2cf3rI4Unc2ajvu2t4tCKjS72TnraBGQ==
   dependencies:
     glob "^10.2.2"
@@ -11422,7 +11380,7 @@ jsonc-parser@3.2.0:
   resolved "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.2.0.tgz"
   integrity sha512-gfFQZrcTc8CnKXp6Y4/CBT3fTc0OVuDofpre4aEeEpSBPV5X5v4+Vmx+8snU7RLPrNHPKSgLxGo9YuQzz20o+w==
 
-jsonc-parser@^3.2.0, jsonc-parser@^3.2.1, jsonc-parser@^3.3.1:
+jsonc-parser@^3.2.0, jsonc-parser@^3.3.1:
   version "3.3.1"
   resolved "https://registry.npmjs.org/jsonc-parser/-/jsonc-parser-3.3.1.tgz#f2a524b4f7fd11e3d791e559977ad60b98b798b4"
   integrity sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==
@@ -12797,7 +12755,7 @@ node-releases@^2.0.18:
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.18.tgz"
   integrity sha512-d9VeXT4SJ7ZeOqGX6R5EM022wpL+eWPooLI+5UpWn2jCT1aosUQEhQP214x33Wkwx3JQMvIm+tIoVOdodFS40g==
 
-node-sarif-builder@^3.1.0, node-sarif-builder@^3.2.0:
+node-sarif-builder@^3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/node-sarif-builder/-/node-sarif-builder-3.2.0.tgz#ba008995d8b165570c3f38300e56299a93531db1"
   integrity sha512-kVIOdynrF2CRodHZeP/97Rh1syTUHBNiw17hUCIVhlhEsWlfJm19MuO56s4MdKbr22xWx6mzMnNAgXzVlIYM9Q==
@@ -14586,7 +14544,7 @@ rollup@^2.78.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
-rollup@^4.18.0, rollup@^4.21.3:
+rollup@^4.21.3:
   version "4.22.0"
   resolved "https://registry.npmjs.org/rollup/-/rollup-4.22.0.tgz#23cd9e4565a458587683accc34a054660c01f351"
   integrity sha512-W21MUIFPZ4+O2Je/EU+GP3iz7PH4pVPUXSbEZdatQnxo29+3rsUjgrJmzuAZU24z7yRAnFN6ukxeAhZh/c7hzg==
@@ -16324,24 +16282,9 @@ userhome@1.0.0:
   resolved "https://registry.npmjs.org/userhome/-/userhome-1.0.0.tgz"
   integrity sha512-ayFKY3H+Pwfy4W98yPdtH1VqH4psDeyW8lYYFzfecR9d6hqLpqhecktvYR3SEEXt7vG0S1JEpciI3g94pMErig==
 
-utam@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/utam/-/utam-3.1.1.tgz#7b25ee09bd2c1eebf92d0de6cb5a1a090c2b39a9"
-  integrity sha512-LlfFJQNz5fC9KaDDg96YpSfb7h9iUq7n5ykrSMAFf5AInc2Acui4vASwtwS++a8p8bj3lzfYloqnapoopBct4Q==
-  dependencies:
-    "@utam/compiler" "3.1.1"
-    "@utam/core" "3.1.1"
-    "@utam/generator" "3.1.1"
-    "@utam/lint" "3.1.1"
-    "@utam/loader" "3.1.1"
-    fast-glob "^3.3.2"
-    jsondiffpatch "0.5.0"
-    rollup "^4.18.0"
-    yargs "^17.5.1"
-
-utam@^3.2.2:
+utam@3.2.2, utam@^3.2.2:
   version "3.2.2"
-  resolved "https://registry.npmjs.org/utam/-/utam-3.2.2.tgz"
+  resolved "https://registry.npmjs.org/utam/-/utam-3.2.2.tgz#c7f8a048ca6b82bbc45fb74714d3c4abb612ed95"
   integrity sha512-00NeUKseDoRf0Ks+cMZ3uyqxbHeFp17/KVDdTaA8KgI+RV2mdTpAiJwaZF2GNMBD7NhAQ0/xHuPL7a6J2YlNyg==
   dependencies:
     "@utam/compiler" "3.2.2"
@@ -16540,12 +16483,12 @@ wcwidth@^1.0.0, wcwidth@^1.0.1:
   dependencies:
     defaults "^1.0.3"
 
-wdio-utam-service@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmjs.org/wdio-utam-service/-/wdio-utam-service-3.1.1.tgz#bc30f5e364ddb85b63f20f662e55ec0d1558a0bc"
-  integrity sha512-1BALvuoSowN8X9zhAleZeD0SqIGdvueXv8O1C6UfR/FUqc6hXp/PBd853PCpc07KAHyoztprqDLmQWTKzUW4ag==
+wdio-utam-service@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.npmjs.org/wdio-utam-service/-/wdio-utam-service-3.2.2.tgz#881ca66ef0399a1a2217284ac19ed0e840d11ba4"
+  integrity sha512-Q4oolgY99NyirSKIsUwpr6hWyJR/q7+xIVU9rQHnpVNQzFQikdn/ZKSin39RiVJXg371UERYnzbm6J8R5Ok3aQ==
   dependencies:
-    utam "3.1.1"
+    utam "3.2.2"
 
 web-namespaces@^1.0.0:
   version "1.1.4"
@@ -16581,7 +16524,7 @@ webdriver@9.0.8:
     deepmerge-ts "^7.0.3"
     ws "^8.8.0"
 
-webdriverio@9.0.9:
+webdriverio@9.0.9, webdriverio@^9.0.9:
   version "9.0.9"
   resolved "https://registry.npmjs.org/webdriverio/-/webdriverio-9.0.9.tgz"
   integrity sha512-IwvKzhcJ9NjOL55xwj27uTTKkfxsg77dmAfqoKFSP5dQ70JzU+NgxiALEjjWQDybtt1yGIkHk7wjjxjboMU1uw==

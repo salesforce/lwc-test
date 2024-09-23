@@ -1,20 +1,11 @@
 {
     "lwc": { "modules": [{ "dir": "$rootDir/example-ssr/src/modules" }] },
+    "hooks": ["$rootDir/example-ssr/load-routes.js"],
     "routes": [
-        {
-            "id": "basic",
-            "path": "/basic",
-            "rootComponent": "x/basic",
-            "bootstrap": {
-                "ssr": true
-            }
-        },
         {
             "id": "hello",
             "path": "/hello",
-            "rootComponent": "x/hello","bootstrap": {
-                "ssr": true
-            }
+            "contentTemplate": "$rootDir/README.md"
         }
     ]
 }

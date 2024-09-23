@@ -7,7 +7,6 @@ coverage/
 .idea/
 .project/
 .vscode/
-__utam__/
 __lwr_cache__/
 tests/
 tmp/

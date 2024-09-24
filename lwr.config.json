@@ -3,8 +3,8 @@
     "hooks": ["$rootDir/example-ssr/load-routes.js"],
     "routes": [
         {
-            "id": "hello",
-            "path": "/hello",
+            "id": "x-hello",
+            "path": "/x-hello",
             "contentTemplate": "$rootDir/README.md"
         }
     ]

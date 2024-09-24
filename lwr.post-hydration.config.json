@@ -1,5 +1,6 @@
 {
     "lwc": { "modules": [{ "dir": "$rootDir/example-ssr/src/modules" }] },
     "hooks": ["$rootDir/example-ssr/load-routes.js"],
+    "serverMode": "prod-compat",
     "routes": []
 }

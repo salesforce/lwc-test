@@ -1,12 +1,15 @@
 const path = require('node:path');
 const { UtamWdioService } = require('wdio-utam-service');
 const { createServer } = require('lwr');
+const fs = require('fs');
 
 let server;
 
 const onPrepare = async () => {
     try {
-        server = createServer({ serverMode: 'prod-compat' });
+        const configFile = 'lwr.post-hydration.config.json';
+        const config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+        server = createServer(config);
         const { port, serverMode } = await server.listen();
         console.log(`[LWR Service] App listening on port ${port} in ${serverMode} mode\n`);
     } catch (error) {
@@ -31,7 +34,7 @@ const baselineFolder = path.join(process.cwd(), 'tests', 'baseline');
 const screenshotPath = path.join(process.cwd(), 'tmp');
 
 exports.config = {
-    specs: ['**/__component__/**/*.test.js'],
+    specs: ['**/__component__/**/*.post-hydration.test.js'],
     framework: 'jasmine',
     jasmineOpts: {
         // max execution time for a script, set to 5 min

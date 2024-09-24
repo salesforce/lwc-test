@@ -15,7 +15,9 @@
         "release:version": "./scripts/release/version.js",
         "generate:utam": "utam-generate -c utam.config.json",
         "compile:utam": "utam --config utam.config.json",
-        "test:component": "yarn compile:utam && wdio run ./wdio.config.js",
+        "test-component:pre-hydration": "wdio run ./wdio.pre-hydration.config.js",
+        "test-component:post-hydration": "yarn compile:utam && wdio run ./wdio.post-hydration.config.js",
+        "test-component": "yarn test-component:pre-hydration && yarn test-component:post-hydration",
         "test:performance": "wdio run ./wdio.perf.config.js"
     },
     "workspaces": [

@@ -1,11 +1,5 @@
 {
     "lwc": { "modules": [{ "dir": "$rootDir/example-ssr/src/modules" }] },
     "hooks": ["$rootDir/example-ssr/load-routes.js"],
-    "routes": [
-        {
-            "id": "x-hello",
-            "path": "/x-hello",
-            "contentTemplate": "$rootDir/README.md"
-        }
-    ]
+    "routes": []
 }

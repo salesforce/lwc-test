@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<x-basic> should render on the server (props = {"msg": "Hello, Universe!"}): 34628b2c2f600c2775bdf4131a576fcf6bc07e003cef10d0d523ff923d7af4e2 1`] = `"<x-basic><template shadowrootmode="open"><h1>Basic, Hello, Universe!</h1></template></x-basic>"`;
+exports[`<x-basic> should render on the server (props = {"msg": "Hello, Universe!"}): 34628b2c2f600c2775bdf4131a576fcf6bc07e003cef10d0d523ff923d7af4e2 1`] = `"<x-basic><template shadowrootmode="open"><h1>Hello, Universe!</h1></template></x-basic>"`;
 
-exports[`<x-basic> should render on the server (props = {"msg": "Hello, world!"}): ebf35c654b2d8178d7dd129e79ae74bd36c7f5bc3c496babc46f60da73dae93b 1`] = `"<x-basic><template shadowrootmode="open"><h1>Basic, Hello, world!</h1></template></x-basic>"`;
+exports[`<x-basic> should render on the server (props = {"msg": "Hello, world!"}): ebf35c654b2d8178d7dd129e79ae74bd36c7f5bc3c496babc46f60da73dae93b 1`] = `"<x-basic><template shadowrootmode="open"><h1>Hello, world!</h1></template></x-basic>"`;

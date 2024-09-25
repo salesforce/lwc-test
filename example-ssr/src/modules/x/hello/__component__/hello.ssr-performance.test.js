@@ -1,8 +1,8 @@
-const { expect, browser } = require('@wdio/globals');
+import { expect, browser } from '@wdio/globals';
 
 describe('Performance metrics tests', () => {
     beforeAll(async () => {
-        await browser.url('/hello');
+        await browser.url('/x-hello');
     });
 
     it('should measure Largest Contentful Paint (LCP) using PerformanceObserver', async () => {
@@ -10,9 +10,9 @@ describe('Performance metrics tests', () => {
             return new Promise((resolve) => {
                 const observer = new PerformanceObserver((list) => {
                     const entries = list.getEntries();
-                    const lastEntry = entries[entries.length - 1]; // Use the latest LCP candidate
+                    const lastEntry = entries[entries.length - 1];
                     console.log('LCP:', lastEntry.startTime);
-                    observer.disconnect(); // Stop observing
+                    observer.disconnect();
                     resolve(lastEntry.startTime);
                 });
                 observer.observe({ type: 'largest-contentful-paint', buffered: true });
@@ -50,13 +50,10 @@ describe('Performance metrics tests', () => {
                 setTimeout(() => {
                     observer.disconnect();
                     resolve(cumulativeLayoutShift);
-                }, 5000);
+                }, 2000);
             });
         });
-
-        console.log(`CLS: ${cls}`);
-
         expect(cls).toBeGreaterThanOrEqual(0);
         expect(cls).toBeLessThanOrEqual(0.1);
-    }, 10000);
+    });
 });

@@ -1,7 +1,7 @@
 import { browser } from '@wdio/globals';
 
 describe('Check screenshots before and after hydration', () => {
-    it('mismatch percentage should below the acceptable threshold 1', async () => {
+    it('mismatch percentage should be below the acceptable threshold 1', async () => {
         // Navigate to the SSR-able only component page
         await browser.url('/x-hello-ssr-only');
 

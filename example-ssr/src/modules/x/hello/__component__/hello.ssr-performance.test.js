@@ -2,7 +2,7 @@ import { expect, browser } from '@wdio/globals';
 
 describe('Performance metrics tests', () => {
     beforeAll(async () => {
-        await browser.url('/x-hello');
+        await browser.url('/x-hello-hydrated');
     });
 
     it('should measure Largest Contentful Paint (LCP) using PerformanceObserver', async () => {

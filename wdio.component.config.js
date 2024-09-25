@@ -8,8 +8,7 @@ exports.config = {
     ...wdioConfig.config,
     specs: ['**/__component__/*.test.js'],
     services: [
-        ...(wdioConfig.services || []),
-
+        ...(wdioConfig.config.services || []),
         [
             'visual',
             {

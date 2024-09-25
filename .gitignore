@@ -8,6 +8,5 @@ coverage/
 .project/
 .vscode/
 __lwr_cache__/
-tests/
-tmp/
-.yarn-dev.pid
+**/before-hydration-image/
+**/after-hydration-image/

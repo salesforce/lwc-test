@@ -1,5 +1,5 @@
-import Greeting from '../hello';
-import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils';
+const Greeting = require('../hello').default;
+const { renderAndHashComponent } = require('@lwc/jest-ssr-snapshot-utils');
 
 describe('<x-hello>', () => {
     test('should render on the server', async () => {

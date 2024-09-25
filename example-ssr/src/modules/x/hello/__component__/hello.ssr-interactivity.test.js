@@ -1,10 +1,10 @@
-import Hello from '../../../../../pageObjects/hello.mjs';
-import { browser } from '@wdio/globals';
+const Hello = require('../../../../../pageObjects/hello.mjs').default;
+const { browser } = require('@wdio/globals');
 
-describe('Jasmine Example', () => {
+describe('Interactivity tests', () => {
     let helloPage;
 
-    beforeAll(async () => {
+    beforeEach(async () => {
         await browser.url('/x-hello-hydrated');
         // eslint-disable-next-line no-undef
         helloPage = await utam.load(Hello);
@@ -27,6 +27,6 @@ describe('Jasmine Example', () => {
 
         // Validate the greeting message content
         const greetingText = await greetingMessage.getText();
-        expect(greetingText).toBe('Hello, John Doe'); // Adjust the expected message as per your implementation
+        expect(greetingText).toBe('Hello, John Doe');
     });
 });

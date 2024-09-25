@@ -46,7 +46,7 @@ async function _utam_get_pContent(driver, root) {
 /**
  * Page Object: hello
  * generated from JSON example-ssr/src/modules/x/hello/__utam__/hello.utam.json
- * @version 2024-09-25T05:52:12.812Z
+ * @version 2024-09-25T18:37:28.827Z
  * @author UTAM generator
  */
 export default class Hello extends _UtamBaseRootPageObject {

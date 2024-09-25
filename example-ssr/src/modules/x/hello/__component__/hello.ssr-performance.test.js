@@ -1,7 +1,7 @@
-import { expect, browser } from '@wdio/globals';
+const { browser } = require('@wdio/globals');
 
 describe('Performance metrics tests', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
         await browser.url('/x-hello-hydrated');
     });
 
@@ -11,7 +11,6 @@ describe('Performance metrics tests', () => {
                 const observer = new PerformanceObserver((list) => {
                     const entries = list.getEntries();
                     const lastEntry = entries[entries.length - 1];
-                    console.log('LCP:', lastEntry.startTime);
                     observer.disconnect();
                     resolve(lastEntry.startTime);
                 });
@@ -30,17 +29,7 @@ describe('Performance metrics tests', () => {
                 const observer = new PerformanceObserver((list) => {
                     for (const entry of list.getEntries()) {
                         if (!entry.hadRecentInput) {
-                            console.log('LayoutShift value:', entry.value);
                             cumulativeLayoutShift += entry.value;
-
-                            if (entry.sources) {
-                                for (const { node, currentRect, previousRect } of entry.sources) {
-                                    console.log('LayoutShift source:', node, {
-                                        currentRect,
-                                        previousRect,
-                                    });
-                                }
-                            }
                         }
                     }
                 });
@@ -50,7 +39,7 @@ describe('Performance metrics tests', () => {
                 setTimeout(() => {
                     observer.disconnect();
                     resolve(cumulativeLayoutShift);
-                }, 2000);
+                }, 3000);
             });
         });
         expect(cls).toBeGreaterThanOrEqual(0);

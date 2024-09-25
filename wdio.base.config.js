@@ -26,7 +26,6 @@ const onComplete = async () => {
 };
 
 exports.config = {
-    specs: ['**/__component__/**/*.test.js'],
     framework: 'jasmine',
     jasmineOpts: {
         defaultTimeoutInterval: 10000, // 10 seconds

@@ -1,6 +1,6 @@
-import { browser } from '@wdio/globals';
+const { browser } = require('@wdio/globals');
 
-describe('Check screenshots before and after hydration', () => {
+describe('Check screenshots before and after hydration for layout shifts', () => {
     it('mismatch percentage should be below the acceptable threshold 1', async () => {
         // Navigate to the SSR-able only component page
         await browser.url('/x-hello-ssr-only');

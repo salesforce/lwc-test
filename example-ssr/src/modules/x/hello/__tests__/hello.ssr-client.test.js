@@ -1,7 +1,7 @@
-import { readSnapshotMarkup } from '@lwc/jest-ssr-snapshot-utils';
-import { hydrateShadowRoots } from '@webcomponents/template-shadowroot';
-import { hydrateComponent } from '@lwc/engine-dom';
-import Greeting from '../hello';
+const { readSnapshotMarkup } = require('@lwc/jest-ssr-snapshot-utils');
+const { hydrateShadowRoots } = require('@webcomponents/template-shadowroot');
+const { hydrateComponent } = require('@lwc/engine-dom');
+const Greeting = require('../hello').default;
 
 describe('<x-greeting>', () => {
     let wrapper;
@@ -65,6 +65,6 @@ describe('<x-greeting>', () => {
         // Validate the greeting message appears
         const greetingMessage = shadowRoot.querySelector('p');
         expect(greetingMessage).not.toBeNull();
-        expect(greetingMessage.textContent).toBe('Hello, John Doe'); // Verify the greeting message
+        expect(greetingMessage.textContent).toBe('Hello, John Doe');
     });
 });

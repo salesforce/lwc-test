@@ -13,13 +13,14 @@ describe('@salesforce/apex import', () => {
         import myMethod from '@salesforce/apex/FooController.fooMethod';
     `,
         `
-        import { jest } from '@jest/globals';
         let myMethod;
 
         try {
           myMethod = require("@salesforce/apex/FooController.fooMethod").default;
         } catch (e) {
-          global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || jest.fn(Promise.resolve());
+          global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
+            return Promise.resolve();
+          };
 
           myMethod = global.__lwcJestMock_myMethod;
         }
@@ -34,13 +35,14 @@ describe('@salesforce/apex import', () => {
     `,
         `
         import { otherNamed } from './something-valid';
-        import { jest } from '@jest/globals';
         let myMethod;
 
         try {
           myMethod = require("@salesforce/apex/FooController.fooMethod").default;
         } catch (e) {
-          global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || jest.fn(Promise.resolve());
+          global.__lwcJestMock_myMethod = global.__lwcJestMock_myMethod || function myMethod() {
+            return Promise.resolve();
+          };
 
           myMethod = global.__lwcJestMock_myMethod;
         }

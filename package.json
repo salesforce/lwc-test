@@ -15,10 +15,10 @@
         "release:version": "./scripts/release/version.js",
         "generate:utam": "utam-generate -c utam.config.json",
         "compile:utam": "utam --config utam.config.json",
-        "test:component:visual": "yarn compile:utam && wdio run ./wdio.visual.config.js",
+        "test:component:visual": "wdio run ./wdio.visual.config.js",
         "test:component:interactivity": "yarn compile:utam && wdio run ./wdio.interactivity.config.js",
-        "test:component:performance": "yarn compile:utam && wdio run ./wdio.performance.config.js",
-        "test:component": "yarn test:component:interactivity && yarn test:component:visual && yarn test:component:performance"
+        "test:component": "yarn test:component:interactivity && yarn test:component:visual",
+        "test:performance": " wdio run ./wdio.performance.config.js"
     },
     "workspaces": [
         "packages/@lwc/*",

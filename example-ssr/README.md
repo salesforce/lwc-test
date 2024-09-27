@@ -139,7 +139,7 @@ This type of testing assesses a component's behavior and interactions in a real 
 2. Automate interactivity tests: Use WebdriverIO with UTAM POs to navigate to the relevant routes. Simulate user interactions like clicks and typing. Verify that the component behaves correctly and remains interactive post-hydration.
 3. Validate results: Ensure all interactive elements respond as expected and maintain their intended functionality.
 
-**Sample Tests**: [Interactivity Test Sample](https://github.com/salesforce/lwc-test/pull/314/files#diff-9bb40ac25da0bc7e8c64ab4b50dcf32590387f7469b5f3754f8b6847403a734e)
+**Sample Tests**: [Interactivity Test Sample](https://github.com/salesforce/lwc-test/pull/314/files#diff-2e2aff21a3934a78beeae56a234b58f22d4130324268d65391bf1e7a60c5fede)
 
 #### Visual Regression Testing
 
@@ -152,7 +152,7 @@ Visual regression testing verifies that UI components maintain their expected ap
 3. **Run Visual Regression Tests**: Whenever changes are made to the component, run the visual regression tests again to capture new images.
 4. **Compare Images**: Analyze the new images against the baseline. If discrepancies are detected, review the changes to determine if they are intentional or require further attention.
 
-**Sample Tests**: [Visual Regression Test Sample](https://github.com/salesforce/lwc-test/pull/314/files#diff-6854b8d05f69d792c8853c19ee8e5d72109c4c39e9630e54b9afc9b373c73a03)
+**Sample Tests**: [Visual Regression Test Sample](https://github.com/salesforce/lwc-test/pull/314/files#diff-a9dbd874e11bf4fb202f1b30d7f5da30210f83d19c07902b797107b8364d5482)
 
 # End-to-End Tests
 

@@ -1,4 +1,4 @@
-const { browser } = require('@wdio/globals');
+import { browser } from '@wdio/globals';
 
 describe('Performance metrics tests', () => {
     beforeEach(async () => {

@@ -1,6 +1,6 @@
-const { readSnapshotMarkup } = require('@lwc/jest-ssr-snapshot-utils');
-const { hydrateComponent } = require('@lwc/engine-dom');
-const LightDomClickMe = require('../lightDomClickMe').default;
+import { readSnapshotMarkup } from '@lwc/jest-ssr-snapshot-utils';
+import { hydrateComponent } from '@lwc/engine-dom';
+import LightDomClickMe from '../lightDomClickMe';
 
 describe('<x-light-dom-click-me>', () => {
     let wrapper;

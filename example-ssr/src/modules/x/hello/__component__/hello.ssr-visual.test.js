@@ -1,4 +1,4 @@
-const { browser } = require('@wdio/globals');
+import { browser } from '@wdio/globals';
 
 describe('Check screenshots before and after hydration for layout shifts', () => {
     it('mismatch percentage should be below the acceptable threshold 1', async () => {

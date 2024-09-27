@@ -1,8 +1,8 @@
-const { readSnapshotMarkup } = require('@lwc/jest-ssr-snapshot-utils');
-const { hydrateShadowRoots } = require('@webcomponents/template-shadowroot');
-const { hydrateComponent } = require('@lwc/engine-dom');
-const Basic = require('../basic').default;
-const tests = require('./test-data').default;
+import { readSnapshotMarkup } from '@lwc/jest-ssr-snapshot-utils';
+import { hydrateShadowRoots } from '@webcomponents/template-shadowroot';
+import { hydrateComponent } from '@lwc/engine-dom';
+import Basic from '../basic';
+import tests from './test-data';
 
 describe('<x-basic>', () => {
     let wrapper;

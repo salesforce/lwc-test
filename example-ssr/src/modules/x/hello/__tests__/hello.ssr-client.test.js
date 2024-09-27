@@ -1,7 +1,7 @@
-const { readSnapshotMarkup } = require('@lwc/jest-ssr-snapshot-utils');
-const { hydrateShadowRoots } = require('@webcomponents/template-shadowroot');
-const { hydrateComponent } = require('@lwc/engine-dom');
-const Greeting = require('../hello').default;
+import { readSnapshotMarkup } from '@lwc/jest-ssr-snapshot-utils';
+import { hydrateShadowRoots } from '@webcomponents/template-shadowroot';
+import { hydrateComponent } from '@lwc/engine-dom';
+import Greeting from '../hello';
 
 describe('<x-greeting>', () => {
     let wrapper;

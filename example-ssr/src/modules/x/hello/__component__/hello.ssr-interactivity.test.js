@@ -1,5 +1,5 @@
-const Hello = require('../../../../../pageObjects/hello.mjs').default;
-const { browser } = require('@wdio/globals');
+import Hello from '../../../../../pageObjects/hello.mjs';
+import { browser } from '@wdio/globals';
 
 describe('Interactivity tests', () => {
     let helloPage;

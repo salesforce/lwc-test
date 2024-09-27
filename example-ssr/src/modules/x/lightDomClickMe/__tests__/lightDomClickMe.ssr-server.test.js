@@ -1,5 +1,5 @@
-const LightDomClickMe = require('../lightDomClickMe').default;
-const { renderAndHashComponent } = require('@lwc/jest-ssr-snapshot-utils');
+import LightDomClickMe from '../lightDomClickMe';
+import { renderAndHashComponent } from '@lwc/jest-ssr-snapshot-utils';
 
 describe('<x-light-dom-click-me>', () => {
     test('should render on the server', async () => {

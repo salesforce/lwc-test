@@ -17,7 +17,6 @@ exports.config = {
                 diffFolder,
                 screenshotPath,
                 savePerInstance: true,
-                misMatchTolerance: 0,
             },
         ],
     ],

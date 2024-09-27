@@ -45,6 +45,7 @@ describe('<x-greeting>', () => {
         // Check that the shadowRoot is not null
         expect(shadowRoot).not.toBeNull();
         // Validate that the shadow DOM content matches the pre-hydration markup
+        // It is also a simple Cumulative Layout Shift (CLS) test
         expect(shadowRoot.innerHTML).toBe(preHydratedMarkup);
 
         // Simulate user input and submit

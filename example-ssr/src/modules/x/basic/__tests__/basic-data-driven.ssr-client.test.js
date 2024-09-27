@@ -44,6 +44,7 @@ describe('<x-basic>', () => {
         hydrateComponent(componentEl, Basic, props);
 
         // Validate that the shadow DOM content matches the pre-hydration markup
+        // It is also a simple Cumulative Layout Shift (CLS) test
         expect(componentEl.shadowRoot.innerHTML).toBe(preHydratedMarkup);
 
         // Query for the h1 element inside the shadow root

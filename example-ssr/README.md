@@ -54,11 +54,6 @@ You can run server-side and client-side tests independently using the following 
 -   Server-side: [Server-Side Script](https://github.com/salesforce/lwc-test/blob/e43ba7be692b42ce91c992828547a3749df1a932/package.json#L8)
 -   Client-side: [Client-Side Script](https://github.com/salesforce/lwc-test/blob/e43ba7be692b42ce91c992828547a3749df1a932/package.json#L9)
 
-In a core environment using Bazel, the corresponding commands are:
-
--   Server-side: `bazel test //ui-flexipage-components:jest_test --test_arg="--projects=jest.ssr-server.config.js"`
--   Client-side: `bazel test //ui-flexipage-components:jest_test --test_arg="--projects=jest.ssr-client.config.js"`
-
 Alternatively, use `jest --selectProjects <project_name>` to target specific test suites.
 
 ### Writing Tests
@@ -158,3 +153,53 @@ Visual regression testing verifies that UI components maintain their expected ap
 4. **Compare Images**: Analyze the new images against the baseline. If discrepancies are detected, review the changes to determine if they are intentional or require further attention.
 
 **Sample Tests**: [Visual Regression Test Sample](https://github.com/salesforce/lwc-test/pull/314/files#diff-6854b8d05f69d792c8853c19ee8e5d72109c4c39e9630e54b9afc9b373c73a03)
+
+# End-to-End Tests
+
+## Overview
+
+End-to-end testing validates the entire application flow, from the user interface to the backend systems, ensuring that all components work together as expected. These tests simulate real user scenarios and interactions to verify that the application behaves correctly in a production-like environment.
+
+## Test Framework
+
+We recommend using the same framework for component testing: **WebdriverIO** in conjunction with **UTAM Page Objects**.
+
+---
+
+# Performance Testing
+
+## Overview
+
+Performance testing focuses on evaluating how an application behaves under various conditions, particularly regarding speed, responsiveness, and stability. It helps identify bottlenecks and ensures that the application meets performance benchmarks before going live.
+
+## Test Framework
+
+We recommend using the same framework for component testing: **WebdriverIO** in conjunction with **PerformanceObserver** (a Web API that allows developers to monitor and analyze performance-related events in web applications).
+
+## Workflow
+
+1. **Navigate to the Target URL**: Use `browser.url()` to load the page you want to test.
+2. **Execute a Script in the Browser Context**:  
+   Use `browser.execute()` to run a script that sets up the PerformanceObserver. This script will capture performance metrics based on specified entry types (e.g., marks, measures, resources).
+3. **Set Up the PerformanceObserver**:  
+   Inside the execute callback, create a new instance of `PerformanceObserver`. Use the `observe` method to specify which types of performance entries to monitor.
+4. **Capture Metrics**:  
+   Store the observed metrics in an array or object for later use.
+5. **Return Metrics**:  
+   Return the collected metrics from the execute callback for assertions.
+6. **Assertions**:  
+   Perform any necessary assertions on the collected metrics to evaluate performance.
+
+## Metrics
+
+-   **Largest Contentful Paint (LCP)**:  
+    Measures the time it takes for the largest visible content element (such as an image or block of text) to load and become visible to the user.  
+    **Goal**: An optimal LCP of under 2.5 seconds for a good user experience.
+
+-   **Cumulative Layout Shift (CLS)**:  
+    Quantifies the amount of unexpected layout shifts that occur during the page load.  
+    **Goal**: A CLS score of less than 0.1 to ensure a stable and visually coherent experience as content loads.
+
+## Sample Tests
+
+For sample tests, please refer to: [Sample Tests](https://github.com/salesforce/lwc-test/pull/314/files#diff-03a152342162b4d2bd1eaa083935d6c07f3c3fe7ecc2db6d519b96dec4c17b9d)

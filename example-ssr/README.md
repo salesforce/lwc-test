@@ -83,7 +83,10 @@ Client-side tests utilize server-side snapshots to validate the post-hydration b
 
 #### Sample Tests
 
--   **Non data-driven tests**: [Non Data-Driven Sample Tests](https://github.com/salesforce/lwc-test/pull/314/files#diff-b4be588045a9278665bdee8782f5a14112afeee9d955a85278587a3ca3d4cefe)
+-   **Shadow Root (Non data-driven tests**): [Non Data-Driven Sample Tests](https://github.com/salesforce/lwc-test/pull/314/files#diff-b4be588045a9278665bdee8782f5a14112afeee9d955a85278587a3ca3d4cefe)
+
+-   **LightDom (Non Data-Driven Tests)**: [Non Data-Driven Sample Tests](https://github.com/salesforce/lwc-test/pull/314/files#diff-7b600eb63de1023c510c1e3e681b3bdc7ad053acb939e1b4a48306b5ed4952c4)
+
 -   **Data-driven tests**: [Data-Driven Sample Tests](https://github.com/salesforce/lwc-test/pull/314/files#diff-b2fd25d336c20558d4661b6c707e870b657dfd979fc9348acd954b6e2656a907)
 
 ## Component Testing
@@ -201,5 +204,7 @@ We recommend using the same framework for component testing: **WebdriverIO** in 
     **Goal**: A CLS score of less than 0.1 to ensure a stable and visually coherent experience as content loads.
 
 ## Sample Tests
+
+We strongly recommend running performance tests at the page level. The sample tests are shown at the component level for demonstration purposes only.
 
 For sample tests, please refer to: [Sample Tests](https://github.com/salesforce/lwc-test/pull/314/files#diff-03a152342162b4d2bd1eaa083935d6c07f3c3fe7ecc2db6d519b96dec4c17b9d)

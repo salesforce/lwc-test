@@ -1,0 +1,12 @@
+<template>
+    <div>
+        <h1>Greeting Form</h1>
+
+        <label for="name">Your Name:</label>
+        <input id="name" type="text" onchange={handleInputChange} />
+
+        <button onclick={handleSubmit}>Submit</button>
+
+        <p if:true={greetingMessage}>{greetingMessage}</p>
+    </div>
+</template>

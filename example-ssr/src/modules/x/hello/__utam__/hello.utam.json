@@ -1,0 +1,52 @@
+{
+    "description": {
+        "author": "UTAM generator",
+        "text": ["Page Object: hello"]
+    },
+    "root": true,
+    "selector": { "css": "x-hello" },
+    "shadow": {
+        "elements": [
+            {
+                "public": true,
+                "name": "h1Content",
+                "type": [],
+                "selector": {
+                    "css": "h1"
+                }
+            },
+            {
+                "public": true,
+                "name": "labelContent",
+                "type": [],
+                "selector": {
+                    "css": "label"
+                }
+            },
+            {
+                "public": true,
+                "name": "name",
+                "type": ["actionable", "clickable", "editable"],
+                "selector": {
+                    "css": "input#name"
+                }
+            },
+            {
+                "public": true,
+                "name": "button",
+                "type": ["actionable", "clickable"],
+                "selector": {
+                    "css": "button"
+                }
+            },
+            {
+                "public": true,
+                "name": "pContent",
+                "type": [],
+                "selector": {
+                    "css": "p"
+                }
+            }
+        ]
+    }
+}

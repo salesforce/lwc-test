@@ -1,0 +1,11 @@
+{
+    "rootDir": "./example-ssr",
+    "ignore": ["**/node_modules/**", "**/test/**"],
+    "inputFileMask": ["**/*.html"],
+    "relativeOutputDir": true,
+    "outputFileExtension": ".utam.json",
+    "overrideExisting": true,
+    "pageObjectsOutputDir": "./example-ssr/pageObjects",
+    "moduleTarget": "commonjs",
+    "skipCommonJs": false
+}

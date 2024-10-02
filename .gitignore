@@ -7,3 +7,6 @@ coverage/
 .idea/
 .project/
 .vscode/
+__lwr_cache__/
+**/before-hydration-image/
+**/after-hydration-image/

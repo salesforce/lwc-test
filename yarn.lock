@@ -2512,16 +2512,88 @@
     "@babel/generator" "7.22.10"
     match-json "1.3.7"
 
+"@locker/distortion@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/distortion/-/distortion-0.22.5.tgz#3b32c3571078aaf1805b5543c8ebff79e5c6ef15"
+  integrity sha512-3WgBIZWgWdYItKh9bog0K8ez6YZnli/PGPEHvrBwtakgRYk6AHoLxysY93ullAVq9fjPoe/6/oF86SkutqCe3g==
+  dependencies:
+    "@locker/html-sanitizer" "0.22.5"
+    "@locker/internal-policy" "0.22.5"
+    "@locker/shared" "0.22.5"
+    "@locker/shared-dom" "0.22.5"
+    "@locker/shared-url" "0.22.5"
+    "@locker/trusted-types" "0.22.5"
+
+"@locker/html-sanitizer@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/html-sanitizer/-/html-sanitizer-0.22.5.tgz#2cc91dda61afe8e5101a1243685c041223d29e27"
+  integrity sha512-MqO2VkEfNIPjLcOCSa77LDqgAYeJdkGwT18APTUcD2gMXAHfPrAdWSQIGyN+Ko9YQIw8VA0MXP0FeHan/nKr4g==
+  dependencies:
+    "@locker/shared" "0.22.5"
+    "@locker/shared-dom" "0.22.5"
+    "@locker/shared-url" "0.22.5"
+    "@locker/trusted-types" "0.22.5"
+    "@types/dompurify" "3.0.2"
+    dompurify "3.0.5"
+
+"@locker/internal-policy@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/internal-policy/-/internal-policy-0.22.5.tgz#5167279423f726f83b9082edc89d80fc07460791"
+  integrity sha512-+IOHERRKd0+bpyziJ2jXT1yXOoCJUtzWtHRYS38btZtCq/mjUlKXeqwmuTy3GcIKPmqOD8D4OZeHTe95PqCbOg==
+  dependencies:
+    "@locker/html-sanitizer" "0.22.5"
+    "@locker/shared" "0.22.5"
+    "@locker/shared-dom" "0.22.5"
+    "@locker/shared-url" "0.22.5"
+    "@locker/trusted-types" "0.22.5"
+
+"@locker/sandbox@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/sandbox/-/sandbox-0.22.5.tgz#206f4859a48efd380c6f93e79bc08c122e49b2e3"
+  integrity sha512-qQ6YYvgeDcfTbPERoXDlogxQ+et9dK/v8hz08ce2dWiGalz5cH5Qt6dyAb4PBRtx1nCuoSqLdoH3ydEZ7GZuBQ==
+  dependencies:
+    "@locker/distortion" "0.22.5"
+    "@locker/html-sanitizer" "0.22.5"
+    "@locker/shared" "0.22.5"
+    "@locker/shared-dom" "0.22.5"
+    "@locker/shared-url" "0.22.5"
+    "@locker/trusted-types" "0.22.5"
+
+"@locker/shared-dom@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/shared-dom/-/shared-dom-0.22.5.tgz#1839ea596cf6bbc1a4d2a9e05dee2391a25e2219"
+  integrity sha512-i6YmDaG9fbI+Dx1v9nCxdmCHvlOP1QeVvG2mhlbkJy3f2flGXtKyCwWJQkHLsUqKzOHJtjRXZx1v6o0Ur5iYZg==
+  dependencies:
+    "@locker/shared" "0.22.5"
+
+"@locker/shared-url@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/shared-url/-/shared-url-0.22.5.tgz#219da60bd0d842aef8b505c3c2c028162bf285c0"
+  integrity sha512-6x4yccOCVYdYHN5X2129EQNu7FcqCxElAOSiNlx1iHWg+QJUxb5U6c9tB41meSfsF/VBI1+BzC5cYQajSq9tBg==
+  dependencies:
+    "@locker/shared" "0.22.5"
+    "@locker/shared-dom" "0.22.5"
+
+"@locker/shared@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/shared/-/shared-0.22.5.tgz#3cc30e34a108fd23fbb3ac14515b05a865ce392f"
+  integrity sha512-59J50TajK6GajsS5J1nke6LFAqL9i1eX21YRVe7d35GviY9uZcX3/DaDLvng2C6WWXJ9FGQ4Wd/4P4QECfk2Zw==
+
+"@locker/trusted-types@0.22.5":
+  version "0.22.5"
+  resolved "https://registry.npmjs.org/@locker/trusted-types/-/trusted-types-0.22.5.tgz#cf78cfec2d97a68678c0660656e4bdef2d5abc3a"
+  integrity sha512-sHXROEFevqsNa8+Dl9Q46Ol7XYY8iD+KzdMj6HGVVFu6BY3Fb4sYiR257759V3PURrRcju0to4lDwkg7Qz0z0A==
+
 "@lwc/babel-plugin-component@7.2.3":
   version "7.2.3"
   resolved "https://registry.npmjs.org/@lwc/babel-plugin-component/-/babel-plugin-component-7.2.3.tgz#9b65c5648c4602509aa64f1b19512c8a7df1e21e"
   integrity sha512-ml2hRbqVwGdl9qKYgjZ8/2qJFDaXfqaTEcoafV6FEAtAmR6H02bL3WN50MyhKDLHj6gvO5RGkZk+K/CiBLuFfg==
   dependencies:
     "@babel/helper-module-imports" "7.24.7"
-    "@babel/traverse" "^7.25.6"
+    "@babel/traverse" "^7.25.4"
     "@babel/types" "^7.25.0"
-    "@lwc/errors" "8.1.2"
-    "@lwc/shared" "8.1.2"
+    "@lwc/errors" "7.2.3"
+    "@lwc/shared" "7.2.3"
     line-column "~1.0.2"
 
 "@lwc/compiler@7.2.3":
@@ -2557,21 +2629,38 @@
   resolved "https://registry.npmjs.org/@lwc/errors/-/errors-7.2.3.tgz#607416de1ca783f2f399ffc18471b0f819bb37fc"
   integrity sha512-ApUrfG6VbEcbpOGTBzfcY9Wq1hh4zaPTrEYW59R7URQ8RS6YRDwsL0KXYJA605E6f61eMkQhRYvP6MbnH9MlOg==
 
+"@lwc/errors@8.1.2":
+  version "8.1.2"
+  resolved "https://registry.npmjs.org/@lwc/errors/-/errors-8.1.2.tgz#fda91866a9af216299577bff14b8affe01cd580d"
+  integrity sha512-aGT8HZAS3s3ZpmK2Uer4pGZCrAPbOfUgTq9yly3DpXuBkKbRiOutR6NclWfoojvf0qDQWD0UUYhb7m2neSYYvg==
+
+"@lwc/module-resolver@^8.1.0":
+  version "8.1.2"
+  resolved "https://registry.npmjs.org/@lwc/module-resolver/-/module-resolver-8.1.2.tgz#a947f06383640fbf9c3fb34ccafb0126e4eb5e79"
+  integrity sha512-BMcv986aFu4L3bZ5i7VGimE9t5xSGgDOdQRR7En+o4Nes1te1KuloekSIKe9gHfrjQLQmbvDgynIlIpptE0VWA==
+  dependencies:
+    resolve "~1.22.8"
+
 "@lwc/shared@7.2.3":
   version "7.2.3"
   resolved "https://registry.npmjs.org/@lwc/shared/-/shared-7.2.3.tgz#9cb405263c6411184b33a4175a6d99b319e6cfd3"
   integrity sha512-LJFZbrLWwDDdh9eUW6yt+0iyT+rXVu8TRmCvF+RdBKtzZFQ6aZcfw+avIfuzEkqHy3HXPRJi/Q7s6sZ5yMZqyg==
+
+"@lwc/shared@8.1.2":
+  version "8.1.2"
+  resolved "https://registry.npmjs.org/@lwc/shared/-/shared-8.1.2.tgz#01dbc51c2ec51927e3aff55ed0303e9235d6ff7f"
+  integrity sha512-2w0FecY2IUmpF0oqUweza6I+N8rGhr10FGjLksKUJq+qRW9nzzTYTZC/KeeSBQa6ABUcrYrh7j7ekupYov9HKg==
 
 "@lwc/ssr-compiler@7.2.3":
   version "7.2.3"
   resolved "https://registry.npmjs.org/@lwc/ssr-compiler/-/ssr-compiler-7.2.3.tgz#540113a9e5dbd1be78cf25dec9e00d36a06a02d7"
   integrity sha512-udJPGm6GC3meVcXg7xlzRBR8UzFryWLfsnkrtFD8Gz2NuLRVGDIedtkEELkdEyS0f+PpyNO8aLvA4VD/ydRoOg==
   dependencies:
-    "@lwc/shared" "8.1.2"
-    "@lwc/template-compiler" "8.1.2"
+    "@lwc/shared" "7.2.3"
+    "@lwc/template-compiler" "7.2.3"
     acorn "8.12.1"
     astring "^1.9.0"
-    estree-toolkit "^1.7.8"
+    estree-toolkit "^1.7.7"
     immer "^10.1.1"
     meriyah "^5.0.0"
 
@@ -2580,8 +2669,8 @@
   resolved "https://registry.npmjs.org/@lwc/style-compiler/-/style-compiler-7.2.3.tgz#c310d8ea4833f1485b0aa0c085e45ddfeb3420a6"
   integrity sha512-GWCdLxunHV2tTD7TBFEmEhby2s3RYK6xtggENCidGaVEPYzJDFD/o8d1j8NviLIxOUAm+yVp9feloebylrBC2g==
   dependencies:
-    "@lwc/shared" "8.1.2"
-    postcss "~8.4.47"
+    "@lwc/shared" "7.2.3"
+    postcss "~8.4.41"
     postcss-selector-parser "~6.1.2"
     postcss-value-parser "~4.2.0"
 
@@ -2594,6 +2683,17 @@
   version "7.2.3"
   resolved "https://registry.npmjs.org/@lwc/template-compiler/-/template-compiler-7.2.3.tgz#d59f38d3420914ab51e93fed3384897cc63c4832"
   integrity sha512-yoebVc9EhQg8KsYMUPcldCzNR72kfcBGc9ZXv/gprhQBTpmKM4YWX+ftRFPpdv86IU15XiFsZbX2tiTvt7P+ZQ==
+  dependencies:
+    "@lwc/errors" "7.2.3"
+    "@lwc/shared" "7.2.3"
+    acorn "~8.12.1"
+    astring "~1.9.0"
+    he "~1.2.0"
+
+"@lwc/template-compiler@8.1.2":
+  version "8.1.2"
+  resolved "https://registry.npmjs.org/@lwc/template-compiler/-/template-compiler-8.1.2.tgz#884f8c2e78213f126bc387bcb19bdac6f8ccdf94"
+  integrity sha512-bnQaqDHSxnKObrGx6n2yyFkwUHkhXWRSNwAEi2D1SsI5CVp6gdYYX/OjxdEgybNnGLWi65peIVOvv7mJErssWA==
   dependencies:
     "@lwc/errors" "8.1.2"
     "@lwc/shared" "8.1.2"
@@ -13636,7 +13736,17 @@ postcss-value-parser@^4.2.0, postcss-value-parser@~4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@~8.4.41:
+postcss@^5.2.17:
+  version "5.2.18"
+  resolved "https://registry.npmjs.org/postcss/-/postcss-5.2.18.tgz#badfa1497d46244f6390f58b319830d9107853c5"
+  integrity sha512-zrUjRRe1bpXKsX1qAJNJjqZViErVuyEkMTRrwu4ud4sbTtIBRmtaYDrHmcGgmrbsW3MHfmtIf+vJumgQn+PrXg==
+  dependencies:
+    chalk "^1.1.3"
+    js-base64 "^2.1.9"
+    source-map "^0.5.6"
+    supports-color "^3.2.3"
+
+postcss@^8.4.40, postcss@~8.4.47:
   version "8.4.47"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.47.tgz#5bf6c9a010f3e724c503bf03ef7947dcb0fea365"
   integrity sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==

@@ -5,8 +5,6 @@
     "scripts": {
         "prepare": "husky",
         "test": "jest --no-cache",
-        "test:ssr:server": "jest --no-cache --projects=./example-ssr/jest.ssr-server.config.js",
-        "test:ssr:client": "jest --no-cache --projects=./example-ssr/jest.ssr-client.config.js",
         "clean": "lerna run clean && lerna clean --yes && rm -rf node_modules",
         "lint": "eslint packages/ test/ --ext=js,mjs,ts",
         "format": "prettier --write '{packages,test}/**/*.{js,mjs,ts,json,md,yaml}'",
@@ -14,6 +12,8 @@
         "release:publish:ci": "./scripts/release/publish.js",
         "release:version": "./scripts/release/version.js",
         "generate:utam": "utam-generate -c utam.config.json",
+        "test:ssr:server": "jest --no-cache --projects=./example-ssr/jest.ssr-server.config.js",
+        "test:ssr:client": "jest --no-cache --projects=./example-ssr/jest.ssr-client.config.js",
         "compile:utam": "utam --config utam.config.json",
         "test:component:visual": "wdio run ./wdio.visual.config.js",
         "test:component:interactivity": "yarn compile:utam && wdio run ./wdio.interactivity.config.js",

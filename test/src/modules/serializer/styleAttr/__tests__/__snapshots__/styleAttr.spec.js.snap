@@ -105,7 +105,9 @@ exports[`serializes component with different whitespace 1`] = `
     <div
       style="background-color: red !important;"
     />
-    <div />
+    <div
+      style="color: yellow;"
+    />
     <div
       style="color: purple;"
     />

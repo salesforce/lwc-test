@@ -2629,11 +2629,6 @@
   resolved "https://registry.npmjs.org/@lwc/errors/-/errors-7.2.3.tgz#607416de1ca783f2f399ffc18471b0f819bb37fc"
   integrity sha512-ApUrfG6VbEcbpOGTBzfcY9Wq1hh4zaPTrEYW59R7URQ8RS6YRDwsL0KXYJA605E6f61eMkQhRYvP6MbnH9MlOg==
 
-"@lwc/errors@8.1.2":
-  version "8.1.2"
-  resolved "https://registry.npmjs.org/@lwc/errors/-/errors-8.1.2.tgz#fda91866a9af216299577bff14b8affe01cd580d"
-  integrity sha512-aGT8HZAS3s3ZpmK2Uer4pGZCrAPbOfUgTq9yly3DpXuBkKbRiOutR6NclWfoojvf0qDQWD0UUYhb7m2neSYYvg==
-
 "@lwc/module-resolver@^8.1.0":
   version "8.1.2"
   resolved "https://registry.npmjs.org/@lwc/module-resolver/-/module-resolver-8.1.2.tgz#a947f06383640fbf9c3fb34ccafb0126e4eb5e79"
@@ -2645,11 +2640,6 @@
   version "7.2.3"
   resolved "https://registry.npmjs.org/@lwc/shared/-/shared-7.2.3.tgz#9cb405263c6411184b33a4175a6d99b319e6cfd3"
   integrity sha512-LJFZbrLWwDDdh9eUW6yt+0iyT+rXVu8TRmCvF+RdBKtzZFQ6aZcfw+avIfuzEkqHy3HXPRJi/Q7s6sZ5yMZqyg==
-
-"@lwc/shared@8.1.2":
-  version "8.1.2"
-  resolved "https://registry.npmjs.org/@lwc/shared/-/shared-8.1.2.tgz#01dbc51c2ec51927e3aff55ed0303e9235d6ff7f"
-  integrity sha512-2w0FecY2IUmpF0oqUweza6I+N8rGhr10FGjLksKUJq+qRW9nzzTYTZC/KeeSBQa6ABUcrYrh7j7ekupYov9HKg==
 
 "@lwc/ssr-compiler@7.2.3":
   version "7.2.3"
@@ -2686,17 +2676,6 @@
   dependencies:
     "@lwc/errors" "7.2.3"
     "@lwc/shared" "7.2.3"
-    acorn "~8.12.1"
-    astring "~1.9.0"
-    he "~1.2.0"
-
-"@lwc/template-compiler@8.1.2":
-  version "8.1.2"
-  resolved "https://registry.npmjs.org/@lwc/template-compiler/-/template-compiler-8.1.2.tgz#884f8c2e78213f126bc387bcb19bdac6f8ccdf94"
-  integrity sha512-bnQaqDHSxnKObrGx6n2yyFkwUHkhXWRSNwAEi2D1SsI5CVp6gdYYX/OjxdEgybNnGLWi65peIVOvv7mJErssWA==
-  dependencies:
-    "@lwc/errors" "8.1.2"
-    "@lwc/shared" "8.1.2"
     acorn "~8.12.1"
     astring "~1.9.0"
     he "~1.2.0"
@@ -8131,9 +8110,9 @@ estraverse@^5.1.0, estraverse@^5.2.0, estraverse@^5.3.0:
   resolved "https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz"
   integrity sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==
 
-estree-toolkit@^1.7.8:
+estree-toolkit@^1.7.7:
   version "1.7.8"
-  resolved "https://registry.npmjs.org/estree-toolkit/-/estree-toolkit-1.7.8.tgz#45888dcce8b4f0c8bae7d58fd4fd4d19f2c15258"
+  resolved "https://registry.yarnpkg.com/estree-toolkit/-/estree-toolkit-1.7.8.tgz#45888dcce8b4f0c8bae7d58fd4fd4d19f2c15258"
   integrity sha512-v0Q0L+0agSDFe3x9Sj7aAzrI9afvsfr5r7AM2SNk/8bKYRQ3tUf4PQEUWe99LkWysmT1PsuSpW+W1w/xZmCKeg==
   dependencies:
     "@types/estree" "^1.0.5"
@@ -13746,9 +13725,9 @@ postcss@^5.2.17:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^8.4.40, postcss@~8.4.47:
+postcss@^8.4.40, postcss@~8.4.41:
   version "8.4.47"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.47.tgz#5bf6c9a010f3e724c503bf03ef7947dcb0fea365"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.47.tgz#5bf6c9a010f3e724c503bf03ef7947dcb0fea365"
   integrity sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==
   dependencies:
     nanoid "^3.3.7"
@@ -13805,10 +13784,15 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.0.0, prettier@^2.8.6:
+prettier@^2.8.6:
   version "2.8.8"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.8.8.tgz"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
+
+prettier@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.3.tgz#30c54fe0be0d8d12e6ae61dbb10109ea00d53105"
+  integrity sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==
 
 pretty-format@^26.6.2:
   version "26.6.2"

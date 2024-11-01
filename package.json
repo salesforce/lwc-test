@@ -29,7 +29,7 @@
         "@babel/core": "^7.24.4",
         "@lwc/compiler": "7.2.3",
         "@lwc/engine-dom": "7.2.3",
-        "@lwc/engine-server": "7.2.3",
+        "@lwc/engine-server": "8.5.0",
         "@lwc/module-resolver": "^8.1.0",
         "@lwc/synthetic-shadow": "7.2.3",
         "@lwc/wire-service": "7.2.3",

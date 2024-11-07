@@ -9,4 +9,5 @@ const originalSSRPreset = require('../ssr/jest-preset.js');
 module.exports = {
     ...originalSSRPreset,
     snapshotSerializers: [],
+    setupFilesAfterEnv: [require.resolve('../ssr-server/jest.ssr-server.setupAfterEnv.js')],
 };

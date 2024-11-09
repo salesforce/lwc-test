@@ -2619,10 +2619,10 @@
   resolved "https://registry.npmjs.org/@lwc/engine-dom/-/engine-dom-8.1.2.tgz#c71c21b53ea3679600224028f6e05d403e587726"
   integrity sha512-zUkl384fyLDBSMCEMpkj0mNi9jyQT1AhWMrEAfzv1ouE0+LFVK27CtINRTcWBc/1TgzzvuHzyjkXHnOmIUfU9g==
 
-"@lwc/engine-server@8.1.2":
-  version "8.1.2"
-  resolved "https://registry.npmjs.org/@lwc/engine-server/-/engine-server-8.1.2.tgz#0585b80fe5b6729f9ce5892a384fd88d9b11f325"
-  integrity sha512-hRrw2jUEjthzIFLcHcqceHP/F/RWNGflouAQ1zdsqIhGQVKYzZGXJWa9enneKcgsd10tno4+2DZg8KbyD1tQww==
+"@lwc/engine-server@8.7.0":
+  version "8.7.0"
+  resolved "https://registry.yarnpkg.com/@lwc/engine-server/-/engine-server-8.7.0.tgz#50c6277dcf449c24f242d4f4091e071eb1846586"
+  integrity sha512-Um6WHA+4BIeckVHHsqtlS3ZPL8AiN50r4KEe2eRBmZS78wosQRdubMgl2f0NmdBzgoAgyiX469ydu9kiNk+Ljg==
 
 "@lwc/errors@8.1.2":
   version "8.1.2"

@@ -108,6 +108,7 @@ function formatHTML(src) {
             // `data-lwc-host-mutated` may or may not have an attribute value depending on the version of LWC.
             // See: https://github.com/salesforce/lwc/pull/4385
             .replace(/ data-lwc-host-mutated(="[^"]*")?/g, '')
+            .replace(/ data-lwc-host-scope-token(="[^"]*")?/g, '')
             .replace(/ data-rendered-by-lwc/g, '')
     );
 }

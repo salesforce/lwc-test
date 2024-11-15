@@ -14,5 +14,6 @@ export default class FrameworkAttrsWithValue extends LightningElement {
         // Typically this is only added by the framework itself, but here we are explicitly adding it
         // to make the test simpler
         this.setAttribute('data-lwc-host-mutated', 'class data-foo');
+        this.setAttribute('data-lwc-host-scope-token', 'foo');
     }
 }

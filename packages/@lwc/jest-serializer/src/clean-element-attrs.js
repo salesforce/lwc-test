@@ -9,6 +9,7 @@ const { isKnownScopeToken } = require('@lwc/jest-shared');
 const ATTRS_TO_REMOVE = [
     'lwc:host', // https://github.com/salesforce/lwc/pull/1600
     'data-lwc-host-mutated', // https://github.com/salesforce/lwc/pull/4358
+    'data-lwc-host-scope-token', // https://github.com/salesforce/lwc/pull/4865
 ];
 
 function cleanElementAttributes(elm) {

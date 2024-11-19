@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-shared",
-    "version": "18.1.1",
+    "version": "18.1.2",
     "description": "Shared internal code for LWC Jest packages",
     "homepage": "https://lwc.dev/",
     "repository": {

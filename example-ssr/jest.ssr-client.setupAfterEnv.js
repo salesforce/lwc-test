@@ -1,14 +1,14 @@
 let hydrationMismatchOccurred = false;
 let hydrationMismatchMessage = '';
+let originalConsoleWarn;
 
 beforeEach(() => {
     // Reset the flag and message before each test
     hydrationMismatchOccurred = false;
     hydrationMismatchMessage = '';
-
+    originalConsoleWarn = console.warn;
     // Spy on console.warn and intercept warnings
     jest.spyOn(console, 'warn').mockImplementation((message) => {
-        const originalConsoleWarn = console.warn;
         if (message.includes('Hydration mismatch')) {
             // Set the flag to indicate a hydration mismatch occurred
             hydrationMismatchOccurred = true;

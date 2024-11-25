@@ -97,7 +97,7 @@ module.exports = {
         }
 
         // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
-        const { code, map, cssScopeTokens } = lwcCompiler.transformSync(src, filePath, {
+        const { code, map, cssScopeTokens, warnings } = lwcCompiler.transformSync(src, filePath, {
             name: 'test',
             namespace: 'x',
             outputConfig: {
@@ -116,6 +116,12 @@ module.exports = {
             ...(semver.lt(compilerVersion, '2.49.1') ? { enableLwcSpread: true } : {}),
         });
 
+        // Log compiler warnings, if any
+        if (warnings && warnings.length > 0) {
+            warnings.forEach((warning) => {
+                console.warn(`\x1b[33m[LWC Warn]\x1b[0m(${filePath}): ${warning.message}`);
+            });
+        }
         // if is not .js, we add the .compiled extension in the sourcemap
         const filename = path.extname(filePath) === '.js' ? filePath : filePath + '.compiled';
         // **Note: .html and .css don't return valid sourcemaps cause they are used for rollup

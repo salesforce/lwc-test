@@ -119,7 +119,7 @@ module.exports = {
         // Log compiler warnings, if any
         if (warnings && warnings.length > 0) {
             warnings.forEach((warning) => {
-                console.warn(`\x1b[33m[LWC Warn]\x1b[0m(${filePath}): ${warning.message}`);
+                console.warn(`\x1b[33m[LWC Warn]\x1b[0m(${filePath}): ${warning?.message ?? warning}`);
             });
         }
         // if is not .js, we add the .compiled extension in the sourcemap

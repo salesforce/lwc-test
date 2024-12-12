@@ -57,7 +57,7 @@ describe('Snapshot utilities service', () => {
                 exports[\`someKey_mockedHash_AnotherPart\`] = \`<div>Mocked Markup</div>\`;
             `;
 
-            readdirSync.mockReturnValue(['testFile.snap.js']);
+            readdirSync.mockReturnValue(['testFile.ssr-server.snap.js']);
             readFileSync.mockReturnValue(mockFileContent);
 
             const result = readSnapshotMarkup(mockTagName, mockProps);
@@ -65,7 +65,7 @@ describe('Snapshot utilities service', () => {
             expect(result).toBe('<div>Mocked Markup</div>');
             expect(readdirSync).toHaveBeenCalledWith(join('/test/path/to', '__snapshots__'));
             expect(readFileSync).toHaveBeenCalledWith(
-                '/test/path/to/__snapshots__/testFile.snap.js',
+                '/test/path/to/__snapshots__/testFile.ssr-server.snap.js',
                 'utf8'
             );
         });
@@ -77,7 +77,7 @@ describe('Snapshot utilities service', () => {
                 exports[\`someKey_differentHash_AnotherPart\`] = \`<div>Mocked Markup</div>\`;
             `;
 
-            readdirSync.mockReturnValue(['testFile.snap.js']);
+            readdirSync.mockReturnValue(['testFile.ssr-server.snap.js']);
             readFileSync.mockReturnValue(mockFileContent);
 
             expect(() => readSnapshotMarkup(mockTagName, mockProps)).toThrowError(

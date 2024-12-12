@@ -85,7 +85,8 @@ function findFileByPrefix(testSuiteAbsPath) {
     // Extract the first portion of the filename including the period
     const baseName = basename(testSuiteAbsPath, extname(testSuiteAbsPath));
     const periodIndex = baseName.indexOf('.');
-    const fileNamePrefix = periodIndex === -1 ? baseName : baseName.substring(0, periodIndex + 1);
+    const fileNamePrefix =
+        periodIndex === -1 ? baseName : baseName.substring(0, periodIndex + 1) + 'ssr-server';
 
     try {
         const matchedFile = readdirSync(snapshotsDir).find((file) =>

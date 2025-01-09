@@ -2835,22 +2835,22 @@
   resolved "https://registry.npmjs.org/@locker/trusted-types/-/trusted-types-0.22.5.tgz#cf78cfec2d97a68678c0660656e4bdef2d5abc3a"
   integrity sha512-sHXROEFevqsNa8+Dl9Q46Ol7XYY8iD+KzdMj6HGVVFu6BY3Fb4sYiR257759V3PURrRcju0to4lDwkg7Qz0z0A==
 
-"@lwc/babel-plugin-component@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/babel-plugin-component/-/babel-plugin-component-8.9.0.tgz#a5bc123168456c22a89c16a17206e08ca0145910"
-  integrity sha512-P95ipMuhDGbg+kBH5/VBohfXBbPK+IrOiYQXs43HXeyJmj5QOUkv7V5BfulgPc5p5chdTRju0xGrRwWgQDTYvQ==
+"@lwc/babel-plugin-component@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/babel-plugin-component/-/babel-plugin-component-8.10.3.tgz#5570a7f703db9083549ce67b956d839fde73f8b0"
+  integrity sha512-zzfzXshpSwrme9rhthoi7PPja9UAgDXx64ikiHnVVYtQsfHQdpLAvKoojT6A02qLThGFsqEjZTfOiX7TnqAV4Q==
   dependencies:
     "@babel/helper-module-imports" "7.25.9"
     "@babel/traverse" "^7.25.7"
     "@babel/types" "^7.25.8"
-    "@lwc/errors" "8.9.0"
-    "@lwc/shared" "8.9.0"
+    "@lwc/errors" "8.10.3"
+    "@lwc/shared" "8.10.3"
     line-column "~1.0.2"
 
-"@lwc/compiler@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/compiler/-/compiler-8.9.0.tgz#fe16cb8b3992ac8f2e8a2c50fdfb274071e4f274"
-  integrity sha512-1qXNOb9L0mLkjQlalb+ASLUWYb1eZUdflAbPBXbNXF/VVaVqhwxnrDngJGTIadZBKRz3r4lyWXLYynVoppKiNA==
+"@lwc/compiler@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/compiler/-/compiler-8.10.3.tgz#fb3284d8c018011fcb690641ba74ebaeff23d747"
+  integrity sha512-AD59A1TPpLx69KZem9L493EV0gkpjPWv+bvBS4+vN9xxyrbEBWaXLyqlLcnWveaYDeYCM+XoMyr58KBIukVEuw==
   dependencies:
     "@babel/core" "7.26.0"
     "@babel/plugin-transform-async-generator-functions" "7.25.9"
@@ -2858,83 +2858,84 @@
     "@babel/plugin-transform-class-properties" "7.25.9"
     "@babel/plugin-transform-object-rest-spread" "7.25.9"
     "@locker/babel-plugin-transform-unforgeables" "0.22.0"
-    "@lwc/babel-plugin-component" "8.9.0"
-    "@lwc/errors" "8.9.0"
-    "@lwc/shared" "8.9.0"
-    "@lwc/ssr-compiler" "8.9.0"
-    "@lwc/style-compiler" "8.9.0"
-    "@lwc/template-compiler" "8.9.0"
+    "@lwc/babel-plugin-component" "8.10.3"
+    "@lwc/errors" "8.10.3"
+    "@lwc/shared" "8.10.3"
+    "@lwc/ssr-compiler" "8.10.3"
+    "@lwc/style-compiler" "8.10.3"
+    "@lwc/template-compiler" "8.10.3"
 
-"@lwc/engine-dom@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/engine-dom/-/engine-dom-8.9.0.tgz#b597e12936f773e8c3c4f951972accafc14b9828"
-  integrity sha512-/49lkQOm2DXv2HbaNraU+hr0UwI6C+hm4wGrYFbwMT3w4j+ZusmvNG09B5eBHX+Ii06n8UpmEkE2Tq0tVajqqA==
+"@lwc/engine-dom@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/engine-dom/-/engine-dom-8.10.3.tgz#e9a1b70179178029f1115eb585a2cd84fe6cd8ed"
+  integrity sha512-EB2I4xOR0wJmEaWlxzOA/H81IHifbN3L/3q6TwRD/2XFbYF7KhQyPfPB64fWfkWCDCMAOyQZQdWturSitHZlRg==
 
-"@lwc/engine-server@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/engine-server/-/engine-server-8.9.0.tgz#26171ea85dd61735835c4ac203952a55bd73526d"
-  integrity sha512-GVlkVz2NvhhZqS9CvedwpIYLQ5PJwdcgaDoJBFdBDUpcj4Ae3OcGd/v9h5ca0xTQlQRwwBazqjyCNQTMAQROWQ==
+"@lwc/engine-server@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/engine-server/-/engine-server-8.10.3.tgz#0c3ef351d71bad7d569a3969b2748a436b5ffe04"
+  integrity sha512-cSctn2P8PX5YV9NrKyWA82l9DawjnR+QKevOYLU8IVRIZy0D6mDm7xf++B66RMzeswy+rWf4MnoRNo4UjQlduw==
 
-"@lwc/errors@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/errors/-/errors-8.9.0.tgz#cc71425178d7d6602998d116b10ce0dd48a98576"
-  integrity sha512-T1oN+KqFmFCRfKamxT3BJmJ3fGAOczEazzvp0NL5kHmelLV4fFDvZ97+HVHlAbrFP+7XiBwTqc1YQtGMqUJDXQ==
+"@lwc/errors@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-8.10.3.tgz#c4c5f869036f9922d1263f780ab347b55ae4df3e"
+  integrity sha512-wjl3RR9jhCn7ddH7WXaabocFwjWirWbsYjExJv8RhbFoikRSCDohzGw/VpTe+glcyAL2dfmNAISM6nFlqPdFgQ==
 
-"@lwc/module-resolver@^8.1.0":
-  version "8.1.2"
-  resolved "https://registry.npmjs.org/@lwc/module-resolver/-/module-resolver-8.1.2.tgz#a947f06383640fbf9c3fb34ccafb0126e4eb5e79"
-  integrity sha512-BMcv986aFu4L3bZ5i7VGimE9t5xSGgDOdQRR7En+o4Nes1te1KuloekSIKe9gHfrjQLQmbvDgynIlIpptE0VWA==
+"@lwc/module-resolver@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/module-resolver/-/module-resolver-8.10.3.tgz#9bd093e364ff46fd221a77dcc531f43f22e3f7aa"
+  integrity sha512-npf/YTHxT1UM0Li0bbSYYvoO7fEx6eqpPP/p63HOtCOwxFARuBgr76T4vgTtrPFLZxpv5aLZLDtEXpcD1za2zg==
   dependencies:
     resolve "~1.22.8"
 
-"@lwc/shared@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/shared/-/shared-8.9.0.tgz#ec9475f34303bb32905128910a99c76e1072ec59"
-  integrity sha512-LbwRllrrN2uMy8gdlZm5O2V0/T4Bvgw6ZWYLnuDh0/NCm7rY3WOxM5F8gYn3SGwKYd+H7y1uiooZC8yVf1gcZg==
+"@lwc/shared@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-8.10.3.tgz#3650c7462ed1b697982a7dfe3ec7947f26bd7d10"
+  integrity sha512-uHzAqe9W8AJg0wCf/CshWeNDclWWtCiyxKeHvDjB8pKIhfzXdVKqBkLcnTTXU6Zu79qDth5Jmj/S/NlljWPc6A==
 
-"@lwc/ssr-compiler@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/ssr-compiler/-/ssr-compiler-8.9.0.tgz#17a00f9f0b80fa4da78f500050398f8adc570474"
-  integrity sha512-4MNd/ks7iPBJcvK4kPL5ZO1jG1tdqaaAuQD+QQwzZ7nxxYSeS2lesUm/modi1l3WPSV+JYBgwKnQwoewV5vrUg==
+"@lwc/ssr-compiler@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/ssr-compiler/-/ssr-compiler-8.10.3.tgz#c37879af9d28e18fe0ce9063945a55ce067ae329"
+  integrity sha512-0nMSpk9+MrVAyqzX3AOes+2WJqz001xlU/cf2xy6Sgb9Xn0VC1NjaWth0lcbGzhbiYZlsDr0aJbW8OqTWslr0A==
   dependencies:
-    "@lwc/shared" "8.9.0"
-    "@lwc/template-compiler" "8.9.0"
+    "@lwc/errors" "8.10.3"
+    "@lwc/shared" "8.10.3"
+    "@lwc/template-compiler" "8.10.3"
     acorn "8.14.0"
     astring "^1.9.0"
     estree-toolkit "^1.7.8"
     immer "^10.1.1"
     meriyah "^5.0.0"
 
-"@lwc/style-compiler@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/style-compiler/-/style-compiler-8.9.0.tgz#c582f97290344cae81e2b78b873da226a81f430e"
-  integrity sha512-UhM1Bie/4y60VE7FR8vawgSnBAkYMKQrrdmx4tGlg6AbeM6GiScG4Op4YNfMgT4Kl9I83yjmUV7ggVybdh/cDg==
+"@lwc/style-compiler@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/style-compiler/-/style-compiler-8.10.3.tgz#268f066f3e70435ae08735b40cf7f7b599066a7a"
+  integrity sha512-I07tF77XQ8Nc1drDkZJxNjgSpJ7okHUVX6S7y1rMNX25iUXEAW5yXqTGtsqEnhu4AdB01DC1N5Ml9gaeT6SCfw==
   dependencies:
-    "@lwc/shared" "8.9.0"
+    "@lwc/shared" "8.10.3"
     postcss "~8.4.49"
     postcss-selector-parser "~7.0.0"
     postcss-value-parser "~4.2.0"
 
-"@lwc/synthetic-shadow@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/synthetic-shadow/-/synthetic-shadow-8.9.0.tgz#bc28d8705802f13b05b74ba06992c2bf3a74c77c"
-  integrity sha512-TB1vr1Xz82dTAMFWtt6nY4u9TUj86eQYTf5tWWaLUfvmIWc3fG2GijxTcUZWkt0t/esnqiDgcF2Ovvw3OvRCGg==
+"@lwc/synthetic-shadow@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/synthetic-shadow/-/synthetic-shadow-8.10.3.tgz#4ff55b30d4affc47018233099fcdb6f2016dacf4"
+  integrity sha512-YT4/V4DaxM5Qe/v76Y8P+4d70sO+nqRomG4dAl1eDFYmsYY8CLFucROpIzEGtfVdS8xTvBs7rZM9G4nbyhFaJw==
 
-"@lwc/template-compiler@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/template-compiler/-/template-compiler-8.9.0.tgz#af246ab37c43a83f867751df1d523845b51a90f3"
-  integrity sha512-ONLD2I9Fawe9tY64jMsVWF8KmfzXMFZvaW52mOvU1roK49/6y7dJgEL42u9N1ANK3cjKScQXez6PhipMunBSWA==
+"@lwc/template-compiler@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-8.10.3.tgz#795ed92c381fee793ad482e477e1d6214aeb0078"
+  integrity sha512-A/gsrKzMlEXPdBf86P66QH+ginMgxxiZsSSYAltYbNZSYDURKRTJwqq/uswZTtJP49LXin74qRVMfF9WRLUSfw==
   dependencies:
-    "@lwc/errors" "8.9.0"
-    "@lwc/shared" "8.9.0"
+    "@lwc/errors" "8.10.3"
+    "@lwc/shared" "8.10.3"
     acorn "~8.14.0"
     astring "~1.9.0"
     he "~1.2.0"
 
-"@lwc/wire-service@8.9.0":
-  version "8.9.0"
-  resolved "https://registry.npmjs.org/@lwc/wire-service/-/wire-service-8.9.0.tgz#d4525ceb1b02b74b794e4625a449dd8aeb5e7154"
-  integrity sha512-mEAZuFAb3mha9i4tA/MFD985aPK6E/JNsLPeYzntb51z717pIO6R1mdC8jBJJ5fL5HAvBRwcC8/a47BO934anA==
+"@lwc/wire-service@8.10.3":
+  version "8.10.3"
+  resolved "https://registry.yarnpkg.com/@lwc/wire-service/-/wire-service-8.10.3.tgz#db4a1cc0f3f521ab13085c307c795285913152ed"
+  integrity sha512-E1n9EMZqefWSFcV1JBCaSqxRDK58fSn3IktXa9Md8gEFuvaOsmTrkz3erhCbWMhWZkByalT5toAQlO1lsgD3wg==
 
 "@lwrjs/api@0.14.0":
   version "0.14.0"

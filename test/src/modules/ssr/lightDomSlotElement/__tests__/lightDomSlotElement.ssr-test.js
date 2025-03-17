@@ -7,8 +7,8 @@
 import { renderComponent } from 'lwc';
 import LightDomSlotElement from 'ssr/lightDomSlotElement';
 
-it('renders a basic component with light DOM slot with element slotted', () => {
-    const renderedComponent = renderComponent(
+it('renders a basic component with light DOM slot with element slotted', async () => {
+    const renderedComponent = await renderComponent(
         'ssr-light-dom-slot-element',
         LightDomSlotElement,
         {}

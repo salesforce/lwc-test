@@ -7,6 +7,10 @@ jest.mock('@lwc/engine-server', () => ({
     renderComponent: jest.fn(),
 }));
 
+jest.mock('@lwc/ssr-runtime', () => ({
+    serverSideRenderComponent: jest.fn(),
+}));
+
 jest.mock('fs', () => ({
     readdirSync: jest.fn(),
     readFileSync: jest.fn(),
@@ -19,9 +23,11 @@ jest.mock('crypto', () => ({
     })),
 }));
 
+const ssrMode = process.env.LWC_SSR_MODE || 'v2';
+
 describe('Snapshot utilities service', () => {
     describe("'renderAndHashComponent' service to genarate markup and hash", () => {
-        it('should render the component and return the markup and snapshot hash', () => {
+        it('should render the component and return the markup and snapshot hash', async () => {
             const mockMarkup = '<div>some markup</div>';
             const mockTagName = 'my-component';
             const mockCtor = jest.fn();
@@ -29,18 +35,30 @@ describe('Snapshot utilities service', () => {
             const customTestEnv = { wire: '' };
 
             require('@lwc/engine-server').renderComponent.mockReturnValue(mockMarkup);
-
-            const result = renderAndHashComponent(mockTagName, mockCtor, mockProps, customTestEnv);
+            require('@lwc/ssr-runtime').serverSideRenderComponent.mockReturnValue(mockMarkup);
+            const result = await renderAndHashComponent(
+                mockTagName,
+                mockCtor,
+                mockProps,
+                customTestEnv
+            );
 
             expect(result).toEqual({
                 renderedComponent: mockMarkup,
                 snapshotHash: 'mockedHash',
             });
-            expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(
-                mockTagName,
-                mockCtor,
-                mockProps
-            );
+            if (ssrMode === 'v1')
+                expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(
+                    mockTagName,
+                    mockCtor,
+                    mockProps
+                );
+            else
+                expect(require('@lwc/ssr-runtime').serverSideRenderComponent).toHaveBeenCalledWith(
+                    mockTagName,
+                    mockCtor,
+                    mockProps
+                );
             expect(createHash).toHaveBeenCalledWith('sha256');
         });
     });

@@ -7,8 +7,8 @@
 import { renderComponent } from 'lwc';
 import FrameworkAttrs from '../frameworkAttrs';
 
-it('serializes component with framework-supplied attributes', () => {
-    const renderedComponent = renderComponent('x-basic', FrameworkAttrs, {});
+it('serializes component with framework-supplied attributes', async () => {
+    const renderedComponent = await renderComponent('x-basic', FrameworkAttrs, {});
 
     expect(renderedComponent).toMatchSnapshot();
 });

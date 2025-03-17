@@ -7,8 +7,12 @@
 import { renderComponent } from 'lwc';
 import LightDomSlotEmpty from 'ssr/lightDomSlotEmpty';
 
-it('renders a basic component with light DOM slot with nothing slotted', () => {
-    const renderedComponent = renderComponent('ssr-light-dom-slot-empty', LightDomSlotEmpty, {});
+it('renders a basic component with light DOM slot with nothing slotted', async () => {
+    const renderedComponent = await renderComponent(
+        'ssr-light-dom-slot-empty',
+        LightDomSlotEmpty,
+        {}
+    );
 
     expect(renderedComponent).toMatchSnapshot();
 });

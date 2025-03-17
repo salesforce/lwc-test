@@ -7,8 +7,12 @@
 import { renderComponent } from 'lwc';
 import EmptyTextExpression from 'ssr/emptyTextExpression';
 
-it('renders a basic component with an empty text expression', () => {
-    const renderedComponent = renderComponent('ssr-empty-text-expression', EmptyTextExpression, {});
+it('renders a basic component with an empty text expression', async () => {
+    const renderedComponent = await renderComponent(
+        'ssr-empty-text-expression',
+        EmptyTextExpression,
+        {}
+    );
 
     expect(renderedComponent).toMatchSnapshot();
 });

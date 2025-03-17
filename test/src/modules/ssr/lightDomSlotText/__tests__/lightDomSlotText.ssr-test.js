@@ -7,8 +7,12 @@
 import { renderComponent } from 'lwc';
 import LightDomSlotText from 'ssr/lightDomSlotText';
 
-it('renders a basic component with light DOM slot with text node slotted', () => {
-    const renderedComponent = renderComponent('ssr-light-dom-slot-text', LightDomSlotText, {});
+it('renders a basic component with light DOM slot with text node slotted', async () => {
+    const renderedComponent = await renderComponent(
+        'ssr-light-dom-slot-text',
+        LightDomSlotText,
+        {}
+    );
 
     expect(renderedComponent).toMatchSnapshot();
 });

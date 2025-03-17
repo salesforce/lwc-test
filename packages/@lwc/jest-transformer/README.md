@@ -26,3 +26,7 @@ Update your `jest` config to point the transformer to this package:
     }
 }
 ```
+
+### SSR Transformer
+
+For SSR testing, use the new transformer `@lwc/jest-transformer/ssr`, which compiles components to generate the compiled artifact used for SSR rendering.

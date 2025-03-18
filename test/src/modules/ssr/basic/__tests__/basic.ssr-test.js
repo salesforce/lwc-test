@@ -14,7 +14,6 @@ it('renders a basic component and saves formatted snapshot', async () => {
 
 it('renders a basic component and saves inline formatted snapshot', async () => {
     const renderedComponent = await renderComponent('x-basic', Basic, { msg: 'Hello world' });
-    console.log(renderedComponent);
     expect(renderedComponent).toMatchInlineSnapshot(`
         <x-basic>
           <template shadowrootmode="open">

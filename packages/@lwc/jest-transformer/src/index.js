@@ -13,6 +13,7 @@ const { isKnownScopedCssFile } = require('@lwc/jest-shared');
 const MagicString = require('magic-string');
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
+const { generateScopeTokens } = require('@lwc/template-compiler');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('@babel/plugin-proposal-dynamic-import');
@@ -114,20 +115,18 @@ function transformLWC(src, filePath, isSSR) {
          */
         ...(semver.lt(compilerVersion, '2.49.1') ? { enableLwcSpread: true } : {}),
     };
-
+    const ssrMode = process.env.LWC_SSR_MODE || 'v2';
     if (isSSR) {
-        const ssrMode = process.env.LWC_SSR_MODE || 'v2';
         if (ssrMode !== 'v1') {
             compilerOptions.targetSSR = true;
             compilerOptions.ssrMode = 'sync';
         }
     }
 
-    const { code, map, cssScopeTokens, warnings } = lwcCompiler.transformSync(
-        src,
-        filePath,
-        compilerOptions
-    );
+    const { code, map, warnings } = lwcCompiler.transformSync(src, filePath, compilerOptions);
+    const cssScopeTokens = filePath.endsWith('.html')
+        ? generateScopeTokens(filePath, 'x', 'test').cssScopeTokens
+        : undefined;
 
     // Log compiler warnings, if any
     if (warnings && warnings.length > 0) {

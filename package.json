@@ -34,6 +34,7 @@
         "@lwc/module-resolver": "^8.1.0",
         "@lwc/synthetic-shadow": "^8.16.0",
         "@lwc/wire-service": "^8.16.0",
+        "@lwc/template-compiler": "^8.16.0",
         "@types/jest": "^29.5.12",
         "@typescript-eslint/eslint-plugin": "^7.5.0",
         "@typescript-eslint/parser": "^7.5.0",

@@ -14,20 +14,19 @@ it('renders a basic component and saves formatted snapshot', async () => {
 
 it('renders a basic component and saves inline formatted snapshot', async () => {
     const renderedComponent = await renderComponent('x-basic', Basic, { msg: 'Hello world' });
-    expect(renderedComponent).toMatchInlineSnapshot(
-        `
-    __lwc_scope_token__<__lwc_scope_token__x__lwc_scope_token__-__lwc_scope_token__b__lwc_scope_token__a__lwc_scope_token__s__lwc_scope_token__i__lwc_scope_token__c__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__<__lwc_scope_token__t__lwc_scope_token__e__lwc_scope_token__m__lwc_scope_token__p__lwc_scope_token__l__lwc_scope_token__a__lwc_scope_token__t__lwc_scope_token__e__lwc_scope_token__ __lwc_scope_token__s__lwc_scope_token__h__lwc_scope_token__a__lwc_scope_token__d__lwc_scope_token__o__lwc_scope_token__w__lwc_scope_token__r__lwc_scope_token__o__lwc_scope_token__o__lwc_scope_token__t__lwc_scope_token__m__lwc_scope_token__o__lwc_scope_token__d__lwc_scope_token__e__lwc_scope_token__=__lwc_scope_token__"__lwc_scope_token__o__lwc_scope_token__p__lwc_scope_token__e__lwc_scope_token__n__lwc_scope_token__"__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__<__lwc_scope_token__s__lwc_scope_token__t__lwc_scope_token__y__lwc_scope_token__l__lwc_scope_token__e__lwc_scope_token__ __lwc_scope_token__t__lwc_scope_token__y__lwc_scope_token__p__lwc_scope_token__e__lwc_scope_token__=__lwc_scope_token__"__lwc_scope_token__t__lwc_scope_token__e__lwc_scope_token__x__lwc_scope_token__t__lwc_scope_token__/__lwc_scope_token__c__lwc_scope_token__s__lwc_scope_token__s__lwc_scope_token__"__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__h__lwc_scope_token__1__lwc_scope_token__ __lwc_scope_token__{__lwc_scope_token__c__lwc_scope_token__o__lwc_scope_token__l__lwc_scope_token__o__lwc_scope_token__r__lwc_scope_token__:__lwc_scope_token__ __lwc_scope_token__r__lwc_scope_token__e__lwc_scope_token__d__lwc_scope_token__;__lwc_scope_token__}__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__<__lwc_scope_token__/__lwc_scope_token__s__lwc_scope_token__t__lwc_scope_token__y__lwc_scope_token__l__lwc_scope_token__e__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__<__lwc_scope_token__h__lwc_scope_token__1__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__B__lwc_scope_token__a__lwc_scope_token__s__lwc_scope_token__i__lwc_scope_token__c__lwc_scope_token__,__lwc_scope_token__ __lwc_scope_token__H__lwc_scope_token__e__lwc_scope_token__l__lwc_scope_token__l__lwc_scope_token__o__lwc_scope_token__ __lwc_scope_token__w__lwc_scope_token__o__lwc_scope_token__r__lwc_scope_token__l__lwc_scope_token__d__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__<__lwc_scope_token__/__lwc_scope_token__h__lwc_scope_token__1__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__ __lwc_scope_token__ __lwc_scope_token__<__lwc_scope_token__/__lwc_scope_token__t__lwc_scope_token__e__lwc_scope_token__m__lwc_scope_token__p__lwc_scope_token__l__lwc_scope_token__a__lwc_scope_token__t__lwc_scope_token__e__lwc_scope_token__>__lwc_scope_token__
-    __lwc_scope_token__<__lwc_scope_token__/__lwc_scope_token__x__lwc_scope_token__-__lwc_scope_token__b__lwc_scope_token__a__lwc_scope_token__s__lwc_scope_token__i__lwc_scope_token__c__lwc_scope_token__>__lwc_scope_token__
-    `
-    );
+    console.log(renderedComponent);
+    expect(renderedComponent).toMatchInlineSnapshot(`
+        <x-basic>
+          <template shadowrootmode="open">
+            <style type="text/css">
+              h1 {color: red;}
+            </style>
+            <h1>
+              Basic, Hello world
+            </h1>
+          </template>
+        </x-basic>
+    `);
 });
 
 it('runs on node environment', () => {

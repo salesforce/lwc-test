@@ -68,12 +68,10 @@ function readSnapshotMarkup(tagName, props = {}, customTestEnv = {}) {
  * @returns {string} - A hexadecimal string representing the generated hash.
  */
 function generateSnapshotHash(tagName, props = {}, customTestEnv = {}) {
-    const ssrMode = process.env.LWC_SSR_MODE || 'v2';
     return createHash('sha256')
         .update(tagName)
         .update(JSON.stringify(props))
         .update(JSON.stringify(customTestEnv))
-        .update(JSON.stringify(ssrMode))
         .digest('hex');
 }
 

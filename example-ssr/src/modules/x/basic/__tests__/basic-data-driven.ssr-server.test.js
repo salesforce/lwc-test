@@ -4,7 +4,11 @@ import tests from './test-data';
 
 describe('<x-basic>', () => {
     it.each(tests)('should render on the server (props = $props)', async ({ props }) => {
-        const { renderedComponent, snapshotHash } = renderAndHashComponent('x-basic', Basic, props);
+        const { renderedComponent, snapshotHash } = await renderAndHashComponent(
+            'x-basic',
+            Basic,
+            props
+        );
         expect(renderedComponent).toMatchSnapshot(snapshotHash);
     });
 });

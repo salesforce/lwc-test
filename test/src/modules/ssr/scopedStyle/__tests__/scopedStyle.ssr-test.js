@@ -7,9 +7,8 @@
 import { renderComponent } from 'lwc';
 import ScopedStyle from 'ssr/scopedStyle';
 
-it('renders a basic component with scoped styles', () => {
-    const renderedComponent = renderComponent('x-scoped-style', ScopedStyle);
-
+it('renders a basic component with scoped styles', async () => {
+    const renderedComponent = await renderComponent('x-scoped-style', ScopedStyle);
     expect(renderedComponent).toMatchInlineSnapshot(`
         <x-scoped-style class="__lwc_scope_token__">
           <template shadowrootmode="open">

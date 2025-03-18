@@ -7,14 +7,13 @@
 import { renderComponent } from 'lwc';
 import Basic from 'ssr/basic';
 
-it('renders a basic component and saves formatted snapshot', () => {
-    const renderedComponent = renderComponent('x-basic', Basic, { msg: 'Hello world' });
+it('renders a basic component and saves formatted snapshot', async () => {
+    const renderedComponent = await renderComponent('x-basic', Basic, { msg: 'Hello world' });
     expect(renderedComponent).toMatchSnapshot();
 });
 
-it('renders a basic component and saves inline formatted snapshot', () => {
-    const renderedComponent = renderComponent('x-basic', Basic, { msg: 'Hello world' });
-
+it('renders a basic component and saves inline formatted snapshot', async () => {
+    const renderedComponent = await renderComponent('x-basic', Basic, { msg: 'Hello world' });
     expect(renderedComponent).toMatchInlineSnapshot(`
         <x-basic>
           <template shadowrootmode="open">

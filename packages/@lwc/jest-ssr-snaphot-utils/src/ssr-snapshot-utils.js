@@ -2,6 +2,7 @@ const { renderComponent: lwcRenderComponent } = require('@lwc/engine-server');
 const { createHash } = require('crypto');
 const { readdirSync, readFileSync } = require('fs');
 const { join, dirname, basename, extname } = require('path');
+const { serverSideRenderComponent } = require('@lwc/ssr-runtime');
 
 /**
  * Renders the component's markup, captures it in a snapshot that has a unique snapshot hash.
@@ -12,9 +13,14 @@ const { join, dirname, basename, extname } = require('path');
  * @param {Object} [customTestEnv={}] - An object representing the custom test env where the component is being validated.
  * @returns {{renderedComponent: string, snapshotHash: string}} - An object containing the rendered markup and the generated snapshot hash.
  */
-function renderAndHashComponent(tagName, Ctor, props = {}, customTestEnv = {}) {
-    const renderedComponent = lwcRenderComponent(tagName, Ctor, props);
+async function renderAndHashComponent(tagName, Ctor, props = {}, customTestEnv = {}) {
     const snapshotHash = generateSnapshotHash(tagName, props, customTestEnv);
+    const ssrMode = process.env.LWC_SSR_MODE || 'v2';
+
+    const renderedComponent =
+        ssrMode !== 'v1'
+            ? await serverSideRenderComponent(tagName, Ctor, props)
+            : lwcRenderComponent(tagName, Ctor, props);
 
     return { renderedComponent, snapshotHash };
 }

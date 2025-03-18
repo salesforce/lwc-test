@@ -208,3 +208,7 @@ We recommend using the same framework for component testing: **WebdriverIO** in 
 We strongly recommend running performance tests at the page level. The sample tests are shown at the component level for demonstration purposes only.
 
 For sample tests, please refer to: [Performance Sample Test](https://github.com/salesforce/lwc-test/blob/master/example-ssr/src/modules/x/hello/__performance__/hello.ssr-performance.test.js)
+
+### SSR Compiler Version Support
+
+We now support testing against both SSR Compiler v1 and v2. By default, tests run against SSR v2. However, if you want to test with v1, set the environment variable `LWC_SSR_MODE` to `v1`.

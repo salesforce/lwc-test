@@ -7,8 +7,8 @@
 import { renderComponent } from 'lwc';
 import ScopedStyleHostLight from 'ssr/scopedStyleHostLight';
 
-it('renders a basic component with scoped styles, light DOM with :host', () => {
-    const renderedComponent = renderComponent('x-scoped-style', ScopedStyleHostLight);
+it('renders a basic component with scoped styles, light DOM with :host', async () => {
+    const renderedComponent = await renderComponent('x-scoped-style', ScopedStyleHostLight);
 
     expect(renderedComponent).toMatchInlineSnapshot(`
         <x-scoped-style class="__lwc_scope_token__">

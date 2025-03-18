@@ -19,8 +19,13 @@
     ],
     "files": [
         "/src/index.js",
+        "/src/ssr.js",
         "/src/transforms/*.js"
     ],
+    "exports": {
+        ".": "./src/index.js",
+        "./ssr": "./src/ssr.js"
+    },
     "dependencies": {
         "@babel/core": "^7.24.4",
         "@babel/plugin-proposal-dynamic-import": "^7.18.6",

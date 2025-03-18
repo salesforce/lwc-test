@@ -13,6 +13,7 @@ const { isKnownScopedCssFile } = require('@lwc/jest-shared');
 const MagicString = require('magic-string');
 const babelCore = require('@babel/core');
 const lwcCompiler = require('@lwc/compiler');
+const { generateScopeTokens } = require('@lwc/template-compiler');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('@babel/plugin-proposal-dynamic-import');
@@ -90,81 +91,94 @@ function transformTypeScript(src, filePath) {
     return code;
 }
 
-module.exports = {
-    process(src, filePath) {
-        if (isTypeScript(filePath)) {
-            src = transformTypeScript(src, filePath);
+function transformLWC(src, filePath, isSSR) {
+    if (isTypeScript(filePath)) {
+        src = transformTypeScript(src, filePath);
+    }
+
+    // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
+    const compilerOptions = {
+        name: 'test',
+        namespace: 'x',
+        outputConfig: {
+            sourcemap: true,
+        },
+        experimentalDynamicComponent: {
+            strictSpecifier: false,
+        },
+        scopedStyles: isKnownScopedCssFile(filePath),
+        enableDynamicComponents: true,
+        /**
+         * Prevent causing tons of warning log lines.
+         * @see {@link https://github.com/salesforce/lwc/pull/3544}
+         * @see {@link https://github.com/salesforce/lwc/releases/tag/v2.49.1}
+         */
+        ...(semver.lt(compilerVersion, '2.49.1') ? { enableLwcSpread: true } : {}),
+    };
+    const ssrMode = process.env.LWC_SSR_MODE || 'v2';
+    if (isSSR) {
+        if (ssrMode !== 'v1') {
+            compilerOptions.targetSSR = true;
+            compilerOptions.ssrMode = 'sync';
+        }
+    }
+
+    const { code, map, warnings } = lwcCompiler.transformSync(src, filePath, compilerOptions);
+    const cssScopeTokens = filePath.endsWith('.html')
+        ? generateScopeTokens(filePath, 'x', 'test').cssScopeTokens
+        : undefined;
+
+    // Log compiler warnings, if any
+    if (warnings && warnings.length > 0) {
+        warnings.forEach((warning) => {
+            console.warn(`\x1b[33m[LWC Warn]\x1b[0m(${filePath}): ${warning?.message ?? warning}`);
+        });
+    }
+    // if is not .js, we add the .compiled extension in the sourcemap
+    const filename = path.extname(filePath) === '.js' ? filePath : filePath + '.compiled';
+    // **Note: .html and .css don't return valid sourcemaps cause they are used for rollup
+    const config = map && map.version ? { inputSourceMap: map } : {};
+
+    let result = babelCore.transform(code, { ...BABEL_CONFIG, ...config, filename });
+
+    if (cssScopeTokens) {
+        // Modify the code so that it calls into @lwc/jest-shared and adds the scope token as a
+        // known scope token so we can replace it later.
+        // Note we have to modify the code rather than use @lwc/jest-shared directly because
+        // the transformer does not run in the same Node process as the serializer.
+        const magicString = new MagicString(result.code);
+
+        // lwc-test may live in a different directory from the component module code, so
+        // we need to provide an absolute path
+        const jestSharedPath = require.resolve('@lwc/jest-shared');
+
+        magicString.append(
+            `\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`
+        );
+
+        for (const scopeToken of cssScopeTokens) {
+            magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`);
         }
 
-        // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
-        const { code, map, cssScopeTokens, warnings } = lwcCompiler.transformSync(src, filePath, {
-            name: 'test',
-            namespace: 'x',
-            outputConfig: {
-                sourcemap: true,
-            },
-            experimentalDynamicComponent: {
-                strictSpecifier: false,
-            },
-            scopedStyles: isKnownScopedCssFile(filePath),
-            enableDynamicComponents: true,
-            /**
-             * Prevent causing tons of warning log lines.
-             * @see {@link https://github.com/salesforce/lwc/pull/3544}
-             * @see {@link https://github.com/salesforce/lwc/releases/tag/v2.49.1}
-             */
-            ...(semver.lt(compilerVersion, '2.49.1') ? { enableLwcSpread: true } : {}),
+        const map = magicString.generateMap({
+            source: filePath,
+            includeContent: true,
         });
 
-        // Log compiler warnings, if any
-        if (warnings && warnings.length > 0) {
-            warnings.forEach((warning) => {
-                console.warn(
-                    `\x1b[33m[LWC Warn]\x1b[0m(${filePath}): ${warning?.message ?? warning}`
-                );
-            });
-        }
-        // if is not .js, we add the .compiled extension in the sourcemap
-        const filename = path.extname(filePath) === '.js' ? filePath : filePath + '.compiled';
-        // **Note: .html and .css don't return valid sourcemaps cause they are used for rollup
-        const config = map && map.version ? { inputSourceMap: map } : {};
+        const modifiedCode = magicString.toString() + `\n//# sourceMappingURL=${map.toUrl()}\n`;
 
-        let result = babelCore.transform(code, { ...BABEL_CONFIG, ...config, filename });
+        result = {
+            ...result,
+            code: modifiedCode,
+            map,
+        };
+    }
 
-        if (cssScopeTokens) {
-            // Modify the code so that it calls into @lwc/jest-shared and adds the scope token as a
-            // known scope token so we can replace it later.
-            // Note we have to modify the code rather than use @lwc/jest-shared directly because
-            // the transformer does not run in the same Node process as the serializer.
-            const magicString = new MagicString(result.code);
-
-            // lwc-test may live in a different directory from the component module code, so
-            // we need to provide an absolute path
-            const jestSharedPath = require.resolve('@lwc/jest-shared');
-
-            magicString.append(
-                `\nconst { addKnownScopeToken } = require(${JSON.stringify(jestSharedPath)});`
-            );
-
-            for (const scopeToken of cssScopeTokens) {
-                magicString.append(`\naddKnownScopeToken(${JSON.stringify(scopeToken)});`);
-            }
-
-            const map = magicString.generateMap({
-                source: filePath,
-                includeContent: true,
-            });
-
-            const modifiedCode = magicString.toString() + `\n//# sourceMappingURL=${map.toUrl()}\n`;
-
-            result = {
-                ...result,
-                code: modifiedCode,
-                map,
-            };
-        }
-
-        return result;
+    return result;
+}
+module.exports = {
+    process(src, filePath) {
+        return transformLWC(src, filePath, false);
     },
 
     getCacheKey(sourceText, sourcePath, ...rest) {
@@ -187,3 +201,5 @@ module.exports = {
             .digest('hex');
     },
 };
+
+module.exports.transformLwc = transformLWC;

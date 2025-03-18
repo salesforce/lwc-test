@@ -211,4 +211,4 @@ For sample tests, please refer to: [Performance Sample Test](https://github.com/
 
 ### SSR Compiler Version Support
 
-We now support testing against SSR Compiler v1 and v2 both. By default, tests run against SSR v2. However, if you want to test with v1, set the environment variable `LWC_SSR_MODE` to v1.
+We now support testing against both SSR Compiler v1 and v2. By default, tests run against SSR v2. However, if you want to test with v1, set the environment variable `LWC_SSR_MODE` to `v1`.

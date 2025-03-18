@@ -2955,6 +2955,11 @@
   resolved "https://registry.npmjs.org/@lwc/errors/-/errors-8.16.1.tgz#8f2982672deaf5b021dcde33f90fcfba09119bb7"
   integrity sha512-7VkjFQFuYCmQEwq0Y51yVlmmoLxVfKHgWhzOIgEofSINCVGA7pURxFCx92qmWArkpJLH74yQRVIsqdl91JVKZg==
 
+"@lwc/errors@8.16.2":
+  version "8.16.2"
+  resolved "https://registry.npmjs.org/@lwc/errors/-/errors-8.16.2.tgz#6d268cb6e0ac4f782578f96e1c7dbede7d29e285"
+  integrity sha512-YdEoq12nuqsJ+JCnMbFOFfwK+otncamotUcx4KdHluKQ3ryfvfXiQurLTRwk1DSa1gx7P4ldEMG3ctPxdkaPeQ==
+
 "@lwc/module-resolver@^8.1.0":
   version "8.1.2"
   resolved "https://registry.npmjs.org/@lwc/module-resolver/-/module-resolver-8.1.2.tgz#a947f06383640fbf9c3fb34ccafb0126e4eb5e79"
@@ -2966,6 +2971,11 @@
   version "8.16.1"
   resolved "https://registry.npmjs.org/@lwc/shared/-/shared-8.16.1.tgz#cc39a0f097e4bb5eb8351509ffb5547695cba0bb"
   integrity sha512-Qd9AWoyQ1ipChcUwSFMQvJX9YLc5DIt+dfFx7ncAC9BiYIV3uL0DOKNo3diTU3XSxUvwqUwNWDo5LW02sG8qxQ==
+
+"@lwc/shared@8.16.2":
+  version "8.16.2"
+  resolved "https://registry.npmjs.org/@lwc/shared/-/shared-8.16.2.tgz#c93cb65eadda0b71cb61209f56aa451aecea4b0f"
+  integrity sha512-LrcqAx+9SYL4U9RNMskPdeIdc2WJn5V4lNhCd91j8qWtz3hef9yIRXUD2n+7WMXuJI5NVjCDrvTVKTH6ghjnEA==
 
 "@lwc/ssr-compiler@8.16.1":
   version "8.16.1"
@@ -3010,6 +3020,17 @@
     "@lwc/errors" "8.16.1"
     "@lwc/shared" "8.16.1"
     acorn "~8.14.0"
+    astring "~1.9.0"
+    he "~1.2.0"
+
+"@lwc/template-compiler@^8.16.0":
+  version "8.16.2"
+  resolved "https://registry.npmjs.org/@lwc/template-compiler/-/template-compiler-8.16.2.tgz#68f53048d0cba279380b719819b6bfce3c745803"
+  integrity sha512-x2zhKyMbt5tqEPxpQoJTyEMukLo6RT02qrfTegnUvOBQAD4p6N3qyKo5GJ0/7qCQQVaDpX+Zv7tnWsd4EVlvZg==
+  dependencies:
+    "@lwc/errors" "8.16.2"
+    "@lwc/shared" "8.16.2"
+    acorn "~8.14.1"
     astring "~1.9.0"
     he "~1.2.0"
 
@@ -5607,6 +5628,11 @@ acorn@^8.0.4, acorn@^8.1.0, acorn@^8.11.0, acorn@^8.2.4, acorn@^8.7.1, acorn@^8.
   version "8.12.1"
   resolved "https://registry.npmjs.org/acorn/-/acorn-8.12.1.tgz"
   integrity sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==
+
+acorn@~8.14.1:
+  version "8.14.1"
+  resolved "https://registry.npmjs.org/acorn/-/acorn-8.14.1.tgz#721d5dc10f7d5b5609a891773d47731796935dfb"
+  integrity sha512-OvQ/2pUDKmgfCg++xsTX1wGxfTaszcHVcTctW4UJB4hibJx2HXxxO5UmVgyjMa+ZDsiaf5wWLXYpRWMmBI0QHg==
 
 add-stream@^1.0.0:
   version "1.0.0"

@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-resolver",
-    "version": "19.1.1",
+    "version": "19.1.2",
     "description": "Jest resolver to resolve LWC specific packages",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -22,7 +22,7 @@
         "/src/index.js"
     ],
     "dependencies": {
-        "@lwc/jest-shared": "19.1.1"
+        "@lwc/jest-shared": "19.1.2"
     },
     "peerDependencies": {
         "jest": "^28 || ^29"

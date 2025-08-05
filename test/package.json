@@ -1,6 +1,6 @@
 {
     "name": "test",
-    "version": "19.1.2",
+    "version": "19.2.0",
     "scripts": {
         "test": "jest"
     }

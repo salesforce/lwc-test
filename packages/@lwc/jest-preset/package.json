@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-preset",
-    "version": "19.2.0",
+    "version": "19.2.1",
     "description": "Jest preset configuration and stubs to help test LWC",
     "homepage": "https://lwc.dev/",
     "repository": {
@@ -33,10 +33,10 @@
         "jest": "^28 || ^29"
     },
     "dependencies": {
-        "@lwc/jest-jsdom-test-env": "19.2.0",
-        "@lwc/jest-resolver": "19.2.0",
-        "@lwc/jest-serializer": "19.2.0",
-        "@lwc/jest-transformer": "19.2.0",
+        "@lwc/jest-jsdom-test-env": "19.2.1",
+        "@lwc/jest-resolver": "19.2.1",
+        "@lwc/jest-serializer": "19.2.1",
+        "@lwc/jest-transformer": "19.2.1",
         "jest-serializer-html": "7.1.0"
     },
     "engines": {

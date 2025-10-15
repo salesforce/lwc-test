@@ -76,10 +76,10 @@ module.exports = {
         unitTest({ nativeShadow: true }),
         integration({ nativeShadow: false }),
         integration({ nativeShadow: true }),
-        logging({ nativeShadow: true, loggingFormatter: false }),
         logging({ nativeShadow: false, loggingFormatter: false }),
-        logging({ nativeShadow: true, loggingFormatter: true }),
         logging({ nativeShadow: false, loggingFormatter: true }),
+        logging({ nativeShadow: true, loggingFormatter: false }),
+        logging({ nativeShadow: true, loggingFormatter: true }),
         {
             displayName: {
                 name: `integration (ssr)`,

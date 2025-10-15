@@ -34,6 +34,7 @@ function integration({ nativeShadow }) {
         moduleNameMapper: {
             '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
             '^(components)/(.+)$': '<rootDir>/src/modules/$1/$2/$2',
+            '^(logging)/(.+)$': '<rootDir>/src/modules/$1/$2/$2',
         },
 
         globals: {

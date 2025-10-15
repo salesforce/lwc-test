@@ -40,6 +40,7 @@ function integration({ nativeShadow }) {
         globals: {
             'lwc-jest': {
                 nativeShadow,
+                loggingFormatter: true,
             },
         },
     };

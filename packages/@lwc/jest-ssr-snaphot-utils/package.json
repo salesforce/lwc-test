@@ -1,6 +1,6 @@
 {
     "name": "@lwc/jest-ssr-snapshot-utils",
-    "version": "19.2.0",
+    "version": "19.3.0",
     "description": "Jest snapshot utils for SSR",
     "homepage": "https://lwc.dev/",
     "repository": {

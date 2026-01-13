@@ -167,5 +167,6 @@ function installRegisterDecoratorsTrap(lwc) {
 const lwc = require('@lwc/engine-dom');
 
 installRegisterDecoratorsTrap(lwc);
+lwc.setFeatureFlag('ENABLE_EXPERIMENTAL_SIGNALS', true);
 
 require('./matchers/expect-throw-in-connected-callback');

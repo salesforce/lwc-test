@@ -110,7 +110,8 @@ function serialize(node, config, indentation, depth, refs, printer) {
     );
     delete node.childNodes;
 
-    return result;
+    // Normalize url("data:...") to url(data:...) in serialized output for stable snapshots
+    return result.replace(/url\("(data:[^"]*)"\)/g, 'url($1)');
 }
 
 module.exports.test = test;

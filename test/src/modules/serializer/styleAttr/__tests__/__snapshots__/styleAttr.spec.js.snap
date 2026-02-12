@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`serializes component with different whitespace 1`] = `
 <serializer-component>
@@ -60,7 +60,7 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div
-      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+      style="background-image: url("data:image/svg+xml;base64,abc123"); background-size: 12px;"
     />
     <!-- static style, not static optimized -->
     <div
@@ -119,7 +119,7 @@ exports[`serializes component with different whitespace 1`] = `
     <div />
     <div />
     <div
-      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+      style="background-image: url("data:image/svg+xml;base64,abc123"); background-size: 12px;"
     />
     <!-- dynamic style, static optimized -->
     <div />
@@ -181,7 +181,7 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue;"
     />
     <div
-      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+      style="background-image: url("data:image/svg+xml;base64,abc123"); background-size: 12px;"
     />
     <!-- dynamic style, not static optimized -->
     <div />
@@ -243,7 +243,7 @@ exports[`serializes component with different whitespace 1`] = `
       style="color: blue;"
     />
     <div
-      style="background-image: url(data:image/svg+xml;base64,abc123); background-size: 12px;"
+      style="background-image: url("data:image/svg+xml;base64,abc123"); background-size: 12px;"
     />
 </serializer-component>
 `;

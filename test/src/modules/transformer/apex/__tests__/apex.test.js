@@ -19,9 +19,9 @@ describe('@salesforce/apex', () => {
     });
 
     it('exports getSObjectValue method returning a jest.fn()', () => {
-        expect(getSObjectValue).not.toBeCalled();
+        expect(getSObjectValue).not.toHaveBeenCalled();
 
         getSObjectValue('foo');
-        expect(getSObjectValue).toBeCalledWith('foo');
+        expect(getSObjectValue).toHaveBeenCalledWith('foo');
     });
 });

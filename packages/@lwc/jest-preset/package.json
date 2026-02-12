@@ -30,7 +30,7 @@
         "@lwc/engine-dom": ">=5.0.0",
         "@lwc/engine-server": ">=5.0.0",
         "@lwc/synthetic-shadow": ">=5.0.0",
-        "jest": "^28 || ^29"
+        "jest": "^28 || ^29 || ^30"
     },
     "dependencies": {
         "@lwc/jest-jsdom-test-env": "19.3.0",

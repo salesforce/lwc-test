@@ -34,13 +34,13 @@
         "@babel/plugin-transform-modules-commonjs": "^7.24.1",
         "@babel/preset-typescript": "^7.24.1",
         "@lwc/jest-shared": "19.3.0",
-        "babel-preset-jest": "^29.6.3",
+        "babel-preset-jest": "^30.0.0",
         "magic-string": "^0.30.9",
         "semver": "^7.6.0"
     },
     "peerDependencies": {
         "@lwc/compiler": ">=2.48.0",
-        "jest": "^28 || ^29"
+        "jest": "^28 || ^29 || ^30"
     },
     "engines": {
         "node": ">=10"

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<x-basic> should render on the server (props = {"msg": "Hello, Universe!"}): 34628b2c2f600c2775bdf4131a576fcf6bc07e003cef10d0d523ff923d7af4e2 1`] = `"<x-basic><template shadowrootmode="open"><h1>Hello, Universe!</h1></template></x-basic>"`;
 

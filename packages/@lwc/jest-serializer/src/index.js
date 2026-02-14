@@ -12,6 +12,7 @@ const cleanElementClasses = require('./clean-element-classes');
 const cleanStyleElement = require('./clean-style-element');
 const cleanElementStyles = require('./clean-element-styles');
 const cleanEmptyTextAndComments = require('./clean-empty-text-and-comments');
+const normalizeStyleUrlValues = require('./normalize-style-urls');
 
 function test(obj) {
     if (typeof obj !== 'object' || obj === null) {
@@ -110,7 +111,9 @@ function serialize(node, config, indentation, depth, refs, printer) {
     );
     delete node.childNodes;
 
-    return result;
+    // Canonicalize url() in serialized output: style is reflected from CSSOM so
+    // jsdom/Node can emit url("...") or url(...) depending on env; normalize so snapshots are stable.
+    return normalizeStyleUrlValues(result);
 }
 
 module.exports.test = test;

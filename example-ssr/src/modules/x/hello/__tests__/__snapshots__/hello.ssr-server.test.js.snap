@@ -1,3 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`<x-hello> should render on the server: 0270b7e859a9b2246c8fea754dc918f9cd9a2caba62f8fe68fde895056b38633 1`] = `"<x-hello><template shadowrootmode="open"><style type="text/css">div {margin: 10px;}button {margin-top: 10px;padding: 5px 10px;}</style><div><h1>Greeting Form</h1><label for="name">Your Name:</label><input id="name" type="text"><button>Submit</button></div></template></x-hello>"`;

@@ -98,7 +98,7 @@ describe('Snapshot utilities service', () => {
             readdirSync.mockReturnValue(['testFile.snap.js']);
             readFileSync.mockReturnValue(mockFileContent);
 
-            expect(() => readSnapshotMarkup(mockTagName, mockProps)).toThrowError(
+            expect(() => readSnapshotMarkup(mockTagName, mockProps)).toThrow(
                 'Snapshot with hash mockedHash not found.'
             );
         });
@@ -106,7 +106,7 @@ describe('Snapshot utilities service', () => {
         it('should throw an error if the global test file path is not set', () => {
             delete global.testFilePath;
 
-            expect(() => readSnapshotMarkup('tagName')).toThrowError(
+            expect(() => readSnapshotMarkup('tagName')).toThrow(
                 'Test file path must be available in the global context.'
             );
         });

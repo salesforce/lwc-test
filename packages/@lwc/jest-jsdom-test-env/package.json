@@ -14,8 +14,8 @@
     "license": "MIT",
     "main": "src/jsdom-test-env.js",
     "peerDependencies": {
-        "jest": "^28 || ^29",
-        "jest-environment-jsdom": "^28 || ^29"
+        "jest": "^28 || ^29 || ^30",
+        "jest-environment-jsdom": "^28 || ^29 || ^30"
     },
     "engines": {
         "node": ">=10"

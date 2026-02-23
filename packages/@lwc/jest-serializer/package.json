@@ -19,10 +19,10 @@
     ],
     "dependencies": {
         "@lwc/jest-shared": "19.4.0",
-        "pretty-format": "^29.7.0"
+        "pretty-format": "^30.0.0"
     },
     "peerDependencies": {
-        "jest": "^28 || ^29"
+        "jest": "^28 || ^29 || ^30"
     },
     "engines": {
         "node": ">=10"

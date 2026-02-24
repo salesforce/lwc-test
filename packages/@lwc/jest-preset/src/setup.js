@@ -2,7 +2,7 @@
 require('./aria-reflection-polyfill');
 
 const config = global['lwc-jest'] || {};
-const { nativeShadow } = config;
+const { nativeShadow, loggingFormatter } = config;
 
 if (!nativeShadow) {
     if (
@@ -16,6 +16,10 @@ if (!nativeShadow) {
         );
     }
     require('@lwc/synthetic-shadow');
+}
+
+if (loggingFormatter) {
+    require('./console');
 }
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0

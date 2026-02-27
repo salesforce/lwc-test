@@ -103,6 +103,10 @@ function transformLWC(src, filePath, isSSR) {
         outputConfig: {
             sourcemap: true,
         },
+        dynamicImports: {
+            strictSpecifier: false,
+        },
+        // `dynamicImports` for LWC v8 and earlier
         experimentalDynamicComponent: {
             strictSpecifier: false,
         },

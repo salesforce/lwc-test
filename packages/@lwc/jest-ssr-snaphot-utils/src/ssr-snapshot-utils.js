@@ -1,8 +1,8 @@
-const { renderComponent: lwcRenderComponent } = require('@lwc/engine-server');
+const { renderComponent: lwcRenderComponent } = require('@lwc/engine-server/dist/index.cjs');
 const { createHash } = require('crypto');
 const { readdirSync, readFileSync } = require('fs');
 const { join, dirname, basename, extname } = require('path');
-const { serverSideRenderComponent } = require('@lwc/ssr-runtime');
+const { serverSideRenderComponent } = require('@lwc/ssr-runtime/dist/index.cjs');
 
 /**
  * Renders the component's markup, captures it in a snapshot that has a unique snapshot hash.

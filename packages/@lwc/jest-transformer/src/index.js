@@ -12,8 +12,8 @@ const { isKnownScopedCssFile } = require('@lwc/jest-shared');
 
 const MagicString = require('magic-string');
 const babelCore = require('@babel/core');
-const lwcCompiler = require('@lwc/compiler');
-const { generateScopeTokens } = require('@lwc/template-compiler');
+const lwcCompiler = require('@lwc/compiler/dist/index.cjs');
+const { generateScopeTokens } = require('@lwc/template-compiler/dist/index.cjs');
 const jestPreset = require('babel-preset-jest');
 const babelCommonJs = require('@babel/plugin-transform-modules-commonjs');
 const babelDynamicImport = require('@babel/plugin-proposal-dynamic-import');

@@ -34,8 +34,12 @@ describe('Snapshot utilities service', () => {
             const mockProps = { prop: 'value' };
             const customTestEnv = { wire: '' };
 
-            require('@lwc/engine-server').renderComponent.mockReturnValue(mockMarkup);
-            require('@lwc/ssr-runtime').serverSideRenderComponent.mockReturnValue(mockMarkup);
+            require('@lwc/engine-server/dist/index.cjs').renderComponent.mockReturnValue(
+                mockMarkup
+            );
+            require('@lwc/ssr-runtime/dist/index.cjs').serverSideRenderComponent.mockReturnValue(
+                mockMarkup
+            );
             const result = await renderAndHashComponent(
                 mockTagName,
                 mockCtor,
@@ -48,17 +52,13 @@ describe('Snapshot utilities service', () => {
                 snapshotHash: 'mockedHash',
             });
             if (ssrMode === 'v1')
-                expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(
-                    mockTagName,
-                    mockCtor,
-                    mockProps
-                );
+                expect(
+                    require('@lwc/engine-server/dist/index.cjs').renderComponent
+                ).toHaveBeenCalledWith(mockTagName, mockCtor, mockProps);
             else
-                expect(require('@lwc/ssr-runtime').serverSideRenderComponent).toHaveBeenCalledWith(
-                    mockTagName,
-                    mockCtor,
-                    mockProps
-                );
+                expect(
+                    require('@lwc/ssr-runtime/dist/index.cjs').serverSideRenderComponent
+                ).toHaveBeenCalledWith(mockTagName, mockCtor, mockProps);
             expect(createHash).toHaveBeenCalledWith('sha256');
         });
     });

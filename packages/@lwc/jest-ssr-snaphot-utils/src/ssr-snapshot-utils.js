@@ -1,8 +1,8 @@
-const { renderComponent: lwcRenderComponent } = require('@lwc/engine-server/dist/index.cjs');
+const engineServer = require('@lwc/engine-server/dist/index.cjs');
+const ssrRuntime = require('@lwc/ssr-runtime/dist/index.cjs');
 const { createHash } = require('crypto');
 const { readdirSync, readFileSync } = require('fs');
 const { join, dirname, basename, extname } = require('path');
-const { serverSideRenderComponent } = require('@lwc/ssr-runtime/dist/index.cjs');
 
 /**
  * Renders the component's markup, captures it in a snapshot that has a unique snapshot hash.
@@ -19,8 +19,8 @@ async function renderAndHashComponent(tagName, Ctor, props = {}, customTestEnv =
 
     const renderedComponent =
         ssrMode !== 'v1'
-            ? await serverSideRenderComponent(tagName, Ctor, props)
-            : lwcRenderComponent(tagName, Ctor, props);
+            ? await ssrRuntime.renderComponent(tagName, Ctor, props)
+            : engineServer.renderComponent(tagName, Ctor, props);
 
     return { renderedComponent, snapshotHash };
 }

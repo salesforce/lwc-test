@@ -8,7 +8,7 @@ jest.mock('@lwc/engine-server/dist/index.cjs', () => ({
 }));
 
 jest.mock('@lwc/ssr-runtime/dist/index.cjs', () => ({
-    serverSideRenderComponent: jest.fn(),
+    renderComponent: jest.fn(),
 }));
 
 jest.mock('fs', () => ({
@@ -34,12 +34,13 @@ describe('Snapshot utilities service', () => {
             const mockProps = { prop: 'value' };
             const customTestEnv = { wire: '' };
 
-            require('@lwc/engine-server/dist/index.cjs').renderComponent.mockReturnValue(
-                mockMarkup
-            );
-            require('@lwc/ssr-runtime/dist/index.cjs').serverSideRenderComponent.mockReturnValue(
-                mockMarkup
-            );
+            const lwcSsr =
+                ssrMode === 'v1'
+                    ? require('@lwc/engine-server/dist/index.cjs')
+                    : require('@lwc/ssr-runtime/dist/index.cjs');
+
+            lwcSsr.renderComponent.mockReturnValue(mockMarkup);
+
             const result = await renderAndHashComponent(
                 mockTagName,
                 mockCtor,
@@ -51,10 +52,6 @@ describe('Snapshot utilities service', () => {
                 renderedComponent: mockMarkup,
                 snapshotHash: 'mockedHash',
             });
-            const lwcSsr =
-                ssrMode === 'v1'
-                    ? require('@lwc/engine-server/dist/index.cjs')
-                    : require('@lwc/ssr-runtime/dist/index.cjs');
             expect(lwcSsr.renderComponent).toHaveBeenCalledWith(mockTagName, mockCtor, mockProps);
             expect(createHash).toHaveBeenCalledWith('sha256');
         });

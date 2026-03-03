@@ -74,7 +74,17 @@ function getLwcPath(path, options) {
     }
     // If is a special LWC package, resolve it from commonjs
     if (ALLOWLISTED_LWC_PACKAGES[path]) {
-        return require.resolve(ALLOWLISTED_LWC_PACKAGES[path]);
+        const pkg = ALLOWLISTED_LWC_PACKAGES[path];
+        const toResolve = pkg.startsWith('@lwc/') ? `${pkg}/dist/index.cjs` : pkg;
+        return require.resolve(toResolve);
+    }
+    // Direct @lwc package imports (e.g. @lwc/ssr-runtime from compiled SSR code) need CJS path
+    if (path.startsWith('@lwc/')) {
+        try {
+            return require.resolve(`${path}/dist/index.cjs`);
+        } catch {
+            // Fall through to default resolution
+        }
     }
 
     // If is an implicit imported html (auto-binded from the compiler) return an empty file

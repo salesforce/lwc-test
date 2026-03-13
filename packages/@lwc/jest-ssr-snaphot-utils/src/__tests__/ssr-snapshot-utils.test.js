@@ -3,12 +3,12 @@ const { readdirSync, readFileSync } = require('fs');
 const { createHash } = require('crypto');
 const { join } = require('path');
 
-jest.mock('@lwc/engine-server', () => ({
+jest.mock('@lwc/engine-server/dist/index.cjs', () => ({
     renderComponent: jest.fn(),
 }));
 
-jest.mock('@lwc/ssr-runtime', () => ({
-    serverSideRenderComponent: jest.fn(),
+jest.mock('@lwc/ssr-runtime/dist/index.cjs', () => ({
+    renderComponent: jest.fn(),
 }));
 
 jest.mock('fs', () => ({
@@ -34,8 +34,13 @@ describe('Snapshot utilities service', () => {
             const mockProps = { prop: 'value' };
             const customTestEnv = { wire: '' };
 
-            require('@lwc/engine-server').renderComponent.mockReturnValue(mockMarkup);
-            require('@lwc/ssr-runtime').serverSideRenderComponent.mockReturnValue(mockMarkup);
+            const lwcSsr =
+                ssrMode === 'v1'
+                    ? require('@lwc/engine-server/dist/index.cjs')
+                    : require('@lwc/ssr-runtime/dist/index.cjs');
+
+            lwcSsr.renderComponent.mockReturnValue(mockMarkup);
+
             const result = await renderAndHashComponent(
                 mockTagName,
                 mockCtor,
@@ -47,18 +52,7 @@ describe('Snapshot utilities service', () => {
                 renderedComponent: mockMarkup,
                 snapshotHash: 'mockedHash',
             });
-            if (ssrMode === 'v1')
-                expect(require('@lwc/engine-server').renderComponent).toHaveBeenCalledWith(
-                    mockTagName,
-                    mockCtor,
-                    mockProps
-                );
-            else
-                expect(require('@lwc/ssr-runtime').serverSideRenderComponent).toHaveBeenCalledWith(
-                    mockTagName,
-                    mockCtor,
-                    mockProps
-                );
+            expect(lwcSsr.renderComponent).toHaveBeenCalledWith(mockTagName, mockCtor, mockProps);
             expect(createHash).toHaveBeenCalledWith('sha256');
         });
     });

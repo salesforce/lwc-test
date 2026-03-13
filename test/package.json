@@ -1,6 +1,7 @@
 {
     "name": "test",
     "version": "19.4.0",
+    "private": true,
     "scripts": {
         "test": "jest"
     }

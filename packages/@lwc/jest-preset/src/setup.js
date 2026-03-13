@@ -15,7 +15,7 @@ if (!nativeShadow) {
             '@lwc/synthetic-shadow is being loaded twice. Please examine your jest/jsdom configuration.'
         );
     }
-    require('@lwc/synthetic-shadow');
+    require('@lwc/synthetic-shadow/dist/index.cjs');
 }
 
 // Provides temporary backward compatibility for wire-protocol reform: lwc > 1.5.0
@@ -164,7 +164,7 @@ function installRegisterDecoratorsTrap(lwc) {
     Object.defineProperty(lwc, 'registerDecorators', newDescriptor);
 }
 
-const lwc = require('@lwc/engine-dom');
+const lwc = require('@lwc/engine-dom/dist/index.cjs');
 
 installRegisterDecoratorsTrap(lwc);
 lwc.setFeatureFlag('ENABLE_EXPERIMENTAL_SIGNALS', true);

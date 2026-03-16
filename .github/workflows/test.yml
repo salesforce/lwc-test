@@ -2,9 +2,13 @@ name: CI
 
 on:
     push:
-        branches: ['**']
+        branches:
+            - master
+            - winter*
+            - spring*
+            - summer*
     pull_request:
-    workflow_call:
+    workflow_call: # Allows this workflow to be used by the release workflow
 
 jobs:
     build:
@@ -32,12 +36,13 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-yarn-
 
-            - name: Install dependencies
-              run: yarn install --frozen-lockfile
-
-            - name: Install jest v${{ matrix.jest-version }}
+            - name: Install dependencies w/ jest@${{ matrix.jest-version }}
               if: matrix.jest-version != 'local'
               run: yarn add jest@${{ matrix.jest-version }} jest-environment-jsdom@${{ matrix.jest-version }} -W --dev
+
+            - name: Install dependencies w/ local jest
+              if: matrix.jest-version == 'local'
+              run: yarn install --frozen-lockfile
 
             - name: Run linter
               run: yarn lint

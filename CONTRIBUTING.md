@@ -19,3 +19,7 @@ Any code change should be submitted as a pull request. The description should ex
 ## Review process
 
 The bigger the pull request, the longer it will take to review and merge. Try to break down large pull requests in smaller chunks that are easier to review and merge. Also make sure to reference the related issues in the pull request message, if any.
+
+# Release
+
+Releases are automatically created via GitHub Actions when a new tag is pushed to the repository.

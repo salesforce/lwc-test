@@ -1,0 +1,47 @@
+name: Release
+
+on:
+    push:
+        tags: ['v*']
+
+permissions:
+    id-token: write # Required for OIDC
+    contents: read
+
+jobs:
+    test:
+        uses: ./.github/workflows/test.yml
+
+    deploy:
+        name: Deploy
+        needs: test
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: actions/setup-node@v6
+              with:
+                  node-version: '20.20.1'
+
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+            - uses: actions/cache@v4
+              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Configure NPM authentication
+              run: npm config set "//registry.npmjs.org/:_authToken" "$NPM_AUTOMATION_TOKEN"
+              env:
+                  NPM_AUTOMATION_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
+
+            - name: Publish packages
+              run: yarn release:publish:ci

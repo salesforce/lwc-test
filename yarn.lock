@@ -3016,20 +3016,20 @@
   resolved "https://registry.npmjs.org/@locker/trusted-types/-/trusted-types-0.22.5.tgz#cf78cfec2d97a68678c0660656e4bdef2d5abc3a"
   integrity sha512-sHXROEFevqsNa8+Dl9Q46Ol7XYY8iD+KzdMj6HGVVFu6BY3Fb4sYiR257759V3PURrRcju0to4lDwkg7Qz0z0A==
 
-"@lwc/babel-plugin-component@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/babel-plugin-component/-/babel-plugin-component-9.0.3.tgz#52d27b837ae0c91b69b02e7c4bde880eca7cc7f8"
-  integrity sha512-7tu0ubvmAP7D5Q7cSAtE47UYoPHY6IDJh2xFIUGbmKOqoNHm2dtE0+L6rFNWDUK/xruIQvfx3iUkkgcGOU7NTA==
+"@lwc/babel-plugin-component@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/babel-plugin-component/-/babel-plugin-component-9.1.1.tgz#65424161212daf1e9c1d0316c0bc06c0f644ca10"
+  integrity sha512-WRvO5ATDnqJLs8PldalJDyYyaQy2vgeGUKshFkqXja2knN0Id3oJzXykrz1b3hKgWZ4IfaC2arDfViBPjgzUlw==
   dependencies:
     "@babel/helper-module-imports" "7.28.6"
-    "@lwc/errors" "9.0.3"
-    "@lwc/shared" "9.0.3"
+    "@lwc/errors" "9.1.1"
+    "@lwc/shared" "9.1.1"
     line-column "~1.0.2"
 
-"@lwc/compiler@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/compiler/-/compiler-9.0.3.tgz#06cec2671b252ffdc78dcc0589152cb187c6aca3"
-  integrity sha512-3PGmoPLRbt2qeQwkG7r4zQARLg5juP77ADpCTlF57C1F2vFKacFrmmMYlv3KGh7/auKfH/DGFwb9pMUnTMdSmQ==
+"@lwc/compiler@^9.1.0":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/compiler/-/compiler-9.1.1.tgz#8373a2ebf7d4ca7a471b7f30d5393a1d477e8204"
+  integrity sha512-L2J132+nGP9JG4KK6pOcPlJ0lwbnA1YOAm1vI59V1RvXzCk1jVhpUUJZxKq16yzrTJDUXPuDzTpdgVCp381xwQ==
   dependencies:
     "@babel/core" "7.29.0"
     "@babel/plugin-transform-async-generator-functions" "7.29.0"
@@ -3037,27 +3037,27 @@
     "@babel/plugin-transform-class-properties" "7.28.6"
     "@babel/plugin-transform-object-rest-spread" "7.28.6"
     "@locker/babel-plugin-transform-unforgeables" "0.22.0"
-    "@lwc/babel-plugin-component" "9.0.3"
-    "@lwc/errors" "9.0.3"
-    "@lwc/shared" "9.0.3"
-    "@lwc/ssr-compiler" "9.0.3"
-    "@lwc/style-compiler" "9.0.3"
-    "@lwc/template-compiler" "9.0.3"
+    "@lwc/babel-plugin-component" "9.1.1"
+    "@lwc/errors" "9.1.1"
+    "@lwc/shared" "9.1.1"
+    "@lwc/ssr-compiler" "9.1.1"
+    "@lwc/style-compiler" "9.1.1"
+    "@lwc/template-compiler" "9.1.1"
 
-"@lwc/engine-dom@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/engine-dom/-/engine-dom-9.0.3.tgz#f897a60d196a7467197a1ab1aaae13f2ea519d9b"
-  integrity sha512-8vDz0tA3JoTvSsIhfge2cgYoul9L2gyvfLleXry8ltbC4qWKviXHVDu3KVyMrE1bbvjpiOwt+CALTGJtWGuIJw==
+"@lwc/engine-dom@^9.1.0":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/engine-dom/-/engine-dom-9.1.1.tgz#2fc2559aaa9c089b28d5fb49a355bf7087d380d1"
+  integrity sha512-gIBbDgB38yjD33if6np0YuAjWZIqqxPfIEWx4eCkv3q20xrfSaO7nCbntP5LEIxGli7g9Eae81ygiBBUR+Jf9A==
 
 "@lwc/engine-server@^8.24.2":
   version "8.28.2"
   resolved "https://registry.yarnpkg.com/@lwc/engine-server/-/engine-server-8.28.2.tgz#ff1195968e3b50be09fa7ea64a991c23872e99de"
   integrity sha512-tqyRX2b2wGjqwkILafnrs9WmKcCzo8Jlioyavmu4WVwJm3Rw0fqW8HyNACFY42t6A/Uop8CzFdXo2jDPLwJS9g==
 
-"@lwc/errors@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/errors/-/errors-9.0.3.tgz#94df64211074dc81d3b0a42ee1920cd70b43b3da"
-  integrity sha512-Mt3h6x+MVjiRjfNDsrbf8E9c2oZ81y6i9q3n+gKLrOEwEJBckmNPD5v2m4wqVyx62Sc1d6kQWBCZfWNJPKTgdA==
+"@lwc/errors@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/errors/-/errors-9.1.1.tgz#d238ae22b6c4e2ec2cd7c5d2ab1d67e804c20483"
+  integrity sha512-mzxheWmXvmfbwWv5zzhL+uj0AsQXCfaq9HaAweY4ZYpGJ5iHGTVUT+dsyMJBcMzq/khYMwgNgAS0a9t4DqNljQ==
 
 "@lwc/module-resolver@^8.0.3":
   version "8.28.2"
@@ -3066,61 +3066,61 @@
   dependencies:
     resolve "~1.22.11"
 
-"@lwc/shared@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/shared/-/shared-9.0.3.tgz#abd0380330c2f93eb7b8a2a4192a2f5af603426d"
-  integrity sha512-NqQjWaNxbQbQcbwfMEHLvpeRGb+1vrWaizcbALl91BSkQJCI1kj6HvtdIEwNTjcqf6JR4XT4JRZXZMf0/5xYkQ==
+"@lwc/shared@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/shared/-/shared-9.1.1.tgz#f0e90844d04cfbbfc333a5df76d2c4e5ddd1fa99"
+  integrity sha512-0dQ5o9acJL+4eDRgjyozxxYeYi7SoycTO1Xc/UIjJLKwLzojxTkyITR3r4nH5CnVI/jnTNKs/WXXnjjJLa4OTg==
 
-"@lwc/ssr-compiler@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/ssr-compiler/-/ssr-compiler-9.0.3.tgz#eb13564e2689da26621fe13c7f2869c2f68a1853"
-  integrity sha512-N0AgOrO7nKIplOKbmDTcTGerzvYHgdPwN2SnIzTuMUezHlcd9m3p1iALAk0n2DE+ejZNlVT0BOtGlh4wWf6eVg==
+"@lwc/ssr-compiler@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/ssr-compiler/-/ssr-compiler-9.1.1.tgz#609c046931ec496c9b50ff2d53630fe865aa06df"
+  integrity sha512-u/Ib9OcoNSUvDPHOq0pt4B/jM/xJSBJ9fesuIrwEyBxpdPoEPiuCMPB1eVUt6hfZWAOS2hmvz9TIQz6K7eouhw==
   dependencies:
     "@babel/types" "7.29.0"
-    "@lwc/errors" "9.0.3"
-    "@lwc/shared" "9.0.3"
-    "@lwc/template-compiler" "9.0.3"
+    "@lwc/errors" "9.1.1"
+    "@lwc/shared" "9.1.1"
+    "@lwc/template-compiler" "9.1.1"
     acorn "8.16.0"
     astring "^1.9.0"
     estree-toolkit "^1.7.13"
     immer "^11.1.4"
     meriyah "^7.1.0"
 
-"@lwc/ssr-runtime@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/ssr-runtime/-/ssr-runtime-9.0.3.tgz#a1061ac2a5eeecc8a72488ca8b63069cdccc259d"
-  integrity sha512-u7yEPMh4Iex+wvP1Ym/sjQzFjY3Xi7bwYDI9H0XrdG43OxG3aBcA9BlLtwtq1OH5A4Xt4ogujxXfSgXWK/bdHQ==
+"@lwc/ssr-runtime@^9.1.0":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/ssr-runtime/-/ssr-runtime-9.1.1.tgz#db2501694902cd775651c7f52194586b43d78791"
+  integrity sha512-zCu6GYhgcohQJ6ah0PZgXkRamX19th5x8ttHaQpe1AtH06OgXgMdJ2Zv1GpkqyazTRIhjfKlOTJLc8h91t0amA==
 
-"@lwc/style-compiler@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/style-compiler/-/style-compiler-9.0.3.tgz#7f28cce89ee4b06dc976758e26fe37e49f7faa84"
-  integrity sha512-DWOmChoA4XW2xd+OPbij6E/1lmIZQxseA9El0ZBeb9KENzdWrw790IZ93X4+AXT4aYV0PvaEEzTru1lquWilWg==
+"@lwc/style-compiler@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/style-compiler/-/style-compiler-9.1.1.tgz#26478f098928000e428c1d29af2761b5afb66791"
+  integrity sha512-SQtxyO3yiyjdyiJOlWySUzvTtlYr5hqtjm83u5n1B/mLZVWFJz98QBH6ihrJPTNsamBtG061Wbt4AcM642rWRg==
   dependencies:
-    "@lwc/shared" "9.0.3"
-    postcss "~8.5.6"
+    "@lwc/shared" "9.1.1"
+    postcss "~8.5.8"
     postcss-selector-parser "~7.1.1"
     postcss-value-parser "~4.2.0"
 
-"@lwc/synthetic-shadow@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/synthetic-shadow/-/synthetic-shadow-9.0.3.tgz#926738b10526988a223c6a9f80aa0f2956a07cc5"
-  integrity sha512-PaWPvctI3qvGqJw5dKL1l5lXpWSB/+1rPNOwTWiTXM5u23axhkNv5xPTDtoV7ao/ytKRddPe7IQPq1rwkkOCkA==
+"@lwc/synthetic-shadow@^9.1.0":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/synthetic-shadow/-/synthetic-shadow-9.1.1.tgz#ea36231ca2a346f5af13d3d897d9b22c1c07468e"
+  integrity sha512-Hhxt9Xa7UV8rbJafb+VkQUhYnHx9bDp+Fd6KVTp2mb0AqRf7fCRuR0QiFQOsqU+PZfZUHyowIe/Qe7g19Ua5og==
 
-"@lwc/template-compiler@9.0.3", "@lwc/template-compiler@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/template-compiler/-/template-compiler-9.0.3.tgz#a80cb86a3ce84aa7fab2427e3f81034db430f89c"
-  integrity sha512-Q6T01cDrPnJWM/mLs2E4to9DL9qWMLn5im6T1bR0r/5ezWnKbYGJYaYoEyzbVa8IqfPP3CwPh8d9C1ZpnA5f2A==
+"@lwc/template-compiler@9.1.1", "@lwc/template-compiler@^9.1.0":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/template-compiler/-/template-compiler-9.1.1.tgz#4d20428ae66c4d9e189cf914e54f2f8ceeb04dea"
+  integrity sha512-GzJqJNLWiJTa3vHr2IwcyTbjMNLkSofMqSvFa9s+krVX4Yqlut2cNcv3SumVKMkdJ5SOWg84GS5JJRxFir7fvQ==
   dependencies:
-    "@lwc/errors" "9.0.3"
-    "@lwc/shared" "9.0.3"
+    "@lwc/errors" "9.1.1"
+    "@lwc/shared" "9.1.1"
     acorn "~8.16.0"
     astring "~1.9.0"
     he "~1.2.0"
 
-"@lwc/wire-service@^9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@lwc/wire-service/-/wire-service-9.0.3.tgz#5b5f4aafdd836c3d36f99b59e7f22e2f2afcbb32"
-  integrity sha512-1PJCpEa3rkdoC9cwcz25RiGRHXiYsrsEZNRQ6GMT3T3J6KpaAN9xQ5C4a/ajs+9HpKMp81CEArhzisTAB+0gmA==
+"@lwc/wire-service@^9.1.0":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/wire-service/-/wire-service-9.1.1.tgz#3921af91a18d7bee7f64ec67b756b31014399ae3"
+  integrity sha512-c9iZFOLW6EbROEBN1XAw/x4qDXDzIRUsRk6ZY1byPSRfU5aw22nwLZ5P1K1uvUarN7JEWXSpOpbHWV9Lqq1Tjg==
 
 "@lwrjs/api@0.14.0":
   version "0.14.0"
@@ -14507,10 +14507,10 @@ postcss@^8.4.40:
     picocolors "^1.1.0"
     source-map-js "^1.2.1"
 
-postcss@~8.5.6:
-  version "8.5.6"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.6.tgz#2825006615a619b4f62a9e7426cc120b349a8f3c"
-  integrity sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==
+postcss@~8.5.8:
+  version "8.5.8"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/postcss/-/postcss-8.5.8.tgz#6230ecc8fb02e7a0f6982e53990937857e13f399"
+  integrity sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==
   dependencies:
     nanoid "^3.3.11"
     picocolors "^1.1.1"

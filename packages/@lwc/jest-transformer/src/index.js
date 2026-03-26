@@ -113,6 +113,7 @@ function transformLWC(src, filePath, isSSR) {
         scopedStyles: isKnownScopedCssFile(filePath),
         enableDynamicComponents: true,
         enableLwcOn: true,
+        enablePrivateMethods: true,
         /**
          * Prevent causing tons of warning log lines.
          * @see {@link https://github.com/salesforce/lwc/pull/3544}

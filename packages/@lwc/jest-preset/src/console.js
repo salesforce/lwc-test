@@ -7,9 +7,7 @@ const augmentedConsole = {
 
 ['log', 'info', 'err', 'dir', 'warn', 'debug'].forEach((methodName) => {
     augmentedConsole[methodName] = (...args) => {
-        originalConsole[methodName].apply(originalConsole, [
-            ...Array.from(args).map((obj) => unwrap(obj)),
-        ]);
+        originalConsole[methodName](...args.map(unwrap));
     };
 });
 

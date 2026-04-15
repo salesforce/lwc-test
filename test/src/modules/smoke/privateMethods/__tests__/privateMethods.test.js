@@ -5,12 +5,6 @@ describe('smoke private methods (smoke-private-methods)', () => {
         jest.resetModules();
         expect(() => {
             require('../privateMethods');
-        }).toThrow(
-            expect.objectContaining({
-                message: expect.stringMatching(
-                    /LWC1007:[\s\S]*Class private methods are not enabled/
-                ),
-            })
-        );
+        }).toThrow(/LWC1007:[\s\S]*Class private methods are not enabled/);
     });
 });

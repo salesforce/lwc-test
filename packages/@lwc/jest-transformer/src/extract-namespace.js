@@ -25,8 +25,7 @@ function extractNamespace(filePath) {
         return match[2];
     }
 
-    // Fallback to 'x', which was previously the default
-    return 'x';
+    return '';
 }
 
 module.exports = { extractNamespace };

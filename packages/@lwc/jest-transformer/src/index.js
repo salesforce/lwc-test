@@ -121,13 +121,13 @@ function transformLWC(src, filePath, isSSR) {
     }
 
     // Extract namespace from the file path
-    const namespace = extractNamespace(filePath);
-    const enablePrivateMethods = namespace === 'lightning' || namespace === 'interop';
+    const pathNamespace = extractNamespace(filePath);
+    const enablePrivateMethods = pathNamespace === 'lightning' || pathNamespace === 'interop';
 
     // Set default module name value for the namespace because it can't be properly guessed from the path
     const compilerOptions = {
         name: 'test',
-        namespace,
+        namespace: 'x',
         outputConfig: {
             sourcemap: true,
         },
@@ -159,7 +159,7 @@ function transformLWC(src, filePath, isSSR) {
 
     const { code, map, warnings } = lwcCompiler.transformSync(src, filePath, compilerOptions);
     const cssScopeTokens = filePath.endsWith('.html')
-        ? generateScopeTokens(filePath, namespace, 'test').cssScopeTokens
+        ? generateScopeTokens(filePath, 'x', 'test').cssScopeTokens
         : undefined;
 
     // Log compiler warnings, if any

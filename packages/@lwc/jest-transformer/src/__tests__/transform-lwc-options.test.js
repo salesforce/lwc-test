@@ -35,7 +35,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
             expect.any(String),
             '/repo/modules/lightning/foo/foo.js',
             expect.objectContaining({
-                namespace: 'lightning',
+                namespace: 'x',
                 enablePrivateMethods: true,
             })
         );
@@ -48,7 +48,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
             expect.any(String),
             '/repo/modules/interop/bar/bar.js',
             expect.objectContaining({
-                namespace: 'interop',
+                namespace: 'x',
                 enablePrivateMethods: true,
             })
         );
@@ -61,7 +61,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
             expect.any(String),
             '/repo/modules/c/baz/baz.js',
             expect.objectContaining({
-                namespace: 'c',
+                namespace: 'x',
                 enablePrivateMethods: false,
             })
         );

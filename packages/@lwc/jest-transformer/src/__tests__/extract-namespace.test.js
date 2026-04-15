@@ -8,6 +8,8 @@ describe('extractNamespace', () => {
     it('returns the namespace segment when path is /modules/{namespace}/...', () => {
         expect(extractNamespace('/modules/x/foo/bar.js')).toBe('x');
         expect(extractNamespace('/modules/x/foo/bar/baz.js')).toBe('x');
+        expect(extractNamespace('/modules/lightning/spinner/spinner.js')).toBe('lightning');
+        expect(extractNamespace('/modules/interop/spinner/spinner.js')).toBe('interop');
     });
 
     it('returns namespace from modules/{namespace}/...', () => {

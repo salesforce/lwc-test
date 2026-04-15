@@ -1,4 +1,4 @@
-const { extractNamespace } = require('../index');
+const { extractNamespace } = require('../extract-namespace');
 
 describe('extractNamespace', () => {
     it("always returns 'x'", () => {

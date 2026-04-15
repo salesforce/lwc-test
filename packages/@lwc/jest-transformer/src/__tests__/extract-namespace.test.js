@@ -27,9 +27,7 @@ describe('extractNamespace', () => {
         expect(extractNamespace('/repo/modules/c/foo/foo.js')).toBe('x');
         expect(extractNamespace('/repo/src/foo.js')).toBe('x');
     });
-});
 
-describe('extractPathNamespace', () => {
     it('returns namespace from modules/{namespace}/...', () => {
         expect(extractNamespace('/repo/modules/c/foo/foo.js')).toBe('c');
     });

@@ -1,8 +1,11 @@
 const { extractNamespace } = require('../extract-namespace');
 
 describe('extractNamespace', () => {
-    it("always returns 'x'", () => {
-        expect(extractNamespace('/repo/src/foo.js')).toBe('x');
+    it("returns '' when path does not match modules/ or jest-modules/ layout", () => {
+        expect(extractNamespace('/repo/src/foo.js')).toBe('');
+    });
+
+    it('returns the namespace segment when path is /modules/{namespace}/...', () => {
         expect(extractNamespace('/modules/x/foo/bar.js')).toBe('x');
         expect(extractNamespace('/modules/x/foo/bar/baz.js')).toBe('x');
     });
@@ -37,11 +40,7 @@ describe('extractNamespace', () => {
         expect(extractNamespace('packages/pkg/modules/custom/lib/lib.js')).toBe('custom');
     });
 
-    it("returns 'x' when path does not contain modules/ or jest-modules/", () => {
-        expect(extractNamespace('/repo/src/foo.js')).toBe('x');
-    });
-
-    it("returns 'x' when modules segment has no trailing segment", () => {
-        expect(extractNamespace('/repo/modules')).toBe('x');
+    it("returns '' when modules segment has no trailing path segment", () => {
+        expect(extractNamespace('/repo/modules')).toBe('');
     });
 });

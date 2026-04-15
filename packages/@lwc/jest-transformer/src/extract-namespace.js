@@ -11,7 +11,7 @@
  *      - modules/{namespace}/{component}/{component}.js
  *      - modules/{namespace}/{component}/__tests__/...
  *      - jest-modules/{namespace}/{component}/{component}.js
- * Returns 'x' as fallback if the namespace cannot be determined
+ * Returns '' if the namespace cannot be determined
  * @param {string} filePath
  * @returns {string}
  */

@@ -54,6 +54,23 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
         );
     });
 
+    it('sets enablePrivateMethods false when path matches modules/smoke/...', () => {
+        transformLwc(
+            'export default class {}',
+            '/repo/modules/smoke/privateMethods/privateMethods.js',
+            false
+        );
+
+        expect(lwcCompiler.transformSync).toHaveBeenCalledWith(
+            expect.any(String),
+            '/repo/modules/smoke/privateMethods/privateMethods.js',
+            expect.objectContaining({
+                namespace: 'x',
+                enablePrivateMethods: false,
+            })
+        );
+    });
+
     it('sets enablePrivateMethods false for other modules/... namespaces', () => {
         transformLwc('export default class {}', '/repo/modules/c/baz/baz.js', false);
 

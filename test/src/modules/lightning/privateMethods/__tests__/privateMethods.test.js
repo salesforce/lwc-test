@@ -7,7 +7,7 @@
 import { createElement } from 'lwc';
 import PrivateMethods from '../privateMethods';
 
-describe('private methods', () => {
+describe('lightning private methods', () => {
     it('should allow calling private methods from public methods', () => {
         const element = createElement('lightning-private-methods', { is: PrivateMethods });
         document.body.appendChild(element);

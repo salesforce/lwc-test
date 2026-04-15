@@ -91,15 +91,43 @@ function transformTypeScript(src, filePath) {
     return code;
 }
 
+/**
+ * Extracts the namespace from file path
+ * Handles patterns like:
+ *      - modules/{namespace}/{component}/{component}.js
+ *      - modules/{namespace}/{component}/__tests__/...
+ *      - jest-modules/{namespace}/{component}/{component}.js
+ * Returns 'x' as fallback if the namespace cannot be determined
+ * @param {filePath} filePath
+ * @returns String
+ */
+function extractNamespace(filePath) {
+    const normalizedPath = filePath.replace(/\\/g, '/');
+
+    // Match patterns: modules/{namespace} or jest-modules/{namespace}
+    const match = normalizedPath.match(/(?:^|\/)(modules|jest-modules)\/([^/]+)\//);
+
+    if (match && match[2]) {
+        return match[2];
+    }
+
+    // Fallback to 'x', which was previously the default
+    return 'x';
+}
+
 function transformLWC(src, filePath, isSSR) {
     if (isTypeScript(filePath)) {
         src = transformTypeScript(src, filePath);
     }
 
-    // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
+    // Extract namespace from the file path
+    const namespace = extractNamespace(filePath);
+    const enablePrivateMethods = namespace === 'lightning' || namespace === 'interop';
+
+    // Set default module name value for the namespace because it can't be properly guessed from the path
     const compilerOptions = {
         name: 'test',
-        namespace: 'x',
+        namespace,
         outputConfig: {
             sourcemap: true,
         },
@@ -113,7 +141,7 @@ function transformLWC(src, filePath, isSSR) {
         scopedStyles: isKnownScopedCssFile(filePath),
         enableDynamicComponents: true,
         enableLwcOn: true,
-        enablePrivateMethods: true,
+        enablePrivateMethods,
         /**
          * Prevent causing tons of warning log lines.
          * @see {@link https://github.com/salesforce/lwc/pull/3544}

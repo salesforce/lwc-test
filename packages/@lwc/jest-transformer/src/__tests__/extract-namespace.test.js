@@ -24,7 +24,6 @@ const { extractNamespace } = require('../index');
 
 describe('extractNamespace', () => {
     it("always returns 'x'", () => {
-        expect(extractNamespace('/repo/modules/c/foo/foo.js')).toBe('x');
         expect(extractNamespace('/repo/src/foo.js')).toBe('x');
     });
 

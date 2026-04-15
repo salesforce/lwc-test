@@ -38,6 +38,7 @@ const messageChannelScopedImport = require('./transforms/message-channel-scoped-
 const accessCheck = require('./transforms/access-check-scoped-import');
 const siteScopedImport = require('./transforms/site-scoped-import');
 const importMeta = require('./transforms/import-meta');
+const { extractNamespace } = require('./extract-namespace');
 
 const BABEL_TS_CONFIG = {
     sourceMaps: 'inline',
@@ -96,7 +97,11 @@ function transformLWC(src, filePath, isSSR) {
         src = transformTypeScript(src, filePath);
     }
 
-    // Set default module name and namespace value for the namespace because it can't be properly guessed from the path
+    // Extract namespace from the file path
+    const pathNamespace = extractNamespace(filePath);
+    const enablePrivateMethods = pathNamespace === 'lightning' || pathNamespace === 'interop';
+
+    // Set default module name value for the namespace because it can't be properly guessed from the path
     const compilerOptions = {
         name: 'test',
         namespace: 'x',
@@ -113,7 +118,7 @@ function transformLWC(src, filePath, isSSR) {
         scopedStyles: isKnownScopedCssFile(filePath),
         enableDynamicComponents: true,
         enableLwcOn: true,
-        enablePrivateMethods: true,
+        enablePrivateMethods,
         /**
          * Prevent causing tons of warning log lines.
          * @see {@link https://github.com/salesforce/lwc/pull/3544}
@@ -209,3 +214,4 @@ module.exports = {
 };
 
 module.exports.transformLwc = transformLWC;
+module.exports.extractNamespace = extractNamespace;

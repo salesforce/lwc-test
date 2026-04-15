@@ -20,7 +20,7 @@ jest.mock('@lwc/template-compiler/dist/index.cjs', () => ({
     generateScopeTokens: jest.fn(() => ({ cssScopeTokens: undefined })),
 }));
 
-const { extractNamespace, extractPathNamespace } = require('../index');
+const { extractNamespace } = require('../index');
 
 describe('extractNamespace', () => {
     it("always returns 'x'", () => {
@@ -31,26 +31,26 @@ describe('extractNamespace', () => {
 
 describe('extractPathNamespace', () => {
     it('returns namespace from modules/{namespace}/...', () => {
-        expect(extractPathNamespace('/repo/modules/c/foo/foo.js')).toBe('c');
+        expect(extractNamespace('/repo/modules/c/foo/foo.js')).toBe('c');
     });
 
     it('returns namespace when path contains __tests__', () => {
-        expect(extractPathNamespace('/repo/modules/c/foo/__tests__/foo.test.js')).toBe('c');
+        expect(extractNamespace('/repo/modules/c/foo/__tests__/foo.test.js')).toBe('c');
     });
 
     it('returns namespace from jest-modules/{namespace}/...', () => {
-        expect(extractPathNamespace('/repo/jest-modules/interop/bar/bar.js')).toBe('interop');
+        expect(extractNamespace('/repo/jest-modules/interop/bar/bar.js')).toBe('interop');
     });
 
     it('normalizes Windows separators before matching', () => {
-        expect(extractPathNamespace('C:\\repo\\modules\\lightning\\x\\x.js')).toBe('lightning');
+        expect(extractNamespace('C:\\repo\\modules\\lightning\\x\\x.js')).toBe('lightning');
     });
 
     it("returns 'x' when path does not contain modules/ or jest-modules/", () => {
-        expect(extractPathNamespace('/repo/src/foo.js')).toBe('x');
+        expect(extractNamespace('/repo/src/foo.js')).toBe('x');
     });
 
     it("returns 'x' when modules segment has no trailing segment", () => {
-        expect(extractPathNamespace('/repo/modules')).toBe('x');
+        expect(extractNamespace('/repo/modules')).toBe('x');
     });
 });

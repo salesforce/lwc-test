@@ -1,30 +1,10 @@
-/*
- * Copyright (c) 2018, salesforce.com, inc.
- * All rights reserved.
- * SPDX-License-Identifier: MIT
- * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
- */
-jest.mock('@lwc/compiler/dist/index.cjs', () => ({
-    transformSync: jest.fn(() => ({
-        code: '/* lwc-compiled */',
-        map: null,
-        warnings: [],
-    })),
-}));
-
-jest.mock('@babel/core', () => ({
-    transform: jest.fn(() => ({ code: '/* babel */' })),
-}));
-
-jest.mock('@lwc/template-compiler/dist/index.cjs', () => ({
-    generateScopeTokens: jest.fn(() => ({ cssScopeTokens: undefined })),
-}));
-
 const { extractNamespace } = require('../index');
 
 describe('extractNamespace', () => {
     it("always returns 'x'", () => {
         expect(extractNamespace('/repo/src/foo.js')).toBe('x');
+        expect(extractNamespace('/modules/x/foo/bar.js')).toBe('x');
+        expect(extractNamespace('/modules/x/foo/bar/baz.js')).toBe('x');
     });
 
     it('returns namespace from modules/{namespace}/...', () => {
@@ -41,6 +21,20 @@ describe('extractNamespace', () => {
 
     it('normalizes Windows separators before matching', () => {
         expect(extractNamespace('C:\\repo\\modules\\lightning\\x\\x.js')).toBe('lightning');
+    });
+
+    it('extracts namespace from absolute paths', () => {
+        expect(extractNamespace('/var/project/modules/lightning/button/button.js')).toBe(
+            'lightning'
+        );
+        expect(extractNamespace('/repo/nested/jest-modules/interop/cmp/cmp.js')).toBe('interop');
+    });
+
+    it('extracts namespace from relative paths', () => {
+        expect(extractNamespace('project/modules/smoke/widget/widget.js')).toBe('smoke');
+        expect(extractNamespace('modules/c/foo/foo.js')).toBe('c');
+        expect(extractNamespace('./src/jest-modules/interop/x/x.js')).toBe('interop');
+        expect(extractNamespace('packages/pkg/modules/custom/lib/lib.js')).toBe('custom');
     });
 
     it("returns 'x' when path does not contain modules/ or jest-modules/", () => {

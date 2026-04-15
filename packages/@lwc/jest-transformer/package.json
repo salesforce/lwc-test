@@ -19,7 +19,6 @@
     ],
     "files": [
         "/src/index.js",
-        "/src/extract-namespace.js",
         "/src/ssr.js",
         "/src/transforms/*.js"
     ],

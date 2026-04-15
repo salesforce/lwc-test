@@ -38,7 +38,6 @@ const messageChannelScopedImport = require('./transforms/message-channel-scoped-
 const accessCheck = require('./transforms/access-check-scoped-import');
 const siteScopedImport = require('./transforms/site-scoped-import');
 const importMeta = require('./transforms/import-meta');
-const { extractNamespace } = require('./extract-namespace');
 
 const BABEL_TS_CONFIG = {
     sourceMaps: 'inline',
@@ -92,6 +91,30 @@ function transformTypeScript(src, filePath) {
     return code;
 }
 
+/**
+ * Extracts the namespace from file path
+ * Handles patterns like:
+ *      - modules/{namespace}/{component}/{component}.js
+ *      - modules/{namespace}/{component}/__tests__/...
+ *      - jest-modules/{namespace}/{component}/{component}.js
+ * Returns 'x' as fallback if the namespace cannot be determined
+ * @param {string} filePath
+ * @returns {string}
+ */
+function extractNamespace(filePath) {
+    const normalizedPath = filePath.replace(/\\/g, '/');
+
+    // Match patterns: modules/{namespace} or jest-modules/{namespace}
+    const match = normalizedPath.match(/(?:^|\/)(modules|jest-modules)\/([^/]+)\//);
+
+    if (match && match[2]) {
+        return match[2];
+    }
+
+    // Fallback to 'x', which was previously the default
+    return 'x';
+}
+
 function transformLWC(src, filePath, isSSR) {
     if (isTypeScript(filePath)) {
         src = transformTypeScript(src, filePath);
@@ -136,7 +159,7 @@ function transformLWC(src, filePath, isSSR) {
 
     const { code, map, warnings } = lwcCompiler.transformSync(src, filePath, compilerOptions);
     const cssScopeTokens = filePath.endsWith('.html')
-        ? generateScopeTokens(filePath, 'x', 'test').cssScopeTokens
+        ? generateScopeTokens(filePath, namespace, 'test').cssScopeTokens
         : undefined;
 
     // Log compiler warnings, if any
@@ -214,3 +237,4 @@ module.exports = {
 };
 
 module.exports.transformLwc = transformLWC;
+module.exports.extractNamespace = extractNamespace;

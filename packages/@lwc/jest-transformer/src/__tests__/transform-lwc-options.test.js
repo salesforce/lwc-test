@@ -28,7 +28,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
         jest.clearAllMocks();
     });
 
-    it('sets enablePrivateMethods true for lightning namespace', () => {
+    it('sets enablePrivateMethods true when path matches modules/... (lightning)', () => {
         transformLwc('export default class {}', '/repo/modules/lightning/foo/foo.js', false);
 
         expect(lwcCompiler.transformSync).toHaveBeenCalledWith(
@@ -41,7 +41,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
         );
     });
 
-    it('sets enablePrivateMethods true for interop namespace', () => {
+    it('sets enablePrivateMethods true when path matches modules/... (interop)', () => {
         transformLwc('export default class {}', '/repo/modules/interop/bar/bar.js', false);
 
         expect(lwcCompiler.transformSync).toHaveBeenCalledWith(
@@ -54,7 +54,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
         );
     });
 
-    it('sets enablePrivateMethods false for other namespaces', () => {
+    it('sets enablePrivateMethods false for other modules/... namespaces', () => {
         transformLwc('export default class {}', '/repo/modules/c/baz/baz.js', false);
 
         expect(lwcCompiler.transformSync).toHaveBeenCalledWith(
@@ -67,7 +67,7 @@ describe('transformLwc compiler options (namespace / enablePrivateMethods)', () 
         );
     });
 
-    it("uses namespace 'x' and enablePrivateMethods false when path has no modules segment", () => {
+    it('sets enablePrivateMethods false when path has no modules/ or jest-modules/ segment', () => {
         transformLwc('export default class {}', '/repo/src/standalone.js', false);
 
         expect(lwcCompiler.transformSync).toHaveBeenCalledWith(

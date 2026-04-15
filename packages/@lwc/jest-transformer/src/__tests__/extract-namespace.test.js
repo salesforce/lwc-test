@@ -4,7 +4,15 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
-const { extractNamespace } = require('../extract-namespace');
+jest.mock('@lwc/compiler/dist/index.cjs', () => ({
+    transformSync: jest.fn(),
+}));
+
+jest.mock('@lwc/template-compiler/dist/index.cjs', () => ({
+    generateScopeTokens: jest.fn(),
+}));
+
+const { extractNamespace } = require('../index');
 
 describe('extractNamespace', () => {
     it('returns namespace from modules/{namespace}/...', () => {

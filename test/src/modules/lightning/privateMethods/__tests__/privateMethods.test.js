@@ -9,7 +9,7 @@ import PrivateMethods from '../privateMethods';
 
 describe('private methods', () => {
     it('should allow calling private methods from public methods', () => {
-        const element = createElement('smoke-private-methods', { is: PrivateMethods });
+        const element = createElement('lightning-private-methods', { is: PrivateMethods });
         document.body.appendChild(element);
 
         expect(element.publicMethod()).toBe(1);
@@ -18,7 +18,7 @@ describe('private methods', () => {
     });
 
     it('should maintain state across multiple calls', () => {
-        const element = createElement('smoke-private-methods', { is: PrivateMethods });
+        const element = createElement('lightning-private-methods', { is: PrivateMethods });
         document.body.appendChild(element);
 
         element.publicMethod();

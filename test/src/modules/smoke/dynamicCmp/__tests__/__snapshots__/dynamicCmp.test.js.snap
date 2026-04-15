@@ -3,11 +3,11 @@
 exports[`should render dynamically imported component 1`] = `
 <smoke-dynamic-import>
   #shadow-root(open)
-    <x-test>
+    <smoke-test>
       #shadow-root(open)
         <span>
           Child
         </span>
-    </x-test>
+    </smoke-test>
 </smoke-dynamic-import>
 `;

@@ -1,0 +1,31 @@
+{
+    "name": "@lwc/vitest-plugin",
+    "version": "19.6.1",
+    "description": "Vite/Vitest plugin that mocks @salesforce/* scoped imports for LWC unit tests",
+    "homepage": "https://lwc.dev/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/salesforce/lwc-test.git",
+        "directory": "packages/@lwc/vitest-plugin"
+    },
+    "bugs": {
+        "url": "https://github.com/salesforce/lwc-test/issues"
+    },
+    "license": "MIT",
+    "type": "module",
+    "main": "src/index.js",
+    "keywords": [
+        "vitest",
+        "vite",
+        "lwc"
+    ],
+    "files": [
+        "/src/**/*.js"
+    ],
+    "exports": {
+        ".": "./src/index.js"
+    },
+    "engines": {
+        "node": ">=20"
+    }
+}

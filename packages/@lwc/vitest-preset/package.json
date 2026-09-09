@@ -1,0 +1,35 @@
+{
+    "name": "@lwc/vitest-preset",
+    "version": "19.6.1",
+    "description": "Vitest preset configuration and setup to help test LWC",
+    "homepage": "https://lwc.dev/",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/salesforce/lwc-test.git",
+        "directory": "packages/@lwc/vitest-preset"
+    },
+    "bugs": {
+        "url": "https://github.com/salesforce/lwc-test/issues"
+    },
+    "license": "MIT",
+    "type": "module",
+    "main": "src/index.js",
+    "keywords": [
+        "vitest",
+        "vite",
+        "lwc"
+    ],
+    "files": [
+        "/src/**/*.js"
+    ],
+    "exports": {
+        ".": "./src/index.js",
+        "./setup": "./src/setup.js"
+    },
+    "dependencies": {
+        "@lwc/vitest-plugin": "19.6.1"
+    },
+    "engines": {
+        "node": ">=20"
+    }
+}

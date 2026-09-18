@@ -16,6 +16,13 @@ export function lwcVitestConfig(importMetaUrl) {
         plugins: [salesforceScopedImports()],
         test: {
             environment: 'jsdom',
+            server: {
+                deps: {
+                    // Force @salesforce/*+@label/ through Vite so the mock plugin's hooks run
+                    // (esbuild pre-bundling bypasses them). UNVERIFIED until vitest/vite installed.
+                    inline: [/^@salesforce\//, /^@label\//],
+                },
+            },
             // TODO: setupFiles, snapshotSerializers, resolve.alias, pool 'forks' + isolate
         },
     };

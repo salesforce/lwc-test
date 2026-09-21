@@ -6,8 +6,8 @@
  */
 
 /*
- * A3 — mirrors jest-transformer/src/transforms/__tests__/label-scoped-import.test.js.
- * Interim node:test (.mjs hides it from Jest + publish glob); run: node --test <this file>.
+ * Mirrors jest-transformer/src/transforms/__tests__/label-scoped-import.test.js.
+ * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 
 import { describe } from 'node:test';
@@ -20,6 +20,5 @@ const test = makeLoad(salesforceScopedImports());
 describe('@salesforce/label import', () => {
     test('does default transformation', '@salesforce/label/c.foo', 'c.foo');
     test('does default transformation for namespaced values', '@salesforce/label/ns.foo', 'ns.foo');
-    // The label transform also handles the legacy `@label/` prefix.
     test('does default transformation for legacy @label/ prefix', '@label/c.foo', 'c.foo');
 });

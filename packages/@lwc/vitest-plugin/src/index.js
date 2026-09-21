@@ -32,8 +32,8 @@ function isMockedSpecifier(source) {
     return SCOPED_IMPORT_PREFIXES.some((prefix) => source.startsWith(prefix));
 }
 
-// A3 — "prefix-stripped string" family: mock value is the specifier minus its matched prefix
-// (e.g. `@salesforce/label/c.foo` -> `"c.foo"`). Ports jest-transformer's stringScopedImportTransform.
+// Mock value is the specifier minus its matched prefix (e.g. `@salesforce/label/c.foo` -> `"c.foo"`).
+// Mirrors jest-transformer's stringScopedImportTransform — keep the two in sync.
 const STRING_VALUE_PREFIXES = [
     '@salesforce/label/',
     '@label/', // legacy alias for @salesforce/label/
@@ -45,7 +45,6 @@ const STRING_VALUE_PREFIXES = [
     '@salesforce/accessCheck/',
 ];
 
-// Returns the mock string, or undefined when the specifier belongs to another shape (later stories).
 function getStringValue(specifier) {
     const prefix = STRING_VALUE_PREFIXES.find((p) => specifier.startsWith(p));
     return prefix === undefined ? undefined : specifier.slice(prefix.length);
@@ -65,13 +64,12 @@ export function salesforceScopedImports() {
             }
             const specifier = id.slice(VIRTUAL_PREFIX.length);
 
-            // A3 — prefix-stripped string family.
             const stringValue = getStringValue(specifier);
             if (stringValue !== undefined) {
                 return `export default ${JSON.stringify(stringValue)};`;
             }
 
-            // Placeholder default export; the remaining value generators land in later stories (A4–A10).
+            // Fallback for shapes without a dedicated value generator yet: echo the specifier.
             return `export default ${JSON.stringify(specifier)};`;
         },
     };

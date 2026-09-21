@@ -6,8 +6,8 @@
  */
 
 /*
- * A2 gate test: plugin claims mocked @salesforce/*+@label/ specifiers, passes through the rest.
- * Interim node:test (.mjs hides it from Jest + publish glob); run: node --test <this file>.
+ * Gate test: plugin claims mocked @salesforce/*+@label/ specifiers, passes through the rest.
+ * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 
 import { test } from 'node:test';
@@ -70,7 +70,7 @@ test('resolveId claims every mocked specifier as a virtual id', () => {
     }
 });
 
-test('resolveId passes through everything else (the A2 over-claim fix)', () => {
+test('resolveId passes through everything else', () => {
     for (const spec of PASSTHROUGH) {
         assert.equal(plugin.resolveId(spec), null, `should NOT claim ${spec}`);
     }
@@ -87,10 +87,10 @@ test('loose apex/schema prefixes claim sibling specifiers by design (mirrors Jes
 });
 
 test('load serves claimed virtual ids and ignores everything else', () => {
-    // A claimed id whose shape has landed loads to its real mock value (label is A3).
+    // A claimed id with an implemented shape loads to its real mock value.
     const labelId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
     assert.equal(plugin.load(labelId), 'export default "c.greeting";');
-    // A claimed id whose shape hasn't landed yet still loads (placeholder until A4–A10 land).
+    // A claimed id whose shape has no generator yet still loads its placeholder.
     const schemaId = VIRTUAL_PREFIX + '@salesforce/schema/Account';
     assert.equal(plugin.load(schemaId), 'export default "@salesforce/schema/Account";');
     // Non-virtual ids are not ours -> null, so other plugins/Vite load them.

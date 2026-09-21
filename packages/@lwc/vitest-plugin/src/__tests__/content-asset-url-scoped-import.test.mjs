@@ -6,8 +6,8 @@
  */
 
 /*
- * A3 — mirrors jest-transformer/src/transforms/__tests__/content-asset-url-scoped-import.test.js.
- * Interim node:test (.mjs hides it from Jest + publish glob); run: node --test <this file>.
+ * Mirrors jest-transformer/src/transforms/__tests__/content-asset-url-scoped-import.test.js.
+ * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 
 import { describe } from 'node:test';

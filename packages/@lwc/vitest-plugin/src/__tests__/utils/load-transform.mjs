@@ -6,18 +6,11 @@
  */
 
 /*
- * Vitest-plugin analog of jest-transformer's __tests__/utils/test-transform.js.
+ * Vitest-plugin analog of jest-transformer's __tests__/utils/test-transform.js. Runs the plugin's
+ * resolveId -> load pipeline over a specifier and inspects the emitted virtual module.
  *
- * The Jest transformer rewrote each `import x from '@salesforce/...'` statement with Babel, so its
- * helper ran a Babel transform over source and compared the emitted code. The Vite plugin instead
- * resolves the specifier to a virtual module and `load()`s its source, so this helper runs the
- * plugin's resolveId -> load pipeline over a specifier and inspects the emitted virtual module.
- *
- * NOTE ON PARITY: the Jest per-transform tests also assert the transformer THROWS on a non-default
- * import (`import { x } from '@salesforce/label/...'`). The plugin operates on the module id, not on
- * the import specifiers, so it cannot reproduce that validation — a named import silently resolves to
- * the default export instead. This is a known, deferred behavior difference (spike 266 §6.4), so those
- * Jest "throws error if ..." cases intentionally have no analog here.
+ * PARITY NOTE: the plugin operates on the module id, not the import specifiers, so it can't reproduce
+ * Jest's "throws on a non-default import" validation (spike 266 §6.4) — those cases have no analog here.
  */
 
 import { test } from 'node:test';

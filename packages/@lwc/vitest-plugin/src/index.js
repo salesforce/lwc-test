@@ -32,11 +32,8 @@ function isMockedSpecifier(source) {
     return SCOPED_IMPORT_PREFIXES.some((prefix) => source.startsWith(prefix));
 }
 
-// A3 — the "prefix-stripped string" family: `@salesforce/*` (and legacy `@label/`) imports whose
-// mock value is the specifier with its matched prefix removed — the full remainder, dots preserved
-// (e.g. `@salesforce/label/c.foo` -> `"c.foo"`). Ports the Jest transformer's
-// `stringScopedImportTransform`, whose fallback value is `importSource.substring(importIdentifier.length)`
-// (jest-transformer/src/transforms/utils.js + label-scoped-import.js et al.) — keep the two in sync.
+// A3 — "prefix-stripped string" family: mock value is the specifier minus its matched prefix
+// (e.g. `@salesforce/label/c.foo` -> `"c.foo"`). Ports jest-transformer's stringScopedImportTransform.
 const STRING_VALUE_PREFIXES = [
     '@salesforce/label/',
     '@label/', // legacy alias for @salesforce/label/
@@ -48,8 +45,7 @@ const STRING_VALUE_PREFIXES = [
     '@salesforce/accessCheck/',
 ];
 
-// Returns the mock string for a prefix-stripped-string specifier, or undefined when the specifier
-// belongs to another emit shape (schema/apex/site/i18n/client/user — handled by later stories).
+// Returns the mock string, or undefined when the specifier belongs to another shape (later stories).
 function getStringValue(specifier) {
     const prefix = STRING_VALUE_PREFIXES.find((p) => specifier.startsWith(p));
     return prefix === undefined ? undefined : specifier.slice(prefix.length);

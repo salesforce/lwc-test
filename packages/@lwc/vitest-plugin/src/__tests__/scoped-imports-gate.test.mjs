@@ -87,9 +87,12 @@ test('loose apex/schema prefixes claim sibling specifiers by design (mirrors Jes
 });
 
 test('load serves claimed virtual ids and ignores everything else', () => {
-    // A claimed id loads to a module (placeholder value until A3–A10 land).
-    const virtualId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
-    assert.equal(plugin.load(virtualId), 'export default "@salesforce/label/c.greeting";');
+    // A claimed id whose shape has landed loads to its real mock value (label is A3).
+    const labelId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
+    assert.equal(plugin.load(labelId), 'export default "c.greeting";');
+    // A claimed id whose shape hasn't landed yet still loads (placeholder until A4–A10 land).
+    const schemaId = VIRTUAL_PREFIX + '@salesforce/schema/Account';
+    assert.equal(plugin.load(schemaId), 'export default "@salesforce/schema/Account";');
     // Non-virtual ids are not ours -> null, so other plugins/Vite load them.
     assert.equal(plugin.load('@salesforce/label/c.greeting'), null);
     assert.equal(plugin.load('some-real-module'), null);

@@ -48,6 +48,29 @@ function getStringValue(specifier) {
     return prefix === undefined ? undefined : specifier.slice(prefix.length);
 }
 
+// user/* and client/* mock to fixed constants, not values derived from the specifier.
+const USER_DEFAULTS = [
+    { prefix: '@salesforce/user/Id', value: '005000000000000000' },
+    { prefix: '@salesforce/user/isGuest', value: false },
+];
+const CLIENT_PREFIX = '@salesforce/client/';
+const CLIENT_MOCK_VALUES = {
+    formFactor: 'Large',
+};
+
+// Boxed in { value } so a legitimate `false` (isGuest) isn't mistaken for "no match".
+function getFixedValue(specifier) {
+    const userDefault = USER_DEFAULTS.find((d) => specifier.startsWith(d.prefix));
+    if (userDefault !== undefined) {
+        return { value: userDefault.value };
+    }
+    if (specifier.startsWith(CLIENT_PREFIX)) {
+        const resource = specifier.slice(CLIENT_PREFIX.length);
+        return { value: resource in CLIENT_MOCK_VALUES ? CLIENT_MOCK_VALUES[resource] : '' };
+    }
+    return null;
+}
+
 export function salesforceScopedImports() {
     return {
         name: '@lwc/vitest-plugin:salesforce-scoped-imports',
@@ -65,6 +88,11 @@ export function salesforceScopedImports() {
             const stringValue = getStringValue(specifier);
             if (stringValue !== undefined) {
                 return `export default ${JSON.stringify(stringValue)};`;
+            }
+
+            const fixedValue = getFixedValue(specifier);
+            if (fixedValue !== null) {
+                return `export default ${JSON.stringify(fixedValue.value)};`;
             }
 
             // Fallback for shapes without a dedicated value generator yet: echo the specifier.

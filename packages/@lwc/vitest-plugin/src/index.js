@@ -18,7 +18,6 @@ const SCOPED_IMPORT_PREFIXES = [
     '@salesforce/messageChannel/',
     '@salesforce/resourceUrl/',
     '@salesforce/schema',
-    '@salesforce/site/',
     '@salesforce/user/Id',
     '@salesforce/user/isGuest',
     '@salesforce/userPermission/',
@@ -147,13 +146,30 @@ function getSchemaValue(specifier) {
     };
 }
 
+// Narrow claim: only known keys are mocked; unknown @salesforce/site/* pass through to real resolution.
+const SITE_PREFIX = '@salesforce/site/';
+const SITE_VALUES = {
+    Id: '005000000000000000',
+    activeLanguages: [{ code: 'en-US', label: 'English (US)' }],
+    defaultLanguages: { code: 'en-US', label: 'English (US)' },
+};
+
+function getSiteValue(specifier) {
+    if (!specifier.startsWith(SITE_PREFIX)) {
+        return undefined;
+    }
+    const key = specifier.slice(SITE_PREFIX.length);
+    return Object.hasOwn(SITE_VALUES, key) ? SITE_VALUES[key] : undefined;
+}
+
 export function salesforceScopedImports() {
     return {
         name: '@lwc/vitest-plugin:salesforce-scoped-imports',
-        // Claim the specifier before Vite core resolution and before @lwc/rollup-plugin.
+        // Run before Vite's core `vite:resolve` so the mock wins even when the specifier also resolves to a real file on disk.
         enforce: 'pre',
         resolveId(source) {
-            return isMockedSpecifier(source) ? VIRTUAL_PREFIX + source : null;
+            const claimed = getSiteValue(source) !== undefined || isMockedSpecifier(source);
+            return claimed ? VIRTUAL_PREFIX + source : null;
         },
         load(id) {
             if (!id.startsWith(VIRTUAL_PREFIX)) {
@@ -177,6 +193,11 @@ export function salesforceScopedImports() {
 
             if (specifier.startsWith(SCHEMA_IMPORT_PREFIX)) {
                 return `export default ${JSON.stringify(getSchemaValue(specifier))};`;
+            }
+
+            const siteValue = getSiteValue(specifier);
+            if (siteValue !== undefined) {
+                return `export default ${JSON.stringify(siteValue)};`;
             }
 
             // Fallback for shapes without a dedicated value generator yet: echo the specifier.

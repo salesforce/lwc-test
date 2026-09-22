@@ -76,7 +76,7 @@ test('resolveId passes through everything else', () => {
     }
 });
 
-test('loose apex/schema prefixes claim sibling specifiers by design (mirrors Jest)', () => {
+test('loose apex/schema prefixes claim sibling specifiers by design', () => {
     for (const spec of LOOSE_PREFIX_CLAIMED) {
         assert.equal(
             plugin.resolveId(spec),

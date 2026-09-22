@@ -6,7 +6,6 @@
  */
 
 /*
- * Mirrors jest-transformer/src/transforms/__tests__/resource-scoped-import.test.js.
  * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 

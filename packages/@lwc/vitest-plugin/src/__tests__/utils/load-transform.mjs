@@ -6,11 +6,15 @@
  */
 
 /*
- * Vitest-plugin analog of jest-transformer's __tests__/utils/test-transform.js. Runs the plugin's
- * resolveId -> load pipeline over a specifier and inspects the emitted virtual module.
+ * Runs the plugin's resolveId -> load pipeline over a specifier and inspects the emitted virtual
+ * module.
  *
- * The plugin operates on the module id, not the import specifiers, so it can't reproduce Jest's
- * "throws on a non-default import" validation — those cases have no analog here.
+ * TODO: vitest/vite aren't installed in this OSS repo yet, so these tests run on node:test (in
+ * .mjs so Jest and the publish glob skip them; run: node --test <file>). Port them to vitest's
+ * test API once the dev dependency lands.
+ *
+ * The plugin operates on the module id, not the import specifiers, so it can't reproduce a
+ * "throws on a non-default import" validation — those cases have no equivalent here.
  */
 
 import { test } from 'node:test';

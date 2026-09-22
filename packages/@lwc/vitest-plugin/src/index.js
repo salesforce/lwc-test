@@ -6,7 +6,6 @@
  */
 
 // Vite plugin: mocks `@salesforce/*` + `@label/` scoped imports for LWC unit tests.
-// Prefixes mirror the wired Jest transforms' import identifiers (jest-transformer/src/transforms/*) — keep in sync.
 const SCOPED_IMPORT_PREFIXES = [
     '@salesforce/accessCheck/',
     '@salesforce/apex', // also claims @salesforce/apexContinuation by prefix
@@ -33,7 +32,6 @@ function isMockedSpecifier(source) {
 }
 
 // Mock value is the specifier minus its matched prefix (e.g. `@salesforce/label/c.foo` -> `"c.foo"`).
-// Mirrors jest-transformer's stringScopedImportTransform — keep the two in sync.
 const STRING_VALUE_PREFIXES = [
     '@salesforce/label/',
     '@label/', // legacy alias for @salesforce/label/

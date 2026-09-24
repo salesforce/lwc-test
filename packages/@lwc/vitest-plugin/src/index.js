@@ -133,6 +133,20 @@ function getI18nValue(specifier) {
     return mapped === undefined ? '' : mapped;
 }
 
+const SCHEMA_IMPORT_PREFIX = '@salesforce/schema';
+
+function getSchemaValue(specifier) {
+    const resourcePath = specifier.slice(SCHEMA_IMPORT_PREFIX.length + 1);
+    const idx = resourcePath.indexOf('.');
+    if (idx === -1) {
+        return { objectApiName: resourcePath };
+    }
+    return {
+        objectApiName: resourcePath.slice(0, idx),
+        fieldApiName: resourcePath.slice(idx + 1),
+    };
+}
+
 export function salesforceScopedImports() {
     return {
         name: '@lwc/vitest-plugin:salesforce-scoped-imports',
@@ -159,6 +173,10 @@ export function salesforceScopedImports() {
 
             if (specifier.startsWith(I18N_IMPORT_PREFIX)) {
                 return `export default ${JSON.stringify(getI18nValue(specifier))};`;
+            }
+
+            if (specifier.startsWith(SCHEMA_IMPORT_PREFIX)) {
+                return `export default ${JSON.stringify(getSchemaValue(specifier))};`;
             }
 
             // Fallback for shapes without a dedicated value generator yet: echo the specifier.

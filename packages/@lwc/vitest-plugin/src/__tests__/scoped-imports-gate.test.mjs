@@ -91,8 +91,8 @@ test('load serves claimed virtual ids and ignores everything else', () => {
     const labelId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
     assert.equal(plugin.load(labelId), 'export default "c.greeting";');
     // A claimed id whose shape has no generator yet still loads its placeholder.
-    const schemaId = VIRTUAL_PREFIX + '@salesforce/schema/Account';
-    assert.equal(plugin.load(schemaId), 'export default "@salesforce/schema/Account";');
+    const apexId = VIRTUAL_PREFIX + '@salesforce/apex/MyClass.method';
+    assert.equal(plugin.load(apexId), 'export default "@salesforce/apex/MyClass.method";');
     // Non-virtual ids are not ours -> null, so other plugins/Vite load them.
     assert.equal(plugin.load('@salesforce/label/c.greeting'), null);
     assert.equal(plugin.load('some-real-module'), null);

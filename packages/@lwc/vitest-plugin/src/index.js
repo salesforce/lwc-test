@@ -6,7 +6,6 @@
  */
 
 // Vite plugin: mocks `@salesforce/*` + `@label/` scoped imports for LWC unit tests.
-// Prefixes mirror the wired Jest transforms' import identifiers (jest-transformer/src/transforms/*) — keep in sync.
 const SCOPED_IMPORT_PREFIXES = [
     '@salesforce/accessCheck/',
     '@salesforce/apex', // also claims @salesforce/apexContinuation by prefix
@@ -32,6 +31,15 @@ function isMockedSpecifier(source) {
     return SCOPED_IMPORT_PREFIXES.some((prefix) => source.startsWith(prefix));
 }
 
+// Apex default-method imports (plain + continuation). Both are a callable returning a promise, so
+// they share one fake — Jest mocks them identically. Trailing slash excludes bare `@salesforce/apex`
+// named imports (their own story).
+const APEX_METHOD_PREFIXES = ['@salesforce/apex/', '@salesforce/apexContinuation/'];
+
+// Callable spy returning a promise, so both @wire and imperative calls work. Vite caches the
+// virtual module per specifier, so all importers share one spy.
+const APEX_METHOD_SOURCE = `import { vi } from 'vitest';\nexport default vi.fn(() => Promise.resolve());`;
+
 export function salesforceScopedImports() {
     return {
         name: '@lwc/vitest-plugin:salesforce-scoped-imports',
@@ -45,7 +53,10 @@ export function salesforceScopedImports() {
                 return null;
             }
             const specifier = id.slice(VIRTUAL_PREFIX.length);
-            // Placeholder default export; per-type value generators land in later stories (A3–A10).
+            if (APEX_METHOD_PREFIXES.some((prefix) => specifier.startsWith(prefix))) {
+                return APEX_METHOD_SOURCE;
+            }
+            // Placeholder default export for unmigrated prefixes.
             return `export default ${JSON.stringify(specifier)};`;
         },
     };

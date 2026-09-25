@@ -6,8 +6,9 @@
  */
 
 /*
- * @salesforce/apex default-method import resolves to a callable spy returning a promise.
- * The emitted module imports `vi` from 'vitest', so we assert on the generated source here.
+ * @salesforce/apex imports: full-path methods resolve to a callable spy returning a promise; bare
+ * `@salesforce/apex` is a named-import module (refreshApex + spies). The emitted modules import `vi`
+ * from 'vitest', so we assert on the generated source here.
  * Interim node:test (.mjs); run: node --test <this file>.
  */
 
@@ -37,11 +38,18 @@ describe('@salesforce/apex default-method import', () => {
         const b = loadSpecifier('@salesforce/apex/BarController.barMethod');
         assert.equal(a, b);
     });
+});
 
-    // Bare `@salesforce/apex` named imports (refreshApex, getSObjectValue) are claimed but fall
-    // through to the placeholder — their own story (A8). apexContinuation/* has its own test file.
-    test('does not apply to bare @salesforce/apex named imports', () => {
+// Bare `@salesforce/apex` (no slash) is a named-import module, distinct from the methods above.
+describe('bare @salesforce/apex named imports', () => {
+    test('refreshApex is a function returning a resolved promise', () => {
         const source = loadSpecifier('@salesforce/apex');
-        assert.doesNotMatch(source, /vi\.fn/);
+        assert.match(source, /export const refreshApex = \(\) => Promise\.resolve\(\);/);
+    });
+
+    test('a named apex method (getSObjectValue) is an assertable vi.fn() spy', () => {
+        const source = loadSpecifier('@salesforce/apex');
+        assert.match(source, /import \{ vi \} from 'vitest';/);
+        assert.match(source, /export const getSObjectValue = vi\.fn\(\);/);
     });
 });

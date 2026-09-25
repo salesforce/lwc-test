@@ -39,6 +39,11 @@ const APEX_METHOD_PREFIXES = ['@salesforce/apex/', '@salesforce/apexContinuation
 // virtual module per specifier, so all importers share one spy.
 const APEX_METHOD_SOURCE = `import { vi } from 'vitest';\nexport default vi.fn(() => Promise.resolve());`;
 
+// Bare `@salesforce/apex` (exact, no slash): a named-import module -- refreshApex returns a promise,
+// other methods (getSObjectValue) are vi.fn() spies. The `@salesforce/apex/` prefix above owns methods.
+const APEX_IMPORT_SPECIFIER = '@salesforce/apex';
+const APEX_NAMED_IMPORTS_SOURCE = `import { vi } from 'vitest';\nexport const refreshApex = () => Promise.resolve();\nexport const getSObjectValue = vi.fn();`;
+
 // Mock value is the specifier minus its matched prefix (e.g. `@salesforce/label/c.foo` -> `"c.foo"`).
 const STRING_VALUE_PREFIXES = [
     '@salesforce/label/',
@@ -187,6 +192,9 @@ export function salesforceScopedImports() {
             const specifier = id.slice(VIRTUAL_PREFIX.length);
             if (APEX_METHOD_PREFIXES.some((prefix) => specifier.startsWith(prefix))) {
                 return APEX_METHOD_SOURCE;
+            }
+            if (specifier === APEX_IMPORT_SPECIFIER) {
+                return APEX_NAMED_IMPORTS_SOURCE;
             }
 
             const stringValue = getStringValue(specifier);

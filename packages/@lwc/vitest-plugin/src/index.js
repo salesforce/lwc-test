@@ -71,6 +71,68 @@ function getFixedValue(specifier) {
     return null;
 }
 
+const I18N_IMPORT_PREFIX = '@salesforce/i18n/';
+
+// Ported from the Jest i18n transform's getMockValue -- keep in sync.
+function mappedI18nValue(key) {
+    const parts = key.split('.');
+    switch (parts[0]) {
+        case 'lang':
+            return 'en';
+        case 'dir':
+            return 'ltr';
+        case 'locale':
+            return 'en-US';
+        case 'timeZone':
+            return 'America/Los_Angeles';
+        case 'currency':
+            return 'USD';
+        case 'firstDayOfWeek':
+            return 0;
+        case 'dateTime':
+            switch (parts[1]) {
+                case 'shortDateFormat':
+                    return 'M/d/yyyy';
+                case 'mediumDateFormat':
+                    return 'MMM d, yyyy';
+                case 'longDateFormat':
+                    return 'MMMM d, yyyy';
+                case 'shortDateTimeFormat':
+                    return 'M/d/yyyy h:mm a';
+                case 'mediumDateTimeFormat':
+                    return 'MMM d, yyyy h:mm:ss a';
+                case 'shortTimeFormat':
+                    return 'h:mm a';
+                case 'mediumTimeFormat':
+                    return 'h:mm:ss a';
+                default:
+                    return undefined;
+            }
+        case 'number':
+            switch (parts[1]) {
+                case 'numberFormat':
+                    return '#,##0.###';
+                case 'percentFormat':
+                    return '#,##0%';
+                case 'currencyFormat':
+                    return '¤#,##0.00;(¤#,##0.00)';
+                case 'currencySymbol':
+                    return '$';
+                default:
+                    return undefined;
+            }
+        default:
+            return undefined;
+    }
+}
+
+// Mapped key -> its value; any other key -> ''
+function getI18nValue(specifier) {
+    const key = specifier.slice(I18N_IMPORT_PREFIX.length);
+    const mapped = mappedI18nValue(key);
+    return mapped === undefined ? '' : mapped;
+}
+
 export function salesforceScopedImports() {
     return {
         name: '@lwc/vitest-plugin:salesforce-scoped-imports',
@@ -93,6 +155,10 @@ export function salesforceScopedImports() {
             const fixedValue = getFixedValue(specifier);
             if (fixedValue !== null) {
                 return `export default ${JSON.stringify(fixedValue.value)};`;
+            }
+
+            if (specifier.startsWith(I18N_IMPORT_PREFIX)) {
+                return `export default ${JSON.stringify(getI18nValue(specifier))};`;
             }
 
             // Fallback for shapes without a dedicated value generator yet: echo the specifier.

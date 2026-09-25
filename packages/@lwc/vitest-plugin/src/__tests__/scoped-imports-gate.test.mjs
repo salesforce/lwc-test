@@ -6,8 +6,8 @@
  */
 
 /*
- * A2 gate test: plugin claims mocked @salesforce/*+@label/ specifiers, passes through the rest.
- * Interim node:test (.mjs hides it from Jest + publish glob); run: node --test <this file>.
+ * Gate test: plugin claims mocked @salesforce/*+@label/ specifiers, passes through the rest.
+ * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 
 import { test } from 'node:test';
@@ -70,13 +70,13 @@ test('resolveId claims every mocked specifier as a virtual id', () => {
     }
 });
 
-test('resolveId passes through everything else (the A2 over-claim fix)', () => {
+test('resolveId passes through everything else', () => {
     for (const spec of PASSTHROUGH) {
         assert.equal(plugin.resolveId(spec), null, `should NOT claim ${spec}`);
     }
 });
 
-test('loose apex/schema prefixes claim sibling specifiers by design (mirrors Jest)', () => {
+test('loose apex/schema prefixes claim sibling specifiers by design', () => {
     for (const spec of LOOSE_PREFIX_CLAIMED) {
         assert.equal(
             plugin.resolveId(spec),
@@ -87,9 +87,12 @@ test('loose apex/schema prefixes claim sibling specifiers by design (mirrors Jes
 });
 
 test('load serves claimed virtual ids and ignores everything else', () => {
-    // A claimed id loads to a module (placeholder value until A3–A10 land).
-    const virtualId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
-    assert.equal(plugin.load(virtualId), 'export default "@salesforce/label/c.greeting";');
+    // A claimed id with an implemented shape loads to its real mock value.
+    const labelId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
+    assert.equal(plugin.load(labelId), 'export default "c.greeting";');
+    // A claimed apex method id loads to the shared promise-returning spy (see apex-scoped-import.test.mjs).
+    const apexId = VIRTUAL_PREFIX + '@salesforce/apex/MyClass.method';
+    assert.match(plugin.load(apexId), /export default vi\.fn\(\(\) => Promise\.resolve\(\)\);/);
     // Non-virtual ids are not ours -> null, so other plugins/Vite load them.
     assert.equal(plugin.load('@salesforce/label/c.greeting'), null);
     assert.equal(plugin.load('some-real-module'), null);

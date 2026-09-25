@@ -6,7 +6,6 @@
  */
 
 // Vite plugin: mocks `@salesforce/*` + `@label/` scoped imports for LWC unit tests.
-// Prefixes mirror the wired Jest transforms' import identifiers (jest-transformer/src/transforms/*) — keep in sync.
 const SCOPED_IMPORT_PREFIXES = [
     '@salesforce/accessCheck/',
     '@salesforce/apex', // also claims @salesforce/apexContinuation by prefix
@@ -32,6 +31,23 @@ function isMockedSpecifier(source) {
     return SCOPED_IMPORT_PREFIXES.some((prefix) => source.startsWith(prefix));
 }
 
+// Mock value is the specifier minus its matched prefix (e.g. `@salesforce/label/c.foo` -> `"c.foo"`).
+const STRING_VALUE_PREFIXES = [
+    '@salesforce/label/',
+    '@label/', // legacy alias for @salesforce/label/
+    '@salesforce/resourceUrl/',
+    '@salesforce/contentAssetUrl/',
+    '@salesforce/messageChannel/',
+    '@salesforce/userPermission/',
+    '@salesforce/customPermission/',
+    '@salesforce/accessCheck/',
+];
+
+function getStringValue(specifier) {
+    const prefix = STRING_VALUE_PREFIXES.find((p) => specifier.startsWith(p));
+    return prefix === undefined ? undefined : specifier.slice(prefix.length);
+}
+
 export function salesforceScopedImports() {
     return {
         name: '@lwc/vitest-plugin:salesforce-scoped-imports',
@@ -45,7 +61,13 @@ export function salesforceScopedImports() {
                 return null;
             }
             const specifier = id.slice(VIRTUAL_PREFIX.length);
-            // Placeholder default export; per-type value generators land in later stories (A3–A10).
+
+            const stringValue = getStringValue(specifier);
+            if (stringValue !== undefined) {
+                return `export default ${JSON.stringify(stringValue)};`;
+            }
+
+            // Fallback for shapes without a dedicated value generator yet: echo the specifier.
             return `export default ${JSON.stringify(specifier)};`;
         },
     };

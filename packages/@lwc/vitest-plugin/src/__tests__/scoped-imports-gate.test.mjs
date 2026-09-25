@@ -90,9 +90,9 @@ test('load serves claimed virtual ids and ignores everything else', () => {
     // A claimed id with an implemented shape loads to its real mock value.
     const labelId = VIRTUAL_PREFIX + '@salesforce/label/c.greeting';
     assert.equal(plugin.load(labelId), 'export default "c.greeting";');
-    // A claimed id whose shape has no generator yet still loads its placeholder.
+    // A claimed apex method id loads to the shared promise-returning spy (see apex-scoped-import.test.mjs).
     const apexId = VIRTUAL_PREFIX + '@salesforce/apex/MyClass.method';
-    assert.equal(plugin.load(apexId), 'export default "@salesforce/apex/MyClass.method";');
+    assert.match(plugin.load(apexId), /export default vi\.fn\(\(\) => Promise\.resolve\(\)\);/);
     // Non-virtual ids are not ours -> null, so other plugins/Vite load them.
     assert.equal(plugin.load('@salesforce/label/c.greeting'), null);
     assert.equal(plugin.load('some-real-module'), null);

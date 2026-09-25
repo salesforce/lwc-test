@@ -30,6 +30,15 @@ function isMockedSpecifier(source) {
     return SCOPED_IMPORT_PREFIXES.some((prefix) => source.startsWith(prefix));
 }
 
+// Apex default-method imports (plain + continuation). Both are a callable returning a promise, so
+// they share one fake — Jest mocks them identically. Trailing slash excludes bare `@salesforce/apex`
+// named imports (their own story).
+const APEX_METHOD_PREFIXES = ['@salesforce/apex/', '@salesforce/apexContinuation/'];
+
+// Callable spy returning a promise, so both @wire and imperative calls work. Vite caches the
+// virtual module per specifier, so all importers share one spy.
+const APEX_METHOD_SOURCE = `import { vi } from 'vitest';\nexport default vi.fn(() => Promise.resolve());`;
+
 // Mock value is the specifier minus its matched prefix (e.g. `@salesforce/label/c.foo` -> `"c.foo"`).
 const STRING_VALUE_PREFIXES = [
     '@salesforce/label/',
@@ -176,6 +185,9 @@ export function salesforceScopedImports() {
                 return null;
             }
             const specifier = id.slice(VIRTUAL_PREFIX.length);
+            if (APEX_METHOD_PREFIXES.some((prefix) => specifier.startsWith(prefix))) {
+                return APEX_METHOD_SOURCE;
+            }
 
             const stringValue = getStringValue(specifier);
             if (stringValue !== undefined) {

@@ -7,23 +7,29 @@
 import { fileURLToPath } from 'node:url';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
 
-// Vitest config factory for LWC (skeleton). Call as `lwcVitestConfig(import.meta.url)`.
+// Vitest config factory for LWC. Call as `lwcVitestConfig(import.meta.url)` from a vitest.config.
+// TODO: add the LWC compiler plugin (compile step); pin the test pool + isolation.
 export function lwcVitestConfig(importMetaUrl) {
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
     return {
         root: rootDir,
-        // TODO: add @lwc/rollup-plugin (compile) to plugins
         plugins: [salesforceScopedImports()],
         test: {
             environment: 'jsdom',
+            globals: true,
+            include: ['**/__tests__/**/*.vitest.test.{js,ts}'],
+            setupFiles: ['@lwc/vitest-preset/setup'],
+            // Setup order is load-bearing (flags -> polyfill -> synthetic-shadow -> engine); run in order.
+            sequence: { setupFiles: 'list' },
+            // TODO: confirm both keys below are needed (inline + web optimizer off); drop the redundant one and this note.
             server: {
                 deps: {
-                    // Force @salesforce/*+@label/ through Vite so the mock plugin's hooks run
-                    // (esbuild pre-bundling bypasses them). UNVERIFIED until vitest/vite installed.
+                    // Force @salesforce/*+@label/ through Vite so the mock plugin's hooks run.
                     inline: [/^@salesforce\//, /^@label\//],
                 },
             },
-            // TODO: setupFiles, snapshotSerializers, resolve.alias, pool 'forks' + isolate
+            // Disable the web deps optimizer so esbuild pre-bundling never bypasses our plugins.
+            deps: { optimizer: { web: { enabled: false } } },
         },
     };
 }

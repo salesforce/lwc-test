@@ -7,6 +7,7 @@
 import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
+import { lwcTypeScript } from './typescript.js';
 
 // Vitest config factory for LWC. Call as `lwcVitestConfig(import.meta.url)` from a vitest.config.
 // TODO: pin the test pool + isolation.
@@ -27,8 +28,12 @@ export function lwcVitestConfig(importMetaUrl) {
     const privateMethodsNamespaces = /[\\/](?:modules|jest-modules)[\\/](?:lightning|interop)[\\/]/;
     return {
         root: rootDir,
+        // Vite's built-in transform (Oxc in Vite 8) lowers LWC decorators on .ts;
+        // lwcTypeScript() handles type-stripping instead, so keep it off.
+        oxc: false,
         plugins: [
             salesforceScopedImports(),
+            lwcTypeScript(),
             // Compile .js/.html/.css LWC bundles (replaces @lwc/jest-transformer's compile job).
             lwc({
                 ...compilerOptions,

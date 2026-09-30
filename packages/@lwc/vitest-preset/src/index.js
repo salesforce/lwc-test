@@ -12,15 +12,34 @@ import { salesforceScopedImports } from '@lwc/vitest-plugin';
 // TODO: pin the test pool + isolation.
 export function lwcVitestConfig(importMetaUrl) {
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
+    // Compiler options mirroring the jest-transformer config for parity.
+    // rootDir is mandatory: buildStart crashes without it under Vitest (no rollup input).
+    const compilerOptions = {
+        rootDir,
+        sourcemap: true,
+        dynamicImports: { strictSpecifier: false },
+        enableDynamicComponents: true,
+        enableLwcOn: true,
+    };
+    const testExclude = ['**/node_modules/**', '**/*.test.js', '**/*.vitest.test.js'];
+    // enablePrivateMethods is per-namespace in Jest (lightning/interop only), but the plugin
+    // exposes only a global flag, so split compilation into two path-scoped instances.
+    const privateMethodsNamespaces = /[\\/](?:modules|jest-modules)[\\/](?:lightning|interop)[\\/]/;
     return {
         root: rootDir,
         plugins: [
             salesforceScopedImports(),
             // Compile .js/.html/.css LWC bundles (replaces @lwc/jest-transformer's compile job).
-            // rootDir is mandatory: buildStart crashes without it under Vitest (no rollup input).
             lwc({
-                rootDir,
-                exclude: ['**/node_modules/**', '**/*.test.js', '**/*.vitest.test.js'],
+                ...compilerOptions,
+                include: [privateMethodsNamespaces],
+                exclude: testExclude,
+                enablePrivateMethods: true,
+            }),
+            lwc({
+                ...compilerOptions,
+                exclude: [...testExclude, privateMethodsNamespaces],
+                enablePrivateMethods: false,
             }),
         ],
         // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver).

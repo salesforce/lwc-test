@@ -27,6 +27,7 @@
         "./setup": "./src/setup.js"
     },
     "dependencies": {
+        "@lwc/rollup-plugin": "9.1.1",
         "@lwc/vitest-plugin": "19.6.1"
     },
     "engines": {

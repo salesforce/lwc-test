@@ -5,15 +5,26 @@
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
 import { fileURLToPath } from 'node:url';
+import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
 
 // Vitest config factory for LWC. Call as `lwcVitestConfig(import.meta.url)` from a vitest.config.
-// TODO: add the LWC compiler plugin (compile step); pin the test pool + isolation.
+// TODO: pin the test pool + isolation.
 export function lwcVitestConfig(importMetaUrl) {
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
     return {
         root: rootDir,
-        plugins: [salesforceScopedImports()],
+        plugins: [
+            salesforceScopedImports(),
+            // Compile .js/.html/.css LWC bundles (replaces @lwc/jest-transformer's compile job).
+            // rootDir is mandatory: buildStart crashes without it under Vitest (no rollup input).
+            lwc({
+                rootDir,
+                exclude: ['**/node_modules/**', '**/*.test.js', '**/*.vitest.test.js'],
+            }),
+        ],
+        // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver).
+        resolve: { alias: { lwc: '@lwc/engine-dom' } },
         test: {
             environment: 'jsdom',
             globals: true,

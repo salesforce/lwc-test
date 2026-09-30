@@ -3053,7 +3053,7 @@
     "@lwc/shared" "9.1.1"
     line-column "~1.0.2"
 
-"@lwc/compiler@^9.1.0":
+"@lwc/compiler@9.1.1", "@lwc/compiler@^9.1.0":
   version "9.1.1"
   resolved "https://registry.npmjs.org/@lwc/compiler/-/compiler-9.1.1.tgz#8373a2ebf7d4ca7a471b7f30d5393a1d477e8204"
   integrity sha512-L2J132+nGP9JG4KK6pOcPlJ0lwbnA1YOAm1vI59V1RvXzCk1jVhpUUJZxKq16yzrTJDUXPuDzTpdgVCp381xwQ==
@@ -3086,12 +3086,29 @@
   resolved "https://registry.npmjs.org/@lwc/errors/-/errors-9.1.1.tgz#d238ae22b6c4e2ec2cd7c5d2ab1d67e804c20483"
   integrity sha512-mzxheWmXvmfbwWv5zzhL+uj0AsQXCfaq9HaAweY4ZYpGJ5iHGTVUT+dsyMJBcMzq/khYMwgNgAS0a9t4DqNljQ==
 
+"@lwc/module-resolver@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/module-resolver/-/module-resolver-9.1.1.tgz#261e7529af7f5aea8c43bbc66a3918b3596e6173"
+  integrity sha512-CrOPcyhActAoUTr91m5DmpI4I4Mw+J/TfTEiXZpiQbWhu4GOiV525SXx5RzsOzdLcBLL6TI8iahVLOkv4fb7KA==
+  dependencies:
+    resolve "~1.22.11"
+
 "@lwc/module-resolver@^8.0.3":
   version "8.28.2"
   resolved "https://registry.yarnpkg.com/@lwc/module-resolver/-/module-resolver-8.28.2.tgz#16ea49bc11a8f8f3cfebc2ea7a1dfb5c62bfe701"
   integrity sha512-VN0ewQqMGv9d1WFDfagEx96+yN4sLCiIdUyRsbEQwd15h7U8kg3c6/iT+VY93QdaLZeCZx7VSDtjkrSN3k4Thg==
   dependencies:
     resolve "~1.22.11"
+
+"@lwc/rollup-plugin@9.1.1":
+  version "9.1.1"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@lwc/rollup-plugin/-/rollup-plugin-9.1.1.tgz#22b9a419e1febf53cccd1c5c2d5456de7e7bff45"
+  integrity sha512-GGLPfh+VVezfJJ7bhCroSuMjwJ7u5fdUcbXMcILljxoGzMqhcqy+0HHbP2uPiz6WGY4Li/pIfPe51h5Lm/qJLw==
+  dependencies:
+    "@lwc/compiler" "9.1.1"
+    "@lwc/module-resolver" "9.1.1"
+    "@lwc/shared" "9.1.1"
+    "@rollup/pluginutils" "~5.3.0"
 
 "@lwc/shared@9.1.1":
   version "9.1.1"
@@ -4504,6 +4521,15 @@
     "@types/estree" "^1.0.0"
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
+
+"@rollup/pluginutils@~5.3.0":
+  version "5.3.0"
+  resolved "https://nexus-proxy.repo.local.sfdc.net/nexus/content/groups/npm-all/@rollup/pluginutils/-/pluginutils-5.3.0.tgz#57ba1b0cbda8e7a3c597a4853c807b156e21a7b4"
+  integrity sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==
+  dependencies:
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^4.0.2"
 
 "@rollup/rollup-android-arm-eabi@4.22.0":
   version "4.22.0"

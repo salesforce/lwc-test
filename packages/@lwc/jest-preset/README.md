@@ -55,6 +55,22 @@ By default, this preset is configured to run the tests with synthetic shadow DOM
 }
 ```
 
+##### loggingFormatter (default=false)
+
+LWC profixies any objects passed as an attribute, in events, etc...
+Meaning when we use the [Console api](https://developer.mozilla.org/en-US/docs/Web/API/console), any LWC profixied objects will appear as empty.
+You could enable this feature to display gracefully:
+
+```json
+{
+    "globals": {
+        "lwc-jest": {
+            "loggingFormatter": true
+        }
+    }
+}
+```
+
 #### LWC components rendered on the Server
 
 Add the `@lwc/jest-preset/ssr` preset to the Jest configuration like so:

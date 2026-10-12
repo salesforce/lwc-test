@@ -6,8 +6,8 @@
  */
 
 // Vitest runtime bootstrap for LWC — port of `@lwc/jest-preset/src/setup.js`.
-// jest-preset's ARIA polyfill had a TODO to drop it once the jsdom PR merged; it has,
-// so we skip it here.
+// Load order is load-bearing: ARIA polyfill -> synthetic-shadow -> engine-dom.
+import './aria-reflection-polyfill.js';
 
 // synthetic-shadow patches the global ShadowRoot/EventTarget the engine captures at load;
 // loading it twice corrupts those globals, so guard before the (dynamic) import.

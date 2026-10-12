@@ -49,8 +49,8 @@ export function lwcVitestConfig(importMetaUrl) {
                 enablePrivateMethods: false,
             }),
         ],
-        // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver).
-        resolve: { alias: { lwc: '@lwc/engine-dom' } },
+        // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver), via the @wire trap.
+        resolve: { alias: { lwc: fileURLToPath(new URL('./lwc.js', import.meta.url)) } },
         test: {
             environment: 'jsdom',
             // Match Jest's jsdom URL (Vitest defaults to http://localhost:3000).

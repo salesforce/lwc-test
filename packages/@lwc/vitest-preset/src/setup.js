@@ -21,7 +21,8 @@ if (
 }
 await import('@lwc/synthetic-shadow');
 
-const { setFeatureFlag } = await import('@lwc/engine-dom');
+// Same module the `lwc` alias points at, so the @wire trap and its registry exist before any test.
+const { setFeatureFlag } = await import('./lwc.js');
 setFeatureFlag('ENABLE_EXPERIMENTAL_SIGNALS', true);
 
 // Custom matchers

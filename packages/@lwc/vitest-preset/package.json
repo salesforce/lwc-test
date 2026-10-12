@@ -14,13 +14,15 @@
     "license": "MIT",
     "type": "module",
     "main": "src/index.js",
+    "types": "types/index.d.ts",
     "keywords": [
         "vitest",
         "vite",
         "lwc"
     ],
     "files": [
-        "/src/**/*.js"
+        "/src/**/*.js",
+        "/types"
     ],
     "exports": {
         ".": "./src/index.js",

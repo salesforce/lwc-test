@@ -23,3 +23,6 @@ await import('@lwc/synthetic-shadow');
 
 const { setFeatureFlag } = await import('@lwc/engine-dom');
 setFeatureFlag('ENABLE_EXPERIMENTAL_SIGNALS', true);
+
+// Custom matchers
+await import('./matchers/expect-throw-in-connected-callback.js');

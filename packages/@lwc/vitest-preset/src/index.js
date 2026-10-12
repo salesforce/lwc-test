@@ -51,6 +51,8 @@ export function lwcVitestConfig(importMetaUrl) {
         resolve: { alias: { lwc: '@lwc/engine-dom' } },
         test: {
             environment: 'jsdom',
+            // Match Jest's jsdom URL (Vitest defaults to http://localhost:3000).
+            environmentOptions: { jsdom: { url: 'http://localhost/' } },
             globals: true,
             include: ['**/__tests__/**/*.vitest.test.{js,ts}'],
             setupFiles: ['@lwc/vitest-preset/setup'],

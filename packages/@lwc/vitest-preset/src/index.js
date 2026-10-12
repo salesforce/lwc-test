@@ -15,6 +15,8 @@ export function lwcVitestConfig(importMetaUrl) {
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
     // Compiler options mirroring the jest-transformer config for parity.
     // rootDir is mandatory: buildStart crashes without it under Vitest (no rollup input).
+    // Known gap: Jest hardcodes namespace 'x'/name 'test'; the plugin derives them from the path
+    // (no override), so `sel` and CSS scope tokens differ (x-test vs e.g. smoke-mixin).
     const compilerOptions = {
         rootDir,
         sourcemap: true,

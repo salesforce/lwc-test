@@ -41,7 +41,7 @@ function createMatcher(matcherName) {
     return {
         [matcherName]: function toThrowErrorInConnectedCallback(func, matcher) {
             if (typeof func !== 'function') {
-                throw new Error(`Expected a function, received: {func}`);
+                throw new Error(`Expected a function, received: ${func}`);
             }
 
             // There are two cases here:

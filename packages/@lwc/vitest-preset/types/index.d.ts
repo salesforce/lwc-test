@@ -1,5 +1,18 @@
 /* eslint-disable */
 import 'vitest';
+import type { ViteUserConfig } from 'vitest/config';
+
+export interface LwcVitestOptions {
+    /** Skip synthetic-shadow and run components in native shadow DOM. */
+    nativeShadow?: boolean;
+}
+
+/** Vitest config for LWC; call as `lwcVitestConfig(import.meta.url)` from a vitest config. */
+export declare function lwcVitestConfig(
+    importMetaUrl: string,
+    options?: LwcVitestOptions
+): ViteUserConfig;
+export default lwcVitestConfig;
 
 interface Constructable {
     new (...args: any[]): any;
@@ -37,4 +50,8 @@ interface LwcVitestMatchers<R = unknown> {
 // covers `expect(fn).toThrowInConnectedCallback(...)`.
 declare module 'vitest' {
     interface Matchers<T = any> extends LwcVitestMatchers<T> {}
+    // Mirrors the `nativeShadow` option; read it with `inject('lwcNativeShadow')`.
+    interface ProvidedContext {
+        lwcNativeShadow: boolean;
+    }
 }

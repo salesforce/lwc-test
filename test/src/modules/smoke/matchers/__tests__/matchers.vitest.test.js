@@ -94,4 +94,10 @@ describe('matchers', () => {
             });
         });
     });
+
+    it('names the received value when it is not a function', () => {
+        expect(() => expect('not a function').toThrowInConnectedCallback()).toThrow(
+            'Expected a function, received: not a function'
+        );
+    });
 });

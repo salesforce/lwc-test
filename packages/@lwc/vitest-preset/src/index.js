@@ -48,6 +48,14 @@ function lwcStylesheetIds() {
                 ? { ...resolved, id: tagCss(resolved.id) }
                 : resolved;
         },
+        // The watcher reports the real .css path, but the module graph holds the tagged id.
+        configureVitest({ vitest }) {
+            const { watcher } = vitest.vite;
+            watcher.on(
+                'change',
+                (file) => CSS_ID.test(file) && watcher.emit('change', tagCss(file))
+            );
+        },
     };
 }
 function bypassViteCss(plugin) {
@@ -92,14 +100,17 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
         enableDynamicComponents: true,
         enableLwcOn: true,
     };
-    const testExclude = ['**/node_modules/**', '**/*.test.js', '**/*.vitest.test.js'];
+    // Compile test files too, as Jest does: they can define inline components with decorators.
+    // Like jest-preset's `transform`, compile only .js/.ts/.html/.css; Vite handles the rest (e.g. JSON).
+    const compileExclude = ['**/node_modules/**', /(?<!\.(?:js|ts|html|css))$/];
     // enablePrivateMethods is per-namespace in Jest (lightning/interop only), but the plugin
     // exposes only a global flag, so split compilation into two path-scoped instances.
     const privateMethodsNamespaces = /[\\/](?:modules|jest-modules)[\\/](?:lightning|interop)[\\/]/;
     return {
         root: rootDir,
-        // Vite's built-in transform (Oxc in Vite 8) lowers LWC decorators on .ts;
-        // lwcTypeScript() handles type-stripping instead, so keep it off.
+        // Vite's built-in .ts transform lowers LWC decorators; lwcTypeScript() strips types instead.
+        // esbuild runs it on Vite 6/7, Oxc on Vite 8, so turn off both.
+        esbuild: false,
         oxc: false,
         plugins: [
             lwcCoverageExclude(),
@@ -112,7 +123,7 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
                     lwc({
                         ...compilerOptions,
                         include: [privateMethodsNamespaces],
-                        exclude: testExclude,
+                        exclude: compileExclude,
                         enablePrivateMethods: true,
                     })
                 )
@@ -121,7 +132,7 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
                 formatLwcWarnings(
                     lwc({
                         ...compilerOptions,
-                        exclude: [...testExclude, privateMethodsNamespaces],
+                        exclude: [...compileExclude, privateMethodsNamespaces],
                         enablePrivateMethods: false,
                     })
                 )
@@ -140,15 +151,6 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
             setupFiles: ['@lwc/vitest-preset/setup'],
             // Setup order is load-bearing (flags -> polyfill -> synthetic-shadow -> engine); run in order.
             sequence: { setupFiles: 'list' },
-            // TODO: confirm both keys below are needed (inline + web optimizer off); drop the redundant one and this note.
-            server: {
-                deps: {
-                    // Force @salesforce/*+@label/ through Vite so the mock plugin's hooks run.
-                    inline: [/^@salesforce\//, /^@label\//],
-                },
-            },
-            // Disable the web deps optimizer so esbuild pre-bundling never bypasses our plugins.
-            deps: { optimizer: { web: { enabled: false } } },
         },
     };
 }

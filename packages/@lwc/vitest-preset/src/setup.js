@@ -10,6 +10,11 @@
 import { inject } from 'vitest';
 import './aria-reflection-polyfill.js';
 
+// On Node 20, Vitest doesn't copy these jsdom globals; synthetic-shadow and engine-dom read them at load.
+for (const key of ['HTMLDocument', 'ElementInternals']) {
+    global[key] ??= global.jsdom?.window[key];
+}
+
 if (!inject('lwcNativeShadow')) {
     // synthetic-shadow patches the global ShadowRoot/EventTarget the engine captures at load;
     // loading it twice corrupts those globals, so guard before the (dynamic) import.

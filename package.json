@@ -31,6 +31,7 @@
         "@lwc/engine-dom": "^9.1.0",
         "@lwc/engine-server": "^8.24.2",
         "@lwc/module-resolver": "^8.0.3",
+        "@lwc/rollup-plugin": "9.1.1",
         "@lwc/ssr-runtime": "^9.1.0",
         "@lwc/synthetic-shadow": "^9.1.0",
         "@lwc/template-compiler": "^9.1.0",

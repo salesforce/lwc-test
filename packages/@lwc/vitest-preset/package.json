@@ -38,7 +38,8 @@
     },
     "peerDependencies": {
         "@lwc/engine-dom": ">=5.0.0",
-        "@lwc/synthetic-shadow": ">=5.0.0"
+        "@lwc/synthetic-shadow": ">=5.0.0",
+        "jsdom": ">=26.1.0"
     },
     "engines": {
         "node": ">=20"

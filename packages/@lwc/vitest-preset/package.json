@@ -14,20 +14,37 @@
     "license": "MIT",
     "type": "module",
     "main": "src/index.js",
+    "types": "types/index.d.ts",
     "keywords": [
         "vitest",
         "vite",
         "lwc"
     ],
     "files": [
-        "/src/**/*.js"
+        "/src/**/*.js",
+        "/types"
     ],
     "exports": {
-        ".": "./src/index.js",
+        ".": {
+            "types": "./types/index.d.ts",
+            "default": "./src/index.js"
+        },
         "./setup": "./src/setup.js"
     },
     "dependencies": {
+        "@babel/core": "7.25.2",
+        "@babel/plugin-syntax-class-properties": "7.12.13",
+        "@babel/plugin-syntax-decorators": "7.24.7",
+        "@babel/preset-typescript": "7.24.7",
         "@lwc/vitest-plugin": "19.6.1"
+    },
+    "peerDependencies": {
+        "@lwc/engine-dom": "^9.1.1",
+        "@lwc/rollup-plugin": "^9.1.1",
+        "@lwc/synthetic-shadow": "^9.1.1",
+        "@lwc/wire-service": "^9.1.1",
+        "jsdom": ">=26.1.0",
+        "vitest": "^4.1.0"
     },
     "engines": {
         "node": ">=20"

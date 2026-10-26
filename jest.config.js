@@ -4,6 +4,9 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+// Vitest test files (*.vitest.test.*) also match Jest's testMatch; leave them to Vitest.
+const testPathIgnorePatterns = ['/node_modules/', '\\.vitest\\.test\\.'];
+
 function unitTest({ nativeShadow }) {
     return {
         displayName: {
@@ -13,6 +16,7 @@ function unitTest({ nativeShadow }) {
 
         rootDir: '<rootDir>/packages',
         testMatch: ['**/__tests__/**/?(*.)(test).js'],
+        testPathIgnorePatterns,
 
         globals: {
             'lwc-jest': {
@@ -31,6 +35,7 @@ function integration({ nativeShadow }) {
 
         rootDir: '<rootDir>/test',
         preset: '@lwc/jest-preset',
+        testPathIgnorePatterns,
         moduleNameMapper: {
             '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
             '^(components)/(.+)$': '<rootDir>/src/modules/$1/$2/$2',

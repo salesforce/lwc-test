@@ -34,6 +34,10 @@ export default defineConfig(lwcVitestConfig(import.meta.url));
 
 `import.meta.url` makes the config's directory the project root. Tests are picked up from `**/__tests__/**/*.vitest.test.{js,ts}`.
 
+Each test file runs in its own forked process with a fresh module registry (`pool: 'forks'`, `isolate: true`), as in Jest.
+
+Setting `isolate: false` (or a pool other than `forks`) in your config overrides this and is **not supported**: module state such as synthetic shadow and the `@wire` registry would leak between files.
+
 Namespace imports (`import Child from 'x/child'`, or `<x-child>` in a template) are resolved with the standard LWC module config. Point it at your components in an `lwc.config.json` next to the Vitest config, or in an `lwc` key in `package.json`:
 
 ```json

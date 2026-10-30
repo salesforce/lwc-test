@@ -86,7 +86,6 @@ function lwcCoverageExclude() {
 
 // Vitest config factory for LWC. Call as `lwcVitestConfig(import.meta.url)` from a vitest.config.
 // `nativeShadow: true` skips synthetic-shadow (Jest's `globals['lwc-jest'].nativeShadow`).
-// TODO: pin the test pool + isolation.
 export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
     // Compiler options mirroring the jest-transformer config for parity.
@@ -149,8 +148,13 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
             globals: true,
             include: ['**/__tests__/**/*.vitest.test.{js,ts}'],
             setupFiles: ['@lwc/vitest-preset/setup'],
-            // Setup order is load-bearing (flags -> polyfill -> synthetic-shadow -> engine); run in order.
+            // Setup order is load-bearing (polyfill -> synthetic-shadow -> engine -> flag); run in order.
             sequence: { setupFiles: 'list' },
+            // Jest runs each test file in its own worker with a fresh module registry, and LWC tests
+            // rely on it (synthetic-shadow patches globals once per load; the @wire registry is module state).
+            // These are Vitest 4's defaults; pin them so a package config or a future default can't change them.
+            pool: 'forks',
+            isolate: true,
         },
     };
 }

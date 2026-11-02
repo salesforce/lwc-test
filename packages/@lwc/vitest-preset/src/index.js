@@ -7,6 +7,7 @@
 import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
+import { lwcKnownScopeTokens } from './scope-tokens.js';
 import { lwcTypeScript } from './typescript.js';
 
 // Print LWC compiler diagnostics in jest-transformer's `[LWC Warn](<file>): <message>` format;
@@ -136,6 +137,8 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
                     })
                 )
             ),
+            // After compilation; replaces jest-transformer's addKnownScopeToken append.
+            lwcKnownScopeTokens(),
         ],
         // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver), via the @wire trap.
         resolve: { alias: { lwc: fileURLToPath(new URL('./lwc.js', import.meta.url)) } },

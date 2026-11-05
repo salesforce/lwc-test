@@ -84,3 +84,22 @@ export default defineConfig({
 -   **No snapshot serializer yet.** Snapshots don't go through `@lwc/jest-serializer`.
 -   **Component names come from the file path.** `@lwc/jest-transformer` compiles every component as `x-test`. Here a component keeps its real name (for example `smoke-mixin`), so tag names and CSS scope tokens differ.
 -   **No SSR preset.** There is no counterpart to `@lwc/jest-preset/ssr`.
+-   **`import.meta` is not rewritten.** `@lwc/jest-transformer` turns every `import.meta.env.X` into a boolean. Vitest keeps the real `import.meta`. See [`import.meta`](#importmeta).
+
+### `import.meta`
+
+Under Jest, `import.meta.env.X` is `true` only when `process.env.X` matches `/true/i`, and `import.meta.url` is `undefined`. Under Vitest, `DEV` is `true`, `PROD` is `false`, `SSR` is `false` (`true` in a `node` environment), `MODE` is `'test'`, any other key is the raw `process.env` string, and `import.meta.url` is the module's `file://` URL. So string comparisons such as `import.meta.env.X === 'false'` behave differently.
+
+Both runners read `process.env` when the code runs, but they convert `SSR` differently:
+
+| `process.env.SSR`                 | Jest    | Vitest  |
+| --------------------------------- | ------- | ------- |
+| `'true'`                          | `true`  | `true`  |
+| `'1'`                             | `false` | `true`  |
+| `'false'`, `false` or `undefined` | `false` | `true`  |
+| `''` or deleted                   | `false` | `false` |
+
+-   To turn SSR on in a test, use `vi.stubEnv('SSR', true)` and undo it with `vi.unstubAllEnvs()`. Setting `process.env.SSR = 'true'` and then `delete process.env.SSR` also works, under both runners.
+-   Never turn SSR off with `'false'`, `false` or `undefined`. Vitest reads all three as `true`.
+-   Don't set `SSR` in `test.env`. Vitest resets it from the test environment when the worker starts. Set it in a setup file instead. Use a setup file too when a module reads `import.meta.env.SSR` at the top level, because the value is captured when the module is imported.
+-   Jest only rewrites dot access (`import.meta.env.X`). Computed access, optional chaining and destructuring only work under Vitest.

@@ -46,7 +46,7 @@ Namespace imports (`import Child from 'x/child'`, or `<x-child>` in a template) 
 }
 ```
 
-This replaces the `moduleNameMapper` entry used with `@lwc/jest-preset`.
+This replaces the namespace entries, such as `'^c/(.+)$'`, of the `moduleNameMapper` used with `@lwc/jest-preset`. For other entries, use the [`moduleNameMapper`](#modulenamemapper) option.
 
 #### nativeShadow
 
@@ -75,6 +75,36 @@ export default defineConfig({
 });
 ```
 
+#### moduleNameMapper
+
+Maps imports the way Jest's [`moduleNameMapper`](https://jestjs.io/docs/configuration#modulenamemapper-objectstring-string--arraystring) does, so stubs set up for Jest keep working:
+
+```js
+export default defineConfig(
+    lwcVitestConfig(import.meta.url, {
+        moduleNameMapper: {
+            '^lightning/(.+)$': '<rootDir>/stubs/lightning/$1/$1',
+        },
+    })
+);
+```
+
+The rules are Jest's:
+
+-   Keys are regular expressions. They match anywhere in the import specifier unless anchored with `^` and `$`.
+-   The first key that matches, in the order written, wins. If none of its targets exist, the import fails; later keys aren't tried.
+-   The target replaces the whole specifier, with `$1`, `$2` and so on filled in from the key's capture groups.
+-   `<rootDir>` is the directory of the Vitest config.
+-   An array target uses the first path that exists.
+
+Mapped imports are resolved before the `@salesforce/*` mocks, so a mapped `@salesforce/*` import loads your module, not the mock.
+
+Vite's `resolve.alias` can't express these rules: a regular-expression alias replaces only the part of the specifier that matched. For example, `'^@salesforce/label/'` aliased to a file leaves the label name stuck to the end of the file's path.
+
+Imports made from inside a dependency that Vitest externalizes (runs in Node without transforming it) aren't mapped. To map them, add the package to `test.server.deps.inline`.
+
+The plugin behind this option is exported as `lwcModuleNameMapper({ moduleNameMapper, rootDir })`, for configs that build their own plugin list. Put it before `salesforceScopedImports()` from `@lwc/vitest-plugin`, or the mocks claim mapped `@salesforce/*` imports first.
+
 ### Custom matchers
 
 `expect().toThrowInConnectedCallback()` and its alias `toThrowErrorInConnectedCallback()` are registered automatically and typed for TypeScript. They behave as they do in [`@lwc/jest-preset`](https://github.com/salesforce/lwc-test/blob/master/packages/%40lwc/jest-preset/README.md#custom-matchers).
@@ -85,6 +115,7 @@ export default defineConfig({
 -   **Component names come from the file path.** `@lwc/jest-transformer` compiles every component as `x-test`. Here a component keeps its real name (for example `smoke-mixin`), so tag names and CSS scope tokens differ.
 -   **No SSR preset.** There is no counterpart to `@lwc/jest-preset/ssr`.
 -   **`import.meta` is not rewritten.** `@lwc/jest-transformer` turns every `import.meta.env.X` into a boolean. Vitest keeps the real `import.meta`. See [`import.meta`](#importmeta).
+-   **A broken mapping fails the import.** If no target of a matching `moduleNameMapper` key exists, the import fails. Under Jest, `@lwc/jest-transformer` wraps the `@salesforce/*` imports it mocks in a try/catch, so a broken mapping for one of them quietly falls back to the default mock.
 
 ### `import.meta`
 

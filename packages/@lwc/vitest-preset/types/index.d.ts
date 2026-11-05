@@ -1,10 +1,15 @@
 /* eslint-disable */
 import 'vitest';
-import type { ViteUserConfig } from 'vitest/config';
+import type { Plugin, ViteUserConfig } from 'vitest/config';
+
+/** Jest `moduleNameMapper` rules: regex keys, targets that can use `$1`, `$2`... and `<rootDir>`. */
+export type ModuleNameMapper = Record<string, string | string[]>;
 
 export interface LwcVitestOptions {
     /** Skip synthetic-shadow and run components in native shadow DOM. */
     nativeShadow?: boolean;
+    /** Map imports as Jest's `moduleNameMapper` does; `<rootDir>` is the config's directory. */
+    moduleNameMapper?: ModuleNameMapper;
 }
 
 /** Vitest config for LWC; call as `lwcVitestConfig(import.meta.url)` from a vitest config. */
@@ -13,6 +18,16 @@ export declare function lwcVitestConfig(
     options?: LwcVitestOptions
 ): ViteUserConfig;
 export default lwcVitestConfig;
+
+/**
+ * The Vite plugin behind the `moduleNameMapper` option, for configs that build their own plugin
+ * list. Put it before `salesforceScopedImports()`, or the `@salesforce/*` mocks win.
+ */
+export declare function lwcModuleNameMapper(options: {
+    moduleNameMapper?: ModuleNameMapper;
+    /** What `<rootDir>` in a target stands for. */
+    rootDir: string;
+}): Plugin;
 
 interface Constructable {
     new (...args: any[]): any;

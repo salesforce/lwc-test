@@ -9,13 +9,14 @@ import { inject } from 'vitest';
 import { createElement } from 'lwc';
 import Basic from '../basic';
 
-// require() rather than import: it's the copy the snapshot serializer reads (see scope-tokens.js).
+// Always require(), never import: an import loads a separate copy, and the snapshot serializer
+// reads the require() one (see scope-tokens.js).
 const { hasKnownScopeTokens, isKnownScopeToken, getKnownScopeTokensRegex } = createRequire(
     import.meta.url
 )('@lwc/jest-shared');
 
 // Compare against the token actually rendered, not a literal: it depends on the compiled
-// namespace/name, which W-24634599 changes.
+// namespace/name, which changes if module ids gain a specifier (e.g. x/test).
 function render() {
     const element = createElement('resolver-basic', { is: Basic });
     document.body.appendChild(element);

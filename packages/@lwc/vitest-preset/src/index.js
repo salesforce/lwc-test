@@ -138,7 +138,7 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
                 )
             ),
             // After compilation; replaces jest-transformer's addKnownScopeToken append.
-            lwcKnownScopeTokens(),
+            lwcKnownScopeTokens({ exclude: compileExclude }),
         ],
         // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver), via the @wire trap.
         resolve: { alias: { lwc: fileURLToPath(new URL('./lwc.js', import.meta.url)) } },

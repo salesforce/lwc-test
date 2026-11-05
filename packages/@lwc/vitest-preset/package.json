@@ -36,6 +36,7 @@
         "@babel/plugin-syntax-class-properties": "7.12.13",
         "@babel/plugin-syntax-decorators": "7.24.7",
         "@babel/preset-typescript": "7.24.7",
+        "@lwc/jest-shared": "19.6.1",
         "@lwc/vitest-plugin": "19.6.1"
     },
     "peerDependencies": {

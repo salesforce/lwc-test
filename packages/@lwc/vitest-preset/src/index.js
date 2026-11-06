@@ -7,6 +7,7 @@
 import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
+import { lwcModuleNameMapper } from './module-name-mapper.js';
 import { lwcKnownScopeTokens } from './scope-tokens.js';
 import { lwcTypeScript } from './typescript.js';
 
@@ -87,7 +88,11 @@ function lwcCoverageExclude() {
 
 // Vitest config factory for LWC. Call as `lwcVitestConfig(import.meta.url)` from a vitest.config.
 // `nativeShadow: true` skips synthetic-shadow (Jest's `globals['lwc-jest'].nativeShadow`).
-export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
+// `moduleNameMapper` takes Jest's moduleNameMapper rules; `<rootDir>` is the config's directory.
+export function lwcVitestConfig(
+    importMetaUrl,
+    { nativeShadow = false, moduleNameMapper = {} } = {}
+) {
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
     // Compiler options mirroring the jest-transformer config for parity.
     // rootDir is mandatory: buildStart crashes without it under Vitest (no rollup input).
@@ -115,6 +120,8 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
         plugins: [
             lwcCoverageExclude(),
             lwcStylesheetIds(),
+            // Before the @salesforce/* mocks, which would otherwise claim a mapped specifier first.
+            lwcModuleNameMapper({ moduleNameMapper, rootDir }),
             salesforceScopedImports(),
             lwcTypeScript(),
             // Compile .js/.html/.css LWC bundles (replaces @lwc/jest-transformer's compile job).
@@ -162,4 +169,6 @@ export function lwcVitestConfig(importMetaUrl, { nativeShadow = false } = {}) {
     };
 }
 
+// For configs that build their own plugin list; put it before salesforceScopedImports().
+export { lwcModuleNameMapper };
 export default lwcVitestConfig;

@@ -1,0 +1,9 @@
+/*
+ * Copyright (c) 2026, salesforce.com, inc.
+ * All rights reserved.
+ * SPDX-License-Identifier: MIT
+ * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
+ */
+
+// What test/vitest.config.mjs maps @salesforce/label/mapped.greeting to.
+export default 'Hello from the mapped module';

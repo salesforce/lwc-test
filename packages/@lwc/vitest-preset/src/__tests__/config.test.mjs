@@ -32,3 +32,13 @@ describe('lwcVitestConfig per-file isolation', () => {
         assert.equal(config.sequence.setupFiles, 'list');
     });
 });
+
+describe('lwcVitestConfig moduleNameMapper', () => {
+    test('runs the mapper before the @salesforce/* mocks', () => {
+        // Otherwise the mocks claim a mapped @salesforce/* specifier first.
+        const names = lwcVitestConfig(import.meta.url).plugins.map(({ name }) => name);
+        const mapper = names.indexOf('lwc-module-name-mapper');
+        assert.notEqual(mapper, -1);
+        assert.ok(mapper < names.indexOf('@lwc/vitest-plugin:salesforce-scoped-imports'));
+    });
+});

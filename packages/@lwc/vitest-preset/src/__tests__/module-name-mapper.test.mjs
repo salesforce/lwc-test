@@ -9,12 +9,14 @@
  * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { lwcModuleNameMapper } from '../index.js';
+import { lwcModuleNameMapper, lwcVitestConfig } from '../index.js';
 
 // The package directory. Targets point at real files in it, except the missing ones.
 const rootDir = fileURLToPath(new URL('../..', import.meta.url));
@@ -30,8 +32,18 @@ function fakeContext() {
         calls,
         async resolve(id, from, options) {
             calls.push({ id, options });
-            return { id: path.resolve(path.dirname(from), id) };
+            return { id: from ? path.resolve(path.dirname(from), id) : path.resolve(id) };
         },
+    };
+}
+
+// The same, behind the preset's lwc-stylesheet-ids plugin, which tags stylesheet ids.
+function stylesheetContext() {
+    const { plugins } = lwcVitestConfig(import.meta.url);
+    const stylesheetIds = plugins.find(({ name }) => name === 'lwc-stylesheet-ids');
+    const context = fakeContext();
+    return {
+        resolve: (id, from, options) => stylesheetIds.resolveId.call(context, id, from, options),
     };
 }
 
@@ -95,6 +107,29 @@ describe('lwcModuleNameMapper', () => {
     test('fails if no array target exists, listing each one', async () => {
         const mapper = { '^x$': ['<rootDir>/missing-a.js', '<rootDir>/missing-b.js'] };
         await assert.rejects(resolveWith(mapper, 'x'), /missing-a\.js\n.*missing-b\.js/);
+    });
+
+    test('accepts a stylesheet target with a query', async (t) => {
+        // lwc-stylesheet-ids resolves x.css?scoped=true to x.css.lwc.js?scoped=true.
+        const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lwc-module-name-mapper-'));
+        t.after(() => fs.rmSync(dir, { recursive: true }));
+        fs.writeFileSync(path.join(dir, 'x.css'), '');
+        const mapper = { '^x$': path.join(dir, 'x.css?scoped=true') };
+        assert.equal(
+            await resolveWith(mapper, 'x', stylesheetContext()),
+            path.join(dir, 'x.css.lwc.js?scoped=true')
+        );
+    });
+
+    test('reports a missing target when there is no importer', async () => {
+        // Outside the dev server, Vite passes no importer for a module that nothing imports.
+        const mapper = { '^x$': '<rootDir>/src/missing.js' };
+        const plugin = lwcModuleNameMapper({ moduleNameMapper: mapper, rootDir });
+        plugin.configResolved({ root: rootDir });
+        await assert.rejects(
+            plugin.resolveId.call(fakeContext(), 'x', undefined, {}),
+            /Could not locate module x mapped as:/
+        );
     });
 
     test('leaves specifiers that no key matches to the other plugins', async () => {

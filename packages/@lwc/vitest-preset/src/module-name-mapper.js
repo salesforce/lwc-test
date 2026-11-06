@@ -59,11 +59,12 @@ export function lwcModuleNameMapper({ moduleNameMapper = {}, rootDir }) {
                     custom: { ...options?.custom, [MAPPED]: true },
                 });
                 // @lwc/rollup-plugin resolves any relative or absolute path, even a missing one, so
-                // check the disk. Check the target as written too: the preset tags stylesheet ids.
+                // check the disk. Untag stylesheet ids first: lwcStylesheetIds renames .css to
+                // .css.lwc.js. The importer is undefined when Vite resolves without one.
                 if (
                     resolved &&
-                    (isFile(resolved.id.split('?')[0]) ||
-                        isFile(path.resolve(path.dirname(importer), candidate)))
+                    (isFile(resolved.id.split('?')[0].replace(/\.css\.lwc\.js$/, '.css')) ||
+                        (importer && isFile(path.resolve(path.dirname(importer), candidate))))
                 ) {
                     return resolved;
                 }

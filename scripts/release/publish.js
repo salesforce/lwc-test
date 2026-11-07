@@ -8,16 +8,17 @@
  */
 const execa = require('execa');
 const isCI = require('is-ci');
+const semver = require('semver');
+
+const { version } = require('../../lerna.json');
 
 const ARGS = [
-    // https://github.com/lerna/lerna/tree/master/commands/publish
+    // https://github.com/lerna/lerna/tree/main/libs/commands/publish
     'publish',
     // Explicitly publish packages tagged in the current commit
     'from-git',
     // Disable lifecycle scripts, specifically `prepare`
     '--ignore-scripts',
-    // Lerna will otherwise attempt to verify npm user access
-    '--no-verify-access',
     '--yes',
 ];
 
@@ -29,31 +30,44 @@ if (!isCI) {
 }
 
 try {
-    // We can't use a straightforward git command like `git branch --show-current` because we've
-    // checked out a git tag and we're in a detached HEAD state. The following logic attempts to
-    // verify that this tag points to a commit contained by a release branch.
+    let distTag;
 
-    // All branches that contain the current commit. Since we only deal with release commits, the
-    // only scenario where this might be an issue is if we try to publish a release commit from
-    // master after CLCO because the commit will show up in two branches.
-    const branches = execa.commandSync('git branch --all --contains').stdout;
+    if (semver.prerelease(version)) {
+        // Prereleases (for example 19.7.0-alpha.1) are canaries cut from a feature branch, so they
+        // skip the release branch check below and go to the "canary" dist-tag, leaving "latest"
+        // where it is.
+        distTag = 'canary';
 
-    // Restrict the regex to remote branches to avoid assumptions about local branches.
-    const REMOTE_RELEASE_BRANCH_RE = /origin\/(master|((winter|spring|summer)\d+))/;
+        console.log(`Attempting to release prerelease "${version}" using dist-tag "${distTag}".`);
+    } else {
+        // We can't use a straightforward git command like `git branch --show-current` because
+        // we've checked out a git tag and we're in a detached HEAD state. The following logic
+        // attempts to verify that this tag points to a commit contained by a release branch.
 
-    const result = REMOTE_RELEASE_BRANCH_RE.exec(branches);
-    if (result === null) {
-        const tag = execa.commandSync('git tag --points-at HEAD').stdout;
-        console.error(`The commit referenced by "${tag}" is not contained by any release branch.`);
-        process.exit(1);
+        // All branches that contain the current commit. Since we only deal with release commits,
+        // the only scenario where this might be an issue is if we try to publish a release commit
+        // from master after CLCO because the commit will show up in two branches.
+        const branches = execa.commandSync('git branch --all --contains').stdout;
+
+        // Restrict the regex to remote branches to avoid assumptions about local branches.
+        const REMOTE_RELEASE_BRANCH_RE = /origin\/(master|((winter|spring|summer)\d+))/;
+
+        const result = REMOTE_RELEASE_BRANCH_RE.exec(branches);
+        if (result === null) {
+            const tag = execa.commandSync('git tag --points-at HEAD').stdout;
+            console.error(
+                `The commit referenced by "${tag}" is not contained by any release branch.`
+            );
+            process.exit(1);
+        }
+
+        const [, releaseBranch] = result;
+        distTag = releaseBranch === 'master' ? 'latest' : releaseBranch;
+
+        console.log(
+            `Attempting to release from branch "${releaseBranch}" using dist-tag "${distTag}".`
+        );
     }
-
-    const [, releaseBranch] = result;
-    const distTag = releaseBranch === 'master' ? 'latest' : releaseBranch;
-
-    console.log(
-        `Attempting to release from branch "${releaseBranch}" using dist-tag "${distTag}".`
-    );
 
     execa.sync('lerna', [...ARGS, '--dist-tag', distTag], {
         // Prioritize locally installed binaries (node_modules/.bin)

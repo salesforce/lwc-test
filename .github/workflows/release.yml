@@ -18,6 +18,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v6
+              with:
+                  # Full history and remote branches, so publish.js can find the release branch
+                  # that contains the tagged commit
+                  fetch-depth: 0
 
             - uses: actions/setup-node@v6
               with:
@@ -38,10 +42,7 @@ jobs:
             - name: Install dependencies
               run: yarn install --frozen-lockfile
 
-            - name: Configure NPM authentication
-              run: npm config set "//registry.npmjs.org/:_authToken" "$NPM_AUTOMATION_TOKEN"
-              env:
-                  NPM_AUTOMATION_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
-
+            # No npm token: lerna exchanges the job's OIDC token for a short-lived token per package
+            # (npm trusted publishing, configured on each package for this workflow file)
             - name: Publish packages
               run: yarn release:publish:ci

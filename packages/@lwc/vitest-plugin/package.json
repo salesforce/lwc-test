@@ -1,6 +1,6 @@
 {
     "name": "@lwc/vitest-plugin",
-    "version": "19.6.1",
+    "version": "19.7.0-alpha.1",
     "description": "Vite/Vitest plugin that mocks @salesforce/* scoped imports for LWC unit tests",
     "homepage": "https://lwc.dev/",
     "repository": {

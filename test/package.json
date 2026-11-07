@@ -1,6 +1,6 @@
 {
     "name": "test",
-    "version": "19.6.1",
+    "version": "19.7.0-alpha.1",
     "private": true,
     "scripts": {
         "test": "jest"

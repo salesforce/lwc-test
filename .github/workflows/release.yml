@@ -5,7 +5,6 @@ on:
         tags: ['v*']
 
 permissions:
-    id-token: write # Required for OIDC
     contents: read
 
 jobs:
@@ -16,32 +15,28 @@ jobs:
         name: Deploy
         needs: test
         runs-on: ubuntu-latest
+        # Only this job can request an OIDC token. A reusable workflow inherits the caller's
+        # permissions, so a workflow-level id-token would also reach the test job.
+        permissions:
+            contents: read
+            id-token: write # Required for OIDC
         steps:
             - uses: actions/checkout@v6
+              with:
+                  # Full history and remote branches, so publish.js can find the release branch
+                  # that contains the tagged commit
+                  fetch-depth: 0
 
             - uses: actions/setup-node@v6
               with:
                   node-version: '20.20.1'
 
-            - name: Get yarn cache directory path
-              id: yarn-cache-dir-path
-              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-            - uses: actions/cache@v4
-              id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-              with:
-                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-yarn-
-
+            # This job can mint an npm token, so skip the yarn cache (the test jobs write to it) and
+            # dependency install scripts (publishing doesn't need them)
             - name: Install dependencies
-              run: yarn install --frozen-lockfile
+              run: yarn install --frozen-lockfile --ignore-scripts
 
-            - name: Configure NPM authentication
-              run: npm config set "//registry.npmjs.org/:_authToken" "$NPM_AUTOMATION_TOKEN"
-              env:
-                  NPM_AUTOMATION_TOKEN: ${{ secrets.NPM_AUTOMATION_TOKEN }}
-
+            # No npm token: lerna exchanges the job's OIDC token for a short-lived token per package
+            # (npm trusted publishing, configured on each package for this workflow file)
             - name: Publish packages
               run: yarn release:publish:ci

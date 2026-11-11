@@ -9,6 +9,7 @@
  * node:test in .mjs so Jest and the publish glob skip it; run: node --test <this file>.
  */
 
+import path from 'node:path';
 import { describe, test } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -31,6 +32,18 @@ describe('lwcVitestConfig per-file isolation', () => {
         const { test: config } = lwcVitestConfig(import.meta.url);
         assert.equal(config.sequence.setupFiles, 'list');
     });
+});
+
+describe('lwcVitestConfig snapshot serializer', () => {
+    for (const nativeShadow of [false, true]) {
+        test(`registers @lwc/jest-serializer by absolute path (nativeShadow: ${nativeShadow})`, () => {
+            // A bare name would be resolved from the user's root, not the preset's dependency.
+            const { snapshotSerializers } = lwcVitestConfig(import.meta.url, { nativeShadow }).test;
+            assert.equal(snapshotSerializers.length, 1);
+            assert.ok(path.isAbsolute(snapshotSerializers[0]));
+            assert.match(snapshotSerializers[0], /jest-serializer[\\/]src[\\/]index\.js$/);
+        });
+    }
 });
 
 describe('lwcVitestConfig moduleNameMapper', () => {

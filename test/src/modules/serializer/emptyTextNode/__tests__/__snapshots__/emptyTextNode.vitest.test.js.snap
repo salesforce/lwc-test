@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`serializes component with empty text nodes 1`] = `
+<serializer-component>
+  <div>
+    <h1>
+      hello
+    </h1>
+  </div>
+</serializer-component>
+`;

@@ -4,12 +4,15 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
 import { lwcModuleNameMapper } from './module-name-mapper.js';
 import { lwcKnownScopeTokens } from './scope-tokens.js';
 import { lwcTypeScript } from './typescript.js';
+
+const require = createRequire(import.meta.url);
 
 // Print LWC compiler diagnostics in jest-transformer's `[LWC Warn](<file>): <message>` format;
 // the plugin's own string warnings still go through Vite's logger.
@@ -158,6 +161,9 @@ export function lwcVitestConfig(
             globals: true,
             include: ['**/__tests__/**/*.vitest.test.{js,ts}'],
             setupFiles: ['@lwc/vitest-preset/setup'],
+            // Print LWC elements as @lwc/jest-preset does (#shadow-root, __lwc_scope_token__). Resolve
+            // it here: Vitest resolves a bare name from `root`, which may not see the preset's copy.
+            snapshotSerializers: [require.resolve('@lwc/jest-serializer')],
             // Setup order is load-bearing (polyfill -> synthetic-shadow -> engine -> flag); run in order.
             sequence: { setupFiles: 'list' },
             // Jest runs each test file in its own worker with a fresh module registry, and LWC tests

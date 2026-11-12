@@ -24,6 +24,11 @@
     "peerDependencies": {
         "jest": "^28 || ^29 || ^30"
     },
+    "peerDependenciesMeta": {
+        "jest": {
+            "optional": true
+        }
+    },
     "engines": {
         "node": ">=10"
     }

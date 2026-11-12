@@ -109,9 +109,16 @@ The plugin behind this option is exported as `lwcModuleNameMapper({ moduleNameMa
 
 `expect().toThrowInConnectedCallback()` and its alias `toThrowErrorInConnectedCallback()` are registered automatically and typed for TypeScript. They behave as they do in [`@lwc/jest-preset`](https://github.com/salesforce/lwc-test/blob/master/packages/%40lwc/jest-preset/README.md#custom-matchers).
 
+### Snapshots
+
+Snapshots go through [`@lwc/jest-serializer`](https://github.com/salesforce/lwc-test/blob/master/packages/%40lwc/jest-serializer), as with `@lwc/jest-preset`. An element prints its shadow tree under `#shadow-root(open)`, and CSS scope tokens print as `__lwc_scope_token__`.
+
+-   Vitest writes `__snapshots__/<file>.vitest.test.js.snap` with its own header, so Jest and Vitest keep separate snapshot files. The bodies match Jest's.
+-   With `projects` for both shadow modes, both projects share one snapshot file. Where the output differs by shadow mode, branch on `inject('lwcNativeShadow')` and use inline snapshots.
+-   The serializer's `jest` peer dependency is optional, so installing the preset doesn't install Jest.
+
 ## Differences from `@lwc/jest-preset`
 
--   **No snapshot serializer yet.** Snapshots don't go through `@lwc/jest-serializer`.
 -   **Component names come from the file path.** `@lwc/jest-transformer` compiles every component as `x-test`. Here a component keeps its real name (for example `smoke-mixin`), so tag names and CSS scope tokens differ.
 -   **No SSR preset.** There is no counterpart to `@lwc/jest-preset/ssr`.
 -   **`import.meta` is not rewritten.** `@lwc/jest-transformer` turns every `import.meta.env.X` into a boolean. Vitest keeps the real `import.meta`. See [`import.meta`](#importmeta).

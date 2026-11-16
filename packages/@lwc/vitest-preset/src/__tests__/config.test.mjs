@@ -42,3 +42,10 @@ describe('lwcVitestConfig moduleNameMapper', () => {
         assert.ok(mapper < names.indexOf('@lwc/vitest-plugin:salesforce-scoped-imports'));
     });
 });
+
+// CI PROOF ONLY (W-24743086): deliberately broken, never merge.
+describe('CI PROOF', () => {
+    test('broken node:test test', () => {
+        assert.equal(1, 2);
+    });
+});

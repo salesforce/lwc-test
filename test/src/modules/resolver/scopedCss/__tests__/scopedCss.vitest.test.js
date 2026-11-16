@@ -17,3 +17,8 @@ it('component has expected scoped styles', () => {
     const css = styleContainer.querySelector('style').textContent;
     expect(css).toMatch(/^h1\.lwc-[a-z0-9]+ \{color: red;\}$/);
 });
+
+// CI PROOF ONLY (W-24743086): deliberately broken, never merge.
+it('CI PROOF: broken Vitest test', () => {
+    expect(1).toBe(2);
+});

@@ -52,3 +52,49 @@ jobs:
 
             - name: Run unit tests
               run: yarn test --runInBand
+
+    # Jest skips *.vitest.test.* and .mjs files, so run those suites in their own matrix:
+    # the locked Vitest, the preset's lowest supported version, and the latest 4.x
+    vitest:
+        name: Build (vitest@${{ matrix.vitest-version }})
+        runs-on: ubuntu-latest
+        strategy:
+            # Report every Vitest version, not just the first to fail
+            fail-fast: false
+            matrix:
+                vitest-version: ['local', '4.1.0', '4']
+        steps:
+            - uses: actions/checkout@v6
+
+            - uses: actions/setup-node@v6
+              with:
+                  node-version: '20.20.1'
+
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
+
+            - uses: actions/cache@v4
+              with:
+                  path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-yarn-
+
+            # @vitest/coverage-v8 pins vitest to its own version, so move both together
+            - name: Install dependencies w/ vitest@${{ matrix.vitest-version }}
+              if: matrix.vitest-version != 'local'
+              run: yarn add vitest@${{ matrix.vitest-version }} @vitest/coverage-v8@${{ matrix.vitest-version }} -W --dev
+
+            - name: Install dependencies w/ local vitest
+              if: matrix.vitest-version == 'local'
+              run: yarn install --frozen-lockfile
+
+            - name: Print Vitest version
+              run: npx vitest --version
+
+            - name: Run Vitest tests
+              run: yarn test:vitest
+
+            - name: Run plugin and preset node:test tests
+              run: yarn test:plugin

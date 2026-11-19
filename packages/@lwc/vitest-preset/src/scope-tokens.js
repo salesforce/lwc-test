@@ -14,6 +14,7 @@ const { createFilter } = rollupPluginRequire('@rollup/pluginutils');
 // Hash tokens with the template-compiler @lwc/rollup-plugin compiles with, so they always match.
 const compilerRequire = createRequire(rollupPluginRequire.resolve('@lwc/compiler'));
 const { generateScopeTokens } = compilerRequire('@lwc/template-compiler/dist/index.cjs');
+// TODO: if Jest is deprecated, move the @lwc/jest-shared scope-token registry into this package.
 // Always load @lwc/jest-shared with require(), never import: Vite's import of this CJS package
 // loads a separate copy, and the snapshot serializer reads the require() one. So register into
 // that copy (as jest-transformer does) via its absolute path.

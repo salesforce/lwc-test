@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`serializes a component containing framework-supplied attributes 1`] = `
+<serializer-component>
+  <h1>
+    Hello world
+  </h1>
+</serializer-component>
+`;

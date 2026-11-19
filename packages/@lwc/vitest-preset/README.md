@@ -112,7 +112,6 @@ The plugin behind this option is exported as `lwcModuleNameMapper({ moduleNameMa
 ## Differences from `@lwc/jest-preset`
 
 -   **No snapshot serializer yet.** Snapshots don't go through `@lwc/jest-serializer`.
--   **Component names come from the file path.** `@lwc/jest-transformer` compiles every component as `x-test`. Here a component keeps its real name (for example `smoke-mixin`), so tag names and CSS scope tokens differ.
 -   **No SSR preset.** There is no counterpart to `@lwc/jest-preset/ssr`.
 -   **`import.meta` is not rewritten.** `@lwc/jest-transformer` turns every `import.meta.env.X` into a boolean. Vitest keeps the real `import.meta`. See [`import.meta`](#importmeta).
 -   **A broken mapping fails the import.** If no target of a matching `moduleNameMapper` key exists, the import fails. Under Jest, `@lwc/jest-transformer` wraps the `@salesforce/*` imports it mocks in a try/catch, so a broken mapping for one of them quietly falls back to the default mock.

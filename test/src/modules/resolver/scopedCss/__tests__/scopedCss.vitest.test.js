@@ -4,16 +4,23 @@
  * SPDX-License-Identifier: MIT
  * For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/MIT
  */
+import { createRequire } from 'node:module';
 import { inject } from 'vitest';
 import { createElement } from 'lwc';
 import Basic from '../basic';
 
-// Scope tokens differ from Jest's (path-derived namespace), so match the token's shape.
+const { isKnownScopeToken } = createRequire(import.meta.url)('@lwc/jest-shared');
+
 it('component has expected scoped styles', () => {
     const element = createElement('resolver-basic', { is: Basic });
     document.body.appendChild(element);
 
     const styleContainer = inject('lwcNativeShadow') ? element.shadowRoot : document.head;
     const css = styleContainer.querySelector('style').textContent;
-    expect(css).toMatch(/^h1\.lwc-[a-z0-9]+ \{color: red;\}$/);
+    expect(css).toEqual('h1.lwc-2upvglv5e7t {color: red;}');
+});
+
+// The snapshot serializer only replaces registered tokens, so register the one that is rendered.
+it('registers the scope token it renders', () => {
+    expect(isKnownScopeToken('lwc-2upvglv5e7t')).toBe(true);
 });

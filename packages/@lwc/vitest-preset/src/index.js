@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
 import { lwcModuleNameMapper } from './module-name-mapper.js';
+import { forPrivateMethods } from './private-methods.js';
 import { lwcKnownScopeTokens } from './scope-tokens.js';
 import { lwcTypeScript } from './typescript.js';
 
@@ -76,6 +77,21 @@ function bypassViteCss(plugin) {
     };
 }
 
+// Compile every file as namespace `x`, name `test`, so tag names and scope tokens ignore the folder path.
+// @lwc/rollup-plugin and lwcKnownScopeTokens both read the name from the `specifier` id query.
+function fixedComponentNames(plugin) {
+    const { transform } = plugin;
+    return {
+        ...plugin,
+        transform(src, id) {
+            const [file, query] = id.split('?', 2);
+            const params = new URLSearchParams(query);
+            params.set('specifier', 'x/test');
+            return transform.call(this, src, `${file}?${params}`);
+        },
+    };
+}
+
 // Parity with jest-preset's coveragePathIgnorePatterns. Vitest reads coverage only from the root
 // config, so append to it from a hook; that also covers configs that nest this in `projects`.
 const coverageExclude = ['**/*.css', '**/*.html'];
@@ -99,8 +115,6 @@ export function lwcVitestConfig(
     const rootDir = fileURLToPath(new URL('.', importMetaUrl));
     // Compiler options mirroring the jest-transformer config for parity.
     // rootDir is mandatory: buildStart crashes without it under Vitest (no rollup input).
-    // Known gap: Jest hardcodes namespace 'x'/name 'test'; the plugin derives them from the path
-    // (no override), so `sel` and CSS scope tokens differ (x-test vs e.g. smoke-mixin).
     const compilerOptions = {
         rootDir,
         sourcemap: true,
@@ -113,7 +127,17 @@ export function lwcVitestConfig(
     const compileExclude = ['**/node_modules/**', /(?<!\.(?:js|ts|html|css))$/];
     // enablePrivateMethods is per-namespace in Jest (lightning/interop only), but the plugin
     // exposes only a global flag, so split compilation into two path-scoped instances.
-    const privateMethodsNamespaces = /[\\/](?:modules|jest-modules)[\\/](?:lightning|interop)[\\/]/;
+    const compiler = (enablePrivateMethods) =>
+        bypassViteCss(
+            formatLwcWarnings(
+                fixedComponentNames(
+                    forPrivateMethods(
+                        lwc({ ...compilerOptions, exclude: compileExclude, enablePrivateMethods }),
+                        enablePrivateMethods
+                    )
+                )
+            )
+        );
     return {
         root: rootDir,
         // Vite's built-in .ts transform lowers LWC decorators; lwcTypeScript() strips types instead.
@@ -128,27 +152,10 @@ export function lwcVitestConfig(
             salesforceScopedImports(),
             lwcTypeScript(),
             // Compile .js/.html/.css LWC bundles (replaces @lwc/jest-transformer's compile job).
-            bypassViteCss(
-                formatLwcWarnings(
-                    lwc({
-                        ...compilerOptions,
-                        include: [privateMethodsNamespaces],
-                        exclude: compileExclude,
-                        enablePrivateMethods: true,
-                    })
-                )
-            ),
-            bypassViteCss(
-                formatLwcWarnings(
-                    lwc({
-                        ...compilerOptions,
-                        exclude: [...compileExclude, privateMethodsNamespaces],
-                        enablePrivateMethods: false,
-                    })
-                )
-            ),
+            compiler(true),
+            compiler(false),
             // After compilation; replaces jest-transformer's addKnownScopeToken append.
-            lwcKnownScopeTokens({ exclude: compileExclude }),
+            fixedComponentNames(lwcKnownScopeTokens({ exclude: compileExclude })),
         ],
         // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver), via the @wire trap.
         resolve: { alias: { lwc: fileURLToPath(new URL('./lwc.js', import.meta.url)) } },

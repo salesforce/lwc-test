@@ -8,7 +8,6 @@ import { inject } from 'vitest';
 import { createElement } from 'lwc';
 import Basic from '../basic';
 
-// Scope tokens differ from Jest's (path-derived namespace), so match the token's shape.
 it('component has expected styles', () => {
     const element = createElement('resolver-basic', { is: Basic });
     document.body.appendChild(element);
@@ -16,9 +15,5 @@ it('component has expected styles', () => {
     const nativeShadow = inject('lwcNativeShadow');
     const styleContainer = nativeShadow ? element.shadowRoot : document.head;
     const css = styleContainer.querySelector('style').textContent;
-    if (nativeShadow) {
-        expect(css).toBe('h1 {color: red;}');
-    } else {
-        expect(css).toMatch(/^h1\[lwc-[a-z0-9]+\] \{color: red;\}$/);
-    }
+    expect(css).toBe(nativeShadow ? 'h1 {color: red;}' : 'h1[lwc-2upvglv5e7t] {color: red;}');
 });

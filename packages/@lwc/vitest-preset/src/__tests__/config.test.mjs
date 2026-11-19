@@ -37,6 +37,7 @@ describe('lwcVitestConfig per-file isolation', () => {
 describe('lwcVitestConfig snapshot serializer', () => {
     for (const nativeShadow of [false, true]) {
         test(`registers @lwc/jest-serializer by absolute path (nativeShadow: ${nativeShadow})`, () => {
+            // TODO: if Jest is deprecated, update this test for the @lwc/jest-serializer replacement.
             // A bare name would be resolved from the user's root, not the preset's dependency.
             const { snapshotSerializers } = lwcVitestConfig(import.meta.url, { nativeShadow }).test;
             assert.equal(snapshotSerializers.length, 1);

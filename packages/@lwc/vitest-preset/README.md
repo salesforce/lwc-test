@@ -111,6 +111,8 @@ The plugin behind this option is exported as `lwcModuleNameMapper({ moduleNameMa
 
 ### Snapshots
 
+<!-- TODO: if Jest is deprecated, update this section for the @lwc/jest-serializer replacement. -->
+
 Snapshots go through [`@lwc/jest-serializer`](https://github.com/salesforce/lwc-test/blob/master/packages/%40lwc/jest-serializer), as with `@lwc/jest-preset`. An element prints its shadow tree under `#shadow-root(open)`, and CSS scope tokens print as `__lwc_scope_token__`.
 
 -   Vitest writes `__snapshots__/<file>.vitest.test.js.snap` with its own header, so Jest and Vitest keep separate snapshot files. The bodies match Jest's.

@@ -161,7 +161,7 @@ export function lwcVitestConfig(
             globals: true,
             include: ['**/__tests__/**/*.vitest.test.{js,ts}'],
             setupFiles: ['@lwc/vitest-preset/setup'],
-            // TODO: if @lwc/jest-serializer is deprecated/removed, ship our own Vitest snapshot serializer.
+            // TODO: if Jest is deprecated, replace @lwc/jest-serializer with our own serializer.
             // Print LWC elements as @lwc/jest-preset does (#shadow-root, __lwc_scope_token__). Resolve
             // it here: Vitest resolves a bare name from `root`, which may not see the preset's copy.
             snapshotSerializers: [require.resolve('@lwc/jest-serializer')],

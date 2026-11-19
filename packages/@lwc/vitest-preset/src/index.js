@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
 import { salesforceScopedImports } from '@lwc/vitest-plugin';
 import { lwcModuleNameMapper } from './module-name-mapper.js';
+import { forPrivateMethods } from './private-methods.js';
 import { lwcKnownScopeTokens } from './scope-tokens.js';
 import { lwcTypeScript } from './typescript.js';
 
@@ -123,7 +124,17 @@ export function lwcVitestConfig(
     const compileExclude = ['**/node_modules/**', /(?<!\.(?:js|ts|html|css))$/];
     // enablePrivateMethods is per-namespace in Jest (lightning/interop only), but the plugin
     // exposes only a global flag, so split compilation into two path-scoped instances.
-    const privateMethodsNamespaces = /[\\/](?:modules|jest-modules)[\\/](?:lightning|interop)[\\/]/;
+    const compiler = (enablePrivateMethods) =>
+        bypassViteCss(
+            formatLwcWarnings(
+                fixedComponentNames(
+                    forPrivateMethods(
+                        lwc({ ...compilerOptions, exclude: compileExclude, enablePrivateMethods }),
+                        enablePrivateMethods
+                    )
+                )
+            )
+        );
     return {
         root: rootDir,
         // Vite's built-in .ts transform lowers LWC decorators; lwcTypeScript() strips types instead.
@@ -138,29 +149,8 @@ export function lwcVitestConfig(
             salesforceScopedImports(),
             lwcTypeScript(),
             // Compile .js/.html/.css LWC bundles (replaces @lwc/jest-transformer's compile job).
-            bypassViteCss(
-                formatLwcWarnings(
-                    fixedComponentNames(
-                        lwc({
-                            ...compilerOptions,
-                            include: [privateMethodsNamespaces],
-                            exclude: compileExclude,
-                            enablePrivateMethods: true,
-                        })
-                    )
-                )
-            ),
-            bypassViteCss(
-                formatLwcWarnings(
-                    fixedComponentNames(
-                        lwc({
-                            ...compilerOptions,
-                            exclude: [...compileExclude, privateMethodsNamespaces],
-                            enablePrivateMethods: false,
-                        })
-                    )
-                )
-            ),
+            compiler(true),
+            compiler(false),
             // After compilation; replaces jest-transformer's addKnownScopeToken append.
             fixedComponentNames(lwcKnownScopeTokens({ exclude: compileExclude })),
         ],

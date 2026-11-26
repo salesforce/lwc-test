@@ -5,7 +5,7 @@ Vitest configuration and setup for testing Lightning Web Components (LWC). It is
 `lwcVitestConfig()` returns a Vitest config that:
 
 -   compiles component `.js`, `.ts`, `.html` and `.css` files with `@lwc/rollup-plugin`, using the same compiler options as `@lwc/jest-transformer`
--   mocks `@salesforce/*` scoped imports with `@lwc/vitest-plugin`
+-   mocks `@salesforce/*` scoped imports with `@lwc/vitest-plugin`, and rejects wrong-shaped imports of them with Jest's error
 -   runs tests in jsdom at `http://localhost/`, as Jest does
 -   loads synthetic shadow DOM, the LWC engine and the custom matchers before each test file
 

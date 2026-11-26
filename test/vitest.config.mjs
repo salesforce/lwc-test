@@ -9,6 +9,8 @@ function integration({ nativeShadow }) {
         // For resolver/moduleNameMapper. The first target doesn't exist: an array target uses the
         // first path that exists.
         moduleNameMapper: {
+            // As in jest.config.js: smoke/<name> is src/modules/smoke/<name>/<name>.
+            '^smoke/(.+)$': '<rootDir>/src/modules/smoke/$1/$1',
             '^@salesforce/label/mapped\\.(.+)$': [
                 '<rootDir>/src/modules/resolver/moduleNameMapper/missing/$1',
                 '<rootDir>/src/modules/resolver/moduleNameMapper/labels/$1',

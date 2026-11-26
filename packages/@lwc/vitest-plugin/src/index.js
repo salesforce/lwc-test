@@ -227,4 +227,87 @@ export function salesforceScopedImports() {
     };
 }
 
+// Jest's getImportInfo message (jest-transformer transforms/utils.js), character for character.
+function invalidImportMessage(source) {
+    return `Invalid import from ${source}. Only import the default using the following syntax: "import foo from '@salesforce/label/c.foo'".`;
+}
+
+// Jest checks every mocked module except Apex. Derived from the mock lists so the two can't drift.
+const SHAPE_CHECKED_PREFIXES = SCOPED_IMPORT_PREFIXES.filter(
+    (prefix) => !prefix.startsWith(APEX_IMPORT_SPECIFIER)
+);
+const SHAPE_CHECKED_SITE_SOURCES = Object.keys(SITE_VALUES).map((key) => SITE_PREFIX + key);
+
+function isShapeChecked(source) {
+    return (
+        SHAPE_CHECKED_PREFIXES.some((prefix) => source.startsWith(prefix)) ||
+        SHAPE_CHECKED_SITE_SOURCES.includes(source)
+    );
+}
+
+const SHAPE_CHECKED_FILE = /\.[jt]s$/;
+
+// Jest binds the first local name to an Apex method's default export, whatever the shape. Rewrite
+// `import <specifiers> from` to `import <name> from` in place: blank the specifiers (keeping
+// newlines) and write the name back at its own offset, so no position or line moves.
+function apexDefaultImport(code, node) {
+    const first = node.specifiers[0];
+    const last = node.specifiers[node.specifiers.length - 1];
+    const start = node.start + 'import'.length;
+    const end = code.indexOf('from', last.end);
+    const blank = code.slice(start, end).replace(/[^\n]/g, ' ');
+    const at = first.local.start - start;
+    const { name } = first.local;
+    return { start, end, text: blank.slice(0, at) + name + blank.slice(at + name.length) };
+}
+
+// Throws Jest's error for a wrong-shaped import of a mocked module, and rewrites Apex method
+// imports to a default import. Must come after lwc() (and lwcTypeScript()) so it sees plain JS.
+export function salesforceImportShape() {
+    return {
+        name: '@lwc/vitest-plugin:salesforce-import-shape',
+        transform(code, id) {
+            const [file] = id.split('?', 1);
+            if (
+                id.startsWith('\0') ||
+                id.includes('/node_modules/') ||
+                !SHAPE_CHECKED_FILE.test(file)
+            ) {
+                return;
+            }
+            if (!code.includes('@salesforce/') && !code.includes('@label/')) {
+                return;
+            }
+            const edits = [];
+            for (const node of this.parse(code).body) {
+                if (node.type !== 'ImportDeclaration') {
+                    continue;
+                }
+                const source = node.source.value;
+                const { specifiers } = node;
+                if (APEX_METHOD_PREFIXES.some((prefix) => source.startsWith(prefix))) {
+                    const isDefaultOnly =
+                        specifiers.length === 1 && specifiers[0].type === 'ImportDefaultSpecifier';
+                    if (specifiers.length > 0 && !isDefaultOnly) {
+                        edits.push(apexDefaultImport(code, node));
+                    }
+                } else if (
+                    isShapeChecked(source) &&
+                    (specifiers.length !== 1 || specifiers[0].type !== 'ImportDefaultSpecifier')
+                ) {
+                    this.error(invalidImportMessage(source), node.start);
+                }
+            }
+            if (edits.length === 0) {
+                return;
+            }
+            let out = code;
+            for (const { start, end, text } of edits.reverse()) {
+                out = out.slice(0, start) + text + out.slice(end);
+            }
+            return { code: out, map: null };
+        },
+    };
+}
+
 export default salesforceScopedImports;

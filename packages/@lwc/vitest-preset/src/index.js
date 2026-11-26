@@ -7,7 +7,7 @@
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import lwc from '@lwc/rollup-plugin';
-import { salesforceScopedImports } from '@lwc/vitest-plugin';
+import { salesforceImportShape, salesforceScopedImports } from '@lwc/vitest-plugin';
 import { lwcModuleNameMapper } from './module-name-mapper.js';
 import { forPrivateMethods } from './private-methods.js';
 import { lwcKnownScopeTokens } from './scope-tokens.js';
@@ -156,6 +156,9 @@ export function lwcVitestConfig(
             compiler(false),
             // After compilation; replaces jest-transformer's addKnownScopeToken append.
             fixedComponentNames(lwcKnownScopeTokens({ exclude: compileExclude })),
+            // After the compilers, so it sees plain JS, and before vitest:mocks and import analysis rewrite
+            // imports. It skips .html and lwcKnownScopeTokens only takes .html, so their order is free.
+            salesforceImportShape(),
         ],
         // Resolve bare `lwc` to the engine (parity with @lwc/jest-resolver), via the @wire trap.
         resolve: { alias: { lwc: fileURLToPath(new URL('./lwc.js', import.meta.url)) } },
